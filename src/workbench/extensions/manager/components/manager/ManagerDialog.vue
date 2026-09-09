@@ -478,12 +478,8 @@ const isLoading = computed(() => {
   return isInitialLoad.value
 })
 
-const resultsWithKeys = computed(
-  () =>
-    displayPacks.value.map((item) => ({
-      ...item,
-      key: item.id || item.name
-    })) as (components['schemas']['Node'] & { key: string })[]
+const resultsWithFallbackId = computed(() =>
+  displayPacks.value.map((item) => ({ id: item.name ?? '', ...item }))
 )
 
 const pagedResults = {
@@ -493,7 +489,7 @@ const pagedResults = {
   ),
   invalidate: packs.invalidate,
   isLoading: packs.isLoading,
-  items: resultsWithKeys,
+  items: resultsWithFallbackId,
   loadMore: packs.loadMore,
   loadNew: packs.loadNew
 }
@@ -515,7 +511,7 @@ watch(
 
 // Auto-select the pack matching initialPackId once
 if (initialPackId) {
-  until(resultsWithKeys)
+  until(resultsWithFallbackId)
     .toMatch((packs) => packs.some((p) => p.id === initialPackId))
     .then((packs) => {
       const target = packs.find((p) => p.id === initialPackId)

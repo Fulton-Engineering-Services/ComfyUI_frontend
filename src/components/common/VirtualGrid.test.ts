@@ -246,7 +246,7 @@ function isAudio(index: number): boolean {
 
 function createLibrary(): TestItem[] {
   return Array.from({ length: LIBRARY_SIZE }, (_, i) => ({
-    key: `asset-${i}`,
+    id: `asset-${i}`,
     name: `asset-${i}`
   }))
 }

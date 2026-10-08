@@ -25,6 +25,8 @@ export class AgentPanel {
   public readonly fileInput: Locator
   public readonly nodeSelectionBanner: Locator
   public readonly openButton: Locator
+  public readonly replyAssetThumbnails: Locator
+  public readonly replyAssetTiles: Locator
   public readonly root: Locator
   public readonly scrollAssetsRight: Locator
   public readonly sendButton: Locator
@@ -69,6 +71,10 @@ export class AgentPanel {
       name: enMessages.agent.entryButton,
       exact: true
     })
+    this.replyAssetThumbnails = this.root.getByRole('img', {
+      name: /^mesh-\d+/
+    })
+    this.replyAssetTiles = this.root.getByRole('button', { name: /^mesh-\d+$/ })
     this.scrollAssetsRight = this.root.getByRole('button', {
       name: enMessages.g.scrollRight
     })

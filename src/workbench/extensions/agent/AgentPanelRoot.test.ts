@@ -5045,7 +5045,7 @@ describe('AgentPanelRoot lifecycle', () => {
     // step three places ahead of it threw.
     expect(setCanvasSyncGate).toHaveBeenCalledOnce()
     const [gate, outcomeCount] = setCanvasSyncGate.mock.lastCall ?? []
-    expect(gate?.()).toBe(false)
+    expect(gate?.()).toBe('none')
     expect(outcomeCount?.()).toBe(0)
     expect(reportError).toHaveBeenCalledWith(
       expect.objectContaining({ message: 'detach failed' }),
@@ -5086,7 +5086,7 @@ describe('AgentPanelRoot lifecycle', () => {
 
     expect(setCanvasSyncGate).toHaveBeenCalledOnce()
     const [gate, outcomeCount] = setCanvasSyncGate.mock.lastCall ?? []
-    expect(gate?.()).toBe(false)
+    expect(gate?.()).toBe('none')
     expect(outcomeCount?.()).toBe(0)
     expect(errorHandler).not.toHaveBeenCalled()
   })

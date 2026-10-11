@@ -69,7 +69,12 @@ export class AgentRemoteApplyHarness {
     })
     this.workSummary = this.panel.getByRole('button', {
       name: new RegExp(
-        `^${enMessages.agent.worked.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`
+        `^(${[
+          enMessages.agent.worked,
+          enMessages.agent.workedNotConfirmedOnCanvas
+        ]
+          .map((label) => label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+          .join('|')})`
       )
     })
   }
@@ -105,6 +110,10 @@ export class AgentRemoteApplyHarness {
 
   settledSuccessGlyph(row: Locator): Locator {
     return row.locator('[class*="lucide--wrench"]')
+  }
+
+  unconfirmedGlyph(row: Locator): Locator {
+    return row.locator('[class*="lucide--triangle-alert"]')
   }
 
   async openWorkSummary(): Promise<void> {

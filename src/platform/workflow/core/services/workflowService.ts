@@ -25,7 +25,10 @@ import type { ComfyWorkflowJSON } from '@/platform/workflow/validation/schemas/w
 // oxlint-disable-next-line comfy/no-restricted-paths
 import { useWorkflowThumbnail } from '@/renderer/core/thumbnail/useWorkflowThumbnail'
 import { useApp } from '@/scripts/appInstance'
-import { ChangeTracker } from '@/scripts/changeTracker'
+import {
+  bindCanvasTracker,
+  isCanvasOwner
+} from '@/scripts/canvasTrackerOwnership'
 import { blankGraph, defaultGraph } from '@/scripts/defaultGraph'
 import { useDialogService } from '@/services/dialogService'
 import { useAppMode } from '@/composables/useAppMode'
@@ -440,7 +443,7 @@ export const useWorkflowService = () => {
       pendingWorkflowLoads === 0 &&
       workflowStore.isActive(workflow) &&
       workflow.changeTracker !== null &&
-      ChangeTracker.isCanvasOwner(workflow.changeTracker) &&
+      isCanvasOwner(workflow.changeTracker) &&
       !options.force
     ) {
       return Promise.resolve(true)
@@ -736,7 +739,7 @@ export const useWorkflowService = () => {
      */
     async function bindToCanvas(workflow: ComfyWorkflow) {
       const loadedWorkflow = await workflowStore.openWorkflow(workflow)
-      ChangeTracker.bindCanvasTracker(loadedWorkflow.changeTracker)
+      bindCanvasTracker(loadedWorkflow.changeTracker)
       return loadedWorkflow
     }
 

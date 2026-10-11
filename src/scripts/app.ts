@@ -18,6 +18,7 @@ import { resolveDynamicInputSpec } from '@/core/graph/widgets/dynamicInputSpec'
 import { setBackendNodeText, st, t } from '@/i18n'
 import { normalizeI18nKey } from '@/utils/formatUtil'
 import { ChangeTracker } from '@/scripts/changeTracker'
+import { invalidateCanvasTracker } from '@/scripts/canvasTrackerOwnership'
 import { registerApp } from '@/scripts/appRegistry'
 import {
   clipspace,
@@ -302,7 +303,7 @@ function createNodeOutputsMutationView(
 
 function beginGraphLoad(suppressWorkflowReset: boolean) {
   useWorkflowService().beforeLoadNewGraph(suppressWorkflowReset)
-  ChangeTracker.invalidateCanvasTracker()
+  invalidateCanvasTracker()
 }
 
 export class ComfyApp implements IComfyApp {

@@ -508,8 +508,8 @@ defineExpose({ addAttachment, updateAttachment, removeAttachment })
             :expanded="isMaximized"
             :workflow-name="workflowDetached ? undefined : activeTab?.name"
             :context="targetNotice"
-            @show-target="emit('showTarget')"
             :engaged="runNoticeEngaged"
+            @show-target="emit('showTarget')"
           />
           <Composer
             ref="composerRef"

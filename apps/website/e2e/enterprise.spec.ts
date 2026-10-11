@@ -144,7 +144,7 @@ test.describe('Enterprise pages @smoke', () => {
     await expect(page.getByRole('link', { name: 'SEE PRICING' })).toHaveCount(1)
     await expect(
       page.getByRole('link', { name: 'SEE PRICING' })
-    ).toHaveAttribute('href', '/pricing')
+    ).toHaveAttribute('href', '/pricing/')
     await expect(
       page.getByText(/Give teams a shared credit pool/)
     ).toBeVisible()
@@ -174,25 +174,22 @@ test.describe('Enterprise pages @smoke', () => {
     await page.goto('/enterprise/managed-builds')
 
     await expect(page.locator('main :is(h1, h2)')).toHaveText([
-      /MANAGED BUILDS\s*BETA/,
+      'MANAGED BUILDS',
       /One approved ComfyUI environment,\s+everywhere your team runs it\./,
       'One ComfyUI build for the whole team',
       'From one working setup to an approved fleet',
       'Govern the build, models, people, and usage.',
       'Ready for your security review',
-      'Builder vs. Managed Builds',
+      'Builds vs. Managed Builds',
       'Managed Builds, answered.',
       'Built with studios in the room',
       /Scale your custom nodes in your Comfy workflows/,
       'Forward Deployed Creatives'
     ])
     await expect(page.getByRole('heading', { level: 1 })).toHaveText(
-      /MANAGED BUILDS\s*BETA/
+      'MANAGED BUILDS'
     )
     await expect(page.getByRole('heading', { level: 1 })).toHaveCount(1)
-    await expect(
-      page.getByRole('heading', { level: 1 }).getByText('BETA', { exact: true })
-    ).toBeVisible()
     await expect(
       page.getByText(
         /deploy the same build anywhere, local or serverless cloud/
@@ -284,12 +281,12 @@ test.describe('Enterprise pages @smoke', () => {
     await expect(
       page.getByRole('heading', {
         level: 2,
-        name: 'Builder vs. Managed Builds'
+        name: 'Builds vs. Managed Builds'
       })
     ).toBeVisible()
     await expect(
       page.getByText(
-        /Builder is self-serve for packaging and testing your own environment\./
+        /Builds is self-serve for packaging and testing your own environment\./
       )
     ).toBeVisible()
     for (const feature of [

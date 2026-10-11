@@ -46,7 +46,7 @@ const globalWithAlgolia = globalThis as GlobalWithAlgolia
 globalWithAlgolia.__ALGOLIA_APP_ID__ = 'recorded-app-id'
 globalWithAlgolia.__ALGOLIA_API_KEY__ = 'recorded-api-key'
 
-vi.mock('algoliasearch/dist/lite/builds/browser', () => ({
+vi.mock(import('algoliasearch/dist/lite/builds/browser'), () => ({
   liteClient: vi.fn()
 }))
 

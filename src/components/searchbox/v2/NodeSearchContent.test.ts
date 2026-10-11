@@ -5,10 +5,9 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 import NodeSearchContent from '@/components/searchbox/v2/NodeSearchContent.vue'
 import {
   createMockNodeDef,
-  setViewport,
-  setupTestPinia,
-  testI18n
+  setViewport
 } from '@/components/searchbox/v2/__test__/testUtils'
+import { testI18n } from '@/utils/__tests__/testI18n'
 
 import { useSettingStore } from '@/platform/settings/settingStore'
 import { useNodeBookmarkStore } from '@/stores/nodeBookmarkStore'
@@ -23,7 +22,6 @@ const MOBILE_VIEWPORT = { width: 360, height: 800 }
 describe('NodeSearchContent', () => {
   beforeEach(() => {
     vi.useRealTimers()
-    setupTestPinia()
     setViewport(DESKTOP_VIEWPORT)
     const settings = useSettingStore()
     settings.settingValues['Comfy.NodeLibrary.Bookmarks.V2'] = []

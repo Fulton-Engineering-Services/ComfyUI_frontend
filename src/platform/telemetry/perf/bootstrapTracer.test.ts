@@ -1,51 +1,31 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type {
-  BootstrapCompleteMetadata,
-  TelemetryDispatcher
-} from '@/platform/telemetry/types'
+import { TelemetryEvents } from '@/platform/telemetry/types'
+import { useTelemetry as sharedUseTelemetry } from '@/platform/telemetry'
 
 import { BootstrapTracer } from './bootstrapTracer'
 
-const {
-  reportError,
-  trackBootstrapComplete,
-  trackEarlyBootstrapComplete,
-  useTelemetry
-} = vi.hoisted(() => {
-  const trackBootstrapComplete =
-    vi.fn<(metadata: BootstrapCompleteMetadata) => void>()
-  return {
-    reportError: vi.fn(),
-    trackBootstrapComplete,
-    trackEarlyBootstrapComplete:
-      vi.fn<(metadata: BootstrapCompleteMetadata) => void>(),
-    useTelemetry: vi.fn(
-      (): Pick<TelemetryDispatcher, 'trackBootstrapComplete'> | null => ({
-        trackBootstrapComplete
-      })
-    )
-  }
-})
-
-vi.mock('@/platform/distribution/types', () => ({ isCloud: true }))
-vi.mock('@/platform/telemetry', () => ({ useTelemetry }))
-vi.mock('@/platform/telemetry/reportError', () => ({ reportError }))
-vi.mock(
-  '@/platform/telemetry/providers/cloud/DatadogRumTelemetryProvider',
+const { addAction, addTiming, distribution, setViewLoadingTime } = vi.hoisted(
   () => ({
-    DatadogRumTelemetryProvider: class {
-      trackBootstrapComplete = trackEarlyBootstrapComplete
-    }
+    addAction: vi.fn(),
+    addTiming: vi.fn(),
+    distribution: { isCloud: true },
+    setViewLoadingTime: vi.fn()
   })
 )
 
+vi.mock<unknown>(import('@datadog/browser-rum'), () => ({
+  datadogRum: { addAction, addTiming, setViewLoadingTime }
+}))
+vi.mock(import('@/platform/distribution/types'), () => distribution)
+vi.mock(import('@/platform/telemetry'))
+
 describe('bootstrapTracer', () => {
   beforeEach(() => {
-    reportError.mockReset()
-    trackBootstrapComplete.mockReset()
-    trackEarlyBootstrapComplete.mockReset()
-    useTelemetry.mockClear()
+    distribution.isCloud = true
+    const telemetry = sharedUseTelemetry()
+    if (!telemetry) throw new Error('Expected telemetry mock')
+    vi.mocked(sharedUseTelemetry).mockReturnValue(telemetry)
   })
 
   it('records a phase under its own name, not a doubled prefix', async () => {
@@ -56,6 +36,51 @@ describe('bootstrapTracer', () => {
     expect(tracer.summary().map((r) => r.name)).toEqual([
       'bootstrap/object-info'
     ])
+    expect(addTiming).toHaveBeenCalledExactlyOnceWith('bootstrap.object-info')
+  })
+
+  it('records extension loading subphases inside the aggregate load phase', async () => {
+    const tracer = new BootstrapTracer()
+    // happy-dom reports a constant performance.measure() duration, so
+    // containment is read from mark order rather than from durations.
+    const mark = vi.spyOn(performance, 'mark')
+
+    await tracer.settle('bootstrap/extensions-load', async () => {
+      await vi.advanceTimersByTimeAsync(5)
+      await tracer.settle('bootstrap/extensions-load-core', () =>
+        vi.advanceTimersByTimeAsync(40)
+      )
+      await tracer.settle('bootstrap/extensions-load-custom', () =>
+        vi.advanceTimersByTimeAsync(7)
+      )
+    })
+
+    expect(mark.mock.calls.map(([name]) => name)).toEqual([
+      'bootstrap/extensions-load:start',
+      'bootstrap/extensions-load-core:start',
+      'bootstrap/extensions-load-core:end',
+      'bootstrap/extensions-load-custom:start',
+      'bootstrap/extensions-load-custom:end',
+      'bootstrap/extensions-load:end'
+    ])
+
+    const rows = tracer.summary()
+    expect(rows.map((r) => r.name)).toEqual([
+      'bootstrap/extensions-load',
+      'bootstrap/extensions-load-core',
+      'bootstrap/extensions-load-custom'
+    ])
+    expect(rows.map((r) => r.startMs)).toEqual([0, 5, 45])
+    expect(addTiming).toHaveBeenCalledWith('bootstrap.extensions-load-core')
+    expect(addTiming).toHaveBeenCalledWith('bootstrap.extensions-load-custom')
+  })
+
+  it('publishes milestones under RUM-safe timing names', () => {
+    new BootstrapTracer().milestone('stores-ready')
+
+    expect(addTiming).toHaveBeenCalledExactlyOnceWith(
+      'bootstrap.milestone.stores-ready'
+    )
   })
 
   it('records a phase whose work rejects and rethrows', async () => {
@@ -71,6 +96,8 @@ describe('bootstrapTracer', () => {
   })
 
   it('reports one event covering phases that finish after the store loads', async () => {
+    const telemetry = sharedUseTelemetry()
+    if (!telemetry) throw new Error('Expected telemetry mock')
     const tracer = new BootstrapTracer()
 
     await tracer.settle('bootstrap/settings', () => Promise.resolve())
@@ -78,8 +105,9 @@ describe('bootstrapTracer', () => {
     await tracer.settle('bootstrap/extensions-setup', () => Promise.resolve())
     tracer.complete()
 
-    expect(trackBootstrapComplete).toHaveBeenCalledOnce()
-    const metadata = trackBootstrapComplete.mock.calls[0][0]
+    expect(telemetry.trackBootstrapComplete).toHaveBeenCalledOnce()
+    const metadata = vi.mocked(telemetry.trackBootstrapComplete).mock
+      .calls[0][0]
     expect(metadata.outcome).toBe('completed')
     expect(metadata.phase_count).toBe(3)
     expect(Object.keys(metadata.phases)).toEqual([
@@ -88,29 +116,46 @@ describe('bootstrapTracer', () => {
       'bootstrap/extensions-setup'
     ])
     expect(metadata.total_ms).toBeGreaterThanOrEqual(0)
+    expect(addAction).toHaveBeenCalledExactlyOnceWith(
+      TelemetryEvents.BOOTSTRAP_COMPLETE,
+      metadata
+    )
+    expect(setViewLoadingTime).toHaveBeenCalledOnce()
   })
 
   it('reports a failed startup, closing phases still open', () => {
+    const telemetry = sharedUseTelemetry()
+    if (!telemetry) throw new Error('Expected telemetry mock')
     const tracer = new BootstrapTracer()
 
     tracer.startPhase('bootstrap/object-info')
     tracer.complete('failed')
 
-    const metadata = trackBootstrapComplete.mock.calls[0][0]
+    const metadata = vi.mocked(telemetry.trackBootstrapComplete).mock
+      .calls[0][0]
     expect(metadata.outcome).toBe('failed')
     expect(Object.keys(metadata.phases)).toEqual(['bootstrap/object-info'])
+    expect(addAction).toHaveBeenCalledExactlyOnceWith(
+      TelemetryEvents.BOOTSTRAP_COMPLETE,
+      metadata
+    )
+    expect(setViewLoadingTime).not.toHaveBeenCalled()
   })
 
   it('reports only once', () => {
+    const telemetry = sharedUseTelemetry()
+    if (!telemetry) throw new Error('Expected telemetry mock')
     const tracer = new BootstrapTracer()
 
     tracer.complete()
     tracer.complete('failed')
 
-    expect(trackBootstrapComplete).toHaveBeenCalledOnce()
+    expect(telemetry.trackBootstrapComplete).toHaveBeenCalledOnce()
   })
 
   it('reports a startup still running at the watchdog deadline', async () => {
+    const telemetry = sharedUseTelemetry()
+    if (!telemetry) throw new Error('Expected telemetry mock')
     const tracer = new BootstrapTracer()
 
     await tracer.settle('startup/remote-config', () => Promise.resolve())
@@ -118,49 +163,65 @@ describe('bootstrapTracer', () => {
     tracer.armWatchdog(30_000)
     await vi.advanceTimersByTimeAsync(30_000)
 
-    const metadata = trackBootstrapComplete.mock.calls[0][0]
+    const metadata = vi.mocked(telemetry.trackBootstrapComplete).mock
+      .calls[0][0]
     expect(metadata.outcome).toBe('timed_out')
     expect(metadata.pending).toEqual(['auth-gate/user-store'])
     expect(Object.keys(metadata.phases)).toEqual(['startup/remote-config'])
+    expect(setViewLoadingTime).not.toHaveBeenCalled()
   })
 
-  it('reports an early timeout before the telemetry registry exists', async () => {
-    useTelemetry.mockReturnValueOnce(null)
+  it('reaches Datadog directly when the registry does not exist yet', async () => {
+    const telemetry = sharedUseTelemetry()
+    if (!telemetry) throw new Error('Expected telemetry mock')
+    vi.mocked(sharedUseTelemetry).mockReturnValueOnce(null)
     const tracer = new BootstrapTracer()
 
     tracer.startPhase('startup/remote-config')
     tracer.armWatchdog(30_000)
     await vi.advanceTimersByTimeAsync(30_000)
 
-    await vi.waitFor(() => {
-      expect(trackEarlyBootstrapComplete).toHaveBeenCalledWith(
-        expect.objectContaining({
-          outcome: 'timed_out',
-          pending: ['startup/remote-config']
-        })
-      )
-    })
+    expect(addAction.mock.calls).toMatchObject([
+      [
+        TelemetryEvents.BOOTSTRAP_COMPLETE,
+        { outcome: 'timed_out', pending: ['startup/remote-config'] }
+      ]
+    ])
+    expect(telemetry.trackBootstrapComplete).not.toHaveBeenCalled()
+    expect(setViewLoadingTime).not.toHaveBeenCalled()
   })
 
-  it('reports an early telemetry fallback failure', async () => {
-    const error = new Error('Datadog unavailable')
-    useTelemetry.mockReturnValueOnce(null)
-    trackEarlyBootstrapComplete.mockImplementationOnce(() => {
-      throw error
-    })
+  it('reaches Datadog directly for a terminal outcome with no registry', () => {
+    const telemetry = sharedUseTelemetry()
+    if (!telemetry) throw new Error('Expected telemetry mock')
+    vi.mocked(sharedUseTelemetry).mockReturnValue(null)
+
+    new BootstrapTracer().complete()
+    new BootstrapTracer().complete('failed')
+
+    expect(addAction.mock.calls).toMatchObject([
+      [TelemetryEvents.BOOTSTRAP_COMPLETE, { outcome: 'completed' }],
+      [TelemetryEvents.BOOTSTRAP_COMPLETE, { outcome: 'failed' }]
+    ])
+    expect(telemetry.trackBootstrapComplete).not.toHaveBeenCalled()
+    expect(setViewLoadingTime).toHaveBeenCalledOnce()
+  })
+
+  it('publishes nothing to RUM off cloud', async () => {
+    distribution.isCloud = false
     const tracer = new BootstrapTracer()
 
-    tracer.armWatchdog(30_000)
-    await vi.advanceTimersByTimeAsync(30_000)
+    await tracer.settle('bootstrap/settings', () => Promise.resolve())
+    tracer.complete()
 
-    await vi.waitFor(() => {
-      expect(reportError).toHaveBeenCalledWith(error, {
-        errorType: 'bootstrap_telemetry_fallback_failure'
-      })
-    })
+    expect(addTiming).not.toHaveBeenCalled()
+    expect(addAction).not.toHaveBeenCalled()
+    expect(setViewLoadingTime).not.toHaveBeenCalled()
   })
 
   it('still reports the terminal row after a watchdog row', async () => {
+    const telemetry = sharedUseTelemetry()
+    if (!telemetry) throw new Error('Expected telemetry mock')
     const tracer = new BootstrapTracer()
 
     tracer.startPhase('auth-gate/user-store')
@@ -168,19 +229,23 @@ describe('bootstrapTracer', () => {
     await vi.advanceTimersByTimeAsync(30_000)
     tracer.complete()
 
-    expect(trackBootstrapComplete).toHaveBeenCalledTimes(2)
+    expect(telemetry.trackBootstrapComplete).toHaveBeenCalledTimes(2)
     expect(
-      trackBootstrapComplete.mock.calls.map(([metadata]) => metadata.outcome)
+      vi
+        .mocked(telemetry.trackBootstrapComplete)
+        .mock.calls.map(([metadata]) => metadata.outcome)
     ).toEqual(['timed_out', 'completed'])
   })
 
   it('does not report a watchdog row once startup has completed', async () => {
+    const telemetry = sharedUseTelemetry()
+    if (!telemetry) throw new Error('Expected telemetry mock')
     const tracer = new BootstrapTracer()
 
     tracer.armWatchdog(30_000)
     tracer.complete()
     await vi.advanceTimersByTimeAsync(30_000)
 
-    expect(trackBootstrapComplete).toHaveBeenCalledOnce()
+    expect(telemetry.trackBootstrapComplete).toHaveBeenCalledOnce()
   })
 })

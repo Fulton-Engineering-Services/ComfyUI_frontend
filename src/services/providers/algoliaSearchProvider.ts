@@ -169,11 +169,11 @@ export const useAlgoliaSearchProvider = (): NodePackSearchProvider => {
       1,
       1 + fallbackQueries.length
     ) as SearchResponse<AlgoliaNodePack>[]
-    const querySuggestions = (shouldQuerySuggestions
+    const querySuggestions = shouldQuerySuggestions
       ? (results[1 + fallbackQueries.length] as
           | SearchResponse<NodesIndexSuggestion>
           | undefined)
-      : undefined) ?? { hits: [] }
+      : undefined
 
     // The raw query's ranking is authoritative, so fallbacks only fill in hits
     // it missed -- they never reorder or displace a raw hit -- and are capped
@@ -192,10 +192,11 @@ export const useAlgoliaSearchProvider = (): NodePackSearchProvider => {
     const registryPacks = mergedHits.map(toRegistryPack)
 
     // Extract query suggestions from search results
-    const suggestions = querySuggestions.hits.map((suggestion) => ({
-      query: suggestion.query,
-      popularity: suggestion.popularity
-    }))
+    const suggestions =
+      querySuggestions?.hits.map((suggestion) => ({
+        query: suggestion.query,
+        popularity: suggestion.popularity
+      })) ?? []
 
     return {
       nodePacks: registryPacks,

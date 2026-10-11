@@ -9,7 +9,7 @@ import type { LinkId } from '@/types/linkId'
 import { reorderSubgraphInputs } from '@/lib/litegraph/src/subgraph/subgraphUtils'
 import type { IBaseWidget } from '@/lib/litegraph/src/types/widgets'
 import { nextUniqueName } from '@/lib/litegraph/src/strings'
-import { useToastStore } from '@/platform/updates/common/toastStore'
+import { useToast } from '@/components/ui/toast/toastStore'
 import {
   CANVAS_IMAGE_PREVIEW_WIDGET,
   supportsVirtualCanvasImagePreview
@@ -331,7 +331,10 @@ export function seedNestedPromotedInputState(
 
   const store = useWidgetValueStore()
   const sourceState = store.getWidget(sourceSlot.widgetId)
-  if (!sourceState) return
+  const sourceVisibility = store.getWidgetVisibility(sourceSlot.widgetId)
+  if (!sourceState || !sourceVisibility) return
+  const visibility = cloneDeep(sourceVisibility)
+  visibility.suppression.byConnection = false
 
   const id = widgetId(subgraphNode.rootGraph.id, subgraphNode.id, inputName)
   hostInput.widget ??= { name: inputName }
@@ -346,7 +349,8 @@ export function seedNestedPromotedInputState(
       serialize: sourceState.serialize,
       disabled: sourceState.disabled
     },
-    store.getWidgetRenderState(sourceSlot.widgetId) ?? {}
+    store.getWidgetRenderState(sourceSlot.widgetId) ?? {},
+    visibility
   )
   if (!registered) {
     delete hostInput.widget
@@ -490,10 +494,8 @@ function getParentNodes(): SubgraphNode[] {
   const { navigationStack } = useSubgraphNavigationStore()
   const subgraph = navigationStack.at(-1)
   if (!subgraph) {
-    useToastStore().add({
-      severity: 'error',
-      summary: t('g.error'),
-      detail: t('subgraphStore.promoteOutsideSubgraph')
+    useToast().error(t('g.error'), {
+      description: t('subgraphStore.promoteOutsideSubgraph')
     })
     return []
   }

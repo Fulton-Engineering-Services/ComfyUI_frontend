@@ -4,8 +4,6 @@
 import { defineAsyncComponent } from 'vue'
 import type { Component } from 'vue'
 
-import type { IWidgetOptions } from '@/lib/litegraph/src/types/widgets'
-
 const WidgetButton = defineAsyncComponent(
   () => import('../components/WidgetButton.vue')
 )
@@ -60,6 +58,12 @@ const Load3DAdvanced = defineAsyncComponent(
 const CameraInfo = defineAsyncComponent(
   () => import('@/components/cameraInfo/CameraInfo.vue')
 )
+const CameraAngle = defineAsyncComponent(
+  () => import('@/components/cameraAngle/CameraAngle.vue')
+)
+const LightInfo = defineAsyncComponent(
+  () => import('@/components/lightInfo/LightInfo.vue')
+)
 const WidgetImageCrop = defineAsyncComponent(
   () => import('@/components/imagecrop/WidgetImageCrop.vue')
 )
@@ -110,6 +114,16 @@ interface WidgetDefinition {
 }
 
 const coreWidgetDefinitions: Array<[string, WidgetDefinition]> = [
+  [
+    'dynamic_group_row',
+    {
+      component: defineAsyncComponent(
+        () => import('../components/WidgetDynamicGroupRow.vue')
+      ),
+      aliases: [],
+      essential: false
+    }
+  ],
   [
     'button',
     { component: WidgetButton, aliases: ['BUTTON'], essential: false }
@@ -219,6 +233,22 @@ const coreWidgetDefinitions: Array<[string, WidgetDefinition]> = [
     }
   ],
   [
+    'cameraAngle',
+    {
+      component: CameraAngle,
+      aliases: ['CAMERA_ANGLE_VIEW'],
+      essential: false
+    }
+  ],
+  [
+    'lightinfo',
+    {
+      component: LightInfo,
+      aliases: ['LIGHT_INFO_PREVIEW', 'lightInfo'],
+      essential: false
+    }
+  ],
+  [
     'imagecrop',
     {
       component: WidgetImageCrop,
@@ -324,13 +354,6 @@ export const isEssential = (type: string): boolean => {
   return widgets.get(canonicalType)?.essential || false
 }
 
-export const shouldRenderAsVue = (widget: {
-  options?: Pick<IWidgetOptions, 'canvasOnly'>
-  type?: string
-}): boolean => {
-  return !widget.options?.canvasOnly && !!widget.type
-}
-
 const EXPANDING_TYPES = [
   'textarea',
   'markdown',
@@ -338,6 +361,8 @@ const EXPANDING_TYPES = [
   'load3D',
   'load3DAdvanced',
   'cameraInfo',
+  'cameraAngle',
+  'lightinfo',
   'curve',
   'painter',
   'compositor',

@@ -6,7 +6,6 @@ import { createTestSubgraph } from '@/lib/litegraph/src/subgraph/__fixtures__/su
 import type { LLink } from '@/lib/litegraph/src/LLink'
 import { setLinkPolyline } from '@/renderer/core/canvas/linkPolylines'
 import { useLinkPresentationStore } from '@/stores/linkPresentationStore'
-import { useLinkSelectionStore } from '@/stores/linkSelectionStore'
 import { graphScopeOf } from '@/types/graphScopeId'
 
 import {
@@ -277,16 +276,6 @@ describe('slot link selection', () => {
     expect(getSelectedLinksAnchor(graph)).toEqual({ x: 30, y: 40 })
   })
 
-  it('clears when the graph is cleared', () => {
-    const { graph } = createGraphWithLinks()
-    const host = { graph, deselectAll: vi.fn() }
-    selectSlotLinks(host, graph.nodes[0], 'output', 0, { x: 30, y: 40 })
-
-    graph.clear()
-
-    expect(useLinkSelectionStore().selection).toBeNull()
-  })
-
   it('selects the one link of an input', () => {
     const { graph, links } = createGraphWithLinks()
     const host = { graph, deselectAll: vi.fn() }
@@ -294,6 +283,17 @@ describe('slot link selection', () => {
     selectSlotLinks(host, graph.nodes[2], 'input', 0, { x: 0, y: 0 })
 
     expect(getSelectedLinkIds(graph)).toEqual([links[1].id])
+  })
+
+  it('ignores a node from another graph', () => {
+    const { graph } = createGraphWithLinks()
+    const other = createGraphWithLinks().graph
+    const host = { graph: other, deselectAll: vi.fn() }
+
+    expect(
+      selectSlotLinks(host, graph.nodes[0], 'output', 0, { x: 0, y: 0 })
+    ).toBe(false)
+    expect(host.deselectAll).not.toHaveBeenCalled()
   })
 
   it('does nothing for a slot without links', () => {

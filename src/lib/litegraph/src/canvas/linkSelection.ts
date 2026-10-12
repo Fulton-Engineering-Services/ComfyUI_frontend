@@ -149,7 +149,7 @@ export function selectSlotLinks(
   slotPosition: Point
 ): boolean {
   const { graph } = host
-  if (!graph) return false
+  if (!graph || node.graph !== graph) return false
   const links = slotLinkIds(graph, node, type, slot).flatMap((linkId) => {
     const link = graph.getLink(linkId)
     return link ? [link] : []

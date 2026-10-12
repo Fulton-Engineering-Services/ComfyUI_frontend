@@ -93,7 +93,8 @@ import {
 import {
   clearLinkSelection,
   getSelectedLinkIds,
-  selectLinksForMarquee
+  selectLinksForMarquee,
+  selectSlotLinks
 } from './canvas/linkSelection'
 import {
   resolvePointerTarget,
@@ -3008,9 +3009,17 @@ export class LGraphCanvas implements CustomEventDispatcher<LGraphCanvasEventMap>
             }
           }
 
-          // TODO: Move callbacks to the start of this closure (onInputClick is already correct).
           pointer.onDoubleClick = () => node.onOutputDblClick?.(i, e)
-          pointer.onClick = () => node.onOutputClick?.(i, e)
+          pointer.onClick = () => {
+            node.onOutputClick?.(i, e)
+            if (
+              selectSlotLinks(this, node, 'output', i, {
+                x: link_pos[0],
+                y: link_pos[1]
+              })
+            )
+              this.setDirty(true, true)
+          }
 
           return
         }
@@ -3026,7 +3035,16 @@ export class LGraphCanvas implements CustomEventDispatcher<LGraphCanvasEventMap>
 
         if (isInSlot) {
           pointer.onDoubleClick = () => node.onInputDblClick?.(i, e)
-          pointer.onClick = () => node.onInputClick?.(i, e)
+          pointer.onClick = () => {
+            node.onInputClick?.(i, e)
+            if (
+              selectSlotLinks(this, node, 'input', i, {
+                x: link_pos[0],
+                y: link_pos[1]
+              })
+            )
+              this.setDirty(true, true)
+          }
 
           const shouldBreakLink =
             LiteGraph.ctrl_alt_click_do_break_link &&

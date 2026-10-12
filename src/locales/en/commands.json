@@ -56,6 +56,9 @@
   "Comfy_Canvas_HideSelectedLinks": {
     "label": "Hide Selected Links"
   },
+  "Comfy_Canvas_ShowSelectedLinks": {
+    "label": "Show Selected Links"
+  },
   "Comfy_Canvas_FitView": {
     "label": "Fit view to selected nodes"
   },

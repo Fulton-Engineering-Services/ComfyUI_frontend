@@ -8,9 +8,10 @@ interface LinkSelection {
   readonly links: readonly LLink[]
   readonly marquee: Bounds
   readonly anchorX: number
+  readonly includesHidden?: boolean
 }
 
-/** Links picked by a marquee that captured no other canvas items. */
+/** Links picked by an empty marquee or by clicking a slot. */
 export const useLinkSelectionStore = defineStore('linkSelection', () => {
   const selection = shallowRef<LinkSelection | null>(null)
 

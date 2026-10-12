@@ -1370,9 +1370,6 @@ export class ComfyApp implements IComfyApp {
       // suppression/loading-state a `beforeLoadGraph` listener opened for
       // this load, since nothing ever notifies it the load ended.
       await this.reportGraphLoadFailure(error)
-      // Only if the graph actually went away: without `clean` the previous
-      // workflow is still on screen and still the bound document, and
-      // retracting would silence the agent for a workflow the user can see.
       if (clean) useDocumentLifecycleStore().invalidate()
       void useSubgraphNavigationStore().updateHash(
         'workflow-load',
@@ -2708,12 +2705,9 @@ export class ComfyApp implements IComfyApp {
 
     useDomWidgetStore().clear()
 
-    // Subgraph does not properly implement `clear` and the parent class's
-    // (`LGraph`) `clear` breaks the subgraph structure.
     if (!this.canvas.subgraph) {
       this.rootGraph.clear()
       ensureNonZeroUuid(this.rootGraph)
-      // Clear Workflow rotates the active document's root graph id in place.
       useDocumentLifecycleStore().rebindActiveRootGraph(
         toRootGraphId(this.rootGraph.id)
       )

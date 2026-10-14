@@ -4,13 +4,7 @@
   </div>
   <div
     v-else
-    :class="
-      cn(
-        'lg-node-header w-full min-w-0 p-1 text-xs',
-        'text-muted-foreground',
-        headerShapeClass
-      )
-    "
+    :class="cn('lg-node-header w-full min-w-0 p-1 text-xs', headerShapeClass)"
     :data-testid="`node-header-${nodeData?.id || ''}`"
     @dblclick="handleDoubleClick"
   >
@@ -21,7 +15,7 @@
           <Button
             size="icon-sm"
             variant="textonly"
-            class="hover:bg-transparent"
+            class="text-inherit hover:bg-transparent"
             data-testid="node-collapse-button"
             @click.stop="handleCollapse"
             @dblclick.stop
@@ -33,11 +27,9 @@
                   collapsed && '-rotate-90'
                 )
               "
-              class="text-muted-foreground"
             />
           </Button>
         </div>
-        <!-- Node Title -->
         <Tooltip :disabled="!tooltipText">
           <TooltipTrigger as-child>
             <div

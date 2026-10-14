@@ -42,10 +42,7 @@
             v-if="!props.dotOnly && !hasNoLabel"
             class="min-w-0"
             :label-class="
-              cn(
-                'block truncate text-muted-foreground',
-                hasError && 'font-medium text-error'
-              )
+              cn('block truncate', hasError && 'font-medium text-error')
             "
             :is-editing
             :model-value="

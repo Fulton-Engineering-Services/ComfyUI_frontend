@@ -8,11 +8,7 @@
         @pointerleave="unrevealLinks"
       >
         <div class="relative flex h-full min-w-0 items-center">
-          <!-- Slot Name -->
-          <span
-            v-if="!props.dotOnly && !hasNoLabel"
-            class="truncate text-muted-foreground"
-          >
+          <span v-if="!props.dotOnly && !hasNoLabel" class="truncate">
             {{
               slotData.label ||
               slotData.localized_name ||

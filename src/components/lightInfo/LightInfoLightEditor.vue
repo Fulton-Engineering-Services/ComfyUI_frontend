@@ -91,7 +91,7 @@ interface NumberFieldSpec {
   step: number
 }
 
-const FIELD_LABEL_CLASS = 'content-center truncate text-muted-foreground'
+const FIELD_LABEL_CLASS = 'content-center truncate'
 
 const { light, compact } = defineProps<{
   light: LightInfoEntry

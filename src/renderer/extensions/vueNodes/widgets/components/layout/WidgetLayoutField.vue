@@ -23,10 +23,7 @@ const borderStyle = computed(() =>
 <template>
   <div
     :class="
-      cn(
-        'grid min-w-0 grid-cols-subgrid justify-between gap-2 text-muted-foreground',
-        rootClass
-      )
+      cn('grid min-w-0 grid-cols-subgrid justify-between gap-2', rootClass)
     "
   >
     <div

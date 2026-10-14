@@ -163,7 +163,6 @@ const displayLabel = customRef((track, trigger) => {
       )
     "
   >
-    <!-- widget header -->
     <div
       :class="
         cn(
@@ -203,7 +202,6 @@ const displayLabel = customRef((track, trigger) => {
         />
       </div>
     </div>
-    <!-- favorite indicator -->
     <div
       v-if="
         !hiddenFavoriteIndicator &&
@@ -215,16 +213,19 @@ const displayLabel = customRef((track, trigger) => {
         class="pi pi-star-fill pointer-events-none absolute -top-1 -right-1 text-xs text-muted-foreground"
       />
     </div>
-    <!-- widget content -->
     <component
       :is="widgetComponent"
       v-model="widgetValue"
       :widget="simplifiedWidget"
       :node-id="node.id"
       :node-type="node.type"
-      :class="cn('col-span-1', shouldExpand(widget.type) && 'min-h-36')"
+      :class="
+        cn(
+          'col-span-1 text-muted-foreground',
+          shouldExpand(widget.type) && 'min-h-36'
+        )
+      "
     />
-    <!-- Drag handle -->
     <div
       :class="
         cn(

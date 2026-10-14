@@ -36,7 +36,7 @@
         <canvas
           ref="canvasEl"
           tabindex="0"
-          class="absolute inset-0 size-full rounded-sm text-muted-foreground outline-none"
+          class="absolute inset-0 size-full rounded-sm outline-none"
           :style="{ cursor: canvasCursor }"
           @pointerdown="onPointerDown"
           @pointermove="onCanvasPointerMove"

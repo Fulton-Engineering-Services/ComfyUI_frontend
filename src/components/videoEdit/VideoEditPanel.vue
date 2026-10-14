@@ -182,7 +182,7 @@
       />
 
       <div v-if="hasCrop" class="col-span-full flex items-center gap-2">
-        <label :for="ratioSelectId" class="text-xs text-muted-foreground">
+        <label :for="ratioSelectId" class="text-xs">
           {{ t('imageCrop.ratio') }}
         </label>
         <Select v-model="selectedRatio" :disabled="!canLockRatio">
@@ -232,7 +232,7 @@
           :key="row.label"
           class="col-span-full grid grid-cols-subgrid py-0.5"
         >
-          <span class="truncate text-muted-foreground">
+          <span class="truncate">
             {{ row.label }}
           </span>
           <span class="text-right text-node-foreground">

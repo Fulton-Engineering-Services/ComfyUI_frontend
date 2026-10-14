@@ -102,6 +102,7 @@ export const themeSchema = z
     ring: z.string(),
     node: z.string(),
     ['node-foreground']: z.string(),
+    ['node-muted-foreground']: z.string(),
     ['node-header']: z.string(),
     ['node-border']: z.string()
   })

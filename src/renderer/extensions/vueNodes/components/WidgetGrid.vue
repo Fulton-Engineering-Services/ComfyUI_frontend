@@ -65,10 +65,7 @@
                     :invalid="row.widget.hasError"
                     :aria-invalid="row.widget.hasError || undefined"
                     :class="
-                      cn(
-                        'col-span-2',
-                        row.widget.hasError && 'font-bold text-error'
-                      )
+                      cn('col-span-2', row.widget.hasError && 'font-bold')
                     "
                     @update:model-value="row.widget.updateHandler"
                     @contextmenu="row.widget.handleContextMenu"

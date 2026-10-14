@@ -185,7 +185,7 @@ const renderedInputs = computed<[string, MaybeRef<BoundStyle> | undefined][]>(
 <template>
   <div class="flex h-full flex-col">
     <div
-      class="flex h-12 items-center border-b border-border-subtle px-4 font-bold"
+      class="flex h-12 items-center border-b border-border/50 px-4 font-bold"
     >
       {{
         isArrangeMode ? t('nodeHelpPage.inputs') : t('linearMode.builder.title')

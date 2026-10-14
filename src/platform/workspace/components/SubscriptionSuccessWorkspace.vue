@@ -39,7 +39,7 @@
             :show-submit="false"
             :tags-input-class="
               darkSurface
-                ? 'min-h-10 w-full bg-secondary px-3 focus-within:bg-secondary hover:bg-secondary-background-hover'
+                ? 'min-h-10 w-full bg-secondary px-3 focus-within:bg-secondary hover:bg-secondary/80'
                 : undefined
             "
             source="post_upgrade_success"

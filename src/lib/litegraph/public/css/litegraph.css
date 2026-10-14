@@ -414,7 +414,7 @@
 }
 
 .litegraph .dialog .btn:hover {
-  background-color: var(--secondary-background-hover);
+  background-color: color-mix(in srgb, var(--secondary) 80%, transparent);
   color: var(--foreground);
 }
 

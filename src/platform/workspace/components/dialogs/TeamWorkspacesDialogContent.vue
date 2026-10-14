@@ -46,7 +46,7 @@
       >
         <li v-for="workspace in ownedTeamWorkspaces" :key="workspace.id">
           <button
-            class="flex w-full cursor-pointer items-center gap-3 rounded-lg border border-border bg-transparent px-4 py-3 transition-colors hover:bg-secondary-background-hover focus-visible:ring-1 focus-visible:ring-border focus-visible:outline-none"
+            class="flex w-full cursor-pointer items-center gap-3 rounded-lg border border-border bg-transparent px-4 py-3 transition-colors hover:bg-accent focus-visible:ring-1 focus-visible:ring-border focus-visible:outline-none"
             @click="handleSwitch(workspace.id)"
           >
             <WorkspaceProfilePic

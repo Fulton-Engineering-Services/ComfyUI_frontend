@@ -139,7 +139,7 @@ async function pickWorkflow(workflow: WorkflowReferenceOption): Promise<void> {
         </MenuItem>
         <MenuSeparator
           v-if="canAttach && canOpenAssets"
-          class="mt-0 mb-px h-px bg-border-subtle"
+          class="mt-0 mb-px h-px bg-border/50"
         />
         <MenuItem v-if="canAttach" @select="emit('attach')">
           <i-lucide:paperclip class="size-4 shrink-0" />

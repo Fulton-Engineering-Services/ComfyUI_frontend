@@ -199,8 +199,8 @@
                   'h-10 w-full',
                   getButtonTextClass(tier),
                   tier.key === 'creator'
-                    ? 'border-transparent bg-foreground hover:bg-inverted-background-hover'
-                    : 'border-transparent bg-secondary hover:bg-secondary-background-hover focus:bg-secondary-background-selected'
+                    ? 'border-transparent bg-foreground hover:bg-foreground/90'
+                    : 'border-transparent bg-secondary hover:bg-secondary/80 focus:bg-muted'
                 )
               "
               :data-dd-action-name="planCtaActionName(tier.key)"
@@ -348,7 +348,7 @@
             </span>
             <Button
               variant="secondary"
-              class="mt-auto h-10 w-full border-transparent bg-secondary font-bold hover:bg-secondary-background-hover"
+              class="mt-auto h-10 w-full border-transparent bg-secondary font-bold hover:bg-secondary/80"
               @click="handleViewEnterprise"
             >
               {{ t('subscription.enterprise.cta') }}

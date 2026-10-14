@@ -15,7 +15,7 @@
       </span>
 
       <div
-        class="flex h-[50px] w-full flex-row items-center gap-2.5 rounded-[10px] bg-secondary-background-hover"
+        class="flex h-[50px] w-full flex-row items-center gap-2.5 rounded-[10px] bg-accent"
       >
         <div
           class="maskEditor_sidePanelBrushShapeCircle hover:bg-background"
@@ -175,7 +175,7 @@ const store = useMaskEditorStore()
 const colorInputRef = ref<HTMLInputElement>()
 
 const textButtonClass =
-  'h-7.5 w-32 rounded-[10px] border border-border text-foreground font-sans transition-colors duration-100 bg-background hover:bg-secondary-background-hover'
+  'h-7.5 w-32 rounded-[10px] border border-border text-foreground font-sans transition-colors duration-100 bg-background hover:bg-accent'
 
 /* Computed properties that use store setters for validation */
 const brushSize = computed({

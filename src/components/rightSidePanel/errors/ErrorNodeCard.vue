@@ -26,7 +26,7 @@
             cn(
               'size-8 shrink-0 text-muted-foreground hover:text-foreground focus-visible:ring-inset',
               runtimeDetailsExpanded &&
-                'bg-secondary-background-selected text-foreground hover:bg-secondary-background-selected'
+                'bg-muted text-foreground hover:bg-muted'
             )
           "
           :aria-label="t('g.details')"

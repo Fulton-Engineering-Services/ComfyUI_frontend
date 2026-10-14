@@ -681,7 +681,7 @@ useEventListener(window, 'pagehide', () => {
       </p>
       <section
         v-else-if="failure && !preview"
-        class="rounded-xl border border-border-subtle bg-secondary p-6"
+        class="rounded-xl border border-border/50 bg-secondary p-6"
       >
         <p class="m-0 text-sm text-destructive">
           {{ refusal(failure) }}

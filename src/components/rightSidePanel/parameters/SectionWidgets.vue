@@ -297,15 +297,10 @@ defineExpose({
           <span class="flex min-w-0 flex-1 items-center gap-2">
             <i
               v-if="nodeHasError"
-              class="icon-[lucide--octagon-alert] size-4 shrink-0 text-destructive-background-hover"
+              class="icon-[lucide--octagon-alert] size-4 shrink-0 text-destructive/90"
             />
             <span
-              :class="
-                cn(
-                  'truncate',
-                  nodeHasError && 'text-destructive-background-hover'
-                )
-              "
+              :class="cn('truncate', nodeHasError && 'text-destructive/90')"
             >
               <slot name="label">
                 {{ displayLabel }}

@@ -14,7 +14,7 @@
       <div class="flex items-center gap-4">
         <div
           v-if="icon"
-          class="flex shrink-0 items-center justify-center rounded-lg bg-primary-background-hover p-3"
+          class="flex shrink-0 items-center justify-center rounded-lg bg-primary/90 p-3"
         >
           <i :class="cn('size-4 text-white', icon)" />
         </div>

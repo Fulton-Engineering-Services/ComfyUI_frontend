@@ -22,14 +22,14 @@
 
           <TabList
             v-model="activeTab"
-            class="w-auto gap-1 rounded-full border border-border-subtle p-0.5"
+            class="w-auto gap-1 rounded-full border border-border/50 p-0.5"
             :aria-label="t('gettingStarted.tabsLabel')"
           >
             <Tab
               v-for="tab in tabs"
               :key="tab.value"
               :value="tab.value"
-              class="gap-2.5 rounded-full px-3 text-xs font-medium text-foreground hover:opacity-100 data-[state=active]:bg-tertiary-background data-[state=inactive]:opacity-70"
+              class="gap-2.5 rounded-full px-3 text-xs font-medium text-foreground hover:opacity-100 data-[state=active]:bg-muted data-[state=inactive]:opacity-70"
             >
               <i :class="cn(tab.icon, 'size-3.5')" aria-hidden="true" />
               {{ t(tab.labelKey) }}

@@ -21,7 +21,7 @@
       <div
         v-if="videoError"
         role="alert"
-        class="flex flex-auto flex-col items-center justify-center bg-muted-background py-8 text-center text-foreground"
+        class="flex flex-auto flex-col items-center justify-center bg-muted py-8 text-center text-foreground"
       >
         <i class="mb-2 icon-[lucide--video-off] size-12" />
         <p class="text-sm">

@@ -68,7 +68,7 @@
               v-if="hasMultipleNodeTypes"
               data-testid="swap-node-group-count"
               role="img"
-              class="flex h-4 min-w-4 shrink-0 items-center justify-center rounded-sm bg-secondary-background-hover px-1 text-2xs font-semibold text-foreground"
+              class="flex h-4 min-w-4 shrink-0 items-center justify-center rounded-sm bg-accent px-1 text-2xs font-semibold text-foreground"
               :aria-label="t('g.nodesCount', group.nodeTypes.length)"
             >
               {{ group.nodeTypes.length }}

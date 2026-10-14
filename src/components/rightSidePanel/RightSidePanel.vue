@@ -389,7 +389,7 @@ function handleTitleCancel() {
             size="icon"
             data-testid="subgraph-editor-toggle"
             :aria-label="t('rightSidePanel.editSubgraph')"
-            :class="cn(isEditingSubgraph && 'bg-secondary-background-selected')"
+            :class="cn(isEditingSubgraph && 'bg-muted')"
             @click="
               rightSidePanelStore.openPanel(
                 isEditingSubgraph ? 'parameters' : 'subgraph'

@@ -17,10 +17,7 @@ const { t } = useI18n()
 
 <template>
   <div class="flex flex-col gap-6">
-    <div
-      role="alert"
-      class="flex flex-col gap-2 rounded-lg bg-tertiary-background p-4"
-    >
+    <div role="alert" class="flex flex-col gap-2 rounded-lg bg-muted p-4">
       <p
         class="m-0 flex items-center gap-2 text-sm/5 font-medium text-foreground"
       >

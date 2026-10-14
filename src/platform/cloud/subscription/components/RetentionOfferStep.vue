@@ -17,7 +17,7 @@
       class="flex flex-col gap-3"
     >
       <div
-        class="flex flex-col gap-3 rounded-[14px] border border-border-subtle bg-secondary/50 px-4 py-5 shadow-xs"
+        class="flex flex-col gap-3 rounded-[14px] border border-border/50 bg-secondary/50 px-4 py-5 shadow-xs"
       >
         <div class="flex items-center justify-between gap-2">
           <p class="m-0 text-sm font-medium text-foreground">
@@ -51,7 +51,7 @@
             )
           }}
         </p>
-        <div class="h-px bg-border-subtle" role="presentation" />
+        <div class="h-px bg-border/50" role="presentation" />
         <p class="m-0 text-sm text-muted-foreground">{{ keepMessage }}</p>
       </div>
       <p class="m-0 text-sm text-muted-foreground">
@@ -67,7 +67,7 @@
 
     <div v-else-if="phase === 'applied'" class="flex flex-col gap-5">
       <div
-        class="flex flex-col gap-3 rounded-[14px] border border-border-subtle bg-secondary/50 p-4 shadow-xs"
+        class="flex flex-col gap-3 rounded-[14px] border border-border/50 bg-secondary/50 p-4 shadow-xs"
       >
         <div class="flex flex-wrap items-center justify-between gap-2 text-sm">
           <span class="flex items-center gap-2 text-foreground">

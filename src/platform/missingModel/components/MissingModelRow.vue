@@ -56,7 +56,7 @@
           <span
             v-if="hasMultipleReferences"
             data-testid="missing-model-reference-count"
-            class="inline-flex h-4 min-w-4 shrink-0 items-center justify-center rounded-sm bg-secondary-background-hover px-1 text-2xs font-semibold text-foreground"
+            class="inline-flex h-4 min-w-4 shrink-0 items-center justify-center rounded-sm bg-accent px-1 text-2xs font-semibold text-foreground"
           >
             {{ model.referencingNodes.length }}
           </span>
@@ -107,7 +107,7 @@
           class="flex h-8 w-16 shrink-0 items-center"
         >
           <span
-            class="block h-1.5 w-full overflow-hidden rounded-full bg-secondary-background-selected"
+            class="block h-1.5 w-full overflow-hidden rounded-full bg-muted"
           >
             <span
               class="block h-full rounded-full bg-primary transition-all duration-200 ease-linear"

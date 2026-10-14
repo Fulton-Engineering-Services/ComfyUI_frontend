@@ -150,7 +150,7 @@ const {
 }>()
 
 const badgePillClass =
-  'flex h-[18px] max-w-28 shrink-0 items-center justify-center gap-1 rounded-full bg-secondary-background-hover/80 px-2'
+  'flex h-[18px] max-w-28 shrink-0 items-center justify-center gap-1 rounded-full bg-accent/80 px-2'
 
 const settingStore = useSettingStore()
 const showCategory = computed(() =>

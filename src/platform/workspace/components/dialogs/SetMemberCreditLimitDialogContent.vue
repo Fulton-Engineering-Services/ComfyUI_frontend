@@ -30,7 +30,7 @@
       </p>
       <div class="flex flex-col gap-2">
         <div
-          class="flex cursor-pointer items-start gap-2 rounded-lg p-2 text-sm text-muted-foreground transition-colors hover:bg-secondary-background-hover/30"
+          class="flex cursor-pointer items-start gap-2 rounded-lg p-2 text-sm text-muted-foreground transition-colors hover:bg-accent/30"
           @click="mode = 'limited'"
         >
           <input
@@ -39,7 +39,7 @@
             type="radio"
             :name="modeGroupName"
             value="limited"
-            class="mt-0.5 size-4 appearance-none rounded-full border border-muted-background checked:border-3 checked:bg-white focus-visible:ring-2 focus-visible:ring-border focus-visible:outline-none"
+            class="mt-0.5 size-4 appearance-none rounded-full border border-muted checked:border-3 checked:bg-white focus-visible:ring-2 focus-visible:ring-border focus-visible:outline-none"
           />
           <span class="flex flex-1 flex-col gap-2">
             <label :for="`${modeGroupName}-limited`" class="cursor-pointer">
@@ -62,7 +62,7 @@
           </span>
         </div>
         <div
-          class="flex cursor-pointer items-center gap-2 rounded-lg p-2 text-sm text-muted-foreground transition-colors hover:bg-secondary-background-hover/30"
+          class="flex cursor-pointer items-center gap-2 rounded-lg p-2 text-sm text-muted-foreground transition-colors hover:bg-accent/30"
           @click="mode = 'unlimited'"
         >
           <input
@@ -71,7 +71,7 @@
             type="radio"
             :name="modeGroupName"
             value="unlimited"
-            class="size-4 appearance-none rounded-full border border-muted-background checked:border-3 checked:bg-white focus-visible:ring-2 focus-visible:ring-border focus-visible:outline-none"
+            class="size-4 appearance-none rounded-full border border-muted checked:border-3 checked:bg-white focus-visible:ring-2 focus-visible:ring-border focus-visible:outline-none"
           />
           <label :for="`${modeGroupName}-unlimited`" class="cursor-pointer">
             {{ $t('workspacePanel.members.creditLimitDialog.noLimit') }}

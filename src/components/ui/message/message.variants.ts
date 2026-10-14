@@ -11,7 +11,7 @@ export const messageVariants = cva({
       info: 'border-primary/40 bg-primary/10 text-foreground',
       success:
         'border-success-background/50 bg-success-background/15 text-foreground',
-      secondary: 'border-border-subtle bg-secondary text-foreground'
+      secondary: 'border-border/50 bg-secondary text-foreground'
     }
   },
   defaultVariants: { severity: 'info' }

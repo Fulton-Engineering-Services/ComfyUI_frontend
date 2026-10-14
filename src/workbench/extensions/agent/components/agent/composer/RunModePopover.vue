@@ -104,7 +104,7 @@ const options: {
         :tooltip="triggerTooltip"
         variant="muted-textonly"
         size="md"
-        :class="cn('gap-1', open && 'bg-secondary-background-hover')"
+        :class="cn('gap-1', open && 'bg-accent')"
       >
         <span>{{ triggerLabel }}</span>
         <span

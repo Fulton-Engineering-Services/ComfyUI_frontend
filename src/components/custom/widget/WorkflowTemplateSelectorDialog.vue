@@ -52,7 +52,7 @@
           :searcher="applySearchQuery"
           :debounce-ms="400"
           :debounce-max-wait-ms="4000"
-          class="h-9 w-full min-w-0 flex-1 border border-border-subtle bg-transparent min-[880px]:ml-auto min-[880px]:max-w-96"
+          class="h-9 w-full min-w-0 flex-1 border border-border/50 bg-transparent min-[880px]:ml-auto min-[880px]:max-w-96"
           autofocus
         />
       </div>
@@ -93,7 +93,7 @@
           >
             <TemplateFilterControls
               v-bind="filterControlBindings"
-              trigger-class="min-w-0 shrink basis-40 border border-border-subtle bg-transparent"
+              trigger-class="min-w-0 shrink basis-40 border border-border/50 bg-transparent"
             />
           </div>
 
@@ -122,7 +122,7 @@
           <div class="grid grid-cols-2 gap-2 @max-[26rem]/filters:grid-cols-1">
             <TemplateFilterControls
               v-bind="filterControlBindings"
-              trigger-class="w-full border border-border-subtle bg-transparent"
+              trigger-class="w-full border border-border/50 bg-transparent"
             />
           </div>
         </div>

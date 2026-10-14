@@ -103,7 +103,7 @@ const returnResult = computed(() => ({
     <CheckoutSteps
       v-else
       :projection="checkout.projection.value"
-      root-class="flex flex-col gap-3 rounded-xl border border-border-subtle bg-secondary p-6"
+      root-class="flex flex-col gap-3 rounded-xl border border-border/50 bg-secondary p-6"
       header-class="m-0 text-base font-semibold text-foreground"
       body-class="m-0 text-sm text-muted-foreground"
       reason-class="m-0 text-sm text-destructive"

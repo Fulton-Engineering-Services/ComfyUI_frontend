@@ -158,7 +158,7 @@ function replayAppModeTour() {
     <section
       v-if="!mobile"
       data-testid="linear-workflow-info"
-      class="flex h-12 items-center gap-2 border-x border-border-subtle bg-background px-4 py-2 contain-size"
+      class="flex h-12 items-center gap-2 border-x border-border/50 bg-background px-4 py-2 contain-size"
     >
       <span
         class="min-w-0 flex-1 truncate font-bold"

@@ -10,7 +10,7 @@
     <Button
       variant="textonly"
       size="unset"
-      class="flex w-64 items-center gap-4 rounded-2xl border border-dashed border-border px-6 py-4 hover:bg-secondary-background-hover"
+      class="flex w-64 items-center gap-4 rounded-2xl border border-dashed border-border px-6 py-4 hover:bg-accent"
       @click="emit('requestProfile')"
     >
       <div

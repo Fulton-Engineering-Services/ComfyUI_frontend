@@ -38,7 +38,7 @@ watch(
 
 <template>
   <div
-    class="flex flex-col gap-2 rounded-lg bg-tertiary-background p-4"
+    class="flex flex-col gap-2 rounded-lg bg-muted p-4"
     data-testid="keep-subscription-notice"
   >
     <p
@@ -73,7 +73,7 @@ watch(
         :class="
           cn(
             'mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-sm border border-muted-foreground text-transparent transition-colors',
-            'peer-focus-visible:ring-2 peer-focus-visible:ring-foreground peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-tertiary-background',
+            'peer-focus-visible:ring-2 peer-focus-visible:ring-foreground peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-muted',
             'peer-checked:border-foreground peer-checked:bg-foreground peer-checked:text-background',
             'peer-aria-invalid:border-coral-500 peer-aria-invalid:ring-3 peer-aria-invalid:ring-coral-500/40'
           )

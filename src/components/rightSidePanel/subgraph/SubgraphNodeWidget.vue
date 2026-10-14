@@ -37,7 +37,7 @@ const icon = computed(() =>
       cn(
         'flex items-center gap-1 rounded-sm px-2 py-1 break-all',
         'bg-node',
-        isDraggable && 'ring-accent-background hover:ring-1',
+        isDraggable && 'ring-accent hover:ring-1',
         className
       )
     "

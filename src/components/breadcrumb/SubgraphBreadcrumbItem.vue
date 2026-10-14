@@ -13,8 +13,7 @@
           'flex h-8 cursor-pointer appearance-none items-center justify-start gap-0 overflow-hidden border-none bg-transparent px-[calc(var(--breadcrumb-item-margin)+var(--breadcrumb-item-padding))] py-0 text-inherit select-none [font:inherit] hover:bg-transparent',
           isRoot && 'pl-(--breadcrumb-item-padding)',
           isActive && 'gap-1 text-foreground',
-          menuOpen &&
-            'bg-secondary-background-hover text-foreground hover:bg-secondary-background-hover'
+          menuOpen && 'bg-accent text-foreground hover:bg-accent'
         )
       "
       @click="handleClick"

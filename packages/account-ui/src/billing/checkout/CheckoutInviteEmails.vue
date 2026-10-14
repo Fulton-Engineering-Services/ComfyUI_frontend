@@ -8,7 +8,7 @@
     :class="
       cn(
         'group relative flex flex-wrap items-center gap-2 rounded-lg bg-transparent p-2 text-xs text-foreground',
-        'focus-within:bg-tertiary-background hover:bg-tertiary-background',
+        'focus-within:bg-muted hover:bg-muted',
         'max-h-48 overflow-y-auto',
         inputClass
       )

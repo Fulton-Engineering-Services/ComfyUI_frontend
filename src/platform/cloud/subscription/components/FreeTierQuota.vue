@@ -33,7 +33,7 @@ const label = computed(() =>
 <template>
   <div
     v-if="quotaEnabled && isFreeTier"
-    class="mt-2 w-full cursor-pointer border-t border-border-subtle bg-background px-4 pt-2 select-none"
+    class="mt-2 w-full cursor-pointer border-t border-border/50 bg-background px-4 pt-2 select-none"
     data-testid="free-tier-quota"
     @click="showSubscriptionDialog({ reason: 'free_tier_quota' })"
   >
@@ -52,7 +52,7 @@ const label = computed(() =>
           :class="
             cn(
               'size-1.5 rounded-full',
-              index > available ? 'bg-secondary-background-selected' : dotColor
+              index > available ? 'bg-muted' : dotColor
             )
           "
         />

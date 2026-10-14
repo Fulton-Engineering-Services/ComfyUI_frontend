@@ -44,7 +44,7 @@ export const InsideInput: Story = {
   decorators: [
     () => ({
       template:
-        '<div class="rounded-lg border border-border-subtle bg-secondary"><story /></div>'
+        '<div class="rounded-lg border border-border/50 bg-secondary"><story /></div>'
     })
   ]
 }

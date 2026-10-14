@@ -188,8 +188,7 @@ const queueMenuTriggerVariant = computed(() =>
     : queueButtonVariant.value
 )
 const queueMenuTriggerVariantClass = {
-  destructive:
-    'border-black/20 data-[state=open]:bg-destructive-background-hover',
+  destructive: 'border-black/20 data-[state=open]:bg-destructive/90',
   inverted: 'data-[state=open]:bg-foreground/80',
   secondary: 'text-muted-foreground'
 } satisfies Record<typeof queueMenuTriggerVariant.value, string>

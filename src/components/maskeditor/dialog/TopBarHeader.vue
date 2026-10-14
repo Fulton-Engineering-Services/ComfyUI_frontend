@@ -148,10 +148,10 @@ const saveButtonText = ref(t('g.save'))
 const saveEnabled = ref(true)
 
 const iconButtonClass =
-  'flex h-7.5 w-12.5 items-center justify-center rounded-[10px] border border-border pointer-events-auto transition-colors duration-100 bg-background hover:bg-secondary-background-hover'
+  'flex h-7.5 w-12.5 items-center justify-center rounded-[10px] border border-border pointer-events-auto transition-colors duration-100 bg-background hover:bg-accent'
 
 const textButtonClass =
-  'h-7.5 w-15 rounded-[10px] border border-border text-current font-sans pointer-events-auto transition-colors duration-100 bg-background hover:bg-secondary-background-hover'
+  'h-7.5 w-15 rounded-[10px] border border-border text-current font-sans pointer-events-auto transition-colors duration-100 bg-background hover:bg-accent'
 
 const onUndo = () => {
   store.canvasHistory.undo()

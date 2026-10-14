@@ -15,7 +15,7 @@
             cn(
               'flex h-4 min-w-4 shrink-0 items-center justify-center rounded-full px-1 text-2xs/none font-semibold tabular-nums',
               severity === 'error'
-                ? 'bg-destructive-background-hover text-white'
+                ? 'bg-destructive/90 text-white'
                 : 'bg-warning-background text-warning-on-background'
             )
           "

@@ -32,7 +32,7 @@
             <AssetsListItem
               :class="
                 cn(
-                  'size-full shrink-0 cursor-default text-foreground transition-colors hover:bg-secondary-background-hover',
+                  'size-full shrink-0 cursor-default text-foreground transition-colors hover:bg-secondary/80',
                   row.job.state === 'running' && 'bg-secondary'
                 )
               "

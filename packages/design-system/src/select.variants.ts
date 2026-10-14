@@ -1,7 +1,7 @@
 import { cva } from 'cva'
 
 export const selectTriggerVariants = cva({
-  base: 'relative inline-flex cursor-pointer items-center rounded-lg border-[2.5px] border-solid bg-secondary text-foreground transition-all duration-200 ease-in-out outline-none select-none hover:bg-secondary-background-hover disabled:cursor-default disabled:opacity-30 disabled:hover:bg-secondary',
+  base: 'relative inline-flex cursor-pointer items-center rounded-lg border-[2.5px] border-solid bg-secondary text-foreground transition-all duration-200 ease-in-out outline-none select-none hover:bg-secondary/80 disabled:cursor-default disabled:opacity-30 disabled:hover:bg-secondary',
   variants: {
     size: {
       md: 'h-8',
@@ -20,13 +20,13 @@ export const selectTriggerVariants = cva({
 })
 
 export const selectItemVariants = cva({
-  base: 'flex cursor-pointer items-center px-2 outline-none hover:bg-secondary-background-hover',
+  base: 'flex cursor-pointer items-center px-2 outline-none hover:bg-accent',
   variants: {
     layout: {
       multi:
-        'h-10 shrink-0 gap-2 rounded-lg data-highlighted:bg-secondary-background-selected data-highlighted:hover:bg-secondary-background-selected',
+        'h-10 shrink-0 gap-2 rounded-lg data-highlighted:bg-muted data-highlighted:hover:bg-muted',
       single:
-        'relative w-full justify-between gap-3 rounded-sm py-3 text-sm select-none focus:bg-secondary-background-hover data-[state=checked]:bg-secondary-background-selected data-[state=checked]:hover:bg-secondary-background-selected'
+        'relative w-full justify-between gap-3 rounded-sm py-3 text-sm select-none focus:bg-accent data-[state=checked]:bg-muted data-[state=checked]:hover:bg-muted'
     }
   },
   defaultVariants: {

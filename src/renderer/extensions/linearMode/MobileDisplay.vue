@@ -166,7 +166,7 @@ const menuEntries = computed<MenuItem[]>(() => [
     data-testid="linear-mobile"
   >
     <header
-      class="flex h-16 w-full items-center gap-3 border-b border-border-subtle bg-background px-4 py-3"
+      class="flex h-16 w-full items-center gap-3 border-b border-border/50 bg-background px-4 py-3"
     >
       <Menu :items="menuEntries" :label="$t('linearMode.appModeToolbar.apps')">
         <template #trigger>

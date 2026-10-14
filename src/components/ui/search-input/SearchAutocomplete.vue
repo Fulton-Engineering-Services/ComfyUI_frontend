@@ -95,7 +95,7 @@
           :class="
             cn(
               'cursor-pointer rounded-sm px-3 py-2 text-sm outline-none',
-              'data-highlighted:bg-secondary-background-hover'
+              'data-highlighted:bg-accent'
             )
           "
           @select.prevent="onSelectSuggestion(suggestion)"

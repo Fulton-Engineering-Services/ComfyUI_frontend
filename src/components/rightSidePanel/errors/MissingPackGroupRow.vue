@@ -93,7 +93,7 @@
           <span
             v-if="showNodeCount"
             data-testid="missing-node-pack-count"
-            class="flex h-4 min-w-4 shrink-0 items-center justify-center rounded-sm bg-secondary-background-hover px-1 text-2xs font-semibold text-foreground"
+            class="flex h-4 min-w-4 shrink-0 items-center justify-center rounded-sm bg-accent px-1 text-2xs font-semibold text-foreground"
           >
             {{ group.nodeTypes.length }}
           </span>

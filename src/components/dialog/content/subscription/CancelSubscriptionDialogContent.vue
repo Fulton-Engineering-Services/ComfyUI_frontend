@@ -29,7 +29,7 @@
         <li
           v-for="feature in lostFeatures"
           :key="feature.key"
-          class="flex flex-col gap-1.5 rounded-[10px] border border-border-subtle bg-secondary/50 p-3"
+          class="flex flex-col gap-1.5 rounded-[10px] border border-border/50 bg-secondary/50 p-3"
         >
           <i
             :class="cn(feature.icon, 'size-4 text-foreground')"

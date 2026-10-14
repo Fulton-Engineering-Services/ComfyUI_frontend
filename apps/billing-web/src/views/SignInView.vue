@@ -152,7 +152,7 @@ const alertClass = 'rounded-lg bg-background p-3 text-sm'
   >
     <section
       v-if="!leavingPage"
-      class="mx-auto flex w-full max-w-md flex-col rounded-2xl border border-border-subtle bg-secondary p-8 shadow-2xl shadow-black/35"
+      class="mx-auto flex w-full max-w-md flex-col rounded-2xl border border-border/50 bg-secondary p-8 shadow-2xl shadow-black/35"
       :aria-busy="busy"
     >
       <h1 class="m-0 text-2xl font-semibold text-foreground">
@@ -185,7 +185,7 @@ const alertClass = 'rounded-lg bg-background p-3 text-sm'
             <SocialAuthButtons
               :google-label="t('auth.signIn.google')"
               :github-label="t('auth.signIn.github')"
-              button-class="flex h-12 w-full cursor-pointer items-center justify-center gap-3 rounded-lg border border-border bg-background font-medium text-foreground transition-colors hover:bg-secondary-background-hover focus-visible:ring-2 focus-visible:ring-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+              button-class="flex h-12 w-full cursor-pointer items-center justify-center gap-3 rounded-lg border border-border bg-background font-medium text-foreground transition-colors hover:bg-accent focus-visible:ring-2 focus-visible:ring-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
               :disabled="blocked"
               @google="signInWith('google')"
               @github="signInWith('github')"

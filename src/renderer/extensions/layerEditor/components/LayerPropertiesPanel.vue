@@ -227,7 +227,7 @@ const isLayerContext = computed(
 const sectionClass = 'flex flex-col gap-2 border-b border-border p-3'
 const sectionLabelClass = 'text-xs text-muted-foreground'
 const iconButtonClass =
-  'flex size-7 cursor-pointer items-center justify-center rounded-md border-0 bg-transparent text-foreground transition-colors hover:bg-secondary-background-hover'
+  'flex size-7 cursor-pointer items-center justify-center rounded-md border-0 bg-transparent text-foreground transition-colors hover:bg-accent'
 
 const BLEND_KEYS: Record<BlendFn, string> = {
   normal: 'normal',

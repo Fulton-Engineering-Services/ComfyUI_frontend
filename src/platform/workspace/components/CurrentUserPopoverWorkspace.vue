@@ -46,7 +46,7 @@
             <button
               ref="workspaceSwitcherTrigger"
               type="button"
-              class="flex w-full cursor-pointer appearance-none items-center justify-between rounded-lg border-0 bg-transparent px-4 py-2 text-left hover:bg-secondary-background-hover"
+              class="flex w-full cursor-pointer appearance-none items-center justify-between rounded-lg border-0 bg-transparent px-4 py-2 text-left hover:bg-accent"
               :aria-expanded="isWorkspaceSwitcherOpen"
               aria-haspopup="menu"
               aria-controls="workspace-switcher-panel"
@@ -156,7 +156,7 @@
 
     <div
       v-if="!accountActionsOnly && isCloud && showPlansAndPricing"
-      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-secondary-background-hover"
+      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-accent"
       data-testid="plans-pricing-menu-item"
       @click="handleOpenPlansAndPricing"
     >
@@ -169,7 +169,7 @@
     <button
       v-if="!accountActionsOnly && isCloud && showManagePlan"
       type="button"
-      class="flex w-full cursor-pointer appearance-none items-center gap-2 border-0 bg-transparent px-4 py-2 text-left hover:bg-secondary-background-hover focus-visible:bg-secondary-background-hover focus-visible:outline-none"
+      class="flex w-full cursor-pointer appearance-none items-center gap-2 border-0 bg-transparent px-4 py-2 text-left hover:bg-accent focus-visible:bg-accent focus-visible:outline-none"
       data-testid="manage-plan-menu-item"
       :data-dd-action-name="BILLING_ACTION_NAME.managePlanPopover"
       @click="handleOpenManagePlanSettings"
@@ -183,7 +183,7 @@
     <button
       v-if="!accountActionsOnly && showLocalPlansAndCredits"
       type="button"
-      class="flex w-full cursor-pointer appearance-none items-center gap-2 border-0 bg-transparent px-4 py-2 text-left hover:bg-secondary-background-hover focus-visible:bg-secondary-background-hover focus-visible:outline-none"
+      class="flex w-full cursor-pointer appearance-none items-center gap-2 border-0 bg-transparent px-4 py-2 text-left hover:bg-accent focus-visible:bg-accent focus-visible:outline-none"
       data-testid="plans-credits-menu-item"
       @click="handleOpenPlanCreditsSettings"
     >
@@ -196,7 +196,7 @@
     <!-- Partner Nodes Pricing (always shown) -->
     <div
       v-if="!accountActionsOnly"
-      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-secondary-background-hover"
+      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-accent"
       data-testid="partner-nodes-menu-item"
       @click="handleOpenPartnerNodesInfo"
     >
@@ -211,7 +211,7 @@
     <!-- Workspace Settings (always shown) -->
     <div
       v-if="!accountActionsOnly"
-      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-secondary-background-hover"
+      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-accent"
       data-testid="workspace-settings-menu-item"
       @click="handleOpenWorkspaceSettings"
     >
@@ -223,7 +223,7 @@
 
     <!-- Account Settings (always shown) -->
     <div
-      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-secondary-background-hover"
+      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-accent"
       data-testid="user-settings-menu-item"
       @click="handleOpenUserSettings"
     >
@@ -237,7 +237,7 @@
 
     <!-- Logout (always shown) -->
     <div
-      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-secondary-background-hover"
+      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-accent"
       data-testid="logout-menu-item"
       @click="handleLogout"
     >

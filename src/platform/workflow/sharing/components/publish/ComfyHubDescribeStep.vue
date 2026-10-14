@@ -56,7 +56,7 @@
           :key="tag"
           v-auto-animate
           :value="tag"
-          class="cursor-pointer bg-secondary px-2 text-muted-foreground transition-colors select-none hover:bg-secondary-background-selected"
+          class="cursor-pointer bg-secondary px-2 text-muted-foreground transition-colors select-none hover:bg-muted"
           @click="addTag(tag)"
         >
           <TagsInputItemText />

@@ -183,7 +183,7 @@ const layout = computed(() => {
     ),
     summary: cn(
       split &&
-        'xl:w-[42%] xl:shrink-0 xl:border-r xl:border-border-subtle xl:bg-background xl:px-12 xl:py-10',
+        'xl:w-[42%] xl:shrink-0 xl:border-r xl:border-border/50 xl:bg-background xl:px-12 xl:py-10',
       // Below xl the same dual tone runs vertically: the summary bleeds
       // dark to the dialog edges, payment continues on the shell below.
       split &&

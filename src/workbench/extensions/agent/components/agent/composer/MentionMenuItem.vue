@@ -82,7 +82,7 @@ const nodeId = computed(() =>
         :class="
           cn(
             'flex h-7 w-full cursor-pointer items-center gap-1.5 rounded-lg px-1.5 py-1 text-xs font-normal text-foreground outline-none aria-disabled:cursor-not-allowed aria-disabled:opacity-50',
-            active && 'bg-secondary-background-hover'
+            active && 'bg-accent'
           )
         "
         @mouseenter="emit('highlight')"

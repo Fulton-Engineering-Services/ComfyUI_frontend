@@ -104,7 +104,7 @@
               cn(
                 'min-w-0 flex-1 truncate text-xs font-semibold transition-colors duration-200',
                 hasSelectionEmphasis
-                  ? 'text-primary-background-hover'
+                  ? 'text-primary/90'
                   : 'text-muted-foreground'
               )
             "
@@ -295,7 +295,7 @@
                           cn(
                             'size-6 shrink-0 text-muted-foreground hover:text-foreground focus-visible:ring-inset',
                             isExecutionItemDetailExpanded(item.key) &&
-                              'bg-secondary-background-selected text-foreground hover:bg-secondary-background-selected'
+                              'bg-muted text-foreground hover:bg-muted'
                           )
                         "
                         :aria-label="
@@ -451,9 +451,8 @@ const HIDDEN_BY_FILTER = { error: 'missing', missing: 'error' } as const
 
 const SEVERITY_CHIP_CLASS = {
   error: {
-    idle: 'border-border text-destructive-background-hover',
-    active:
-      'border-destructive-background-hover/50 text-destructive-background-hover'
+    idle: 'border-border text-destructive/90',
+    active: 'border-destructive/45 text-destructive/90'
   },
   missing: {
     idle: 'border-border text-warning-foreground',
@@ -702,7 +701,7 @@ const hero = computed(() => {
   }
   return {
     count: errorCount.value,
-    countClass: 'text-destructive-background-hover',
+    countClass: 'text-destructive/90',
     title: t('rightSidePanel.errorsDetected', errorCount.value),
     description: t('rightSidePanel.resolveErrorsBeforeRun')
   }

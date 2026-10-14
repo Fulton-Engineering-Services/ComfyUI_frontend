@@ -27,7 +27,7 @@
               :class="
                 cn(
                   'group flex h-[54px] w-full items-center gap-2 rounded-sm px-2 py-4',
-                  'hover:bg-secondary-background-hover',
+                  'hover:bg-secondary/80',
                   isCurrentWorkspace(workspace) && 'bg-secondary'
                 )
               "
@@ -94,7 +94,7 @@
           cn(
             'flex h-12 w-full items-center gap-2 rounded-sm p-2',
             canCreateWorkspace
-              ? 'cursor-pointer hover:bg-secondary-background-hover'
+              ? 'cursor-pointer hover:bg-accent'
               : 'cursor-default'
           )
         "

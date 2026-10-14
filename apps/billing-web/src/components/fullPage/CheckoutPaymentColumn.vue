@@ -142,7 +142,7 @@ const copy = computed<StripePaymentCopy>(() => ({
         <div class="flex flex-col gap-3">
           <h3 :class="SECTION_LABEL">{{ t('checkout.paymentMethod') }}</h3>
           <div
-            class="h-84 rounded-lg bg-secondary-background-hover"
+            class="h-84 rounded-lg bg-accent"
             aria-busy="true"
             data-testid="checkout-skeleton"
           />
@@ -150,7 +150,7 @@ const copy = computed<StripePaymentCopy>(() => ({
         <div class="flex flex-col gap-3">
           <h4 :class="SECTION_LABEL">{{ t('checkout.billingAddress') }}</h4>
           <div
-            class="h-84 rounded-lg bg-secondary-background-hover"
+            class="h-84 rounded-lg bg-accent"
             aria-busy="true"
             data-testid="checkout-skeleton"
           />

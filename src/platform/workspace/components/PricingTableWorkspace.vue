@@ -204,7 +204,7 @@
                 getButtonTextClass(tier),
                 tier.key === 'creator'
                   ? 'border-transparent bg-success-background hover:bg-success-background/80'
-                  : 'border-transparent bg-secondary hover:bg-secondary-background-hover focus:bg-secondary-background-selected'
+                  : 'border-transparent bg-secondary hover:bg-secondary/80 focus:bg-muted'
               )
             "
             :data-dd-action-name="planCtaActionName(tier.key)"

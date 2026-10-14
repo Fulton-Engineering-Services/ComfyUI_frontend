@@ -693,7 +693,7 @@ function fmtTime(at: number): string {
       v-if="dismissed"
       type="button"
       :title="S.restore"
-      class="mr-4 mb-1 flex h-6 cursor-pointer items-center gap-1 self-end rounded-full border border-border bg-secondary px-2 text-muted-foreground transition-colors hover:bg-secondary-background-hover hover:text-foreground"
+      class="mr-4 mb-1 flex h-6 cursor-pointer items-center gap-1 self-end rounded-full border border-border bg-secondary px-2 text-muted-foreground transition-colors hover:bg-secondary/80 hover:text-foreground"
       data-testid="crdt-dev-panel-restore"
       @click="restore"
     >
@@ -706,7 +706,7 @@ function fmtTime(at: number): string {
       ref="chipButton"
       type="button"
       :title="S.open"
-      class="mr-4 mb-1 flex h-6 cursor-pointer items-center gap-1 self-end rounded-full border border-border bg-secondary px-2 text-muted-foreground transition-colors hover:bg-secondary-background-hover hover:text-foreground"
+      class="mr-4 mb-1 flex h-6 cursor-pointer items-center gap-1 self-end rounded-full border border-border bg-secondary px-2 text-muted-foreground transition-colors hover:bg-secondary/80 hover:text-foreground"
       data-testid="crdt-dev-panel-chip"
       @click="setOpen(true)"
     >
@@ -809,7 +809,7 @@ function fmtTime(at: number): string {
                     <button
                       v-if="row[0] === 'doc id' && status.workflowId"
                       type="button"
-                      class="ml-1 cursor-pointer rounded-sm border border-border px-1.5 py-0.5 hover:bg-secondary-background-hover"
+                      class="ml-1 cursor-pointer rounded-sm border border-border px-1.5 py-0.5 hover:bg-accent"
                       :aria-label="S.copyDocumentId"
                       @click="
                         copyItem(`doc:${status.workflowId}`, status.workflowId)
@@ -887,7 +887,7 @@ function fmtTime(at: number): string {
             >
             <button
               type="button"
-              class="cursor-pointer rounded-sm border border-border px-1.5 py-0.5 hover:bg-secondary-background-hover"
+              class="cursor-pointer rounded-sm border border-border px-1.5 py-0.5 hover:bg-accent"
               @click="clearDevEvents()"
             >
               {{ S.clear }}
@@ -902,7 +902,7 @@ function fmtTime(at: number): string {
             >
               <button
                 type="button"
-                class="block w-full cursor-pointer text-left hover:bg-secondary-background-hover"
+                class="block w-full cursor-pointer text-left hover:bg-accent"
                 @click="
                   expanded = expanded === row.event.seq ? null : row.event.seq
                 "
@@ -934,7 +934,7 @@ function fmtTime(at: number): string {
                 <button
                   v-if="row.detail"
                   type="button"
-                  class="cursor-pointer rounded-sm border border-border px-1.5 py-0.5 hover:bg-secondary-background-hover"
+                  class="cursor-pointer rounded-sm border border-border px-1.5 py-0.5 hover:bg-accent"
                   :aria-label="S.copyLogDetail"
                   @click="copyItem(`detail:${row.event.seq}`, row.detail)"
                 >
@@ -944,7 +944,7 @@ function fmtTime(at: number): string {
                   v-for="nodeId in row.nodeIds"
                   :key="nodeId"
                   type="button"
-                  class="cursor-pointer rounded-sm border border-border px-1.5 py-0.5 hover:bg-secondary-background-hover"
+                  class="cursor-pointer rounded-sm border border-border px-1.5 py-0.5 hover:bg-accent"
                   :aria-label="`${S.copy} node id ${nodeId}`"
                   @click="copyItem(`node:${row.event.seq}:${nodeId}`, nodeId)"
                 >
@@ -990,7 +990,7 @@ function fmtTime(at: number): string {
 
           <button
             type="button"
-            class="w-full cursor-pointer rounded-sm border border-primary px-2 py-1 text-foreground hover:bg-secondary-background-hover"
+            class="w-full cursor-pointer rounded-sm border border-primary px-2 py-1 text-foreground hover:bg-accent"
             data-testid="crdt-dev-panel-run"
             @click="run"
           >
@@ -1146,7 +1146,7 @@ function fmtTime(at: number): string {
         <div class="flex gap-1">
           <button
             type="button"
-            class="flex-1 cursor-pointer rounded-sm border border-border px-2 py-1 hover:bg-secondary-background-hover"
+            class="flex-1 cursor-pointer rounded-sm border border-border px-2 py-1 hover:bg-accent"
             @click="copyLog"
           >
             {{ copyLogLabel }}
@@ -1154,7 +1154,7 @@ function fmtTime(at: number): string {
           <button
             type="button"
             :disabled="reportCopyState.status === 'busy'"
-            class="flex-2 cursor-pointer rounded-sm border border-primary px-2 py-1 hover:bg-secondary-background-hover disabled:cursor-default"
+            class="flex-2 cursor-pointer rounded-sm border border-primary px-2 py-1 hover:bg-accent disabled:cursor-default"
             data-testid="crdt-dev-panel-copy-report"
             @click="copyReport"
           >

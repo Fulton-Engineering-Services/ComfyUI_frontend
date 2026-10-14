@@ -90,21 +90,11 @@
   --content-hover-fg: #000;
 
   /* Semantic tokens - light mode */
-  --secondary-background-hover: var(--color-smoke-400);
-  --secondary-background-selected: var(--color-smoke-600);
-  --tertiary-background: var(--color-smoke-400);
-  --tertiary-background-hover: var(--color-smoke-500);
-  --primary-background-hover: var(--color-cobalt-800);
-  --destructive-background-hover: var(--color-coral-600);
-  --inverted-background-hover: var(--color-charcoal-600);
   --warning-background: var(--color-gold-400);
   --warning-background-hover: var(--color-gold-500);
   --warning-foreground: var(--color-gold-800);
   --warning-on-background: var(--color-charcoal-800);
   --success-background: var(--color-jade-600);
-  --border-subtle: var(--color-smoke-400);
-  --muted-background: var(--color-smoke-700);
-  --accent-background: var(--color-smoke-800);
 
   --palette-interface-panel-box-shadow: 1px 1px 8px 0 rgb(0 0 0 / 0.4);
   --palette-interface-panel-drop-shadow: 1px 1px 4px rgb(0 0 0 / 0.4);
@@ -136,17 +126,8 @@
   --content-hover-fg: #fff;
 
   /* Semantic tokens - dark mode */
-  --secondary-background-hover: var(--color-charcoal-400);
-  --secondary-background-selected: var(--color-charcoal-200);
-  --tertiary-background: var(--color-charcoal-400);
-  --tertiary-background-hover: var(--color-charcoal-300);
-  --primary-background-hover: var(--color-azure-400);
-  --inverted-background-hover: var(--color-smoke-200);
   --warning-background: var(--color-gold-600);
   --warning-foreground: var(--color-gold-600);
-  --border-subtle: var(--color-charcoal-300);
-  --muted-background: var(--color-charcoal-100);
-  --accent-background: var(--color-charcoal-100);
 }
 
 :root,
@@ -176,21 +157,11 @@
   --color-ring: var(--ring);
 
   /* Semantic tokens */
-  --color-secondary-background-hover: var(--secondary-background-hover);
-  --color-secondary-background-selected: var(--secondary-background-selected);
-  --color-tertiary-background: var(--tertiary-background);
-  --color-tertiary-background-hover: var(--tertiary-background-hover);
-  --color-primary-background-hover: var(--primary-background-hover);
-  --color-destructive-background-hover: var(--destructive-background-hover);
-  --color-inverted-background-hover: var(--inverted-background-hover);
   --color-warning-background: var(--warning-background);
   --color-warning-background-hover: var(--warning-background-hover);
   --color-warning-foreground: var(--warning-foreground);
   --color-warning-on-background: var(--warning-on-background);
   --color-success-background: var(--success-background);
-  --color-border-subtle: var(--border-subtle);
-  --color-muted-background: var(--muted-background);
-  --color-accent-background: var(--accent-background);
 }
 
 @utility floating-panel {
@@ -1037,7 +1008,7 @@ audio.comfy-audio.empty-audio-widget {
   border-radius: 50%;
   cursor: grab;
   margin-top: -8px;
-  background: var(--secondary-background-selected);
+  background: var(--muted);
   border: 1px solid var(--border-color);
 }
 .maskEditor_sidePanelBrushRange::-moz-range-thumb {
@@ -1045,7 +1016,7 @@ audio.comfy-audio.empty-audio-widget {
   width: 20px;
   border-radius: 50%;
   cursor: grab;
-  background: var(--secondary-background-selected);
+  background: var(--muted);
   border: 1px solid var(--border-color);
 }
 .maskEditor_sidePanelBrushRange::-webkit-slider-runnable-track {
@@ -1121,7 +1092,7 @@ audio.comfy-audio.empty-audio-widget {
   position: relative;
   vertical-align: middle;
   transition: background 0.25s;
-  background: var(--secondary-background-selected);
+  background: var(--muted);
 }
 
 .maskEditor_sidePanelToggleSwitch::before,
@@ -1179,7 +1150,7 @@ audio.comfy-audio.empty-audio-widget {
   background: white;
 }
 .maskEditor_sidePanelDropdown option:active {
-  background: var(--secondary-background-selected);
+  background: var(--muted);
 }
 
 .maskEditor_sidePanelLayerPreviewContainer {

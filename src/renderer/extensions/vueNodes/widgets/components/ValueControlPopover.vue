@@ -76,7 +76,7 @@ const controlMode = defineModel<ControlOptions>()
           class="flex min-w-0 flex-1 cursor-pointer items-center gap-2 text-wrap"
         >
           <div
-            class="flex size-8 shrink-0 items-center justify-center rounded-lg border border-border-subtle bg-secondary"
+            class="flex size-8 shrink-0 items-center justify-center rounded-lg border border-border/50 bg-secondary"
           >
             <i
               v-if="option.icon"

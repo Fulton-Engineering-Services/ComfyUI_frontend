@@ -159,8 +159,7 @@ async function cancelDownload(taskId: TaskId) {
                 :class="
                   cn(
                     'w-full justify-start bg-transparent',
-                    activeFilter === option.value &&
-                      'bg-secondary-background-selected'
+                    activeFilter === option.value && 'bg-muted'
                   )
                 "
                 @click="setFilter(option.value)"

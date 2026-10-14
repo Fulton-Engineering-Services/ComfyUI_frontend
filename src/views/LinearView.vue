@@ -181,7 +181,7 @@ function dragDrop(e: DragEvent) {
             <div
               v-else-if="sidebarOnLeft && activeTab"
               v-coachmark="assetsPanelCoach"
-              class="size-full overflow-x-hidden border-r border-border-subtle"
+              class="size-full overflow-x-hidden border-r border-border/50"
             >
               <ExtensionSlot :extension="activeTab" />
             </div>
@@ -245,7 +245,7 @@ function dragDrop(e: DragEvent) {
             <div
               v-else-if="activeTab"
               v-coachmark="assetsPanelCoach"
-              class="h-full overflow-x-hidden border-l border-border-subtle"
+              class="h-full overflow-x-hidden border-l border-border/50"
             >
               <ExtensionSlot :extension="activeTab" />
             </div>

@@ -36,7 +36,7 @@ const textMap: Record<ControlOptions, string | null> = {
         'flex shrink-0 cursor-pointer items-center justify-center border-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 focus-visible:outline-none',
         variant === 'badge' ? 'h-4.5 w-8 rounded-full' : 'size-6 rounded-sm',
         mode !== 'fixed'
-          ? 'bg-primary/30 hover:bg-primary-background-hover/30'
+          ? 'bg-primary/30 hover:bg-primary/27'
           : 'bg-transparent'
       )
     "

@@ -31,7 +31,7 @@
           :class="
             cn(
               'flex h-8 cursor-pointer items-center gap-1 rounded-full border-0 bg-transparent px-2 text-xs text-foreground transition-colors',
-              'hover:bg-secondary-background-hover'
+              'hover:bg-accent'
             )
           "
           :title="t('layerEditor.zoom')"
@@ -144,8 +144,8 @@ const zoomPercent = computed(() => `${Math.round(zoomRatio.value * 100)}%`)
 function toolButtonClass(active: boolean): string {
   return cn(
     'flex size-8 cursor-pointer items-center justify-center rounded-full border-0 bg-transparent text-foreground transition-colors',
-    'hover:bg-secondary-background-hover disabled:cursor-default disabled:opacity-40',
-    active && 'bg-secondary-background-selected'
+    'hover:bg-accent disabled:cursor-default disabled:opacity-40',
+    active && 'bg-muted'
   )
 }
 </script>

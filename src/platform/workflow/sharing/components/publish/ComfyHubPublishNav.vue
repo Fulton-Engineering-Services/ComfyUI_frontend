@@ -10,7 +10,7 @@
           cn(
             isProfileCreationFlow &&
               step.name === 'finish' &&
-              'rounded-lg bg-secondary-background-hover'
+              'rounded-lg bg-accent'
           )
         "
       >
@@ -22,7 +22,7 @@
               'h-10 w-full justify-start rounded-lg px-4 py-3 text-left',
               isCurrentStep(step.name) &&
                 !(isProfileCreationFlow && step.name === 'finish')
-                ? 'bg-secondary-background-selected'
+                ? 'bg-muted'
                 : 'hover:bg-accent'
             )
           "
@@ -51,7 +51,7 @@
         <div
           v-if="isProfileCreationFlow && step.name === 'finish'"
           v-auto-animate
-          class="flex h-10 w-full items-center rounded-lg bg-secondary-background-selected pl-11 select-none"
+          class="flex h-10 w-full items-center rounded-lg bg-muted pl-11 select-none"
         >
           <span class="truncate text-sm text-foreground">
             {{ $t('comfyHubProfile.profileCreationNav') }}

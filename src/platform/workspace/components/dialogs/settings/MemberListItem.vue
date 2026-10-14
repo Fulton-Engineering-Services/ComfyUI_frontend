@@ -52,7 +52,7 @@
         <span class="text-foreground">{{ creditsLabel }}</span>
         <div
           v-if="hasCreditUsage"
-          class="h-1 overflow-hidden rounded-full bg-secondary-background-hover"
+          class="h-1 overflow-hidden rounded-full bg-accent"
           role="progressbar"
           :aria-valuenow="creditUsagePercent"
           aria-valuemin="0"

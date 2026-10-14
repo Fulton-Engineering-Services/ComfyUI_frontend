@@ -103,7 +103,7 @@ async function downloadAssets(): Promise<void> {
       <span class="icon-[lucide--download] size-3" />
     </Button>
     <div
-      class="flex h-6 w-14 rounded-lg transition-colors hover:bg-secondary-background-hover hover:text-foreground has-data-[state=open]:bg-secondary-background-hover has-data-[state=open]:text-foreground"
+      class="flex h-6 w-14 rounded-lg transition-colors hover:bg-accent hover:text-foreground has-data-[state=open]:bg-accent has-data-[state=open]:text-foreground"
     >
       <Tooltip disable-closing-trigger>
         <TooltipTrigger as-child>

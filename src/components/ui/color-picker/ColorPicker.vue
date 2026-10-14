@@ -82,7 +82,7 @@ const contentStyle = useModalLiftedZIndex(isOpen)
           :aria-label="ariaLabel"
           :class="
             cn(
-              'flex h-8 w-full items-center overflow-clip rounded-lg border border-transparent bg-secondary pr-2 outline-none hover:bg-tertiary-background disabled:cursor-not-allowed disabled:opacity-50',
+              'flex h-8 w-full items-center overflow-clip rounded-lg border border-transparent bg-secondary pr-2 outline-none hover:bg-muted disabled:cursor-not-allowed disabled:opacity-50',
               isOpen && 'border-border',
               $props.class
             )

@@ -156,8 +156,8 @@ const inviting = computed(
 )
 const inputClass = computed(() =>
   darkSurface
-    ? 'min-h-10 w-full bg-secondary px-3 focus-within:bg-secondary hover:bg-secondary-background-hover'
-    : 'min-h-10 w-full bg-tertiary-background px-3 focus-within:bg-tertiary-background hover:bg-tertiary-background-hover'
+    ? 'min-h-10 w-full bg-secondary px-3 focus-within:bg-secondary hover:bg-secondary/80'
+    : 'min-h-10 w-full bg-muted px-3 focus-within:bg-muted hover:bg-muted/80'
 )
 
 const invalidEmails = computed(() =>

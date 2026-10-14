@@ -8,7 +8,7 @@
         :data-tool="tool"
         :class="
           cn(
-            'maskEditor_toolPanelContainer text-foreground hover:bg-secondary-background-hover',
+            'maskEditor_toolPanelContainer text-foreground hover:bg-accent',
             currentTool === tool && 'maskEditor_toolPanelContainerSelected'
           )
         "
@@ -22,7 +22,7 @@
     </div>
 
     <div
-      class="mb-2 flex cursor-pointer flex-col items-center rounded-md transition-colors duration-200 hover:bg-secondary-background-hover"
+      class="mb-2 flex cursor-pointer flex-col items-center rounded-md transition-colors duration-200 hover:bg-accent"
       :title="t('maskEditor.clickToResetZoom')"
       @click="onResetZoom"
     >

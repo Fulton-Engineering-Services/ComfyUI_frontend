@@ -65,7 +65,7 @@ if (returningFromPortal) void resumeFromPortal()
       <li
         v-for="row in rows"
         :key="row.id"
-        class="flex items-center justify-between gap-4 rounded-xl border border-border-subtle bg-secondary px-4 py-3"
+        class="flex items-center justify-between gap-4 rounded-xl border border-border/50 bg-secondary px-4 py-3"
       >
         <span class="text-sm text-foreground">{{ row.label }}</span>
         <span v-if="row.isDefault" class="text-xs text-muted-foreground">

@@ -393,7 +393,7 @@ defineExpose({ addAttachment, updateAttachment, removeAttachment })
           variant="muted-textonly"
           size="icon-sm"
           :aria-label="t('agent.showChatHistory')"
-          class="size-6 shrink-0 data-coach-hover:bg-secondary-background-hover"
+          class="size-6 shrink-0 data-coach-hover:bg-accent"
           @click="onOpenHistory"
         >
           <span class="icon-[lucide--history] size-4 shrink-0" />

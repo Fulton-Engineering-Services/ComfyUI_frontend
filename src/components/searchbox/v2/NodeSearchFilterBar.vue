@@ -12,7 +12,7 @@
       <i class="icon-[lucide--panel-left] size-4" />
     </button>
 
-    <div class="h-5 w-px shrink-0 bg-border-subtle" />
+    <div class="h-5 w-px shrink-0 bg-border/50" />
 
     <div
       data-testid="filter-chips-scroll"
@@ -31,7 +31,7 @@
         {{ btn.label }}
       </button>
 
-      <div class="h-5 w-px shrink-0 bg-border-subtle" />
+      <div class="h-5 w-px shrink-0 bg-border/50" />
 
       <!-- Type filter popovers (Input / Output) -->
       <NodeSearchTypeFilterPopover

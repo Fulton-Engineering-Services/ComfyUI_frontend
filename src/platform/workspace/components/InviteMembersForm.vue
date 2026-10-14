@@ -143,7 +143,7 @@ const {
   occupiedSeats = 0,
   showSubmit = true,
   autoFocus = false,
-  tagsInputClass = 'min-h-10 w-full bg-tertiary-background px-3 focus-within:bg-tertiary-background hover:bg-tertiary-background-hover'
+  tagsInputClass = 'min-h-10 w-full bg-muted px-3 focus-within:bg-muted hover:bg-muted/80'
 } = defineProps<{
   submitLabel: string
   placeholder: string

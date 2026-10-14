@@ -117,7 +117,7 @@
           v-for="(binding, index) in command.keybindings"
           :key="binding.combo.serialize()"
           data-testid="keybinding-expansion-binding"
-          class="flex items-center justify-between border-b border-border-subtle py-1.5 last:border-b-0"
+          class="flex items-center justify-between border-b border-border/50 py-1.5 last:border-b-0"
         >
           <div class="flex items-center gap-4">
             <span class="text-muted-foreground">{{ command.label }}</span>

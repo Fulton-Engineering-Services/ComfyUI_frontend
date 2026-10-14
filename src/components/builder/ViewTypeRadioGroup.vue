@@ -18,7 +18,7 @@
       "
     >
       <div
-        class="flex size-8 min-h-8 items-center justify-center rounded-lg bg-secondary-background-hover"
+        class="flex size-8 min-h-8 items-center justify-center rounded-lg bg-accent"
       >
         <i :class="cn(option.icon, 'size-4')" aria-hidden="true" />
       </div>

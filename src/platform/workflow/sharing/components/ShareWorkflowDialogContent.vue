@@ -295,7 +295,7 @@ function tabButtonClass(mode: DialogMode) {
     'cursor-pointer border-none transition-colors',
     dialogMode.value === mode
       ? 'bg-secondary text-foreground'
-      : 'bg-transparent text-muted-foreground hover:bg-secondary-background-hover'
+      : 'bg-transparent text-muted-foreground hover:bg-accent'
   )
 }
 

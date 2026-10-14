@@ -33,7 +33,7 @@
           :value="option.value"
           :disabled="option.isDisabled"
           :aria-disabled="option.isDisabled"
-          class="flex cursor-pointer items-center justify-between rounded-md px-3 py-2 outline-none data-disabled:cursor-not-allowed data-disabled:opacity-50 data-highlighted:bg-secondary-background-hover"
+          class="flex cursor-pointer items-center justify-between rounded-md px-3 py-2 outline-none data-disabled:cursor-not-allowed data-disabled:opacity-50 data-highlighted:bg-accent"
         >
           <div class="flex items-center gap-2">
             <div v-if="option.value === 'nightly'" class="w-4"></div>

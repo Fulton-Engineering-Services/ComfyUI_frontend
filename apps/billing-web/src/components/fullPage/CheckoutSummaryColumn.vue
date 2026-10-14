@@ -27,8 +27,7 @@ const emit = defineEmits<{ back: [] }>()
 
 const { t } = useI18n()
 
-const SKELETON_BAR =
-  'block rounded-full bg-tertiary-background motion-safe:animate-pulse'
+const SKELETON_BAR = 'block rounded-full bg-muted motion-safe:animate-pulse'
 </script>
 
 <template>

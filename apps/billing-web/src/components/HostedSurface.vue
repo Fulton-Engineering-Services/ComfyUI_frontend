@@ -81,7 +81,7 @@ function leaveForHost(href: string) {
 
       <section
         v-if="error"
-        class="rounded-xl border border-border-subtle bg-secondary p-6"
+        class="rounded-xl border border-border/50 bg-secondary p-6"
       >
         <h2 class="m-0 text-base font-semibold text-foreground">
           {{ t('hosted.entryError.title') }}

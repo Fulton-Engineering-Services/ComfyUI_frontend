@@ -61,7 +61,7 @@
         <ButtonGroup
           v-else-if="isSaved"
           data-testid="builder-save-group"
-          class="w-full rounded-lg bg-secondary has-[[data-save-chevron]:hover]:bg-secondary-background-hover"
+          class="w-full rounded-lg bg-secondary has-[[data-save-chevron]:hover]:bg-secondary/80"
         >
           <Button
             size="lg"

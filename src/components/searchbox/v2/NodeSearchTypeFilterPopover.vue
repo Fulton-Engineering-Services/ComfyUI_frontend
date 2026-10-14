@@ -61,7 +61,7 @@
             :key="option"
             :value="option"
             data-testid="filter-option"
-            class="flex cursor-pointer items-center gap-2 rounded-sm px-1 py-2 text-sm text-foreground outline-none data-highlighted:bg-secondary-background-hover"
+            class="flex cursor-pointer items-center gap-2 rounded-sm px-1 py-2 text-sm text-foreground outline-none data-highlighted:bg-accent"
           >
             <span
               :class="

@@ -15,7 +15,7 @@ const emit = defineEmits<{ 'download-model': [rowId: string] }>()
 <template>
   <section
     :aria-labelledby="titleId"
-    class="border-t border-border-subtle/60 pb-2 first:border-t-0"
+    class="border-t border-border/30 pb-2 first:border-t-0"
   >
     <div class="flex h-10 items-center gap-2 px-2">
       <h3 :id="titleId" class="m-0 text-sm font-medium">{{ group.label }}</h3>

@@ -22,7 +22,7 @@
       </p>
       <span
         v-if="subscriptionTierName"
-        class="my-0 mt-2 rounded-full bg-secondary-background-hover px-2 py-0.5 text-xs font-bold text-foreground uppercase"
+        class="my-0 mt-2 rounded-full bg-accent px-2 py-0.5 text-xs font-bold text-foreground uppercase"
       >
         {{ subscriptionTierName }}
       </span>
@@ -34,7 +34,7 @@
           <Button
             ref="workspaceSwitcherTrigger"
             variant="muted-textonly"
-            class="flex h-auto w-full items-center justify-between rounded-lg px-4 py-2 hover:bg-secondary-background-hover"
+            class="flex h-auto w-full items-center justify-between rounded-lg px-4 py-2 hover:bg-accent"
             :aria-expanded="isWorkspaceSwitcherOpen"
             aria-haspopup="menu"
             aria-controls="workspace-switcher-panel"
@@ -109,7 +109,7 @@
 
     <div
       v-if="canAccessSubscriptionFeatures"
-      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-secondary-background-hover"
+      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-accent"
       data-testid="partner-nodes-menu-item"
       @click="handleOpenPartnerNodesInfo"
     >
@@ -121,7 +121,7 @@
 
     <div
       v-if="canAccessSubscriptionFeatures || showWorkspaceSwitcher"
-      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-secondary-background-hover"
+      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-accent"
       data-testid="manage-plan-menu-item"
       @click="handleOpenPlanAndCreditsSettings"
     >
@@ -132,7 +132,7 @@
     </div>
 
     <div
-      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-secondary-background-hover"
+      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-accent"
       data-testid="user-settings-menu-item"
       @click="handleOpenUserSettings"
     >
@@ -145,7 +145,7 @@
     <div class="mx-0 my-2 border-t border-border" />
 
     <div
-      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-secondary-background-hover"
+      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-accent"
       data-testid="logout-menu-item"
       @click="handleLogout"
     >

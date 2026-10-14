@@ -160,7 +160,7 @@ const canMoveActive = computed(
 )
 
 const footerButtonClass =
-  'flex size-7 cursor-pointer items-center justify-center rounded-md border-0 bg-transparent text-foreground transition-colors hover:bg-secondary-background-hover disabled:cursor-default disabled:opacity-40'
+  'flex size-7 cursor-pointer items-center justify-center rounded-md border-0 bg-transparent text-foreground transition-colors hover:bg-accent disabled:cursor-default disabled:opacity-40'
 
 function layerSubtitle(node: SceneNode): string {
   const blendInitial = node.mode.blend.charAt(0).toUpperCase()
@@ -174,15 +174,15 @@ function isRowSelected(id: string): boolean {
 function rowClass(selected: boolean, extra?: string): string {
   return cn(
     'group relative flex cursor-pointer items-center gap-2 border-border px-2 py-1.5 select-none',
-    'hover:bg-secondary-background-hover',
-    selected && 'bg-secondary-background-selected',
+    'hover:bg-accent',
+    selected && 'bg-muted',
     extra
   )
 }
 
 function eyeButtonClass(visible: boolean): string {
   return cn(
-    'flex size-6 shrink-0 cursor-pointer items-center justify-center rounded-sm border-0 bg-transparent text-foreground hover:bg-secondary-background-hover',
+    'flex size-6 shrink-0 cursor-pointer items-center justify-center rounded-sm border-0 bg-transparent text-foreground hover:bg-accent',
     visible && 'opacity-0 group-hover:opacity-100'
   )
 }

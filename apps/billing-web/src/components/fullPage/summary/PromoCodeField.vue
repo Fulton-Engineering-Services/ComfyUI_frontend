@@ -44,7 +44,7 @@ function edit(event: Event) {
       <button
         type="submit"
         :disabled="locked"
-        class="flex h-8 cursor-pointer items-center rounded-lg bg-secondary px-2 text-xs text-foreground hover:bg-secondary-background-hover focus-visible:ring-2 focus-visible:ring-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-40 max-lg:h-10 max-lg:px-3"
+        class="flex h-8 cursor-pointer items-center rounded-lg bg-secondary px-2 text-xs text-foreground hover:bg-secondary/80 focus-visible:ring-2 focus-visible:ring-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-40 max-lg:h-10 max-lg:px-3"
       >
         {{ t(`${P}.apply`) }}
       </button>
@@ -52,7 +52,7 @@ function edit(event: Event) {
         type="button"
         :disabled="locked"
         :aria-label="t(`${P}.dismiss`)"
-        class="flex size-8 cursor-pointer items-center justify-center rounded-lg text-foreground hover:bg-secondary-background-hover focus-visible:ring-2 focus-visible:ring-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-40 max-lg:size-10"
+        class="flex size-8 cursor-pointer items-center justify-center rounded-lg text-foreground hover:bg-accent focus-visible:ring-2 focus-visible:ring-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-40 max-lg:size-10"
         @click="emit('dismiss')"
       >
         <i class="icon-[lucide--x] size-4" aria-hidden="true" />

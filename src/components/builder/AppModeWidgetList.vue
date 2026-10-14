@@ -231,7 +231,7 @@ defineExpose({ handleDragDrop })
       :class="
         cn(
           'h-5 px-5',
-          description ? 'text-muted-foreground' : 'text-muted-background'
+          description ? 'text-muted-foreground' : 'text-muted-foreground'
         )
       "
     >

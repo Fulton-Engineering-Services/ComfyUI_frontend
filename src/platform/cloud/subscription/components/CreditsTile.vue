@@ -69,7 +69,7 @@
           :aria-valuemin="0"
           :aria-valuemax="creditPoolTotalCredits ?? 0"
           :aria-valuetext="monthlyUsageLabel"
-          class="h-2 w-full overflow-hidden rounded-full bg-secondary-background-hover"
+          class="h-2 w-full overflow-hidden rounded-full bg-accent"
         >
           <div
             class="h-full rounded-full bg-credit"

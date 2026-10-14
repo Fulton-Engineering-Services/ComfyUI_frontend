@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex w-[211px] flex-col gap-2 rounded-lg border border-border-subtle bg-background p-2 shadow-md"
+    class="flex w-[211px] flex-col gap-2 rounded-lg border border-border/50 bg-background p-2 shadow-md"
   >
     <ColorPickerSaturationValue
       v-model:saturation="hsva.s"
@@ -66,7 +66,7 @@
         </template>
         <div
           v-if="alpha"
-          class="flex shrink-0 items-center border-l border-border-subtle pl-1"
+          class="flex shrink-0 items-center border-l border-border/50 pl-1"
         >
           <input
             v-model.number="alphaField.draft"

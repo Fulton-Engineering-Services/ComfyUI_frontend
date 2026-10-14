@@ -96,7 +96,7 @@
                 </span>
               </div>
               <div
-                class="flex h-14 flex-1 items-center justify-center gap-1.5 bg-secondary-background-hover px-3 pt-7 pb-1.5 backdrop-blur-md"
+                class="flex h-14 flex-1 items-center justify-center gap-1.5 bg-accent px-3 pt-7 pb-1.5 backdrop-blur-md"
               >
                 <i
                   class="icon-[tabler--crown-filled] size-4 text-brand-yellow"

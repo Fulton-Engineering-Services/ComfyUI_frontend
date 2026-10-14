@@ -5,25 +5,20 @@ export const buttonVariants = cva({
   base: 'relative inline-flex cursor-pointer touch-manipulation appearance-none items-center justify-center gap-2 rounded-md border-none font-inter text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-1 focus-visible:ring-border focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([width]):not([height])]:size-4',
   variants: {
     variant: {
-      secondary:
-        'bg-secondary text-foreground hover:bg-secondary-background-hover',
-      primary: 'bg-primary text-foreground hover:bg-primary-background-hover',
+      secondary: 'bg-secondary text-foreground hover:bg-secondary/80',
+      primary: 'bg-primary text-foreground hover:bg-primary/90',
       inverted: 'bg-foreground text-background hover:bg-foreground/80',
-      destructive:
-        'bg-destructive text-foreground hover:bg-destructive-background-hover',
-      textonly:
-        'bg-transparent text-foreground hover:bg-secondary-background-hover',
-      'muted-textonly':
-        'bg-transparent text-muted-foreground hover:bg-secondary-background-hover',
+      destructive: 'bg-destructive text-foreground hover:bg-destructive/90',
+      textonly: 'bg-transparent text-foreground hover:bg-accent',
+      'muted-textonly': 'bg-transparent text-muted-foreground hover:bg-accent',
       'destructive-textonly':
         'bg-transparent text-destructive hover:bg-destructive/10',
       outline:
-        'border border-solid border-border bg-transparent text-foreground hover:bg-secondary-background-hover',
+        'border border-solid border-border bg-transparent text-foreground hover:bg-accent',
       link: 'bg-transparent text-muted-foreground hover:text-foreground',
       'overlay-white': 'bg-white text-gray-600 hover:bg-white/90',
-      base: 'bg-background text-foreground hover:bg-secondary-background-hover',
-      tertiary:
-        'bg-tertiary-background text-foreground hover:bg-tertiary-background-hover',
+      base: 'bg-background text-foreground hover:bg-accent',
+      tertiary: 'bg-muted text-foreground hover:bg-muted/80',
       subscribe:
         'border-transparent bg-credit text-charcoal-800 hover:opacity-80',
       'brand-ghost':

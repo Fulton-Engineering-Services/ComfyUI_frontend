@@ -70,7 +70,7 @@
       <div
         v-if="topbarBadgeStore.badges.length"
         data-testid="environment-badge-separator"
-        class="h-5 w-px shrink-0 bg-border-subtle"
+        class="h-5 w-px shrink-0 bg-border/50"
       />
       <Button
         v-if="isCloud || isNightly"
@@ -88,7 +88,7 @@
       <template v-if="showAgentEntry">
         <div
           data-testid="agent-entry-separator"
-          class="h-5 w-px shrink-0 bg-border-subtle"
+          class="h-5 w-px shrink-0 bg-border/50"
         />
         <AgentEntryButton
           :active="agentPanelStore.isVisible"

@@ -57,9 +57,9 @@ const containerClasses = computed(() => {
       'p-2 transition-colors duration-200'
     ),
     outline: cn(
-      hasBorder && 'border-2 border-border-subtle',
+      hasBorder && 'border-2 border-border/50',
       hasCursor && 'cursor-pointer',
-      'transition-colors hover:border-border-subtle/50'
+      'transition-colors hover:border-border/25'
     )
   }
 

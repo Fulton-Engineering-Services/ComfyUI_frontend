@@ -17,7 +17,7 @@
           :value="option"
           :class="
             cn(
-              'flex w-full cursor-pointer items-center gap-2 rounded-[10px] border border-border-subtle bg-transparent p-2.5 text-left text-sm text-foreground transition-colors hover:bg-secondary-background-hover focus-visible:ring-1 focus-visible:ring-border focus-visible:outline-none',
+              'flex w-full cursor-pointer items-center gap-2 rounded-[10px] border border-border/50 bg-transparent p-2.5 text-left text-sm text-foreground transition-colors hover:bg-secondary/80 focus-visible:ring-1 focus-visible:ring-border focus-visible:outline-none',
               reason === option && 'border-transparent bg-secondary'
             )
           "
@@ -25,7 +25,7 @@
           <span
             :class="
               cn(
-                'flex size-4 shrink-0 items-center justify-center rounded-full border border-border-subtle',
+                'flex size-4 shrink-0 items-center justify-center rounded-full border border-border/50',
                 reason === option && 'border-foreground bg-foreground'
               )
             "

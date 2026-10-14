@@ -93,8 +93,6 @@
   --content-hover-fg: #000;
 
   /* Semantic tokens - light mode */
-  --brand-yellow: var(--color-electric-400);
-  --brand-blue: var(--color-sapphire-700);
   --secondary-background-hover: var(--color-smoke-400);
   --secondary-background-selected: var(--color-smoke-600);
   --tertiary-background: var(--color-smoke-400);
@@ -135,7 +133,6 @@
   --destructive: var(--color-coral-700);
   --border: var(--color-charcoal-200);
   --input: var(--color-charcoal-400);
-  --ring: var(--color-smoke-800);
 
   --fg-color: #fff;
   --bg-color: #202020;
@@ -145,20 +142,14 @@
   --content-hover-fg: #fff;
 
   /* Semantic tokens - dark mode */
-  --brand-yellow: var(--color-electric-400);
-  --brand-blue: var(--color-sapphire-700);
   --secondary-background-hover: var(--color-charcoal-400);
   --secondary-background-selected: var(--color-charcoal-200);
   --tertiary-background: var(--color-charcoal-400);
   --tertiary-background-hover: var(--color-charcoal-300);
   --primary-background-hover: var(--color-azure-400);
-  --destructive-background-hover: var(--color-coral-600);
   --inverted-background-hover: var(--color-smoke-200);
   --warning-background: var(--color-gold-600);
-  --warning-background-hover: var(--color-gold-500);
   --warning-foreground: var(--color-gold-600);
-  --warning-on-background: var(--color-charcoal-800);
-  --success-background: var(--color-jade-600);
   --border-subtle: var(--color-charcoal-300);
   --muted-background: var(--color-charcoal-100);
   --accent-background: var(--color-charcoal-100);
@@ -199,8 +190,6 @@
   --color-border-subtle: var(--border-subtle);
   --color-muted-background: var(--muted-background);
   --color-accent-background: var(--accent-background);
-  --color-brand-yellow: var(--brand-yellow);
-  --color-brand-blue: var(--brand-blue);
 }
 
 @utility floating-panel {

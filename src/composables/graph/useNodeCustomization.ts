@@ -37,9 +37,7 @@ export function useNodeCustomization() {
   const canvasStore = useCanvasStore()
   const colorPaletteStore = useColorPaletteStore()
   const canvasRefresh = useCanvasRefresh()
-  const isLightTheme = computed(
-    () => colorPaletteStore.completedActivePalette.light_theme
-  )
+  const isLightTheme = computed(() => colorPaletteStore.colorScheme === 'light')
 
   const toLightThemeColor = (color: string) =>
     adjustColor(color, { lightness: 0.5 })

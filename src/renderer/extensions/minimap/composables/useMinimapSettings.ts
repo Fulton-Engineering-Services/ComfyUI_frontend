@@ -1,7 +1,6 @@
 import { computed } from 'vue'
 
 import { useSettingStore } from '@/platform/settings/settingStore'
-import { useColorPaletteStore } from '@/stores/workspace/colorPaletteStore'
 
 /**
  * Composable for minimap configuration options that are set by the user in the
@@ -9,7 +8,6 @@ import { useColorPaletteStore } from '@/stores/workspace/colorPaletteStore'
  */
 export function useMinimapSettings() {
   const settingStore = useSettingStore()
-  const colorPaletteStore = useColorPaletteStore()
 
   const nodeColors = computed(() =>
     settingStore.get('Comfy.Minimap.NodeColors')
@@ -27,11 +25,6 @@ export function useMinimapSettings() {
 
   const width = 253
   const height = 200
-
-  // Theme-aware colors
-  const isLightTheme = computed(
-    () => colorPaletteStore.completedActivePalette.light_theme
-  )
 
   const containerStyles = computed(() => ({
     width: `${width}px`,
@@ -54,7 +47,6 @@ export function useMinimapSettings() {
     renderBypass,
     renderError,
     containerStyles,
-    panelStyles,
-    isLightTheme
+    panelStyles
   }
 }

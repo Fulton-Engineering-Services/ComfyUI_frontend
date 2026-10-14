@@ -209,7 +209,8 @@ function gatherPricing(node: LGraphNode): PricingBadgeSources {
 
 function gatherSources(node: LGraphNode): BadgeSources {
   const settingStore = useSettingStore()
-  const palette = useColorPaletteStore().completedActivePalette
+  const colorPaletteStore = useColorPaletteStore()
+  const palette = colorPaletteStore.completedActivePalette
   const def = useNodeDefStore().fromLGraphNode(node)
   const showApiPricing = settingStore.get('Comfy.NodeBadge.ShowApiPricing')
 
@@ -230,9 +231,10 @@ function gatherSources(node: LGraphNode): BadgeSources {
     colors: {
       fgColor: palette.colors.litegraph_base.BADGE_FG_COLOR,
       bgColor: palette.colors.litegraph_base.BADGE_BG_COLOR,
-      creditsBgColor: palette.light_theme
-        ? adjustColor(CREDITS_BASE_BG_COLOR, { lightness: 0.5 })
-        : CREDITS_BASE_BG_COLOR
+      creditsBgColor:
+        colorPaletteStore.colorScheme === 'light'
+          ? adjustColor(CREDITS_BASE_BG_COLOR, { lightness: 0.5 })
+          : CREDITS_BASE_BG_COLOR
     },
     pricing: showApiPricing ? gatherPricing(node) : { kind: 'none' }
   }

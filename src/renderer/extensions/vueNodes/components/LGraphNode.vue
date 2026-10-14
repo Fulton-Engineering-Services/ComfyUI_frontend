@@ -333,9 +333,7 @@ const { t } = useI18n()
 const { isSelectMode, isSelectOutputsMode } = useAppMode()
 const settingStore = useSettingStore()
 const colorPaletteStore = useColorPaletteStore()
-const isLightTheme = computed(
-  () => !!colorPaletteStore.completedActivePalette.light_theme
-)
+const isLightTheme = computed(() => colorPaletteStore.colorScheme === 'light')
 
 const { handleNodeCollapse, handleNodeTitleUpdate, handleNodeRightClick } =
   useNodeEventHandlers()

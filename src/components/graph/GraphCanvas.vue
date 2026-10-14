@@ -366,9 +366,8 @@ watchEffect(() => {
   LiteGraph.nodeOpacity = settingStore.get('Comfy.Node.Opacity')
 })
 watchEffect(() => {
-  LiteGraph.nodeLightness = colorPaletteStore.completedActivePalette.light_theme
-    ? 0.5
-    : undefined
+  LiteGraph.nodeLightness =
+    colorPaletteStore.colorScheme === 'light' ? 0.5 : undefined
 })
 
 watchEffect(() => {

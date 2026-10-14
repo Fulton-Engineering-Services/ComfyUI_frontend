@@ -62,6 +62,13 @@ function resolvePaletteTheme(palette: CompletedPalette): Theme {
   }
 }
 
+/** The CSS color scheme a palette's theme renders in. */
+export function paletteColorScheme(
+  palette: CompletedPalette
+): 'light' | 'dark' {
+  return palette.light_theme ? 'light' : 'dark'
+}
+
 /** Applies a palette's theme variables and color scheme to an element's inline style. */
 export function applyPaletteTheme(
   style: CSSStyleDeclaration,
@@ -76,5 +83,5 @@ export function applyPaletteTheme(
       style.removeProperty(`--${key}`)
     }
   }
-  style.colorScheme = palette.light_theme ? 'light' : 'dark'
+  style.colorScheme = paletteColorScheme(palette)
 }

@@ -8,7 +8,7 @@ import { adjustColor } from '@/utils/colorUtil'
 export function applyLightThemeColor(color?: string): string {
   if (!color) return ''
 
-  if (!useColorPaletteStore().completedActivePalette.light_theme) return color
+  if (useColorPaletteStore().colorScheme !== 'light') return color
 
   return adjustColor(color, { lightness: 0.5 })
 }

@@ -66,9 +66,7 @@ const colorOptions: NodeColorOption[] = [
   }))
 ]
 
-const isLightTheme = computed(
-  () => colorPaletteStore.completedActivePalette.light_theme
-)
+const isLightTheme = computed(() => colorPaletteStore.colorScheme === 'light')
 
 const nodeColor = computed<NodeColorOption['name'] | null>({
   get() {

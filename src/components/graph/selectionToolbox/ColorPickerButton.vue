@@ -78,9 +78,7 @@ const { t } = useI18n()
 const canvasStore = useCanvasStore()
 const colorPaletteStore = useColorPaletteStore()
 const workflowStore = useWorkflowStore()
-const isLightTheme = computed(
-  () => colorPaletteStore.completedActivePalette.light_theme
-)
+const isLightTheme = computed(() => colorPaletteStore.colorScheme === 'light')
 const toLightThemeColor = (color: string) =>
   adjustColor(color, { lightness: 0.5 })
 

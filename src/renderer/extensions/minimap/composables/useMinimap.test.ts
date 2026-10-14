@@ -856,7 +856,7 @@ describe('useMinimap', () => {
       )
       expect(viewportStyles.width).toMatch(/\d+(\.\d+)?px/)
       expect(viewportStyles.height).toMatch(/\d+(\.\d+)?px/)
-      expect(viewportStyles.border).toBe('2px solid #FFF')
+      expect(viewportStyles.border).toBe('2px solid var(--foreground)')
     })
 
     it('should handle canvas dimension updates', async () => {

@@ -76,6 +76,7 @@ runs:
             'custom-nodes-e2e',
             'custom-nodes-matrix',
             'fallow',
+            'architecture',
             'e2e',
             'screenshot-update',
             'preview',

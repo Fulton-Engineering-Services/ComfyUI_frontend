@@ -263,6 +263,8 @@ body {
   min-width: -webkit-fill-available;
   max-width: -webkit-fill-available;
   font-family: Inter, Arial, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 .comfy-multiline-input {

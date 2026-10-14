@@ -52,11 +52,9 @@
   --background: var(--color-white);
   --foreground: var(--color-charcoal-800);
   --card: var(--color-white);
-  --node: var(--color-white);
   --node-foreground: var(--color-ash-800);
   --node-header: var(--color-smoke-200);
   --node-border: var(--color-smoke-600);
-  --popover: var(--color-white);
   --primary: var(--color-azure-400);
   --secondary: var(--color-smoke-200);
   --muted: var(--color-smoke-400);
@@ -64,7 +62,6 @@
   --accent: var(--color-smoke-200);
   --destructive: var(--color-coral-500);
   --border: var(--color-smoke-600);
-  --input: var(--color-smoke-200);
   --ring: var(--color-smoke-800);
 
   --fg-color: #000;
@@ -120,11 +117,9 @@
   --background: var(--color-charcoal-800);
   --foreground: var(--color-white);
   --card: var(--color-charcoal-600);
-  --node: var(--color-charcoal-600);
   --node-foreground: var(--color-smoke-700);
   --node-header: var(--color-charcoal-700);
   --node-border: var(--color-charcoal-100);
-  --popover: var(--color-charcoal-800);
   --primary: var(--color-azure-600);
   --secondary: var(--color-charcoal-600);
   --muted: var(--color-charcoal-300);
@@ -132,7 +127,6 @@
   --accent: var(--color-charcoal-400);
   --destructive: var(--color-coral-700);
   --border: var(--color-charcoal-200);
-  --input: var(--color-charcoal-400);
 
   --fg-color: #fff;
   --bg-color: #202020;
@@ -153,6 +147,13 @@
   --border-subtle: var(--color-charcoal-300);
   --muted-background: var(--color-charcoal-100);
   --accent-background: var(--color-charcoal-100);
+}
+
+:root,
+.dark-theme {
+  --popover: var(--background);
+  --input: var(--accent);
+  --node: var(--card);
 }
 
 @theme inline {

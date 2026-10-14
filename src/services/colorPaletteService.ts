@@ -32,7 +32,6 @@ function deriveLegacyTheme({ comfy_base, litegraph_base }: Colors): Theme {
     `color-mix(in srgb, ${surface} ${surfacePercent}%, ${contrast})`
   return {
     background: surface,
-    popover: surface,
     foreground: comfy_base['fg-color'],
     'muted-foreground': comfy_base['descrip-text'],
     border: comfy_base['interface-stroke'] ?? mixWithContrast(75.5),

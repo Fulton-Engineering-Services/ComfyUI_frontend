@@ -91,6 +91,7 @@
   --warning: var(--color-gold-600);
   --warning-foreground: var(--color-charcoal-800);
   --success: var(--color-jade-600);
+  --node-shadow: 0 9px 7px rgb(0 0 0 / 0.4);
 
   --palette-interface-panel-box-shadow: 1px 1px 8px 0 rgb(0 0 0 / 0.4);
   --palette-interface-panel-drop-shadow: 1px 1px 4px rgb(0 0 0 / 0.4);
@@ -120,6 +121,7 @@
   --color-warning: var(--warning);
   --color-warning-foreground: var(--warning-foreground);
   --color-success: var(--success);
+  --drop-shadow-node: var(--node-shadow);
 }
 
 @utility floating-panel {

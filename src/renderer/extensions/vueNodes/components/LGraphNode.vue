@@ -12,9 +12,7 @@
       cn(
         'group/node lg-node absolute isolate touch-none text-xs text-node-foreground',
         'flex flex-col contain-layout contain-style',
-        isLightTheme
-          ? 'drop-shadow-md drop-shadow-black/15'
-          : 'drop-shadow-xl drop-shadow-black/40',
+        'drop-shadow-node',
         isRerouteNode
           ? 'h-(--node-height)'
           : 'min-h-(--node-height) min-w-(--min-node-width)',
@@ -294,7 +292,6 @@ import {
 } from '@/renderer/extensions/vueNodes/utils/nodeStyleUtils'
 import { app } from '@/scripts/app'
 import { useNodeOutputStore } from '@/stores/nodeOutputStore'
-import { useColorPaletteStore } from '@/stores/workspace/colorPaletteStore'
 import {
   stripGraphPrefix,
   useWidgetValueStore
@@ -332,8 +329,6 @@ const { t } = useI18n()
 
 const { isSelectMode, isSelectOutputsMode } = useAppMode()
 const settingStore = useSettingStore()
-const colorPaletteStore = useColorPaletteStore()
-const isLightTheme = computed(() => colorPaletteStore.colorScheme === 'light')
 
 const { handleNodeCollapse, handleNodeTitleUpdate, handleNodeRightClick } =
   useNodeEventHandlers()

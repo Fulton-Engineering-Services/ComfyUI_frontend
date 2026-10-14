@@ -106,7 +106,8 @@ export const themeSchema = z
     ['node-border']: z.string(),
     warning: z.string(),
     ['warning-foreground']: z.string(),
-    success: z.string()
+    success: z.string(),
+    ['node-shadow']: z.string()
   })
   .partial()
 

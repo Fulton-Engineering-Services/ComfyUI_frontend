@@ -175,8 +175,11 @@ describe('useColorPaletteService theme variables', () => {
       styleCss.indexOf('}', styleCss.indexOf(':root {'))
     )
     const stylesheetDefaults = Object.fromEntries(
-      [...rootBlock.matchAll(/--([\w-]+):\s*var\(--color-([\w-]+)\);/g)].map(
-        ([, token, color]) => [token, palette[color]]
+      [...rootBlock.matchAll(/--([\w-]+):\s*([^;]+);/g)].map(
+        ([, token, value]) => [
+          token,
+          palette[/^var\(--color-([\w-]+)\)$/.exec(value)?.[1] ?? ''] ?? value
+        ]
       )
     )
     const darkTheme = useColorPaletteStore().palettesLookup.dark?.colors.theme

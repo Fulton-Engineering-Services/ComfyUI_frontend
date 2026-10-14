@@ -72,7 +72,7 @@
     >
       <i
         aria-hidden="true"
-        class="text-error"
+        class="text-destructive"
         :class="
           typeMismatch
             ? 'icon-[lucide--circle-alert] size-12'

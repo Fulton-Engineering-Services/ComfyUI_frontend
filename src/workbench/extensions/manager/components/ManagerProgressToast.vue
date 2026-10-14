@@ -288,7 +288,7 @@ onBeforeUnmount(() => {
             </template>
             <span
               v-else-if="comfyManagerStore.failedTasksIds.length"
-              class="text-error"
+              class="text-destructive"
               >{{ t('g.failed') }}</span
             >
             <span v-else>{{ t('g.completed') }}</span>

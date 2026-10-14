@@ -104,8 +104,9 @@ export const themeSchema = z
     ['node-foreground']: z.string(),
     ['node-header']: z.string(),
     ['node-border']: z.string(),
-    ['warning-background']: z.string(),
-    ['warning-foreground']: z.string()
+    warning: z.string(),
+    ['warning-foreground']: z.string(),
+    success: z.string()
   })
   .partial()
 

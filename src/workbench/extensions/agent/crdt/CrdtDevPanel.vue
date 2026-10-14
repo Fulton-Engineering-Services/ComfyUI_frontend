@@ -172,7 +172,7 @@ const STATUS_ROWS = [
 const SCOPES: readonly CrdtLogScope[] = ['wire', 'doc']
 
 const VERDICT_TONE: Record<string, string> = {
-  applied: 'text-success-background border-success-background',
+  applied: 'text-success border-success',
   'lww-dropped': 'text-muted-foreground border-border',
   'no-op': 'text-muted-foreground border-border',
   rejected: 'text-destructive border-destructive',
@@ -714,7 +714,7 @@ function fmtTime(at: number): string {
         :class="
           cn(
             'size-1.5 rounded-full',
-            status.connected ? 'bg-success-background' : 'bg-destructive'
+            status.connected ? 'bg-success' : 'bg-destructive'
           )
         "
       />

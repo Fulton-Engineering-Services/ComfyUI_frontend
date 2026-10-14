@@ -73,7 +73,7 @@
           !isRerouteNode && 'min-w-(--min-node-width)',
           shapeClass,
           hasAnyError && 'ring-4',
-          errorSeverity === 'missing' && 'ring-warning-background',
+          errorSeverity === 'missing' && 'ring-warning',
           errorSeverity === 'error' && 'ring-destructive',
           bypassed && bypassOverlayClass,
           muted && mutedOverlayClass,

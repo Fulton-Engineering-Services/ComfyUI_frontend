@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center gap-3 p-8">
-    <i class="icon-[lucide--triangle-alert] text-4xl text-warning-background" />
+    <i class="icon-[lucide--triangle-alert] text-4xl text-warning" />
     <h3 class="text-base font-semibold">
       {{ $t('manager.unresolvedNodes.title') }}
     </h3>

@@ -43,7 +43,7 @@
             >
               <TooltipTrigger as-child>
                 <i
-                  class="icon-[lucide--triangle-alert] text-warning-background"
+                  class="icon-[lucide--triangle-alert] text-warning"
                   role="img"
                   :aria-label="option.conflictMessage"
                 />

@@ -419,7 +419,7 @@
 }
 
 .litegraph .dialog .btn.delete:hover {
-  background-color: var(--color-danger-100);
+  background-color: var(--destructive);
   color: var(--foreground);
 }
 

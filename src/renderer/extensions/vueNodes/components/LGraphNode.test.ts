@@ -564,9 +564,7 @@ describe('LGraphNode', () => {
       true
     renderLGraphNode({ nodeData: mockNodeData })
 
-    expect(screen.getByTestId('node-inner-wrapper')).toHaveClass(
-      'ring-warning-background'
-    )
+    expect(screen.getByTestId('node-inner-wrapper')).toHaveClass('ring-warning')
     expect(screen.getByRole('button', { name: 'Issues' })).toBeInTheDocument()
 
     errors.recordNodeErrors({

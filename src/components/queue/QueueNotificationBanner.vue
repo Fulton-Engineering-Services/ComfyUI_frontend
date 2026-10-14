@@ -143,7 +143,7 @@ const iconColorClass = computed(() => {
     return 'animate-spin text-muted-foreground'
   }
   if (notification.type === 'failed') {
-    return 'text-danger-200'
+    return 'text-destructive'
   }
   return 'text-muted-foreground'
 })

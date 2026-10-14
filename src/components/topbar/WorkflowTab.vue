@@ -239,7 +239,7 @@ const showModeIcon = computed(() => !compact || isActiveTab.value)
 const workflowStatusIconClasses: Record<WorkflowExecutionStatus, string> = {
   running:
     'text-foreground icon-[lucide--loader-circle] motion-safe:animate-spin',
-  completed: 'icon-[lucide--circle-check] text-success-background',
+  completed: 'icon-[lucide--circle-check] text-success',
   failed: 'icon-[lucide--octagon-alert] text-destructive'
 }
 

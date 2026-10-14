@@ -4,11 +4,11 @@
     <div
       v-if="!isCloud && hasMissingCoreNodes"
       role="alert"
-      class="mb-3 flex gap-2.5 rounded-lg border border-warning-background/30 bg-warning-background/10 p-3"
+      class="mb-3 flex gap-2.5 rounded-lg border border-warning/30 bg-warning/10 p-3"
     >
       <i
         aria-hidden="true"
-        class="mt-0.5 icon-[lucide--triangle-alert] size-4 shrink-0 text-warning-background"
+        class="mt-0.5 icon-[lucide--triangle-alert] size-4 shrink-0 text-warning"
       />
       <div class="flex flex-col gap-1.5 text-xs/relaxed text-muted-foreground">
         <p class="m-0">

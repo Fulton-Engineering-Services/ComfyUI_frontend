@@ -22,7 +22,7 @@
       <i
         v-if="hasMissingNodes && isRoot"
         data-testid="subgraph-breadcrumb-missing-nodes-icon"
-        class="icon-[lucide--triangle-alert] text-warning-background"
+        class="icon-[lucide--triangle-alert] text-warning"
       />
       <span ref="labelRef" class="max-w-72 truncate px-2">
         {{ item.label }}

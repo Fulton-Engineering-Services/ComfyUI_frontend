@@ -35,7 +35,7 @@
       </Button>
       <i
         v-if="isUnknownPack"
-        class="icon-[lucide--triangle-alert] size-4 shrink-0 text-warning-background"
+        class="icon-[lucide--triangle-alert] size-4 shrink-0 text-warning"
       />
       <span class="flex min-w-0 flex-1 items-center gap-2">
         <span class="flex min-w-0 items-center gap-2.5">
@@ -45,7 +45,7 @@
             :class="
               cn(
                 packTextButtonClass,
-                isUnknownPack ? 'text-warning-background' : 'text-foreground'
+                isUnknownPack ? 'text-warning' : 'text-foreground'
               )
             "
             :aria-expanded="expanded"
@@ -59,7 +59,7 @@
             :class="
               cn(
                 packTextButtonClass,
-                isUnknownPack ? 'text-warning-background' : 'text-foreground'
+                isUnknownPack ? 'text-warning' : 'text-foreground'
               )
             "
             @click="handleLocateNode(primaryLocatableNodeType)"
@@ -69,9 +69,7 @@
           <span
             v-else
             class="min-w-0 truncate text-xs/relaxed font-normal"
-            :class="
-              isUnknownPack ? 'text-warning-background' : 'text-foreground'
-            "
+            :class="isUnknownPack ? 'text-warning' : 'text-foreground'"
           >
             <span v-if="group.isResolving" class="text-muted-foreground italic">
               {{ t('g.loading') }}...

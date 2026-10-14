@@ -9,7 +9,7 @@
         class="m-0 flex items-center gap-2 text-sm font-normal text-foreground"
       >
         <template v-if="step === 'invited'">
-          <i class="pi pi-check-circle size-4 text-success-background" />
+          <i class="pi pi-check-circle size-4 text-success" />
           {{
             $t(
               'workspacePanel.inviteLinks.sentTitle',

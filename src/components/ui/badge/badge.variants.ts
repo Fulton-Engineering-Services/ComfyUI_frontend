@@ -16,8 +16,8 @@ export const badgeVariants = cva({
       secondary: 'bg-secondary text-foreground',
       danger: 'bg-destructive text-foreground',
       info: 'bg-primary/20 text-foreground',
-      success: 'bg-success-background/15 text-foreground',
-      warning: 'bg-warning-background text-warning-on-background'
+      success: 'bg-success/15 text-foreground',
+      warning: 'bg-warning text-warning-foreground'
     }
   },
   defaultVariants: { variant: 'tag', severity: 'secondary' }

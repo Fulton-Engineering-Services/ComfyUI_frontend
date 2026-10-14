@@ -165,7 +165,7 @@ const alertClass = 'rounded-lg bg-background p-3 text-sm'
       <div
         v-if="noticeKey"
         role="alert"
-        :class="cn(alertClass, 'mt-6 text-warning-background')"
+        :class="cn(alertClass, 'mt-6 text-warning')"
       >
         {{ t(noticeKey) }}
       </div>

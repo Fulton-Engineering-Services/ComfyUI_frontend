@@ -66,7 +66,7 @@ const templateSelectorDialog = useWorkflowTemplateSelectorDialog()
       >
         <i18n-t keypath="linearMode.welcome.noOutputs" tag="span">
           <template #count>
-            <span class="font-bold text-warning-background">{{
+            <span class="font-bold text-warning">{{
               t('linearMode.welcome.oneOutput')
             }}</span>
           </template>

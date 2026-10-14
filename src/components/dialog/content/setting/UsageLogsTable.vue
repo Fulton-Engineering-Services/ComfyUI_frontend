@@ -36,7 +36,7 @@
             <TableCell>
               <div
                 v-if="event.event_type === EventType.CREDIT_ADDED"
-                class="font-semibold text-success-background"
+                class="font-semibold text-success"
               >
                 {{ $t('credits.added') }} ${{
                   customerEventService.formatAmount(eventAmount(event))

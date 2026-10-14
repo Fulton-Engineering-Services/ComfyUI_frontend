@@ -1,9 +1,9 @@
 <template>
   <div
-    class="mb-6 flex gap-3 rounded-2xl border border-warning-background bg-warning-background/20 p-4"
+    class="mb-6 flex gap-3 rounded-2xl border border-warning bg-warning/20 p-4"
   >
     <div
-      class="flex size-8 shrink-0 items-center justify-center rounded-full text-warning-background"
+      class="flex size-8 shrink-0 items-center justify-center rounded-full text-warning"
     >
       <i class="pi pi-info-circle" />
     </div>

@@ -20,7 +20,7 @@
         <i
           :class="
             severity === 'warn'
-              ? 'pi pi-exclamation-circle text-warning-background'
+              ? 'pi pi-exclamation-circle text-warning'
               : 'pi pi-spin pi-spinner text-primary'
           "
           aria-hidden="true"

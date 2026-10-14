@@ -27,7 +27,7 @@
             cn(
               'w-3 -translate-x-1/2',
               hasError &&
-                'before:pointer-events-none before:absolute before:size-4 before:rounded-full before:ring-2 before:ring-error before:ring-offset-0'
+                'before:pointer-events-none before:absolute before:size-4 before:rounded-full before:ring-2 before:ring-destructive before:ring-offset-0'
             )
           "
           :slot-data
@@ -42,7 +42,7 @@
             v-if="!props.dotOnly && !hasNoLabel"
             class="min-w-0"
             :label-class="
-              cn('block truncate', hasError && 'font-medium text-error')
+              cn('block truncate', hasError && 'font-medium text-destructive')
             "
             :is-editing
             :model-value="

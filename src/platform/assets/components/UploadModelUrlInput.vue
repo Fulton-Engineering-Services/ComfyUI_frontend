@@ -51,7 +51,7 @@
           :placeholder="$t('assetBrowser.genericLinkPlaceholder')"
           data-attr="upload-model-step1-url-input"
         />
-        <p v-if="error" class="text-sm text-error">
+        <p v-if="error" class="text-sm text-destructive">
           {{ error }}
         </p>
       </div>

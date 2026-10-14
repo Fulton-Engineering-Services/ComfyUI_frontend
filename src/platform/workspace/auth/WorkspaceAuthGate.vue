@@ -35,7 +35,7 @@
     <div class="flex max-w-md flex-col items-center gap-4 text-center">
       <i
         aria-hidden="true"
-        class="icon-[lucide--triangle-alert] size-8 text-error"
+        class="icon-[lucide--triangle-alert] size-8 text-destructive"
       />
       <div>
         <h1 class="m-0 text-lg font-semibold text-foreground">

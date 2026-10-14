@@ -33,7 +33,7 @@ const emit = defineEmits<{ download: [] }>()
   >
     <i
       aria-hidden="true"
-      class="icon-[lucide--circle-check] size-4 text-success-background"
+      class="icon-[lucide--circle-check] size-4 text-success"
     />
   </span>
   <span

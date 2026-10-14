@@ -38,9 +38,7 @@
         :class="
           cn(
             'text-sm',
-            isExpired(invite)
-              ? 'text-warning-background'
-              : 'text-muted-foreground'
+            isExpired(invite) ? 'text-warning' : 'text-muted-foreground'
           )
         "
       >

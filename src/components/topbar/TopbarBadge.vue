@@ -143,9 +143,9 @@ const labelClasses =
 const textClasses = computed(() => {
   switch (variant.value) {
     case 'error':
-      return 'text-danger-100'
+      return 'text-destructive'
     case 'warning':
-      return 'text-warning-background'
+      return 'text-warning'
     case 'info':
     default:
       return 'text-foreground'
@@ -174,7 +174,7 @@ const badgeIconClass = computed(() =>
 const dotClasses = computed(() => {
   switch (variant.value) {
     case 'error':
-      return 'bg-danger-100'
+      return 'bg-destructive'
     case 'warning':
       return 'bg-gold-600'
     case 'info':

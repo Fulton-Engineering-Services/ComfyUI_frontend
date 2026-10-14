@@ -145,14 +145,14 @@
               <span class="text-sm font-normal text-foreground">
                 {{ t('subscription.gpuLabel') }}
               </span>
-              <i class="pi pi-check text-xs text-success-background" />
+              <i class="pi pi-check text-xs text-success" />
             </div>
 
             <div class="flex flex-row items-center justify-between">
               <span class="text-sm font-normal text-foreground">
                 {{ t('subscription.addCreditsLabel') }}
               </span>
-              <i class="pi pi-check text-xs text-success-background" />
+              <i class="pi pi-check text-xs text-success" />
             </div>
 
             <div class="flex flex-row items-center justify-between">
@@ -161,7 +161,7 @@
               </span>
               <i
                 v-if="tier.customLoRAs"
-                class="pi pi-check text-xs text-success-background"
+                class="pi pi-check text-xs text-success"
               />
               <i v-else class="pi pi-times text-xs text-foreground" />
             </div>
@@ -203,7 +203,7 @@
                 'h-10 w-full',
                 getButtonTextClass(tier),
                 tier.key === 'creator'
-                  ? 'border-transparent bg-success-background hover:bg-success-background/80'
+                  ? 'border-transparent bg-success hover:bg-success/80'
                   : 'border-transparent bg-secondary hover:bg-secondary/80 focus:bg-muted'
               )
             "

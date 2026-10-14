@@ -40,7 +40,7 @@ onMounted(() => {
       class="m-0 flex items-center gap-2 text-sm/5 font-medium text-foreground"
     >
       <i
-        class="icon-[lucide--circle-alert] size-4 shrink-0 text-warning-background"
+        class="icon-[lucide--circle-alert] size-4 shrink-0 text-warning"
         aria-hidden="true"
       />
       {{ t(`checkout.fullPage.outcome.${outcome.kind}.title`) }}

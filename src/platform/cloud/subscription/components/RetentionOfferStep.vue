@@ -7,7 +7,7 @@
   >
     <template v-if="phase === 'applied'" #title-icon>
       <i
-        class="icon-[lucide--circle-check-big] size-6 text-success-background"
+        class="icon-[lucide--circle-check-big] size-6 text-success"
         aria-hidden="true"
       />
     </template>

@@ -6,11 +6,7 @@ import { cn } from '@comfyorg/tailwind-utils'
 import { useBillingContext } from '@/composables/billing/useBillingContext'
 import { useFreeTierQuota } from '@/platform/cloud/subscription/composables/useFreeTierQuota'
 
-const DOT_COLORS = [
-  'bg-destructive',
-  'bg-warning-background',
-  'bg-success-background'
-]
+const DOT_COLORS = ['bg-destructive', 'bg-warning', 'bg-success']
 
 const { isFreeTier, showSubscriptionDialog } = useBillingContext()
 const { t } = useI18n()

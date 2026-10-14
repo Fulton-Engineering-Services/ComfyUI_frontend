@@ -226,7 +226,7 @@ function confirmDeletion() {
       confirmText: t('g.delete'),
       // TODO: These need to be put into the new Button Variants once we have them.
       confirmClass: cn(
-        'bg-danger-200 text-foreground ring-foreground hover:bg-danger-200/80 focus:bg-danger-200/80 focus:ring'
+        'bg-destructive text-foreground ring-foreground hover:bg-destructive/80 focus:bg-destructive/80 focus:ring'
       ),
       optionsDisabled,
       onCancel: () => {

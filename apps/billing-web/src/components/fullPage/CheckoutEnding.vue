@@ -67,8 +67,8 @@ const ENDINGS: Readonly<
 }
 
 const ICON: Readonly<Record<Tone, string>> = {
-  done: 'icon-[lucide--circle-check-big] text-success-background',
-  waiting: 'icon-[lucide--clock] text-warning-background',
+  done: 'icon-[lucide--circle-check-big] text-success',
+  waiting: 'icon-[lucide--clock] text-warning',
   refused: 'icon-[lucide--circle-alert] text-muted-foreground'
 }
 

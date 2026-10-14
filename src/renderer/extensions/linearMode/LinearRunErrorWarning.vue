@@ -36,7 +36,7 @@ const { hasError, overlayMessage, overlayTitle } = useErrorOverlayState()
               'mt-0.5 size-4 shrink-0',
               hasError
                 ? 'icon-[lucide--circle-x] text-destructive'
-                : 'icon-[lucide--triangle-alert] text-warning-foreground'
+                : 'icon-[lucide--triangle-alert] text-warning'
             )
           "
         />

@@ -10,7 +10,7 @@
           class="w-full justify-between px-4 py-1 text-sm"
         >
           <i
-            class="icon-[lucide--circle-alert] size-4 shrink-0 text-warning-background"
+            class="icon-[lucide--circle-alert] size-4 shrink-0 text-warning"
             aria-hidden="true"
           />
           <span class="m-0 flex-1 text-left text-sm text-muted-foreground">

@@ -28,7 +28,7 @@ const clipPath = computed(() => {
 })
 
 const types = computed(() => {
-  if (props.hasError) return ['var(--color-error)']
+  if (props.hasError) return ['var(--destructive)']
   //TODO Support connected/disconnected colors?
   if (!props.slotData) return [getSlotColor()]
   if (props.slotData.type === '*') return ['']

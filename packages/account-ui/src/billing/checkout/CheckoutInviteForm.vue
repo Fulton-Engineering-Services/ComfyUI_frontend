@@ -72,7 +72,7 @@ const hints = computed(() => [
         {
           id: ids.pending,
           role: undefined,
-          class: 'm-0 text-xs text-warning-background',
+          class: 'm-0 text-xs text-warning',
           text:
             alreadyInvitedCount === 1
               ? copy.pendingInviteSingle

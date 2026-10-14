@@ -196,9 +196,7 @@ function replayAppModeTour() {
           class="flex h-10 items-center gap-2 rounded-lg bg-foreground p-1 pr-2 text-background md:h-8 md:bg-secondary md:text-foreground"
         >
           <template v-if="pendingJobQueues === 0">
-            <i
-              class="icon-[lucide--check] size-5 not-md:bg-success-background"
-            />
+            <i class="icon-[lucide--check] size-5 not-md:bg-success" />
             <span class="mr-auto" v-text="t('queue.jobAddedToQueue')" />
             <Button
               v-if="mobile"

@@ -80,8 +80,7 @@
       "node-foreground": "#a0a0a0",
       "node-header": "#202121",
       "node-border": "#55565e",
-      "warning-background": "#fd9903",
-      "warning-foreground": "#fd9903"
+      "warning": "#fd9903"
     }
   }
 }

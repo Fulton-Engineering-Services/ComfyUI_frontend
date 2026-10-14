@@ -39,9 +39,7 @@
             "
           >
             <TooltipTrigger as-child>
-              <i
-                class="icon-[lucide--triangle-alert] shrink-0 text-warning-background"
-              />
+              <i class="icon-[lucide--triangle-alert] shrink-0 text-warning" />
             </TooltipTrigger>
             <TooltipContent>{{
               $t('g.browserReservedKeybindingTooltip')

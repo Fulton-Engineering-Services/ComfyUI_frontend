@@ -171,14 +171,14 @@
             </div>
             <div
               v-if="viewer.stats.value.nanCount"
-              class="flex justify-between text-error"
+              class="flex justify-between text-destructive"
             >
               <span>{{ $t('hdrViewer.nan') }}</span>
               <span>{{ viewer.stats.value.nanCount }}</span>
             </div>
             <div
               v-if="viewer.stats.value.infCount"
-              class="flex justify-between text-error"
+              class="flex justify-between text-destructive"
             >
               <span>{{ $t('hdrViewer.inf') }}</span>
               <span>{{ viewer.stats.value.infCount }}</span>

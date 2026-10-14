@@ -7,7 +7,7 @@ export const statusBadgeVariants = cva({
     severity: {
       default: 'bg-primary text-foreground',
       secondary: 'bg-secondary text-foreground',
-      warn: 'bg-warning-background text-background',
+      warn: 'bg-warning text-background',
       danger: 'bg-destructive text-white',
       contrast: 'bg-foreground text-background'
     },

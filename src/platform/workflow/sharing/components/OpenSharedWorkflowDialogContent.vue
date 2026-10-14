@@ -45,7 +45,7 @@
     <template v-else-if="error">
       <main class="flex flex-col items-center gap-4 p-8">
         <i
-          class="icon-[lucide--circle-alert] size-8 text-warning-background"
+          class="icon-[lucide--circle-alert] size-8 text-warning"
           aria-hidden="true"
         />
         <p class="m-0 text-center text-sm text-muted-foreground">
@@ -103,7 +103,7 @@
                 class="w-full justify-between px-4 py-1 text-sm"
               >
                 <i
-                  class="icon-[lucide--circle-alert] size-4 shrink-0 text-warning-background"
+                  class="icon-[lucide--circle-alert] size-4 shrink-0 text-warning"
                   aria-hidden="true"
                 />
                 <span

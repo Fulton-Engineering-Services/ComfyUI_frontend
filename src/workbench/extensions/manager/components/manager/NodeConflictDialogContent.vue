@@ -22,7 +22,7 @@
           @click="toggleImportFailedPanel"
         >
           <div class="flex flex-1">
-            <span class="mr-2 text-xs font-bold text-warning-background">{{
+            <span class="mr-2 text-xs font-bold text-warning">{{
               importFailedConflicts.length
             }}</span>
             <span class="text-xs font-bold text-foreground">{{
@@ -74,7 +74,7 @@
           @click="toggleConflictsPanel"
         >
           <div class="flex flex-1">
-            <span class="mr-2 text-xs font-bold text-warning-background">{{
+            <span class="mr-2 text-xs font-bold text-warning">{{
               allConflictDetails.length
             }}</span>
             <span class="text-xs font-bold text-foreground">{{
@@ -126,7 +126,7 @@
           @click="toggleExtensionsPanel"
         >
           <div class="flex flex-1">
-            <span class="mr-2 text-xs font-bold text-warning-background">{{
+            <span class="mr-2 text-xs font-bold text-warning">{{
               conflictData.length
             }}</span>
             <span class="text-xs font-bold text-foreground">{{

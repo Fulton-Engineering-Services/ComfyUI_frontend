@@ -264,7 +264,7 @@ const menuEntries = computed<MenuItem[]>(() => [
           <i :class="cn('size-4', icon)" />
           <div
             v-if="index === 1 && isErrorOverlayVisible"
-            class="absolute -top-1 -right-1 size-2 rounded-full bg-error"
+            class="absolute -top-1 -right-1 size-2 rounded-full bg-destructive"
           />
           <div
             v-else-if="

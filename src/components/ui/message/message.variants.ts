@@ -6,11 +6,9 @@ export const messageVariants = cva({
   variants: {
     severity: {
       error: 'border-destructive/40 bg-destructive/10 text-foreground',
-      warning:
-        'border-warning-background/50 bg-warning-background/15 text-foreground',
+      warning: 'border-warning/50 bg-warning/15 text-foreground',
       info: 'border-primary/40 bg-primary/10 text-foreground',
-      success:
-        'border-success-background/50 bg-success-background/15 text-foreground',
+      success: 'border-success/50 bg-success/15 text-foreground',
       secondary: 'border-border/50 bg-secondary text-foreground'
     }
   },

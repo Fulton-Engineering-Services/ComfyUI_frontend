@@ -141,7 +141,7 @@
               <span
                 v-if="group.blockedLastRun"
                 data-testid="blocked-last-run-indicator"
-                class="flex shrink-0 items-center rounded-full bg-warning-background px-2 py-0.5 text-2xs font-medium text-warning-on-background"
+                class="flex shrink-0 items-center rounded-full bg-warning px-2 py-0.5 text-2xs font-medium text-warning-foreground"
               >
                 {{ t('rightSidePanel.blockedLastRun') }}
               </span>
@@ -455,8 +455,8 @@ const SEVERITY_CHIP_CLASS = {
     active: 'border-destructive/45 text-destructive/90'
   },
   missing: {
-    idle: 'border-border text-warning-foreground',
-    active: 'border-warning-background/50 text-warning-foreground'
+    idle: 'border-border text-warning',
+    active: 'border-warning/50 text-warning'
   }
 } as const
 
@@ -694,7 +694,7 @@ const hero = computed(() => {
   if (missingCount.value > 0) {
     return {
       count: missingCount.value,
-      countClass: 'text-warning-foreground',
+      countClass: 'text-warning',
       title: t('rightSidePanel.setupRequired'),
       description: t('rightSidePanel.finishSetupBeforeRun')
     }

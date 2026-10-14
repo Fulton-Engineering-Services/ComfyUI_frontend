@@ -146,9 +146,7 @@ function closeDialog() {
                   :aria-label="t('exportToast.downloadExport')"
                   @click.stop="assetExportStore.triggerDownload(job, true)"
                 >
-                  <i
-                    class="icon-[lucide--download] size-4 text-success-background"
-                  />
+                  <i class="icon-[lucide--download] size-4 text-success" />
                 </Button>
               </template>
               <template v-else-if="job.status === 'cancelled'">

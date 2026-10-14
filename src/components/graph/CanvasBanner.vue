@@ -2,7 +2,7 @@
 import { cn } from '@comfyorg/tailwind-utils'
 
 const { accent } = defineProps<{
-  /** Leading-edge colour, e.g. `border-l-success-background`. */
+  /** Leading-edge colour, e.g. `border-l-success`. */
   accent: string
 }>()
 </script>

@@ -50,7 +50,7 @@
       v-if="alreadyInvitedEmails.length > 0"
       :id="pendingInvitesHintId"
       aria-live="polite"
-      class="m-0 text-xs text-warning-background"
+      class="m-0 text-xs text-warning"
     >
       <template v-if="alreadyInvitedEmails.length === 1">
         {{ $t('workspacePanel.inviteMemberDialog.pendingInviteSingle') }}

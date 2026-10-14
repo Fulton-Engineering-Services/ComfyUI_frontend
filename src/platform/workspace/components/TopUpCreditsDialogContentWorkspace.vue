@@ -68,9 +68,7 @@
 
     <template v-if="step === 'verifying'">
       <div class="flex flex-col items-center gap-3 px-8 text-center">
-        <i
-          class="icon-[lucide--shield-alert] size-10 text-warning-background"
-        />
+        <i class="icon-[lucide--shield-alert] size-10 text-warning" />
         <h2
           class="m-0 text-center text-xl font-semibold text-foreground lg:text-2xl"
         >

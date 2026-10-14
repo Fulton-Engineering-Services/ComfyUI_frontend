@@ -92,7 +92,7 @@ function copy(obj: unknown) {
 </script>
 <template>
   <section class="flex h-full flex-col items-center justify-center gap-2 px-4">
-    <i class="icon-[lucide--circle-alert] size-6 bg-error" />
+    <i class="icon-[lucide--circle-alert] size-6 bg-destructive" />
     {{ t('linearMode.error.header') }}
     <div class="p-1 text-muted-foreground">
       <i18n-t

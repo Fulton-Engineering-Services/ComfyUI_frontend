@@ -74,11 +74,7 @@
         <span
           v-if="modelMetadataLabel"
           class="block text-2xs/tight"
-          :class="
-            isUnknownCategory
-              ? 'text-warning-background'
-              : 'text-muted-foreground'
-          "
+          :class="isUnknownCategory ? 'text-warning' : 'text-muted-foreground'"
         >
           {{ modelMetadataLabel }}
         </span>
@@ -137,7 +133,7 @@
           data-testid="missing-model-gated-access"
           variant="muted-textonly"
           size="icon"
-          class="size-8 shrink-0 text-warning-background hover:text-warning-background focus-visible:ring-inset"
+          class="size-8 shrink-0 text-warning hover:text-warning focus-visible:ring-inset"
           :aria-label="
             t(
               usesNativeModelAccess

@@ -48,7 +48,7 @@
         class="flex size-8 shrink-0 animate-pulse items-center justify-center rounded-full border-0 bg-smoke-500/33 transition-colors"
         @click="handleStopRecording"
       >
-        <div class="size-2.5 rounded-sm bg-danger-100" />
+        <div class="size-2.5 rounded-sm bg-destructive" />
       </button>
 
       <button

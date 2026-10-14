@@ -190,7 +190,7 @@
     >
       <span
         v-if="imageError"
-        class="text-error"
+        class="text-destructive"
         data-testid="error-loading-image"
       >
         {{ $t('g.errorLoadingImage') }}

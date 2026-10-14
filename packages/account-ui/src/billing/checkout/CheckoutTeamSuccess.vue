@@ -26,7 +26,7 @@
             v-if="invitedEmails.length > 0"
             ref="invitedMessage"
             tabindex="-1"
-            class="m-0 text-sm text-success-background"
+            class="m-0 text-sm text-success"
           >
             {{
               inviteCopy.invitedMessage(

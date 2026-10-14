@@ -51,7 +51,7 @@
           class="m-0 mt-1 flex items-center gap-2 text-sm/4 font-normal text-muted-foreground"
         >
           <i
-            class="icon-[lucide--circle-alert] size-4 shrink-0 text-warning-background"
+            class="icon-[lucide--circle-alert] size-4 shrink-0 text-warning"
             aria-hidden="true"
           />
           <span>{{ $t('workspacePanel.partnerNodes.allowAllOffHint') }}</span>

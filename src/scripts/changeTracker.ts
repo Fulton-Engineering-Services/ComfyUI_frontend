@@ -21,11 +21,16 @@ import { useExecutionStore } from '@/stores/executionStore'
 import { useNodeOutputStore } from '@/stores/nodeOutputStore'
 import { useQueueSettingsStore } from '@/stores/queueSettingsStore'
 import { useSubgraphNavigationStore } from '@/stores/subgraphNavigationStore'
+import { useWidgetHistoryStore } from '@/stores/widgetHistoryStore'
 import { serializeNodeId } from '@/types/nodeId'
 import { isSelectOnly } from '@/utils/litegraphUtil'
 import { isModalOpen } from '@/utils/modalUtil'
 
 import { api } from './api'
+import {
+  collectNodeHistoryWidgets,
+  withNodeHistoryValuesFrom
+} from './nodeHistoryWidgetValues'
 import { useApp } from '@/scripts/appInstance'
 import { clipspace } from '@/scripts/clipspace'
 
@@ -68,6 +73,39 @@ function matchesRestoredTarget(
       comparableTarget,
       withNormalizedNodeSizes(previous)
     )
+  )
+}
+
+function differsOnlyInNodeHistoryWidgets(
+  previous: ComfyWorkflowJSON,
+  current: ComfyWorkflowJSON
+): boolean {
+  const { rootGraph } = useApp()
+  const widgets = collectNodeHistoryWidgets(rootGraph)
+  return (
+    widgets.length > 0 &&
+    ChangeTracker.graphEqual(
+      withNodeHistoryValuesFrom(previous, current, widgets, rootGraph.id),
+      current
+    )
+  )
+}
+
+function keepingLiveNodeHistoryValues(
+  target: ComfyWorkflowJSON
+): ComfyWorkflowJSON {
+  const { rootGraph } = useApp()
+  const widgets = collectNodeHistoryWidgets(rootGraph)
+  if (!widgets.length) return target
+  const live = clone(rootGraph.serialize()) as ComfyWorkflowJSON
+  return withNodeHistoryValuesFrom(target, live, widgets, rootGraph.id)
+}
+
+function forgetRemovedNodeHistories(): void {
+  const { rootGraph } = useApp()
+  useWidgetHistoryStore().retainLive(
+    rootGraph.id,
+    new Set(collectNodeHistoryWidgets(rootGraph))
   )
 }
 
@@ -468,14 +506,17 @@ export class ChangeTracker implements WorkflowChangeTracker {
     ) as ComfyWorkflowJSON
     if (!ChangeTracker.graphEqual(this.activeState, currentState)) {
       const previousState = this.activeState
-      this.undoQueue.push(previousState)
-      if (this.undoQueue.length > ChangeTracker.MAX_HISTORY) {
-        this.undoQueue.shift()
+      if (!differsOnlyInNodeHistoryWidgets(previousState, currentState)) {
+        this.undoQueue.push(previousState)
+        if (this.undoQueue.length > ChangeTracker.MAX_HISTORY) {
+          this.undoQueue.shift()
+        }
+        this.redoQueue.length = 0
       }
 
       this.activeState = currentState
-      this.redoQueue.length = 0
       this.updateModified(previousState)
+      forgetRemovedNodeHistories()
       void this.squashState()
     }
   }
@@ -519,15 +560,16 @@ export class ChangeTracker implements WorkflowChangeTracker {
       const prevState = source.pop()
       if (prevState) {
         const previousState = this.activeState
+        const targetState = keepingLiveNodeHistoryValues(prevState)
         const restoresSavedState = ChangeTracker.graphEqual(
-          prevState,
+          targetState,
           this.initialState
         )
         let restored = false
         this._restoringState = true
         try {
           const result = await useApp().loadGraphData(
-            prevState,
+            targetState,
             false,
             false,
             this.workflow,
@@ -541,14 +583,17 @@ export class ChangeTracker implements WorkflowChangeTracker {
           this._restoringState = false
           restored ||=
             !ChangeTracker.graphEqual(this.activeState, previousState) &&
-            matchesRestoredTarget(this.activeState, prevState, previousState)
+            matchesRestoredTarget(this.activeState, targetState, previousState)
           if (restored) {
             target.push(previousState)
             if (restoresSavedState) this.initialState = clone(this.activeState)
           } else {
             source.push(prevState)
           }
-          if (restored) this.updateModified(previousState)
+          if (restored) {
+            this.updateModified(previousState)
+            forgetRemovedNodeHistories()
+          }
         }
       }
     }

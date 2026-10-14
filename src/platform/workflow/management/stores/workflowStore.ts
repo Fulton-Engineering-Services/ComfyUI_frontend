@@ -25,6 +25,7 @@ import { useApp } from '@/scripts/appInstance'
 import { ChangeTracker } from '@/scripts/changeTracker'
 import { defaultGraph } from '@/scripts/defaultGraph'
 import { useDialogService } from '@/services/dialogService'
+import { useWidgetHistoryStore } from '@/stores/widgetHistoryStore'
 import { reportError } from '@/platform/telemetry/reportError'
 import type { NodeExecutionId, NodeLocatorId } from '@/types/nodeIdentification'
 import {
@@ -318,6 +319,8 @@ export const useWorkflowStore = defineStore('workflow', () => {
       (path) => path !== workflow.path
     )
     useWorkflowDraftStoreV2().removeDraft(workflow.path)
+    const rootGraphId = workflow.activeState?.id
+    if (rootGraphId) useWidgetHistoryStore().clearWorkflow(rootGraphId)
     if (workflow.isTemporary) {
       clearThumbnail(workflow.key)
       delete workflowLookup.value[workflow.path]

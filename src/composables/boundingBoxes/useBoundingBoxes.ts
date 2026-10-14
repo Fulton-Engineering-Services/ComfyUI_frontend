@@ -17,11 +17,17 @@ import type {
   HitMode,
   Region
 } from '@/composables/boundingBoxes/boundingBoxesUtil'
+import { useWidgetValueHistory } from '@/composables/useWidgetValueHistory'
+import type { LGraph } from '@/lib/litegraph/src/litegraph'
 import { useCanvasStore } from '@/renderer/core/canvas/canvasStore'
 import { useBoundingBoxesSources } from '@/renderer/extensions/vueNodes/widgets/composables/useBoundingBoxesSources'
 import { app } from '@/scripts/app'
+import type { WidgetHistoryScope } from '@/stores/widgetHistoryStore'
 import type { BoundingBox } from '@/types/boundingBoxes'
 import type { NodeId } from '@/types/nodeId'
+import { parseNodeLocatorId } from '@/types/nodeIdentification'
+import type { SimplifiedWidget } from '@/types/simplifiedWidget'
+import { widgetId } from '@/types/widgetId'
 import { readableTextColor, textOnColor } from '@/utils/colorUtil'
 
 const HANDLE_PX = 8
@@ -44,6 +50,7 @@ interface UseBoundingBoxesOptions {
   canvasContainer: Readonly<ShallowRef<HTMLDivElement | null>>
   inlineEditorEl: Readonly<ShallowRef<HTMLTextAreaElement | null>>
   modelValue: Ref<BoundingBox[]>
+  widget: Pick<SimplifiedWidget, 'name' | 'nodeLocatorId'>
 }
 
 export function useBoundingBoxes(
@@ -52,7 +59,8 @@ export function useBoundingBoxes(
     canvasEl,
     canvasContainer,
     inlineEditorEl,
-    modelValue
+    modelValue,
+    widget
   }: UseBoundingBoxesOptions
 ) {
   const focused = ref(false)
@@ -69,9 +77,23 @@ export function useBoundingBoxes(
 
   const { width: containerWidth } = useElementSize(canvasContainer)
 
-  const litegraphNode = computed(() =>
-    nodeId && app.canvas.graph ? app.canvas.graph.getNodeById(nodeId) : null
-  )
+  function locateNode(): { graph: LGraph; nodeId: NodeId } | null {
+    const located = widget.nodeLocatorId
+      ? parseNodeLocatorId(widget.nodeLocatorId)
+      : null
+    if (!located) {
+      return app.canvas.graph ? { graph: app.canvas.graph, nodeId } : null
+    }
+    const graph = located.subgraphUuid
+      ? app.rootGraph.subgraphs.get(located.subgraphUuid)
+      : app.rootGraph
+    return graph ? { graph, nodeId: located.localNodeId } : null
+  }
+
+  const litegraphNode = computed(() => {
+    const location = locateNode()
+    return location?.graph.getNodeById(location.nodeId) ?? null
+  })
   const { selectedNodeIds } = storeToRefs(useCanvasStore())
   const isNodeSelected = computed(() => selectedNodeIds.value.has(nodeId))
 
@@ -471,7 +493,7 @@ export function useBoundingBoxes(
     if (b.w < 0.005 || b.h < 0.005) {
       removeRegion(activeIndex.value)
     }
-    syncState()
+    commitEdit()
   }
 
   function onCanvasPointerMove(e: PointerEvent) {
@@ -570,7 +592,7 @@ export function useBoundingBoxes(
     const b = state.value.regions[ed.index]
     b.desc = ed.value
     inlineEditor.value = null
-    syncState()
+    commitEdit()
   }
 
   function onCanvasKeyDown(e: KeyboardEvent) {
@@ -580,7 +602,7 @@ export function useBoundingBoxes(
       e.preventDefault()
       e.stopPropagation()
       removeRegion(idx)
-      syncState()
+      commitEdit()
     }
   }
 
@@ -594,7 +616,7 @@ export function useBoundingBoxes(
   function setActiveType(t: 'obj' | 'text') {
     if (activeRegion.value) {
       activeRegion.value.type = t
-      syncState()
+      commitEdit()
     }
   }
 
@@ -603,16 +625,66 @@ export function useBoundingBoxes(
     activeIndex.value = -1
     incomingPending.value = false
     setLastIncoming([])
-    syncState()
+    commitEdit()
   }
 
-  function syncState() {
-    modelValue.value = toBoundingBoxes(
+  function onActiveTextInput() {
+    commitEdit(`text:${activeIndex.value}`)
+  }
+
+  function onActiveDescInput() {
+    commitEdit(`desc:${activeIndex.value}`)
+  }
+
+  function onActivePaletteChange() {
+    commitEdit()
+  }
+
+  function currentBoxes() {
+    return toBoundingBoxes(
       state.value.regions,
       widthValue.value,
       heightValue.value
     )
+  }
+
+  function syncState() {
+    modelValue.value = currentBoxes()
     requestDraw()
+  }
+
+  function restoreBoxes(value: unknown) {
+    state.value.regions = Array.isArray(value)
+      ? fromBoundingBoxes(value, widthValue.value, heightValue.value)
+      : []
+    activeIndex.value = Math.min(
+      activeIndex.value,
+      state.value.regions.length - 1
+    )
+    inlineEditor.value = null
+    syncState()
+  }
+
+  function historyScope(): WidgetHistoryScope | null {
+    const location = locateNode()
+    return location
+      ? {
+          rootGraphId: app.rootGraph.id,
+          widgetId: widgetId(location.graph.id, location.nodeId, widget.name)
+        }
+      : null
+  }
+
+  const { canUndo, canRedo, undo, redo, commit, rebase } =
+    useWidgetValueHistory({
+      scope: historyScope,
+      read: currentBoxes,
+      apply: restoreBoxes
+    })
+
+  function commitEdit(mergeKey?: string) {
+    syncState()
+    commit(mergeKey)
   }
 
   watch(containerWidth, () => requestDraw())
@@ -621,7 +693,10 @@ export function useBoundingBoxes(
     () => requestDraw()
   )
   watch(isNodeSelected, () => requestDraw())
-  watch([widthValue, heightValue], () => syncState())
+  watch([widthValue, heightValue], () => {
+    syncState()
+    rebase()
+  })
 
   watch(
     litegraphNode,
@@ -740,7 +815,7 @@ export function useBoundingBoxes(
     )
     activeIndex.value = state.value.regions.length ? 0 : -1
     setLastIncoming(incoming)
-    syncState()
+    commitEdit()
   }
 
   applyIncomingBoxes(incomingBoxes.value, false)
@@ -777,7 +852,13 @@ export function useBoundingBoxes(
     commitInlineEditor,
     setActiveType,
     clearAll,
-    syncState,
+    onActiveTextInput,
+    onActiveDescInput,
+    onActivePaletteChange,
+    canUndo,
+    canRedo,
+    undo,
+    redo,
     grid
   }
 }

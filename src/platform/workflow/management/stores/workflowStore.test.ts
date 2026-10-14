@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { assert, beforeEach, describe, expect, it, vi } from 'vitest'
 import { fromAny, fromPartial } from '@total-typescript/shoehorn'
 import { nextTick } from 'vue'
 
@@ -16,10 +16,12 @@ import { useWorkflowDraftStoreV2 } from '@/platform/workflow/persistence/stores/
 import { api } from '@/scripts/api'
 import { app as comfyApp } from '@/scripts/app'
 import { defaultGraph, defaultGraphJSON } from '@/scripts/defaultGraph'
+import { useWidgetHistoryStore } from '@/stores/widgetHistoryStore'
 import { toNodeId } from '@/types/nodeId'
 import type { NodeId } from '@/types/nodeId'
 import type { NodeLocatorId } from '@/types/nodeIdentification'
 import { createNodeLocatorId } from '@/types/nodeIdentification'
+import { widgetId } from '@/types/widgetId'
 import { isValidUuid } from '@/utils/formatUtil'
 import { syncEntities } from '@/utils/syncUtil'
 import { isSubgraph } from '@/utils/typeGuardUtil'
@@ -627,6 +629,28 @@ describe('useWorkflowStore', () => {
       await store.closeWorkflow(workflow)
       expect(store.isOpen(workflow)).toBe(false)
       expect(store.getWorkflowByPath(workflow.path)).toBeNull()
+    })
+    it('forgets the node histories of the closed workflow only', async () => {
+      const workflow = store.createTemporary('test.json')
+      await store.openWorkflow(workflow)
+      const rootGraphId = workflow.activeState?.id
+      assert(rootGraphId)
+      const histories = useWidgetHistoryStore()
+      const closed = {
+        rootGraphId,
+        widgetId: widgetId(rootGraphId, toNodeId(1), 'b')
+      }
+      const other = {
+        rootGraphId: 'other',
+        widgetId: widgetId('other', toNodeId(1), 'b')
+      }
+      histories.record(closed, [])
+      histories.record(other, [])
+
+      await store.closeWorkflow(workflow)
+
+      expect(histories.canUndo(closed)).toBe(false)
+      expect(histories.canUndo(other)).toBe(true)
     })
   })
 

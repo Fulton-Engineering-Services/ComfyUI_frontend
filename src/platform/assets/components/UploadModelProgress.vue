@@ -29,7 +29,7 @@
           <p class="m-0 w-full truncate text-foreground">
             {{ metadata?.filename || metadata?.name }}
           </p>
-          <p class="m-0 text-sm text-muted-foreground">
+          <p class="m-0 text-sm">
             {{ modelType }}
           </p>
         </div>
@@ -58,7 +58,7 @@
           <p class="m-0 w-full truncate text-foreground">
             {{ metadata?.filename || metadata?.name }}
           </p>
-          <p class="m-0 text-sm text-muted-foreground">
+          <p class="m-0 text-sm">
             {{ modelType }}
           </p>
         </div>
@@ -118,7 +118,7 @@
         <p class="m-0 text-sm font-bold">
           {{ $t('assetBrowser.uploadFailed') }}
         </p>
-        <p v-if="error" class="mb-0 text-sm text-muted-foreground">
+        <p v-if="error" class="mb-0 text-sm">
           {{ error }}
         </p>
       </div>

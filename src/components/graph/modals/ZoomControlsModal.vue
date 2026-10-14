@@ -18,9 +18,7 @@
           @mouseleave="stopRepeat"
         >
           <span class="font-medium">{{ $t('graphCanvasMenu.zoomIn') }}</span>
-          <span class="text-[9px] text-foreground">{{
-            zoomInCommandText
-          }}</span>
+          <span class="text-[9px]">{{ zoomInCommandText }}</span>
         </div>
 
         <div
@@ -31,9 +29,7 @@
           @mouseleave="stopRepeat"
         >
           <span class="font-medium">{{ $t('graphCanvasMenu.zoomOut') }}</span>
-          <span class="text-[9px] text-foreground">{{
-            zoomOutCommandText
-          }}</span>
+          <span class="text-[9px]">{{ zoomOutCommandText }}</span>
         </div>
 
         <div
@@ -42,9 +38,7 @@
           @click="executeCommand('Comfy.Canvas.FitView')"
         >
           <span class="font-medium">{{ $t('zoomControls.zoomToFit') }}</span>
-          <span class="text-[9px] text-foreground">{{
-            zoomToFitCommandText
-          }}</span>
+          <span class="text-[9px]">{{ zoomToFitCommandText }}</span>
         </div>
 
         <NumberField

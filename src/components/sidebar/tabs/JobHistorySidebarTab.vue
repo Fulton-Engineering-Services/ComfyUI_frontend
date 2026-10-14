@@ -32,7 +32,7 @@
       >
         <span class="text-muted-foreground">{{ activeQueueSummary }}</span>
         <div class="flex items-center gap-2">
-          <span class="text-xs text-foreground">
+          <span class="text-xs">
             {{ t('sideToolbar.queueProgressOverlay.clearQueueTooltip') }}
           </span>
           <Button

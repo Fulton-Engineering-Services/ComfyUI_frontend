@@ -48,7 +48,7 @@ describe('useColorPaletteService theme variables', () => {
         '--background': '',
         '--node': '',
         '--node-header': '',
-        '--node-muted-foreground': '',
+        '--node-foreground': '',
         '--secondary': '',
         '--border': ''
       }
@@ -59,7 +59,7 @@ describe('useColorPaletteService theme variables', () => {
         '--background': '',
         '--node': '',
         '--node-header': '',
-        '--node-muted-foreground': '',
+        '--node-foreground': '',
         '--secondary': '',
         '--border': ''
       }
@@ -70,7 +70,7 @@ describe('useColorPaletteService theme variables', () => {
         '--background': '#161b22',
         '--node': '#161b22',
         '--node-header': '#2e3440',
-        '--node-muted-foreground': '#bcc2c8',
+        '--node-foreground': '#bcc2c8',
         '--secondary': '',
         '--border': 'color-mix(in srgb, #161b22 75.5%, #fff)'
       }
@@ -81,7 +81,7 @@ describe('useColorPaletteService theme variables', () => {
         '--background': '#073642',
         '--node': '#073642',
         '--node-header': '#094656',
-        '--node-muted-foreground': '#657b83',
+        '--node-foreground': '#657b83',
         '--secondary': '',
         '--border': 'color-mix(in srgb, #073642 75.5%, #fff)'
       }
@@ -97,7 +97,7 @@ describe('useColorPaletteService theme variables', () => {
         '--background': readRootProperty('--background'),
         '--node': readRootProperty('--node'),
         '--node-header': readRootProperty('--node-header'),
-        '--node-muted-foreground': readRootProperty('--node-muted-foreground'),
+        '--node-foreground': readRootProperty('--node-foreground'),
         '--secondary': readRootProperty('--secondary'),
         '--border': readRootProperty('--border')
       }).toEqual(expected)

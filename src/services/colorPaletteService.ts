@@ -45,8 +45,7 @@ function deriveLegacyTheme({ comfy_base, litegraph_base }: Colors): Theme {
     card: comfy_base['comfy-menu-secondary-bg'],
     input: litegraph_base.WIDGET_BGCOLOR,
     node: litegraph_base.NODE_DEFAULT_BGCOLOR,
-    'node-foreground': litegraph_base.WIDGET_TEXT_COLOR,
-    'node-muted-foreground': litegraph_base.NODE_TEXT_COLOR,
+    'node-foreground': litegraph_base.NODE_TEXT_COLOR,
     'node-header': litegraph_base.NODE_DEFAULT_COLOR,
     'node-border': litegraph_base.NODE_BOX_OUTLINE_COLOR
   }

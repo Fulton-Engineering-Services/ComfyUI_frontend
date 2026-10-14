@@ -110,7 +110,7 @@
         <Textarea
           v-model="activeRegion.text"
           :placeholder="$t('boundingBoxes.textPlaceholder')"
-          class="min-h-14 resize-none overflow-hidden pt-5 text-(length:--comfy-textarea-font-size) leading-normal not-disabled:bg-input not-disabled:text-node-foreground hover:overflow-auto focus:overflow-auto"
+          class="min-h-14 resize-none overflow-hidden pt-5 text-(length:--comfy-textarea-font-size) leading-normal not-disabled:bg-input not-disabled:text-foreground hover:overflow-auto focus:overflow-auto"
           data-capture-wheel="true"
           @update:model-value="syncState"
         />
@@ -126,7 +126,7 @@
         <Textarea
           v-model="activeRegion.desc"
           :placeholder="$t('boundingBoxes.descPlaceholder')"
-          class="min-h-20 resize-none overflow-hidden pt-5 text-(length:--comfy-textarea-font-size) leading-normal not-disabled:bg-input not-disabled:text-node-foreground hover:overflow-auto focus:overflow-auto"
+          class="min-h-20 resize-none overflow-hidden pt-5 text-(length:--comfy-textarea-font-size) leading-normal not-disabled:bg-input not-disabled:text-foreground hover:overflow-auto focus:overflow-auto"
           data-capture-wheel="true"
           @update:model-value="syncState"
         />

@@ -10,7 +10,7 @@
     :data-ghost="nodeData.flags?.ghost || undefined"
     :class="
       cn(
-        'group/node lg-node absolute isolate touch-none text-xs text-node-muted-foreground',
+        'group/node lg-node absolute isolate touch-none text-xs text-node-foreground',
         'flex flex-col contain-layout contain-style',
         isLightTheme
           ? 'drop-shadow-md drop-shadow-black/15'

@@ -86,7 +86,7 @@
         data-testid="playback-toggle"
         :class="
           cn(
-            'flex size-6 shrink-0 items-center justify-center rounded-md border-none bg-transparent text-node-foreground',
+            'flex size-6 shrink-0 items-center justify-center rounded-md border-none bg-transparent text-foreground',
             loading
               ? 'cursor-default opacity-50'
               : 'cursor-pointer hover:bg-muted'
@@ -235,7 +235,7 @@
           <span class="truncate">
             {{ row.label }}
           </span>
-          <span class="text-right text-node-foreground">
+          <span class="text-right text-foreground">
             {{ row.value }}
           </span>
         </div>

@@ -192,7 +192,10 @@ test.describe('Manual agent consent gate', { tag: ['@cloud', '@ui'] }, () => {
 
     await test.step('Switch the app to its light palette', async () => {
       await comfyPage.settings.setSetting('Comfy.ColorPalette', 'light')
-      await expect(page.locator('html')).not.toHaveClass(/dark-theme/)
+      await expect(page.locator('body')).toHaveCSS(
+        'background-color',
+        'rgb(255, 255, 255)'
+      )
     })
 
     await test.step('Consent keeps its dark surface and readable heading', async () => {

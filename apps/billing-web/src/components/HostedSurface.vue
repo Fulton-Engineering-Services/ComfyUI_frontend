@@ -57,7 +57,7 @@ function leaveForHost(href: string) {
 
 <template>
   <main
-    class="dark-theme fixed inset-0 overflow-auto bg-charcoal-950 px-4 py-6 font-inter sm:px-6 sm:py-10"
+    class="fixed inset-0 overflow-auto bg-charcoal-950 px-4 py-6 font-inter sm:px-6 sm:py-10"
   >
     <div class="mx-auto flex max-w-3xl flex-col gap-6">
       <header class="flex flex-wrap items-center justify-between gap-3">

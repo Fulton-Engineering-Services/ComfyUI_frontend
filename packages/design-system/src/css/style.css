@@ -47,25 +47,28 @@
 }
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 
-  --background: var(--color-white);
-  --foreground: var(--color-charcoal-800);
-  --card: var(--color-white);
-  --node-foreground: var(--color-ash-800);
-  --node-header: var(--color-smoke-200);
-  --node-border: var(--color-smoke-600);
-  --primary: var(--color-azure-400);
-  --secondary: var(--color-smoke-200);
-  --muted: var(--color-smoke-400);
-  --muted-foreground: var(--color-charcoal-200);
-  --accent: var(--color-smoke-200);
-  --destructive: var(--color-coral-500);
-  --border: var(--color-smoke-600);
+  --background: var(--color-charcoal-800);
+  --foreground: var(--color-white);
+  --card: var(--color-charcoal-600);
+  --node-foreground: var(--color-smoke-700);
+  --node-header: var(--color-charcoal-700);
+  --node-border: var(--color-charcoal-100);
+  --primary: var(--color-azure-600);
+  --secondary: var(--color-charcoal-600);
+  --muted: var(--color-charcoal-300);
+  --muted-foreground: var(--color-smoke-800);
+  --accent: var(--color-charcoal-400);
+  --destructive: var(--color-coral-700);
+  --border: var(--color-charcoal-200);
   --ring: var(--color-smoke-800);
+  --popover: var(--background);
+  --input: var(--accent);
+  --node: var(--card);
 
-  --fg-color: #000;
-  --bg-color: #fff;
+  --fg-color: #fff;
+  --bg-color: #202020;
   --default-transition-duration: 0.1s;
   --comfy-menu-bg: #353535;
   --comfy-menu-secondary-bg: #292929;
@@ -84,57 +87,20 @@
   --primary-fg: #ffffff;
   --primary-hover-bg: #3485bb;
   --primary-hover-fg: #ffffff;
-  --content-bg: #e0e0e0;
-  --content-fg: #000;
-  --content-hover-bg: #adadad;
-  --content-hover-fg: #000;
+  --content-bg: #4e4e4e;
+  --content-fg: #fff;
+  --content-hover-bg: #222;
+  --content-hover-fg: #fff;
 
-  /* Semantic tokens - light mode */
-  --warning-background: var(--color-gold-400);
+  --warning-background: var(--color-gold-600);
   --warning-background-hover: var(--color-gold-500);
-  --warning-foreground: var(--color-gold-800);
+  --warning-foreground: var(--color-gold-600);
   --warning-on-background: var(--color-charcoal-800);
   --success-background: var(--color-jade-600);
 
   --palette-interface-panel-box-shadow: 1px 1px 8px 0 rgb(0 0 0 / 0.4);
   --palette-interface-panel-drop-shadow: 1px 1px 4px rgb(0 0 0 / 0.4);
   --palette-interface-floating-panel-shadow: 0 2px 16px 0 rgb(0 0 0 / 0.5);
-}
-
-.dark-theme {
-  color-scheme: dark;
-
-  --background: var(--color-charcoal-800);
-  --foreground: var(--color-white);
-  --card: var(--color-charcoal-600);
-  --node-foreground: var(--color-smoke-700);
-  --node-header: var(--color-charcoal-700);
-  --node-border: var(--color-charcoal-100);
-  --primary: var(--color-azure-600);
-  --secondary: var(--color-charcoal-600);
-  --muted: var(--color-charcoal-300);
-  --muted-foreground: var(--color-smoke-800);
-  --accent: var(--color-charcoal-400);
-  --destructive: var(--color-coral-700);
-  --border: var(--color-charcoal-200);
-
-  --fg-color: #fff;
-  --bg-color: #202020;
-  --content-bg: #4e4e4e;
-  --content-fg: #fff;
-  --content-hover-bg: #222;
-  --content-hover-fg: #fff;
-
-  /* Semantic tokens - dark mode */
-  --warning-background: var(--color-gold-600);
-  --warning-foreground: var(--color-gold-600);
-}
-
-:root,
-.dark-theme {
-  --popover: var(--background);
-  --input: var(--accent);
-  --node: var(--card);
 }
 
 @theme inline {

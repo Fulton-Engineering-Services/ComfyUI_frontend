@@ -5,9 +5,10 @@ import { downloadBlob } from '@/base/common/downloadUtil'
 import { useErrorHandling } from '@/composables/useErrorHandling'
 import { LGraphCanvas, LiteGraph } from '@/lib/litegraph/src/litegraph'
 import { useSettingStore } from '@/platform/settings/settingStore'
-import { paletteSchema, themeSchema } from '@/schemas/colorPaletteSchema'
-import type { Colors, Palette, Theme } from '@/schemas/colorPaletteSchema'
+import { paletteSchema } from '@/schemas/colorPaletteSchema'
+import type { Colors, Palette } from '@/schemas/colorPaletteSchema'
 import { useApp } from '@/scripts/appInstance'
+import { applyPaletteTheme } from '@/utils/colorPaletteTheme'
 import { uploadFile } from '@/scripts/utils'
 import { useNodeDefStore } from '@/stores/nodeDefStore'
 import { useColorPaletteStore } from '@/stores/workspace/colorPaletteStore'
@@ -17,45 +18,6 @@ const PALETTE_FALLBACK_KEYS = [
   'interface-panel-drop-shadow',
   'interface-floating-panel-shadow'
 ] as const
-
-const THEME_KEYS = themeSchema.keyof().options
-
-function isCorePaletteId(colorPaletteId: string) {
-  return colorPaletteId === 'dark' || colorPaletteId === 'light'
-}
-
-function deriveLegacyTheme({ comfy_base, litegraph_base }: Colors): Theme {
-  const surface =
-    comfy_base['interface-panel-surface'] ?? comfy_base['comfy-menu-bg']
-  const contrast = comfy_base['contrast-mix-color'] ?? '#fff'
-  const mixWithContrast = (surfacePercent: number) =>
-    `color-mix(in srgb, ${surface} ${surfacePercent}%, ${contrast})`
-  return {
-    background: surface,
-    foreground: comfy_base['fg-color'],
-    'muted-foreground': comfy_base['descrip-text'],
-    border: comfy_base['interface-stroke'] ?? mixWithContrast(75.5),
-    accent:
-      comfy_base['interface-panel-hover-surface'] ??
-      comfy_base['interface-button-hover-surface'] ??
-      mixWithContrast(92.5),
-    muted:
-      comfy_base['interface-panel-selected-surface'] ?? mixWithContrast(87.5),
-    card: comfy_base['comfy-menu-secondary-bg'],
-    input: litegraph_base.WIDGET_BGCOLOR,
-    node: litegraph_base.NODE_DEFAULT_BGCOLOR,
-    'node-foreground': litegraph_base.NODE_TEXT_COLOR,
-    'node-header': litegraph_base.NODE_DEFAULT_COLOR,
-    'node-border': litegraph_base.NODE_BOX_OUTLINE_COLOR
-  }
-}
-
-function resolvePaletteTheme(colorPaletteId: string, colors: Colors): Theme {
-  const legacy = isCorePaletteId(colorPaletteId)
-    ? {}
-    : deriveLegacyTheme(colors)
-  return { ...legacy, ...colors.theme }
-}
 
 export const useColorPaletteService = () => {
   const colorPaletteStore = useColorPaletteStore()
@@ -138,18 +100,6 @@ export const useColorPaletteService = () => {
         rootStyle.setProperty(`--${cssVar}`, valueMaybe)
       } else {
         rootStyle.removeProperty(`--${cssVar}`)
-      }
-    }
-  }
-
-  function loadThemeColors(theme: Theme) {
-    const rootStyle = document.documentElement.style
-    for (const key of THEME_KEYS) {
-      const value = theme[key]
-      if (value) {
-        rootStyle.setProperty(`--${key}`, value)
-      } else {
-        rootStyle.removeProperty(`--${key}`)
       }
     }
   }
@@ -247,9 +197,7 @@ export const useColorPaletteService = () => {
     const completedPalette = colorPaletteStore.completePalette(colorPalette)
     loadLinkColorPalette(completedPalette.colors.node_slot)
     loadLiteGraphColorPalette(completedPalette.colors.litegraph_base)
-    loadThemeColors(
-      resolvePaletteTheme(colorPaletteId, completedPalette.colors)
-    )
+    applyPaletteTheme(document.documentElement.style, completedPalette)
     loadLinkColorPaletteForVueNodes(completedPalette.colors.node_slot)
     loadComfyColorPalette(
       completedPalette.colors.comfy_base,

@@ -148,7 +148,7 @@ const alertClass = 'rounded-lg bg-background p-3 text-sm'
 
 <template>
   <main
-    class="dark-theme fixed inset-0 overflow-auto bg-charcoal-950 px-4 py-6 font-inter sm:px-6 sm:py-10"
+    class="fixed inset-0 overflow-auto bg-charcoal-950 px-4 py-6 font-inter sm:px-6 sm:py-10"
   >
     <section
       v-if="!leavingPage"

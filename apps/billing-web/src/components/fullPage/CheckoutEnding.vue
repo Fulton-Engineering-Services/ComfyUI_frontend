@@ -203,7 +203,7 @@ function act() {
 
 <template>
   <main
-    class="dark-theme fixed inset-0 flex items-center justify-center overflow-auto bg-background p-6 font-inter"
+    class="fixed inset-0 flex items-center justify-center overflow-auto bg-background p-6 font-inter"
   >
     <section
       class="flex w-full max-w-96 flex-col items-center gap-8 text-center"

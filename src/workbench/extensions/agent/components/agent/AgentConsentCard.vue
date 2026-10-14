@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { createReusableTemplate, useResizeObserver } from '@vueuse/core'
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import type { ComponentProps } from 'vue-component-type-helpers'
 
 import Video from '@/components/common/Video.vue'
 import Button from '@/components/ui/button/Button.vue'
+import { DEFAULT_DARK_COLOR_PALETTE } from '@/constants/coreColorPalettes'
+import { applyPaletteTheme } from '@/utils/colorPaletteTheme'
 
 const {
   title,
@@ -46,6 +48,11 @@ useResizeObserver(containerRef, ([entry]) => {
   isWide.value = entry.contentRect.width >= CONTAINER_XL_MIN_WIDTH
 })
 
+onMounted(() => {
+  if (containerRef.value)
+    applyPaletteTheme(containerRef.value.style, DEFAULT_DARK_COLOR_PALETTE)
+})
+
 function choose(action: 'accept' | 'reject'): void {
   if (action === 'accept') emit('accept')
   else emit('reject')
@@ -70,7 +77,7 @@ function choose(action: 'accept' | 'reject'): void {
 
   <div
     ref="containerRef"
-    class="dark-theme @container w-[min(640px,calc(100vw-2rem))]"
+    class="@container w-[min(640px,calc(100vw-2rem))] text-foreground"
   >
     <div
       data-testid="agent-consent-card"

@@ -1,5 +1,4 @@
-:root,
-.dark-theme {
+:root {
   --base-background: var(--background);
   --base-foreground: var(--foreground);
   --border-default: var(--border);

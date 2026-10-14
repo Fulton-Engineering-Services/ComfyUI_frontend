@@ -1,5 +1,8 @@
 import { assert, describe, expect, it, onTestFinished, vi } from 'vitest'
 
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
+
 import { themeSchema } from '@/schemas/colorPaletteSchema'
 import type { ComfyApp } from '@/scripts/app'
 import { useColorPaletteService } from '@/services/colorPaletteService'
@@ -45,23 +48,23 @@ describe('useColorPaletteService theme variables', () => {
     {
       paletteId: 'dark',
       expected: {
-        '--background': '',
-        '--node': '',
-        '--node-header': '',
-        '--node-foreground': '',
-        '--secondary': '',
-        '--border': ''
+        '--background': '#171718',
+        '--node': 'var(--card)',
+        '--node-header': '#202121',
+        '--node-foreground': '#a0a0a0',
+        '--secondary': '#262729',
+        '--border': '#494a50'
       }
     },
     {
       paletteId: 'light',
       expected: {
-        '--background': '',
-        '--node': '',
-        '--node-header': '',
-        '--node-foreground': '',
-        '--secondary': '',
-        '--border': ''
+        '--background': '#ffffff',
+        '--node': 'var(--card)',
+        '--node-header': '#e9e9e9',
+        '--node-foreground': '#444444',
+        '--secondary': '#e9e9e9',
+        '--border': '#b4b4b4'
       }
     },
     {
@@ -71,7 +74,7 @@ describe('useColorPaletteService theme variables', () => {
         '--node': '#161b22',
         '--node-header': '#2e3440',
         '--node-foreground': '#bcc2c8',
-        '--secondary': '',
+        '--secondary': '#262729',
         '--border': 'color-mix(in srgb, #161b22 75.5%, #fff)'
       }
     },
@@ -82,7 +85,7 @@ describe('useColorPaletteService theme variables', () => {
         '--node': '#073642',
         '--node-header': '#094656',
         '--node-foreground': '#657b83',
-        '--secondary': '',
+        '--secondary': '#262729',
         '--border': 'color-mix(in srgb, #073642 75.5%, #fff)'
       }
     }
@@ -104,7 +107,7 @@ describe('useColorPaletteService theme variables', () => {
     }
   )
 
-  it('lets a palette theme override derived values and clears them when a core palette loads', async () => {
+  it('lets a palette theme override derived values and restores the core theme when a core palette loads', async () => {
     clearRootThemeAfterTest()
     const store = useColorPaletteStore()
     const nord = store.palettesLookup.nord
@@ -128,7 +131,64 @@ describe('useColorPaletteService theme variables', () => {
       readRootProperty('--node'),
       readRootProperty('--muted'),
       readRootProperty('--background')
-    ]).toEqual(['', '', ''])
+    ]).toEqual(['var(--card)', '#3c3d42', '#171718'])
+  })
+
+  it('starts a light custom palette without a theme from the light theme', async () => {
+    clearRootThemeAfterTest()
+    const store = useColorPaletteStore()
+    const nord = store.palettesLookup.nord
+    assert.exists(nord)
+    store.addCustomPalette({ ...nord, id: 'custom-light', light_theme: true })
+
+    await useColorPaletteService().loadColorPalette('custom-light')
+
+    expect({
+      '--secondary': readRootProperty('--secondary'),
+      '--primary': readRootProperty('--primary'),
+      colorScheme: document.documentElement.style.colorScheme
+    }).toEqual({
+      '--secondary': '#e9e9e9',
+      '--primary': '#31b9f4',
+      colorScheme: 'light'
+    })
+  })
+
+  it('keeps the dark palette theme equal to the stylesheet defaults', () => {
+    const cssDir = join(
+      process.cwd(),
+      'packages',
+      'design-system',
+      'src',
+      'css'
+    )
+    const paletteCss = readFileSync(join(cssDir, '_palette.css'), 'utf8')
+    const styleCss = readFileSync(join(cssDir, 'style.css'), 'utf8')
+    const palette = Object.fromEntries(
+      [...paletteCss.matchAll(/--color-([\w-]+):\s*(#[0-9a-f]{6});/gi)].map(
+        ([, name, hex]) => [name, hex.toLowerCase()]
+      )
+    )
+    palette.white = '#ffffff'
+    const rootBlock = styleCss.slice(
+      styleCss.indexOf(':root {'),
+      styleCss.indexOf('}', styleCss.indexOf(':root {'))
+    )
+    const stylesheetDefaults = Object.fromEntries(
+      [...rootBlock.matchAll(/--([\w-]+):\s*var\(--color-([\w-]+)\);/g)].map(
+        ([, token, color]) => [token, palette[color]]
+      )
+    )
+    const darkTheme = useColorPaletteStore().palettesLookup.dark?.colors.theme
+
+    expect(darkTheme).toEqual(
+      Object.fromEntries(
+        Object.keys(darkTheme ?? {}).map((token) => [
+          token,
+          stylesheetDefaults[token]
+        ])
+      )
+    )
   })
 })
 

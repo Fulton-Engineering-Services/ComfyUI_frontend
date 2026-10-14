@@ -671,7 +671,7 @@ useEventListener(window, 'pagehide', () => {
 
 <template>
   <main
-    class="dark-theme fixed inset-0 overflow-auto bg-charcoal-950 px-4 py-6 font-inter sm:px-6 sm:py-10"
+    class="fixed inset-0 overflow-auto bg-charcoal-950 px-4 py-6 font-inter sm:px-6 sm:py-10"
   >
     <section
       class="mx-auto flex min-h-full max-w-7xl flex-col items-center justify-center gap-4"

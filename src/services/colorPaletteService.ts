@@ -5,19 +5,13 @@ import { downloadBlob } from '@/base/common/downloadUtil'
 import { useErrorHandling } from '@/composables/useErrorHandling'
 import { LGraphCanvas, LiteGraph } from '@/lib/litegraph/src/litegraph'
 import { useSettingStore } from '@/platform/settings/settingStore'
-import { paletteSchema } from '@/schemas/colorPaletteSchema'
+import { comfyBaseSchema, paletteSchema } from '@/schemas/colorPaletteSchema'
 import type { Colors, Palette } from '@/schemas/colorPaletteSchema'
 import { useApp } from '@/scripts/appInstance'
 import { applyPaletteTheme, isCorePaletteId } from '@/utils/colorPaletteTheme'
 import { uploadFile } from '@/scripts/utils'
 import { useNodeDefStore } from '@/stores/nodeDefStore'
 import { useColorPaletteStore } from '@/stores/workspace/colorPaletteStore'
-
-const PALETTE_FALLBACK_KEYS = [
-  'interface-panel-box-shadow',
-  'interface-panel-drop-shadow',
-  'interface-floating-panel-shadow'
-] as const
 
 const THEME_ALIASED_LEGACY_KEYS: ReadonlySet<string> = new Set([
   'fg-color',
@@ -37,6 +31,10 @@ const THEME_ALIASED_LEGACY_KEYS: ReadonlySet<string> = new Set([
   'content-hover-bg',
   'content-hover-fg'
 ])
+
+const LEGACY_PALETTE_KEYS = comfyBaseSchema
+  .keyof()
+  .options.filter((key) => key !== 'bg-img')
 
 let latestPaletteSwitch = 0
 
@@ -174,20 +172,15 @@ export const useColorPaletteService = () => {
     themeAliasesLegacyColors: boolean
   ) => {
     const rootStyle = document.documentElement.style
-    for (const [key, value] of Object.entries(comfyColorPalette)) {
-      if (themeAliasesLegacyColors && THEME_ALIASED_LEGACY_KEYS.has(key)) {
+    for (const key of LEGACY_PALETTE_KEYS) {
+      const value = comfyColorPalette[key]
+      if (
+        value === undefined ||
+        (themeAliasesLegacyColors && THEME_ALIASED_LEGACY_KEYS.has(key))
+      ) {
         rootStyle.removeProperty('--' + key)
       } else {
         rootStyle.setProperty('--' + key, value)
-      }
-    }
-
-    for (const optionalKey of PALETTE_FALLBACK_KEYS) {
-      if (!(optionalKey in comfyColorPalette)) {
-        rootStyle.setProperty(
-          '--' + optionalKey,
-          `var(--palette-${optionalKey})`
-        )
       }
     }
 

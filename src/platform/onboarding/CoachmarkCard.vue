@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex w-full flex-col items-start justify-center gap-3 rounded-2xl bg-secondary p-4 drop-shadow-[1px_1px_8px_rgba(0,0,0,0.4)]"
+    class="flex w-full flex-col items-start justify-center gap-3 rounded-2xl bg-secondary p-4 drop-shadow-md"
   >
     <div
       v-if="image || $slots.image"

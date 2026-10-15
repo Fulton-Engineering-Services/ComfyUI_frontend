@@ -41,7 +41,7 @@
         id="node-search-category-sidebar"
         v-model:selected-category="sidebarCategory"
         :aria-label="isMobile ? t('g.categories') : undefined"
-        class="w-52 shrink-0 max-md:absolute max-md:inset-y-0 max-md:left-0 max-md:z-20 max-md:bg-background max-md:shadow-interface"
+        class="w-52 shrink-0 max-md:absolute max-md:inset-y-0 max-md:left-0 max-md:z-20 max-md:bg-background max-md:shadow-md"
         :hide-chevrons="!anyTreeCategoryHasChildren"
         :hide-presets="rootFilter !== null"
         :node-defs="rootFilteredNodeDefs"

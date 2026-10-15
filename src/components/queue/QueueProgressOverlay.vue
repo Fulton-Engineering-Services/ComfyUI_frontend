@@ -136,7 +136,7 @@ const isVisible = computed(() => overlayState.value !== 'hidden')
 
 const containerClass = computed(() =>
   showBackground.value
-    ? 'border-border bg-background shadow-interface'
+    ? 'border-border bg-background shadow-md'
     : 'border-transparent bg-transparent shadow-none'
 )
 

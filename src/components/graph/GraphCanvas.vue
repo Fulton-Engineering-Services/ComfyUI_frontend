@@ -7,7 +7,7 @@
       <div
         v-if="workflowTabsPosition === 'Topbar'"
         data-testid="topbar-workflow-tabs"
-        class="workflow-tabs-container pointer-events-auto relative flex h-(--workflow-tabs-height) w-full items-center border-b border-border/50 bg-background shadow-interface"
+        class="workflow-tabs-container pointer-events-auto relative flex h-(--workflow-tabs-height) w-full items-center border-b border-border/50 bg-background shadow-md"
       >
         <WorkflowTabs />
       </div>

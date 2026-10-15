@@ -1,5 +1,5 @@
 <template>
-  <section class="w-[360px] rounded-2xl border bg-background shadow-interface">
+  <section class="w-[360px] rounded-2xl border bg-background shadow-md">
     <header class="flex items-center justify-between border-b p-4">
       <p class="m-0 text-[14px] leading-none font-normal">
         {{ t('sideToolbar.queueProgressOverlay.clearHistoryDialogTitle') }}

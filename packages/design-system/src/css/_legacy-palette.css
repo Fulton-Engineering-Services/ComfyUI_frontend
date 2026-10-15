@@ -19,14 +19,8 @@
   --content-fg: var(--foreground);
   --content-hover-bg: var(--accent);
   --content-hover-fg: var(--foreground);
-  --bar-shadow: rgb(16 16 16 / 0.5) 0 0 0.5rem;
-
-  --palette-interface-panel-box-shadow: 1px 1px 8px 0 rgb(0 0 0 / 0.4);
-  --palette-interface-panel-drop-shadow: 1px 1px 4px rgb(0 0 0 / 0.4);
-  --palette-interface-floating-panel-shadow: 0 2px 16px 0 rgb(0 0 0 / 0.5);
-  --interface-panel-box-shadow: var(--palette-interface-panel-box-shadow);
-  --interface-panel-drop-shadow: var(--palette-interface-panel-drop-shadow);
-  --interface-floating-panel-shadow: var(
-    --palette-interface-floating-panel-shadow
-  );
+  --bar-shadow: 0 0 0.5rem var(--shadow-color);
+  --interface-panel-box-shadow: 1px 1px 8px 0 var(--shadow-color);
+  --interface-panel-drop-shadow: 1px 1px 4px var(--shadow-color);
+  --interface-floating-panel-shadow: 0 2px 16px 0 var(--shadow-color);
 }

@@ -31,7 +31,7 @@
         :key="tier.id"
         :class="
           cn(
-            'flex flex-1 flex-col rounded-2xl border bg-background shadow-[0_0_12px_rgba(0,0,0,0.1)]',
+            'flex flex-1 flex-col rounded-2xl border bg-background shadow-sm',
             tier.isPopular ? 'border-muted-foreground' : ''
           )
         "

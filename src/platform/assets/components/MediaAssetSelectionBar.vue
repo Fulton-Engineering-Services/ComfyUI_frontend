@@ -2,7 +2,7 @@
   <div class="relative mx-2">
     <div
       data-testid="assets-selection-bar"
-      class="absolute bottom-6 left-1/2 z-40 flex w-full max-w-78 -translate-x-1/2 items-center gap-2 rounded-lg bg-foreground p-2 text-background shadow-interface"
+      class="absolute bottom-6 left-1/2 z-40 flex w-full max-w-78 -translate-x-1/2 items-center gap-2 rounded-lg bg-foreground p-2 text-background shadow-md"
     >
       <Button
         :tooltip="$t('mediaAsset.selection.deselectAll')"

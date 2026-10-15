@@ -43,7 +43,17 @@
 @custom-variant touch (@media (hover: none));
 
 @theme {
-  --shadow-interface: var(--interface-panel-box-shadow);
+  --shadow-2xs: 0 1px 1px var(--shadow-color);
+  --shadow-xs: 0 1px 2px var(--shadow-color);
+  --shadow-sm: 0 1px 4px var(--shadow-color);
+  --shadow-md: 1px 1px 8px 0 var(--shadow-color);
+  --shadow-lg: 0 2px 16px 0 var(--shadow-color);
+  --shadow-xl: 0 8px 24px var(--shadow-color);
+  --shadow-2xl: 0 24px 80px var(--shadow-color);
+  --drop-shadow-xs: 0 1px 1px var(--shadow-color);
+  --drop-shadow-sm: 1px 1px 4px var(--shadow-color);
+  --drop-shadow-md: 1px 1px 8px var(--shadow-color);
+  --drop-shadow-lg: 0 9px 7px var(--shadow-color);
   --shadow-inset-highlight: inset 0 1px 0 0 rgb(from white r g b / 0.1);
 
   --text-2xs: 0.625rem;
@@ -86,7 +96,7 @@
   --comfy-textarea-font-size: 10px;
 
   --warning: var(--color-gold-600);
-  --node-shadow: 0 9px 7px rgb(0 0 0 / 0.4);
+  --shadow-color: rgb(0 0 0 / 0.4);
 }
 
 @theme inline {
@@ -110,15 +120,13 @@
 
   /* Semantic tokens */
   --color-warning: var(--warning);
-  --drop-shadow-node: var(--node-shadow);
 }
 
 @utility floating-panel {
   border-radius: var(--radius-xl);
   padding: --spacing(1);
   background-color: var(--color-background);
-  box-shadow:
-    var(--shadow-inset-highlight), var(--interface-floating-panel-shadow);
+  box-shadow: var(--shadow-inset-highlight), var(--shadow-lg);
 }
 
 @utility highlight {
@@ -454,7 +462,7 @@ body {
   padding: 30px 30px 10px;
   background-color: var(--background); /* Modal background */
   color: var(--destructive);
-  box-shadow: 0 0 20px #888888;
+  box-shadow: var(--shadow-lg);
   border-radius: 10px;
   top: 50%;
   left: 50%;
@@ -499,7 +507,7 @@ body {
   background-color: var(--background);
   padding: 10px;
   border-radius: 0 8px 8px;
-  box-shadow: 3px 3px 8px rgb(0 0 0 / 0.4);
+  box-shadow: var(--shadow-md);
 }
 
 .comfy-menu-header {
@@ -723,7 +731,7 @@ button.comfy-queue-btn {
 /* Dialogs */
 
 dialog {
-  box-shadow: 0 0 20px #888888;
+  box-shadow: var(--shadow-lg);
 }
 
 dialog:modal {

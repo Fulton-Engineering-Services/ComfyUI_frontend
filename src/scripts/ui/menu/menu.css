@@ -41,7 +41,7 @@
   left: var(--left);
   z-index: 2000;
   max-height: calc(100vh - var(--limit) - 10px);
-  box-shadow: 3px 3px 5px 0 rgb(0 0 0 / 0.3);
+  box-shadow: var(--shadow-md);
 }
 
 .comfyui-popup:not(.open) {

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex min-w-[460px] flex-col rounded-2xl border bg-background shadow-[1px_1px_8px_0_rgba(0,0,0,0.4)]"
+    class="flex min-w-[460px] flex-col rounded-2xl border bg-background shadow-md"
   >
     <!-- Header -->
     <div class="flex items-center justify-between p-8">

@@ -18,18 +18,6 @@ vi.mock(import('@/scripts/app'), async () => {
 })
 
 const SHADOW_PROPERTY = '--interface-floating-panel-shadow'
-const SHADOW_FALLBACK = 'var(--palette-interface-floating-panel-shadow)'
-
-function readRootShadow() {
-  return document.documentElement.style.getPropertyValue(SHADOW_PROPERTY)
-}
-
-function restoreRootShadowAfterTest() {
-  const previous = readRootShadow()
-  onTestFinished(() => {
-    document.documentElement.style.setProperty(SHADOW_PROPERTY, previous)
-  })
-}
 
 function readRootProperty(property: string) {
   return document.documentElement.style.getPropertyValue(property)
@@ -245,21 +233,24 @@ describe('useColorPaletteService theme variables', () => {
 
 describe('useColorPaletteService', () => {
   it.for([
-    { paletteId: 'dark', expected: SHADOW_FALLBACK },
-    { paletteId: 'light', expected: '0 2px 16px 0 rgba(0, 0, 0, 0.2)' }
+    { paletteId: 'dark', expected: 'rgb(0 0 0 / 0.4)' },
+    { paletteId: 'light', expected: 'rgb(0 0 0 / 0.15)' }
   ])(
-    'resolves the floating panel shadow through the palette contract ($paletteId)',
+    'sets the shadow color from the $paletteId palette theme',
     async ({ paletteId, expected }) => {
-      restoreRootShadowAfterTest()
+      clearRootThemeAfterTest()
 
       await useColorPaletteService().loadColorPalette(paletteId)
 
-      expect(readRootShadow()).toBe(expected)
+      expect(readRootProperty('--shadow-color')).toBe(expected)
     }
   )
 
-  it('lets a custom palette own the floating panel shadow and falls back once the next palette omits it', async () => {
-    restoreRootShadowAfterTest()
+  it('removes a custom palette legacy shadow once the next palette omits it', async () => {
+    clearRootThemeAfterTest()
+    onTestFinished(() => {
+      document.documentElement.style.removeProperty(SHADOW_PROPERTY)
+    })
     const store = useColorPaletteStore()
     const dark = store.palettesLookup.dark
     assert.exists(dark)
@@ -278,9 +269,12 @@ describe('useColorPaletteService', () => {
     const service = useColorPaletteService()
 
     await service.loadColorPalette('custom-shadow')
-    expect(readRootShadow()).toBe(customShadow)
-
+    const customValue = readRootProperty(SHADOW_PROPERTY)
     await service.loadColorPalette('dark')
-    expect(readRootShadow()).toBe(SHADOW_FALLBACK)
+
+    expect([customValue, readRootProperty(SHADOW_PROPERTY)]).toEqual([
+      customShadow,
+      ''
+    ])
   })
 })

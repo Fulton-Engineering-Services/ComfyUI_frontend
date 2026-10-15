@@ -12,7 +12,7 @@
     <!-- Main toolbar -->
     <nav
       data-testid="builder-footer-nav"
-      class="flex items-center gap-2 rounded-2xl border bg-background p-2 shadow-interface"
+      class="flex items-center gap-2 rounded-2xl border bg-background p-2 shadow-md"
     >
       <Button variant="textonly" size="lg" @click="onExitBuilder">
         {{ t('builderMenu.exitAppBuilder') }}

@@ -39,7 +39,7 @@
       align="end"
       :content-class="
         cn(
-          'overflow-visible border-border shadow-[1px_1px_8px_0_rgba(0,0,0,0.4)]',
+          'overflow-visible border-border shadow-md',
           showWorkspacePopover ? 'w-fit max-w-96 min-w-80' : 'w-80'
         )
       "

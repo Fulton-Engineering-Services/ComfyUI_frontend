@@ -18,7 +18,7 @@ const { hasError, overlayMessage, overlayTitle } = useErrorOverlayState()
     data-testid="linear-validation-warning"
     :class="
       cn(
-        'mb-3 flex w-full flex-col gap-2 overflow-hidden rounded-lg border border-l-4 bg-background p-3 shadow-interface transition-colors duration-200 ease-in-out',
+        'mb-3 flex w-full flex-col gap-2 overflow-hidden rounded-lg border border-l-4 bg-background p-3 shadow-md transition-colors duration-200 ease-in-out',
         hasError ? 'border-l-destructive' : 'border-l-warning'
       )
     "

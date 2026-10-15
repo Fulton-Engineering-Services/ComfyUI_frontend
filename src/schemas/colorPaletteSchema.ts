@@ -54,7 +54,7 @@ const litegraphBaseSchema = z.object({
   BADGE_BG_COLOR: z.string()
 })
 
-const comfyBaseSchema = z.object({
+export const comfyBaseSchema = z.object({
   ['fg-color']: z.string(),
   ['bg-color']: z.string(),
   ['bg-img']: z.string().optional(),
@@ -105,7 +105,7 @@ export const themeSchema = z
     ['node-header']: z.string(),
     ['node-border']: z.string(),
     warning: z.string(),
-    ['node-shadow']: z.string()
+    ['shadow-color']: z.string()
   })
   .partial()
 

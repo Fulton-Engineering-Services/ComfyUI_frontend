@@ -66,9 +66,6 @@
       "content-hover-bg": "#adadad",
       "content-hover-fg": "#222",
       "bar-shadow": "rgba(16, 16, 16, 0.25) 0 0 0.5rem",
-      "interface-panel-box-shadow": "1px 1px 8px 0 rgba(0, 0, 0, 0.2)",
-      "interface-panel-drop-shadow": "1px 1px 4px rgba(0, 0, 0, 0.4)",
-      "interface-floating-panel-shadow": "0 2px 16px 0 rgba(0, 0, 0, 0.2)",
       "contrast-mix-color": "#000"
     },
     "theme": {
@@ -85,7 +82,7 @@
       "ring": "#8a8a8a",
       "node-foreground": "#444444",
       "warning": "#c77700",
-      "node-shadow": "0 3px 3px rgb(0 0 0 / 0.15)"
+      "shadow-color": "rgb(0 0 0 / 0.15)"
     }
   }
 }

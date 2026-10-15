@@ -73,7 +73,7 @@
       id="deployment-switcher-panel"
       ref="panel"
       role="menu"
-      class="absolute top-0 right-full z-10 mr-4 flex max-h-96 w-80 flex-col overflow-hidden rounded-lg border bg-background shadow-[1px_1px_8px_0_rgba(0,0,0,0.4)]"
+      class="absolute top-0 right-full z-10 mr-4 flex max-h-96 w-80 flex-col overflow-hidden rounded-lg border bg-background shadow-md"
       data-testid="deployment-switcher-panel"
     >
       <div

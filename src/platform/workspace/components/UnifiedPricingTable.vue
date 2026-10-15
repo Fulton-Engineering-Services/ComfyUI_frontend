@@ -99,7 +99,7 @@
         <div
           v-for="tier in tiers"
           :key="tier.id"
-          class="flex flex-col rounded-2xl border bg-background shadow-[0_0_12px_rgba(0,0,0,0.1)] xl:w-80"
+          class="flex flex-col rounded-2xl border bg-background shadow-sm xl:w-80"
         >
           <div class="flex flex-1 flex-col gap-4 p-6 pb-0">
             <div
@@ -217,7 +217,7 @@
         >
           <!-- Team Plan + Details share one card, split by a divider. -->
           <div
-            class="flex flex-[2.6] flex-col rounded-2xl border bg-background shadow-[0_0_12px_rgba(0,0,0,0.1)] xl:flex-row xl:overflow-hidden"
+            class="flex flex-[2.6] flex-col rounded-2xl border bg-background shadow-sm xl:flex-row xl:overflow-hidden"
           >
             <!-- Team Plan column -->
             <div class="flex flex-[1.6] flex-col gap-6 p-6">
@@ -323,7 +323,7 @@
 
           <!-- Enterprise card -->
           <div
-            class="flex flex-1 flex-col gap-4 rounded-2xl border bg-background p-6 shadow-[0_0_12px_rgba(0,0,0,0.1)]"
+            class="flex flex-1 flex-col gap-4 rounded-2xl border bg-background p-6 shadow-sm"
           >
             <span class="text-base/normal font-bold">
               {{ t('subscription.enterprise.name') }}

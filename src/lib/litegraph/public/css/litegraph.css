@@ -19,7 +19,7 @@
   min-width: 100px;
   color: #aaf;
   padding: 0;
-  box-shadow: 0 0 10px black;
+  box-shadow: var(--shadow-lg);
   background-color: #2e2e2e;
   z-index: 10;
   max-height: -webkit-fill-available;
@@ -51,7 +51,7 @@
   left: 5px;
   min-width: 100px;
   background-color: #444;
-  box-shadow: 0 0 3px black;
+  box-shadow: var(--shadow-sm);
   padding: 4px;
   border-bottom: 2px solid #aaf;
   z-index: 10;
@@ -223,7 +223,7 @@
 
   min-width: 400px;
   min-height: 200px;
-  box-shadow: 0 0 4px #111;
+  box-shadow: var(--shadow-sm);
   border-radius: 6px;
 }
 
@@ -423,7 +423,7 @@
   min-height: 2em;
   background-color: #333;
   font-size: 1.2em;
-  box-shadow: 0 0 10px black;
+  box-shadow: var(--shadow-lg);
   z-index: 10;
 }
 

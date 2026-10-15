@@ -64,7 +64,7 @@ const forwarded = useForwardPropsEmits(
         :style="contentStyle"
         :class="
           cn(
-            'z-1700 max-w-96 rounded-md border border-border bg-background px-3 py-2 text-xs/tight whitespace-pre-line text-foreground shadow-interface',
+            'z-1700 max-w-96 rounded-md border border-border bg-background px-3 py-2 text-xs/tight whitespace-pre-line text-foreground shadow-md',
             className
           )
         "

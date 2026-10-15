@@ -667,7 +667,7 @@ onBeforeUnmount(() => {
   overflow-y: auto;
   background: var(--popover);
   border-radius: 8px;
-  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 0.1);
+  box-shadow: var(--shadow-sm);
   border: 1px solid var(--border);
   padding: 12px 8px;
   position: relative;
@@ -731,7 +731,7 @@ onBeforeUnmount(() => {
   right: -2px;
   width: 8px;
   height: 8px;
-  background: #ff3b30;
+  background: var(--destructive);
   border-radius: 50%;
   border: 1.5px solid var(--background);
   z-index: 1;
@@ -812,7 +812,7 @@ onBeforeUnmount(() => {
   background: var(--popover);
   border-radius: 8px;
   border: 1px solid var(--border);
-  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 0.1);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
   transition: opacity 0.15s ease-out;
 }

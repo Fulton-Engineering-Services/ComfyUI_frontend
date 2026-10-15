@@ -10,8 +10,13 @@ import CardFooter from '@/components/ui/card/CardFooter.vue'
 import CardHeader from '@/components/ui/card/CardHeader.vue'
 import CardTitle from '@/components/ui/card/CardTitle.vue'
 
-const { class: className, onClose } = defineProps<{
+const {
+  class: className,
+  titleId,
+  onClose
+} = defineProps<{
   class?: HTMLAttributes['class']
+  titleId?: string
   onClose?: () => void
 }>()
 
@@ -21,7 +26,7 @@ const { t } = useI18n()
 <template>
   <Card :class="cn('flex flex-col shadow-lg', className)">
     <CardHeader>
-      <CardTitle>
+      <CardTitle :id="titleId">
         <slot name="title" />
       </CardTitle>
       <Button

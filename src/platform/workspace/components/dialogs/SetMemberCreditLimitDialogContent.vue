@@ -1,5 +1,9 @@
 <template>
-  <DialogPanel class="w-lg max-w-full" @close="onClose">
+  <DialogPanel
+    class="w-lg max-w-full"
+    title-id="set-member-credit-limit"
+    @close="onClose"
+  >
     <template #title>
       {{
         $t('workspacePanel.members.creditLimitDialog.title', {

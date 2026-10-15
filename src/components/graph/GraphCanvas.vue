@@ -121,6 +121,7 @@
 </template>
 
 <script setup lang="ts">
+import { LIGHT_THEME_NODE_LIGHTNESS } from '@/renderer/extensions/vueNodes/utils/nodeStyleUtils'
 import { until, useEventListener } from '@vueuse/core'
 import {
   computed,
@@ -367,7 +368,9 @@ watchEffect(() => {
 })
 watchEffect(() => {
   LiteGraph.nodeLightness =
-    colorPaletteStore.colorScheme === 'light' ? 0.5 : undefined
+    colorPaletteStore.colorScheme === 'light'
+      ? LIGHT_THEME_NODE_LIGHTNESS
+      : undefined
 })
 
 watchEffect(() => {

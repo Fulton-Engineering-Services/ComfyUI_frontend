@@ -1,3 +1,4 @@
+import { toLightThemeNodeColor } from '@/renderer/extensions/vueNodes/utils/nodeStyleUtils'
 import { computed } from 'vue'
 import type { ComputedRef } from 'vue'
 
@@ -20,7 +21,6 @@ import type { BadgeData, CoreBadgePart } from '@/types/badgeData'
 import type { NodeId } from '@/types/nodeId'
 import { NodeBadgeMode } from '@/types/nodeSource'
 import { widgetId } from '@/types/widgetId'
-import { adjustColor } from '@/utils/colorUtil'
 import { mapUniqueNodes } from '@/utils/graphTraversalUtil'
 import type { UUID } from '@/utils/uuid'
 
@@ -233,7 +233,7 @@ function gatherSources(node: LGraphNode): BadgeSources {
       bgColor: palette.colors.litegraph_base.BADGE_BG_COLOR,
       creditsBgColor:
         colorPaletteStore.colorScheme === 'light'
-          ? adjustColor(CREDITS_BASE_BG_COLOR, { lightness: 0.5 })
+          ? toLightThemeNodeColor(CREDITS_BASE_BG_COLOR)
           : CREDITS_BASE_BG_COLOR
     },
     pricing: showApiPricing ? gatherPricing(node) : { kind: 'none' }

@@ -1,3 +1,4 @@
+import { toLightThemeNodeColor } from '@/renderer/extensions/vueNodes/utils/nodeStyleUtils'
 import type { LGraph } from '@/lib/litegraph/src/litegraph'
 import { LGraphEventMode } from '@/lib/litegraph/src/litegraph'
 import { useColorPaletteStore } from '@/stores/workspace/colorPaletteStore'
@@ -77,7 +78,7 @@ function getNodeColor(
   if (settings.nodeColors) {
     if (node.bgcolor) {
       return colors.isLightTheme
-        ? adjustColor(node.bgcolor, { lightness: 0.5 })
+        ? toLightThemeNodeColor(node.bgcolor)
         : node.bgcolor
     }
     return colors.nodeColorDefault

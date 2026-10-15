@@ -3,11 +3,9 @@
     data-component-id="ModelInfoPanel"
     class="flex scrollbar-custom h-full flex-col"
   >
-    <PropertiesAccordionItem :class="accordionClass">
+    <PropertiesAccordionItem variant="card">
       <template #label>
-        <span class="font-inter text-xs uppercase select-none">
-          {{ t('assetBrowser.modelInfo.basicInfo') }}
-        </span>
+        {{ t('assetBrowser.modelInfo.basicInfo') }}
       </template>
       <ModelInfoField :label="t('assetBrowser.modelInfo.displayName')">
         <div class="group flex justify-between">
@@ -64,11 +62,9 @@
       </ModelInfoField>
     </PropertiesAccordionItem>
 
-    <PropertiesAccordionItem :class="accordionClass">
+    <PropertiesAccordionItem variant="card">
       <template #label>
-        <span class="font-inter text-xs uppercase select-none">
-          {{ t('assetBrowser.modelInfo.modelTagging') }}
-        </span>
+        {{ t('assetBrowser.modelInfo.modelTagging') }}
       </template>
       <ModelInfoField :label="t('assetBrowser.modelInfo.modelType')">
         <Select v-if="isModelTypeEditable" v-model="selectedModelType">
@@ -149,11 +145,9 @@
       </ModelInfoField>
     </PropertiesAccordionItem>
 
-    <PropertiesAccordionItem :class="accordionClass">
+    <PropertiesAccordionItem variant="card">
       <template #label>
-        <span class="font-inter text-xs uppercase select-none">
-          {{ t('assetBrowser.modelInfo.modelDescription') }}
-        </span>
+        {{ t('assetBrowser.modelInfo.modelDescription') }}
       </template>
       <ModelInfoField
         v-if="triggerPhrases.length > 0"
@@ -264,8 +258,6 @@ const { copyToClipboard } = useCopyToClipboard()
 const descriptionTextarea = useTemplateRef<HTMLTextAreaElement>(
   'descriptionTextarea'
 )
-
-const accordionClass = cn('border-t border-border bg-card')
 
 const { asset, cacheKey } = defineProps<{
   asset: AssetDisplayItem

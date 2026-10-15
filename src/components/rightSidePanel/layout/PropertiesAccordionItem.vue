@@ -14,6 +14,7 @@ const {
   enableEmptyState,
   tooltip,
   size = 'default',
+  variant = 'default',
   class: className
 } = defineProps<{
   disabled?: boolean
@@ -21,6 +22,7 @@ const {
   enableEmptyState?: boolean
   tooltip?: string
   size?: 'default' | 'lg'
+  variant?: 'default' | 'card'
   class?: string
 }>()
 
@@ -30,7 +32,15 @@ const isExpanded = computed(() => !isCollapse.value && !disabled)
 </script>
 
 <template>
-  <div :class="cn('flex flex-col bg-background', className)">
+  <div
+    :class="
+      cn(
+        'flex flex-col bg-background',
+        variant === 'card' && 'border-t bg-card',
+        className
+      )
+    "
+  >
     <div
       class="sticky top-0 z-10 flex items-center justify-between bg-inherit backdrop-blur-xl"
     >
@@ -49,7 +59,16 @@ const isExpanded = computed(() => !isCollapse.value && !disabled)
               :disabled="disabled"
               @click="isCollapse = !isCollapse"
             >
-              <span class="line-clamp-2 flex-1 text-sm font-semibold">
+              <span
+                :class="
+                  cn(
+                    'line-clamp-2 flex-1 font-semibold',
+                    variant === 'card'
+                      ? 'text-xs uppercase select-none'
+                      : 'text-sm'
+                  )
+                "
+              >
                 <slot name="label">
                   {{ label }}
                 </slot>

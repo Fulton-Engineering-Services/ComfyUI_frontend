@@ -307,24 +307,24 @@ body {
 /* Shared markdown content styling for consistent rendering across components */
 .comfy-markdown-content {
   /* Typography */
-  font-size: var(--comfy-textarea-font-size);
+  font-size: var(--comfy-markdown-font-size, var(--comfy-textarea-font-size));
   line-height: 1.6;
   word-wrap: break-word;
 }
 
 /* Headings */
 .comfy-markdown-content h1 {
-  font-size: calc(22 / 14 * var(--comfy-textarea-font-size));
+  font-size: calc(22em / 14);
   font-weight: 700; /* font-bold */
 }
 
 .comfy-markdown-content h2 {
-  font-size: calc(18 / 14 * var(--comfy-textarea-font-size));
+  font-size: calc(18em / 14);
   font-weight: 700; /* font-bold */
 }
 
 .comfy-markdown-content h3 {
-  font-size: calc(16 / 14 * var(--comfy-textarea-font-size));
+  font-size: calc(16em / 14);
   font-weight: 700; /* font-bold */
 }
 

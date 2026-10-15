@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="flex min-w-[460px] flex-col rounded-2xl border bg-background shadow-md"
-  >
+  <Card class="flex min-w-[460px] flex-col shadow-md">
     <!-- Header -->
     <div class="flex items-center justify-between p-8">
       <h2 class="m-0 text-lg font-bold">
@@ -156,10 +154,11 @@
         </a>
       </div>
     </div>
-  </div>
+  </Card>
 </template>
 
 <script setup lang="ts">
+import Card from '@/components/ui/card/Card.vue'
 import {
   getTopupAmountPreset,
   TOPUP_AMOUNT_PRESETS_USD

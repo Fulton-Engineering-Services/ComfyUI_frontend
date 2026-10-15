@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="flex min-h-[500px] w-[min(512px,95vw)] flex-col rounded-2xl border bg-background shadow-md"
-  >
+  <Card class="flex min-h-[500px] w-[min(512px,95vw)] flex-col shadow-md">
     <!-- Header -->
     <div class="flex items-center justify-between p-8">
       <div class="flex items-center gap-2">
@@ -271,10 +269,11 @@
         </a>
       </div>
     </div>
-  </div>
+  </Card>
 </template>
 
 <script setup lang="ts">
+import Card from '@/components/ui/card/Card.vue'
 import { BILLING_ACTION_NAME } from '@/platform/telemetry/billingActionNames'
 import type { BillingOperationTerminal } from '@comfyorg/account-core/billing'
 import {

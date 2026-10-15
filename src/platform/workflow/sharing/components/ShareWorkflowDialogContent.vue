@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="flex w-xl max-w-full flex-col overflow-hidden rounded-2xl border bg-background shadow-lg"
-  >
+  <Card class="flex w-xl max-w-full flex-col shadow-lg">
     <header class="flex h-12 items-center justify-between gap-2 border-b px-4">
       <div
         v-if="showPublishToHubTab"
@@ -180,10 +178,11 @@
         />
       </div>
     </main>
-  </div>
+  </Card>
 </template>
 
 <script setup lang="ts">
+import Card from '@/components/ui/card/Card.vue'
 import { vAutoAnimate } from '@formkit/auto-animate/vue'
 import { useAsyncState } from '@vueuse/core'
 import { useToast } from '@/components/ui/toast/toastStore'

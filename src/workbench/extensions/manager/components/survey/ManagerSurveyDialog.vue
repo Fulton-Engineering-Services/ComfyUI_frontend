@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="flex w-lg max-w-full flex-col overflow-hidden rounded-2xl border bg-background shadow-lg"
-  >
+  <Card class="flex w-lg max-w-full flex-col shadow-lg">
     <header class="flex h-12 items-center justify-between gap-2 border-b px-4">
       <div class="flex items-center gap-2">
         <i class="icon-[comfy--extensions-blocks]" />
@@ -53,10 +51,11 @@
         </div>
       </div>
     </main>
-  </div>
+  </Card>
 </template>
 
 <script setup lang="ts">
+import Card from '@/components/ui/card/Card.vue'
 import { useEventListener, useTimeoutFn } from '@vueuse/core'
 import { computed, ref, watch } from 'vue'
 

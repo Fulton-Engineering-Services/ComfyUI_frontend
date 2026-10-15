@@ -96,10 +96,10 @@
         v-if="planMode === 'personal'"
         class="flex flex-col items-stretch gap-6 xl:flex-1 xl:flex-row xl:justify-center"
       >
-        <div
+        <Card
           v-for="tier in tiers"
           :key="tier.id"
-          class="flex flex-col rounded-2xl border bg-background shadow-sm xl:w-80"
+          class="flex flex-col shadow-sm xl:w-80"
         >
           <div class="flex flex-1 flex-col gap-4 p-6 pb-0">
             <div
@@ -207,7 +207,7 @@
               {{ getButtonLabel(tier) }}
             </Button>
           </div>
-        </div>
+        </Card>
       </div>
 
       <!-- TEAM PLAN: [Team Plan | Details] card + Enterprise card -->
@@ -216,8 +216,8 @@
           class="flex flex-col items-stretch gap-6 xl:flex-1 xl:flex-row xl:justify-center"
         >
           <!-- Team Plan + Details share one card, split by a divider. -->
-          <div
-            class="flex flex-[2.6] flex-col rounded-2xl border bg-background shadow-sm xl:flex-row xl:overflow-hidden"
+          <Card
+            class="flex flex-[2.6] flex-col shadow-sm xl:flex-row xl:overflow-hidden"
           >
             <!-- Team Plan column -->
             <div class="flex flex-[1.6] flex-col gap-6 p-6">
@@ -319,12 +319,10 @@
                 </div>
               </div>
             </div>
-          </div>
+          </Card>
 
           <!-- Enterprise card -->
-          <div
-            class="flex flex-1 flex-col gap-4 rounded-2xl border bg-background p-6 shadow-sm"
-          >
+          <Card class="flex flex-1 flex-col gap-4 p-6 shadow-sm">
             <span class="text-base/normal font-bold">
               {{ t('subscription.enterprise.name') }}
             </span>
@@ -349,7 +347,7 @@
             >
               {{ t('subscription.enterprise.cta') }}
             </Button>
-          </div>
+          </Card>
         </div>
       </div>
     </div>
@@ -425,6 +423,7 @@
 </template>
 
 <script setup lang="ts">
+import Card from '@/components/ui/card/Card.vue'
 import {
   BILLING_ACTION_NAME,
   planCtaActionName

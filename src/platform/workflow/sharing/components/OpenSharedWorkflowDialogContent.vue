@@ -1,7 +1,7 @@
 <template>
-  <div
+  <Card
     data-testid="open-shared-workflow-dialog"
-    class="flex w-176 max-w-full flex-col overflow-hidden rounded-2xl border bg-background shadow-lg"
+    class="flex w-176 max-w-full flex-col shadow-lg"
     :aria-busy="isOpening"
   >
     <header class="flex h-12 items-center justify-between gap-2 border-b px-4">
@@ -159,10 +159,11 @@
         </Button>
       </footer>
     </template>
-  </div>
+  </Card>
 </template>
 
 <script setup lang="ts">
+import Card from '@/components/ui/card/Card.vue'
 import { useAsyncState } from '@vueuse/core'
 import {
   CollapsibleContent,

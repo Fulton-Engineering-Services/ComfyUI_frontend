@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="flex w-xl max-w-full min-w-116 flex-col rounded-2xl border bg-background shadow-lg"
-  >
+  <Card class="flex w-xl max-w-full min-w-116 flex-col shadow-lg">
     <!-- Header -->
     <div class="flex h-12 items-center justify-between border-b px-4">
       <div class="flex items-center gap-2">
@@ -30,10 +28,11 @@
     <div class="flex items-center justify-end gap-4 p-4">
       <slot name="footer" />
     </div>
-  </div>
+  </Card>
 </template>
 
 <script setup lang="ts">
+import Card from '@/components/ui/card/Card.vue'
 import Button from '@/components/ui/button/Button.vue'
 import DialogTitle from '@/components/ui/dialog/DialogTitle.vue'
 

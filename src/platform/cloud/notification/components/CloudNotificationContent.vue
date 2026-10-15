@@ -1,7 +1,7 @@
 <template>
-  <div
+  <Card
     data-testid="cloud-notification-dialog"
-    class="relative grid h-full w-170 max-w-full grid-cols-5 overflow-hidden rounded-2xl border bg-background shadow-lg"
+    class="relative grid h-full w-170 max-w-full grid-cols-5 shadow-lg"
   >
     <Button
       size="unset"
@@ -72,10 +72,11 @@
         </p>
       </div>
     </div>
-  </div>
+  </Card>
 </template>
 
 <script setup lang="ts">
+import Card from '@/components/ui/card/Card.vue'
 import { onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 

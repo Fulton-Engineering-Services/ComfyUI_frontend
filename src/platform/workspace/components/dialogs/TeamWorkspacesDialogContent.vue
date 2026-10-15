@@ -1,7 +1,5 @@
 <template>
-  <section
-    class="flex w-full max-w-[480px] flex-col rounded-2xl border bg-background"
-  >
+  <Card class="flex w-full max-w-[480px] flex-col">
     <!-- Header -->
     <header class="flex items-start gap-3 p-5 pb-0">
       <div
@@ -127,10 +125,11 @@
         {{ $t('teamWorkspacesDialog.createWorkspace') }}
       </Button>
     </section>
-  </section>
+  </Card>
 </template>
 
 <script setup lang="ts">
+import Card from '@/components/ui/card/Card.vue'
 import { useToast } from '@/components/ui/toast/toastStore'
 import { storeToRefs } from 'pinia'
 import { computed, ref } from 'vue'

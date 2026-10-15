@@ -82,35 +82,38 @@
         </TextTicker>
       </div>
     </div>
-    <div v-if="!showDescription" class="flex items-center gap-1">
+    <div
+      v-if="!showDescription"
+      class="flex items-center gap-1 text-xs text-muted-foreground"
+    >
       <span
         v-if="nodeDef.deprecated"
-        class="rounded-sm bg-red-500/20 px-1.5 py-0.5 text-xs text-red-400"
+        class="rounded-sm bg-red-500/20 px-1.5 py-0.5 text-red-400"
       >
         {{ $t('g.deprecated') }}
       </span>
       <span
         v-if="nodeDef.experimental"
-        class="rounded-sm bg-blue-500/20 px-1.5 py-0.5 text-xs text-blue-400"
+        class="rounded-sm bg-blue-500/20 px-1.5 py-0.5 text-blue-400"
       >
         {{ $t('g.experimental') }}
       </span>
       <span
         v-if="nodeDef.dev_only"
-        class="rounded-sm bg-cyan-500/20 px-1.5 py-0.5 text-xs text-cyan-400"
+        class="rounded-sm bg-cyan-500/20 px-1.5 py-0.5 text-cyan-400"
       >
         {{ $t('g.devOnly') }}
       </span>
       <span
         v-if="showNodeFrequency && nodeFrequency > 0"
         data-testid="frequency-badge"
-        class="rounded-sm bg-secondary px-1.5 py-0.5 text-xs text-muted-foreground"
+        class="rounded-sm bg-secondary px-1.5 py-0.5"
       >
         {{ formatNumberWithSuffix(nodeFrequency, { roundToInt: true }) }}
       </span>
       <span
         v-if="nodeDef.nodeSource.type !== NodeSourceType.Unknown"
-        class="rounded-sm bg-secondary px-2 py-0.5 text-sm text-muted-foreground"
+        class="rounded-sm bg-secondary px-2 py-0.5 text-sm"
       >
         {{ nodeDef.nodeSource.displayText }}
       </span>

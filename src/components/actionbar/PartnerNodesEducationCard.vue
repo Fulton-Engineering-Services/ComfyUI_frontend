@@ -88,10 +88,10 @@
 
             <div class="z-1 flex h-14 items-start">
               <div
-                class="flex h-14 flex-1 items-center justify-center gap-1.5 bg-secondary px-3 pt-7 pb-1.5 opacity-60 backdrop-blur-md"
+                class="flex h-14 flex-1 items-center justify-center gap-1.5 bg-secondary px-3 pt-7 pb-1.5 text-white opacity-60 backdrop-blur-md"
               >
-                <i class="icon-[lucide--boxes] size-4 text-white" />
-                <span class="text-xs font-semibold text-white">
+                <i class="icon-[lucide--boxes] size-4" />
+                <span class="text-xs font-semibold">
                   {{ t('partnerNodesEducation.openTab') }}
                 </span>
               </div>

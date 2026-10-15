@@ -9,11 +9,11 @@
       </p>
 
       <!-- Troubleshooting Section -->
-      <div class="mb-4 rounded-sm bg-secondary px-3 py-2 text-left">
-        <h3 class="mb-2 text-sm font-semibold text-foreground">
+      <div class="mb-4 rounded-sm bg-secondary px-3 py-2 text-left text-sm">
+        <h3 class="mb-2 font-semibold text-foreground">
           {{ $t('cloudOnboarding.authTimeout.troubleshooting') }}
         </h3>
-        <ul class="space-y-1.5 text-sm text-muted-foreground">
+        <ul class="space-y-1.5 text-muted-foreground">
           <li
             v-for="(cause, index) in $tm('cloudOnboarding.authTimeout.causes')"
             :key="index"

@@ -29,14 +29,14 @@
             {{ $t('subscription.retentionOffer.percentOff', { percent }) }}
           </Badge>
         </div>
-        <p class="m-0 flex flex-wrap items-baseline gap-1.5">
+        <p class="m-0 flex flex-wrap items-baseline gap-1.5 text-sm">
           <span class="text-[32px] leading-[1.15] font-semibold">
             {{ discountedPrice }}
           </span>
-          <span class="text-sm text-muted-foreground">
+          <span class="text-muted-foreground">
             {{ $t('subscription.retentionOffer.perMonth') }}
           </span>
-          <span class="text-sm text-muted-foreground line-through">
+          <span class="text-muted-foreground line-through">
             {{ regularPrice }}
           </span>
         </p>
@@ -65,9 +65,9 @@
 
     <div v-else-if="phase === 'applied'" class="flex flex-col gap-5">
       <div
-        class="flex flex-col gap-3 rounded-[14px] border border-border/50 bg-secondary/50 p-4 shadow-xs"
+        class="flex flex-col gap-3 rounded-[14px] border border-border/50 bg-secondary/50 p-4 text-sm shadow-xs"
       >
-        <div class="flex flex-wrap items-center justify-between gap-2 text-sm">
+        <div class="flex flex-wrap items-center justify-between gap-2">
           <span class="flex items-center gap-2">
             {{
               $t('subscription.retentionOffer.nextPayments', { months }, months)
@@ -89,7 +89,7 @@
             </span>
           </span>
         </div>
-        <p class="m-0 text-sm text-muted-foreground">
+        <p class="m-0 text-muted-foreground">
           {{
             $t(
               'subscription.retentionOffer.savings',

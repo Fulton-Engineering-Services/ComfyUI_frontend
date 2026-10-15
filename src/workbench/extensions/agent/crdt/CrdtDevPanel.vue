@@ -839,11 +839,11 @@ function fmtTime(at: number): string {
             </table>
           </section>
 
-          <section>
-            <div class="mb-1 font-bold text-muted-foreground">
+          <section class="text-muted-foreground">
+            <div class="mb-1 font-bold">
               {{ S.sectionProxy }}
             </div>
-            <div class="break-all text-muted-foreground">{{ proxyTarget }}</div>
+            <div class="break-all">{{ proxyTarget }}</div>
           </section>
         </template>
 
@@ -1063,14 +1063,14 @@ function fmtTime(at: number): string {
               </div>
             </section>
 
-            <section v-if="lifecycle.length">
-              <div class="mb-1 font-bold text-muted-foreground">
+            <section v-if="lifecycle.length" class="text-muted-foreground">
+              <div class="mb-1 font-bold">
                 {{ S.sectionLifecycle }}
               </div>
               <div
                 v-for="row in lifecycle"
                 :key="`${row.nodeId}-${row.entry.index}`"
-                class="text-muted-foreground"
+                class=""
               >
                 {{ lifecycleLine(row) }}
               </div>

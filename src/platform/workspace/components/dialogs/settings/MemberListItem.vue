@@ -23,14 +23,14 @@
           {{ memberInitial }}
         </span>
       </div>
-      <div class="flex min-w-0 flex-1 flex-col gap-1">
-        <span class="text-sm text-foreground">
+      <div class="flex min-w-0 flex-1 flex-col gap-1 text-sm">
+        <span class="text-foreground">
           {{ member.name }}
           <span v-if="isCurrentUser" class="text-muted-foreground">
             ({{ $t('g.you') }})
           </span>
         </span>
-        <span class="text-sm text-muted-foreground">
+        <span class="text-muted-foreground">
           {{ member.email }}
         </span>
       </div>

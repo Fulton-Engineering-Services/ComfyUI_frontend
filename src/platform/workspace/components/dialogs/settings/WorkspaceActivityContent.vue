@@ -96,13 +96,13 @@
                         </span>
                       </span>
                     </div>
-                    <div class="flex h-5 items-center justify-between">
-                      <span class="text-sm text-muted-foreground">
+                    <div class="flex h-5 items-center justify-between text-sm">
+                      <span class="text-muted-foreground">
                         {{
                           $t('workspacePanel.activity.hoverCard.lastActivity')
                         }}
                       </span>
-                      <span class="text-sm text-foreground">
+                      <span class="text-foreground">
                         {{ lastActivityLabel(event.userId) }}
                       </span>
                     </div>
@@ -121,15 +121,15 @@
                   {{ event.eventType }}
                 </HoverCardTrigger>
                 <HoverCardContent class="w-72" align="start">
-                  <div class="flex h-5 items-center justify-between gap-4">
-                    <span
-                      class="text-sm whitespace-nowrap text-muted-foreground"
-                    >
+                  <div
+                    class="flex h-5 items-center justify-between gap-4 text-sm"
+                  >
+                    <span class="whitespace-nowrap text-muted-foreground">
                       {{
                         $t('workspacePanel.activity.hoverCard.partnerNodeUsed')
                       }}
                     </span>
-                    <span class="truncate text-sm text-foreground">
+                    <span class="truncate text-foreground">
                       {{ event.partnerNode }}
                     </span>
                   </div>

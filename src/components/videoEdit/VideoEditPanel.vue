@@ -3,10 +3,10 @@
     <div
       v-if="!hasSource"
       data-testid="video-edit-empty"
-      class="flex min-h-24 flex-col items-center justify-center gap-1 rounded-lg border border-dashed border-node-border bg-node p-4 text-center"
+      class="flex min-h-24 flex-col items-center justify-center gap-1 rounded-lg border border-dashed border-node-border bg-node p-4 text-center text-muted-foreground"
     >
-      <i class="icon-[lucide--film] size-6 text-muted-foreground" />
-      <p class="m-0 text-sm text-muted-foreground">
+      <i class="icon-[lucide--film] size-6" />
+      <p class="m-0 text-sm">
         {{ t('videoEdit.noVideoSource') }}
       </p>
     </div>
@@ -52,12 +52,12 @@
         </div>
         <div
           v-else-if="error"
-          class="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-node"
+          class="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-node text-muted-foreground"
           data-testid="video-preview-error"
           role="alert"
         >
-          <i class="icon-[lucide--video-off] size-6 text-muted-foreground" />
-          <p class="m-0 text-sm text-muted-foreground">
+          <i class="icon-[lucide--video-off] size-6" />
+          <p class="m-0 text-sm">
             {{
               error === 'canvas-unavailable'
                 ? t('videoEdit.canvasUnavailable')

@@ -112,9 +112,9 @@
 
       <div class="h-px w-full bg-border" />
 
-      <div class="flex flex-col gap-2">
+      <div class="flex flex-col gap-2 text-sm">
         <div
-          class="flex items-center justify-between gap-2 text-sm @max-[300px]:flex-col @max-[300px]:items-start"
+          class="flex items-center justify-between gap-2 @max-[300px]:flex-col @max-[300px]:items-start"
         >
           <span class="flex items-center gap-1 text-foreground">
             {{ $t('subscription.additionalCredits') }}
@@ -144,7 +144,7 @@
         </div>
         <span
           v-if="!isDurationUnknown"
-          class="text-sm text-muted-foreground @max-[300px]:hidden"
+          class="text-muted-foreground @max-[300px]:hidden"
         >
           {{ usedAfterAllowanceLabel }}
         </span>
@@ -153,8 +153,8 @@
 
     <template v-else-if="showsInactivePlanState">
       <div class="h-px w-full bg-border" />
-      <div class="flex flex-col gap-2">
-        <div class="flex items-center justify-between gap-2 text-sm">
+      <div class="flex flex-col gap-2 text-sm">
+        <div class="flex items-center justify-between gap-2">
           <span class="flex items-center gap-1">
             {{ $t('subscription.additionalCredits') }}
             <Button
@@ -171,7 +171,7 @@
             {{ displayPrepaid }}
           </span>
         </div>
-        <span class="text-sm">
+        <span class="">
           {{ inactiveCreditsNote }}
         </span>
       </div>

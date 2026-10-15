@@ -23,13 +23,13 @@
         />
       </span>
       <div class="min-w-0 flex-1">
-        <div class="flex h-6 items-center gap-2">
-          <p class="m-0 text-sm leading-[normal] font-normal text-foreground">
+        <div class="flex h-6 items-center gap-2 text-foreground">
+          <p class="m-0 text-sm leading-[normal] font-normal">
             {{ $t('workspacePanel.partnerNodes.allowAll') }}
           </p>
           <span
             v-if="isGated"
-            class="rounded-full bg-secondary px-2 py-0.5 text-xs text-foreground"
+            class="rounded-full bg-secondary px-2 py-0.5 text-xs"
           >
             {{ $t('workspacePanel.partnerNodes.enterpriseBadge') }}
           </span>

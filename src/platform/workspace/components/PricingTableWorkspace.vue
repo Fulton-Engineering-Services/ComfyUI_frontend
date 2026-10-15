@@ -37,13 +37,15 @@
         "
       >
         <div class="flex flex-col gap-4 p-6 pb-0">
-          <div class="flex flex-row items-center justify-between gap-2">
-            <span class="text-base/normal font-bold">
+          <div
+            class="flex flex-row items-center justify-between gap-2 font-bold"
+          >
+            <span class="text-base/normal">
               {{ tier.name }}
             </span>
             <div
               v-if="tier.isPopular"
-              class="flex h-5 items-center rounded-full bg-foreground px-1.5 text-2xs font-bold tracking-tight text-background uppercase"
+              class="flex h-5 items-center rounded-full bg-foreground px-1.5 text-2xs tracking-tight text-background uppercase"
             >
               {{ t('subscription.mostPopular') }}
             </div>
@@ -87,12 +89,9 @@
             "
           >
             <template v-if="maxMembersByTier[tier.key] > 1">
-              <div class="flex items-center gap-2">
-                <i
-                  class="pi pi-users text-xs text-emerald-400"
-                  aria-hidden="true"
-                />
-                <span class="text-sm text-emerald-400">
+              <div class="flex items-center gap-2 text-emerald-400">
+                <i class="pi pi-users text-xs" aria-hidden="true" />
+                <span class="text-sm">
                   {{ t('subscription.inviteUpTo') }}
                 </span>
               </div>
@@ -168,12 +167,14 @@
                   <span class="text-sm/relaxed font-normal">
                     {{ t('subscription.videoEstimateLabel') }}
                   </span>
-                  <div class="group flex flex-row items-center gap-2 pt-2">
+                  <div
+                    class="group flex flex-row items-center gap-2 pt-2 text-muted-foreground"
+                  >
                     <i
-                      class="pi pi-question-circle text-xs text-muted-foreground group-hover:text-foreground"
+                      class="pi pi-question-circle text-xs group-hover:text-foreground"
                     />
                     <span
-                      class="cursor-pointer text-sm font-normal text-muted-foreground group-hover:text-foreground"
+                      class="cursor-pointer text-sm font-normal group-hover:text-foreground"
                       @click="togglePopover"
                     >
                       {{ t('subscription.videoEstimateHelp') }}

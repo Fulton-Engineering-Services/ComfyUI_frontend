@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col items-start gap-0 self-stretch">
-    <div class="flex items-center gap-2 py-2">
-      <i class="pi pi-check text-xs text-foreground" />
-      <span class="text-sm text-foreground">
+    <div class="flex items-center gap-2 py-2 text-foreground">
+      <i class="pi pi-check text-xs" />
+      <span class="text-sm">
         {{
           isFreeTier
             ? $t('subscription.benefits.benefit1FreeTier')
@@ -11,16 +11,16 @@
       </span>
     </div>
 
-    <div class="flex items-center gap-2 py-2">
-      <i class="pi pi-check text-xs text-foreground" />
-      <span class="text-sm text-foreground">
+    <div class="flex items-center gap-2 py-2 text-foreground">
+      <i class="pi pi-check text-xs" />
+      <span class="text-sm">
         {{ $t('subscription.benefits.benefit2') }}
       </span>
     </div>
 
-    <div class="flex items-center gap-2 py-2">
-      <i class="pi pi-check text-xs text-foreground" />
-      <span class="text-sm text-foreground">
+    <div class="flex items-center gap-2 py-2 text-foreground">
+      <i class="pi pi-check text-xs" />
+      <span class="text-sm">
         {{ $t('subscription.benefits.benefit3') }}
       </span>
     </div>

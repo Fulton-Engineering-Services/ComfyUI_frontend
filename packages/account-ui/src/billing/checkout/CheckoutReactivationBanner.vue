@@ -7,11 +7,11 @@
     >
       <i class="pi pi-info-circle" />
     </div>
-    <div class="flex flex-col gap-2">
+    <div class="flex flex-col gap-2 text-muted-foreground">
       <p class="m-0 font-bold text-foreground">
         {{ title }}
       </p>
-      <p class="m-0 text-muted-foreground">
+      <p class="m-0">
         <span>
           <template v-for="(segment, index) in segments" :key="index">
             <span v-if="segment.emphasis" :class="amountClass">{{
@@ -21,10 +21,7 @@
           </template>
         </span>
       </p>
-      <label
-        v-if="checkboxLabel"
-        class="flex items-center gap-2 pt-1 text-muted-foreground"
-      >
+      <label v-if="checkboxLabel" class="flex items-center gap-2 pt-1">
         <input
           v-model="confirmed"
           type="checkbox"

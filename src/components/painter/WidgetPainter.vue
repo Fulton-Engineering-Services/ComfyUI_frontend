@@ -128,7 +128,7 @@
           {{ $t('painter.color') }}
         </div>
         <div
-          class="flex h-8 w-full items-center gap-2 rounded-lg bg-input px-4"
+          class="flex h-8 w-full items-center gap-2 rounded-lg bg-input px-4 text-xs"
           data-testid="painter-color-row"
         >
           <input
@@ -139,10 +139,8 @@
               (e) => (brushColorDisplay = (e.target as HTMLInputElement).value)
             "
           />
-          <span class="min-w-[4ch] truncate text-xs">{{
-            brushColorDisplay
-          }}</span>
-          <span class="ml-auto flex items-center text-xs text-muted-foreground">
+          <span class="min-w-[4ch] truncate">{{ brushColorDisplay }}</span>
+          <span class="ml-auto flex items-center text-muted-foreground">
             <input
               type="number"
               :value="brushOpacityPercent"

@@ -681,15 +681,15 @@ useEventListener(window, 'pagehide', () => {
       </p>
       <section
         v-else-if="failure && !preview"
-        class="rounded-xl border border-border/50 bg-secondary p-6"
+        class="rounded-xl border border-border/50 bg-secondary p-6 text-sm"
       >
-        <p class="m-0 text-sm text-destructive">
+        <p class="m-0 text-destructive">
           {{ refusal(failure) }}
         </p>
         <button
           v-if="returnLink"
           type="button"
-          class="mt-4 cursor-pointer text-sm text-foreground underline underline-offset-4"
+          class="mt-4 cursor-pointer text-foreground underline underline-offset-4"
           @click="leaveForHost('back')"
         >
           {{ t('checkout.back') }}

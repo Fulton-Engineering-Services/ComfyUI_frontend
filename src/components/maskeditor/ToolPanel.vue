@@ -22,20 +22,14 @@
     </div>
 
     <div
-      class="mb-2 flex cursor-pointer flex-col items-center rounded-md transition-colors duration-200 hover:bg-accent"
+      class="mb-2 flex cursor-pointer flex-col items-center rounded-md text-muted-foreground transition-colors duration-200 hover:bg-accent"
       :title="t('maskEditor.clickToResetZoom')"
       @click="onResetZoom"
     >
-      <span
-        data-testid="zoom-percentage"
-        class="text-sm text-muted-foreground"
-        >{{ zoomText }}</span
-      >
-      <span
-        data-testid="zoom-dimensions"
-        class="text-xs text-muted-foreground"
-        >{{ dimensionsText }}</span
-      >
+      <span data-testid="zoom-percentage" class="text-sm">{{ zoomText }}</span>
+      <span data-testid="zoom-dimensions" class="text-xs">{{
+        dimensionsText
+      }}</span>
     </div>
   </div>
 </template>

@@ -33,7 +33,7 @@
           height="32"
           class="size-8 shrink-0 rounded-sm border border-border bg-background"
         />
-        <div class="flex min-w-0 flex-1 flex-col">
+        <div class="flex min-w-0 flex-1 flex-col text-xs">
           <input
             v-if="renamingId === node.id"
             :ref="focusInput"
@@ -46,13 +46,13 @@
           />
           <span
             v-else
-            class="truncate text-xs text-foreground"
+            class="truncate text-foreground"
             :title="node.name"
             @dblclick="renamingId = node.id"
           >
             {{ node.name }}
           </span>
-          <span class="truncate text-xs text-muted-foreground">
+          <span class="truncate text-muted-foreground">
             {{ layerSubtitle(node) }}
           </span>
         </div>
@@ -78,11 +78,11 @@
         :style="{ backgroundColor: backgroundColor }"
         data-testid="layer-panel-background-swatch"
       />
-      <div class="flex min-w-0 flex-1 flex-col">
-        <span class="truncate text-xs text-foreground">
+      <div class="flex min-w-0 flex-1 flex-col text-xs">
+        <span class="truncate text-foreground">
           {{ t('layerEditor.background') }}
         </span>
-        <span class="truncate text-xs text-muted-foreground">
+        <span class="truncate text-muted-foreground">
           {{ backgroundSubtitle }}
         </span>
       </div>

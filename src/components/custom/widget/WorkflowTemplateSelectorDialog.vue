@@ -250,7 +250,7 @@
                 </template>
                 <template #top-left>
                   <div
-                    class="flex h-6 items-center gap-1 rounded-md bg-zinc-700/50 px-2 backdrop-blur-[20px]"
+                    class="flex h-6 items-center gap-1 rounded-md bg-zinc-700/50 px-2 text-white backdrop-blur-[20px]"
                   >
                     <i
                       :class="
@@ -258,11 +258,9 @@
                           ? 'icon-[lucide--app-window]'
                           : 'icon-[comfy--workflow]'
                       "
-                      class="size-3 text-white"
+                      class="size-3"
                     />
-                    <span
-                      class="text-xs font-medium whitespace-nowrap text-white"
-                    >
+                    <span class="text-xs font-medium whitespace-nowrap">
                       {{
                         isAppTemplate(template)
                           ? $t('builderToolbar.app')

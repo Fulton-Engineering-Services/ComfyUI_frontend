@@ -53,12 +53,12 @@
     </div>
     <div
       v-else-if="failed"
-      class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-1 bg-background/80 p-4 backdrop-blur-md"
+      class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-1 bg-background/80 p-4 text-xs backdrop-blur-md"
     >
-      <span class="text-center text-xs font-medium">
+      <span class="text-center font-medium">
         {{ t('gettingStarted.templateFailed') }}
       </span>
-      <span class="text-xs font-semibold text-primary">
+      <span class="font-semibold text-primary">
         {{ t('gettingStarted.retry') }}
       </span>
     </div>

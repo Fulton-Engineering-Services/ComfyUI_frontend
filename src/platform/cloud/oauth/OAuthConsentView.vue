@@ -117,13 +117,13 @@
         </div>
         <div
           v-if="challenge.redirect_uri"
-          class="flex flex-col gap-1.5 rounded-lg bg-ink-400 p-3"
+          class="flex flex-col gap-1.5 rounded-lg bg-ink-400 p-3 text-xs"
         >
-          <span class="text-xs text-muted-foreground">
+          <span class="text-muted-foreground">
             {{ t('oauth.consent.redirectNotice') }}
           </span>
           <code
-            class="m-0 block truncate rounded-md bg-ink-200 px-3 py-2 font-mono text-xs text-foreground"
+            class="m-0 block truncate rounded-md bg-ink-200 px-3 py-2 font-mono text-foreground"
             :title="challenge.redirect_uri"
           >
             {{ challenge.redirect_uri }}

@@ -17,17 +17,18 @@ const { t } = useI18n()
 
 <template>
   <div class="flex flex-col gap-6">
-    <div role="alert" class="flex flex-col gap-2 rounded-lg bg-muted p-4">
-      <p
-        class="m-0 flex items-center gap-2 text-sm/5 font-medium text-foreground"
-      >
+    <div
+      role="alert"
+      class="flex flex-col gap-2 rounded-lg bg-muted p-4 text-sm/5"
+    >
+      <p class="m-0 flex items-center gap-2 font-medium text-foreground">
         <i
           class="icon-[lucide--circle-alert] size-4 shrink-0 text-warning"
           aria-hidden="true"
         />
         {{ t(`checkout.fullPage.railFailed.${rail}.title`) }}
       </p>
-      <p class="m-0 text-sm/5 text-muted-foreground">
+      <p class="m-0 text-muted-foreground">
         {{ t(`checkout.fullPage.railFailed.${rail}.body`) }}
       </p>
     </div>

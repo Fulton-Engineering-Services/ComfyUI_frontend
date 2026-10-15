@@ -1,11 +1,11 @@
 <template>
   <div class="flex h-full flex-col">
-    <div>
+    <div class="text-sm">
       <h2 class="text-2xl font-bold">{{ $t('secrets.title') }}</h2>
-      <p class="mt-1 text-sm text-muted-foreground">
+      <p class="mt-1 text-muted-foreground">
         {{ $t('secrets.description') }}
       </p>
-      <p class="mt-1 text-sm text-muted-foreground">
+      <p class="mt-1 text-muted-foreground">
         {{ $t('secrets.descriptionUsage') }}
       </p>
     </div>

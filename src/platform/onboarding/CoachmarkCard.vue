@@ -11,18 +11,11 @@
       </slot>
     </div>
     <div class="flex flex-col items-end justify-end gap-6 self-stretch">
-      <div class="flex flex-col items-start gap-2 self-stretch">
-        <p
-          v-if="subtitle"
-          :id="subtitleId"
-          class="m-0 text-xs/normal text-foreground"
-        >
+      <div class="flex flex-col items-start gap-2 self-stretch text-foreground">
+        <p v-if="subtitle" :id="subtitleId" class="m-0 text-xs/normal">
           {{ subtitle }}
         </p>
-        <h3
-          :id="titleId"
-          class="m-0 text-base/normal font-semibold text-foreground"
-        >
+        <h3 :id="titleId" class="m-0 text-base/normal font-semibold">
           {{ title }}
         </h3>
         <p :id="messageId" class="m-0 text-sm/normal text-muted-foreground">

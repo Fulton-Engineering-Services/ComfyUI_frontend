@@ -52,18 +52,18 @@
       <!-- Inputs Section -->
       <div
         v-if="inputs.length > 0 && showInputsAndOutputs"
-        class="flex flex-col gap-1"
+        class="flex flex-col gap-1 text-2xs"
         data-testid="node-preview-inputs"
       >
         <h4
-          class="m-0 text-2xs font-semibold tracking-wide text-muted-foreground uppercase"
+          class="m-0 font-semibold tracking-wide text-muted-foreground uppercase"
         >
           {{ $t('nodeHelpPage.inputs') }}
         </h4>
         <div
           v-for="input in inputs"
           :key="input.name"
-          class="flex items-center justify-between gap-2 text-2xs"
+          class="flex items-center justify-between gap-2"
         >
           <span class="shrink-0 text-foreground">{{ input.name }}</span>
           <span class="min-w-0 truncate text-muted-foreground">{{
@@ -75,17 +75,17 @@
       <!-- Outputs Section -->
       <div
         v-if="outputs.length > 0 && showInputsAndOutputs"
-        class="flex flex-col gap-1"
+        class="flex flex-col gap-1 text-2xs"
       >
         <h4
-          class="m-0 text-2xs font-semibold tracking-wide text-muted-foreground uppercase"
+          class="m-0 font-semibold tracking-wide text-muted-foreground uppercase"
         >
           {{ $t('nodeHelpPage.outputs') }}
         </h4>
         <div
           v-for="output in outputs"
           :key="output.name"
-          class="flex items-center justify-between gap-2 text-2xs"
+          class="flex items-center justify-between gap-2"
         >
           <span class="shrink-0 text-foreground">{{ output.name }}</span>
           <span class="min-w-0 truncate text-muted-foreground">{{

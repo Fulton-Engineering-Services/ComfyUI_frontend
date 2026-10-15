@@ -27,11 +27,11 @@
         </span>
       </div>
     </template>
-    <div class="flex items-center justify-between text-base">
-      <span class="text-foreground">
+    <div class="flex items-center justify-between text-base text-foreground">
+      <span class="">
         {{ totalDueToday }}
       </span>
-      <span class="font-bold text-foreground tabular-nums">
+      <span class="font-bold tabular-nums">
         {{ amountDueToday }}
       </span>
     </div>

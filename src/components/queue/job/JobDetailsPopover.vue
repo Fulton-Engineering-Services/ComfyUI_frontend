@@ -8,16 +8,14 @@
       }}</span>
     </div>
     <div class="flex flex-col gap-6 p-4">
-      <div class="grid grid-cols-2 items-center gap-2">
+      <div
+        class="grid grid-cols-2 items-center gap-2 text-xs/normal font-normal"
+      >
         <template v-for="row in baseRows" :key="row.label">
-          <div
-            class="flex items-center text-xs/normal font-normal text-foreground"
-          >
+          <div class="flex items-center text-foreground">
             {{ row.label }}
           </div>
-          <div
-            class="flex min-w-0 items-center text-xs/normal font-normal text-muted-foreground"
-          >
+          <div class="flex min-w-0 items-center text-muted-foreground">
             <span class="block min-w-0 truncate">{{ row.value }}</span>
             <Button
               v-if="row.canCopy"
@@ -32,16 +30,15 @@
         </template>
       </div>
 
-      <div v-if="extraRows.length" class="grid grid-cols-2 items-center gap-2">
+      <div
+        v-if="extraRows.length"
+        class="grid grid-cols-2 items-center gap-2 text-xs/normal font-normal"
+      >
         <template v-for="row in extraRows" :key="row.label">
-          <div
-            class="flex items-center text-xs/normal font-normal text-foreground"
-          >
+          <div class="flex items-center text-foreground">
             {{ row.label }}
           </div>
-          <div
-            class="flex min-w-0 items-center text-xs/normal font-normal text-muted-foreground"
-          >
+          <div class="flex min-w-0 items-center text-muted-foreground">
             <span class="block min-w-0 truncate">{{ row.value }}</span>
           </div>
         </template>

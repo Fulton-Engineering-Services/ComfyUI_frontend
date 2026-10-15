@@ -47,11 +47,11 @@
               {{ hero.count }}
             </span>
             <span aria-hidden="true" class="h-9 w-px shrink-0 bg-border" />
-            <div class="flex min-w-0 flex-1 flex-col gap-1 px-2">
-              <span class="text-xs/tight font-semibold">
+            <div class="flex min-w-0 flex-1 flex-col gap-1 px-2 text-xs/tight">
+              <span class="font-semibold">
                 {{ hero.title }}
               </span>
-              <span class="text-xs/tight text-muted-foreground">
+              <span class="text-muted-foreground">
                 {{ hero.description }}
               </span>
             </div>

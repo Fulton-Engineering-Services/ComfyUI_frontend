@@ -340,10 +340,10 @@ const renderedInputs = computed<[string, MaybeRef<BoundStyle> | undefined][]>(
               )
             "
           >
-            <div class="absolute top-0 right-0 size-8">
+            <div class="absolute top-0 right-0 size-8 cursor-pointer">
               <div
                 v-if="isSelected"
-                class="pointer-events-auto absolute -top-1/2 -right-1/2 size-full cursor-pointer rounded-lg bg-warning p-2"
+                class="pointer-events-auto absolute -top-1/2 -right-1/2 size-full rounded-lg bg-warning p-2"
                 @click.stop="
                   remove(appModeStore.selectedOutputs, (k) => k === key)
                 "
@@ -353,7 +353,7 @@ const renderedInputs = computed<[string, MaybeRef<BoundStyle> | undefined][]>(
               </div>
               <div
                 v-else
-                class="pointer-events-auto absolute -top-1/2 -right-1/2 size-full cursor-pointer rounded-lg bg-card ring-4 ring-warning/50 ring-inset"
+                class="pointer-events-auto absolute -top-1/2 -right-1/2 size-full rounded-lg bg-card ring-4 ring-warning/50 ring-inset"
                 @click.stop="appModeStore.selectedOutputs.push(key)"
                 @pointerdown.stop
               />

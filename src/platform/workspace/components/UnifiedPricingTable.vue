@@ -102,13 +102,15 @@
           class="flex flex-col rounded-2xl border border-border bg-background shadow-[0_0_12px_rgba(0,0,0,0.1)] xl:w-80"
         >
           <div class="flex flex-1 flex-col gap-4 p-6 pb-0">
-            <div class="flex flex-row items-center justify-between gap-2">
-              <span class="text-base/normal font-bold">
+            <div
+              class="flex flex-row items-center justify-between gap-2 font-bold"
+            >
+              <span class="text-base/normal">
                 {{ tier.name }}
               </span>
               <div
                 v-if="tier.isPopular"
-                class="flex h-5 items-center rounded-full bg-foreground px-1.5 text-2xs font-bold tracking-tight text-background uppercase"
+                class="flex h-5 items-center rounded-full bg-foreground px-1.5 text-2xs tracking-tight text-background uppercase"
               >
                 {{ t('subscription.mostPopular') }}
               </div>
@@ -307,9 +309,11 @@
                 <span class="text-sm text-muted-foreground">
                   {{ t('subscription.teamPlan.comingSoonLabel') }}
                 </span>
-                <div class="flex flex-row items-start gap-2">
-                  <i class="pi pi-clock mt-0.5 text-xs text-muted-foreground" />
-                  <span class="text-sm font-normal text-muted-foreground">
+                <div
+                  class="flex flex-row items-start gap-2 text-muted-foreground"
+                >
+                  <i class="pi pi-clock mt-0.5 text-xs" />
+                  <span class="text-sm font-normal">
                     {{ t('subscription.teamPlan.perkProjectAssets') }}
                   </span>
                 </div>
@@ -324,11 +328,13 @@
             <span class="text-base/normal font-bold">
               {{ t('subscription.enterprise.name') }}
             </span>
-            <div class="flex flex-col gap-3">
-              <span class="text-sm/relaxed font-normal text-muted-foreground">
+            <div
+              class="flex flex-col gap-3 text-sm/relaxed font-normal text-muted-foreground"
+            >
+              <span class="">
                 {{ t('subscription.enterprise.needMoreMembers') }}
               </span>
-              <span class="text-sm/relaxed font-normal text-muted-foreground">
+              <span class="">
                 {{ t('subscription.enterprise.flexibility') }}
               </span>
             </div>
@@ -348,11 +354,11 @@
       </div>
     </div>
 
-    <div class="mt-auto flex min-h-14 items-center justify-center pt-4">
+    <div class="mt-auto flex min-h-14 items-center justify-center pt-4 text-sm">
       <div
         v-if="showScheduledPlanChange"
         role="status"
-        class="flex items-center gap-2 rounded-full bg-foreground px-3 py-1.5 text-sm text-background"
+        class="flex items-center gap-2 rounded-full bg-foreground px-3 py-1.5 text-background"
       >
         <i
           class="icon-[lucide--info] size-4 shrink-0 bg-background"
@@ -371,7 +377,7 @@
         v-else
         keypath="subscription.pricingBlurb"
         tag="p"
-        class="m-0 text-center text-sm text-muted-foreground"
+        class="m-0 text-center text-muted-foreground"
       >
         <template #seeDetails>
           <a

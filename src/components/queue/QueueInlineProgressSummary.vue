@@ -15,14 +15,11 @@
         </span>
       </div>
 
-      <div class="flex items-center text-muted-foreground">
-        <span
-          class="w-[16ch] shrink-0 truncate text-right"
-          :title="currentNodeName"
-        >
+      <div class="flex items-center text-right text-muted-foreground">
+        <span class="w-[16ch] shrink-0 truncate" :title="currentNodeName">
           {{ currentNodeName }}:
         </span>
-        <span class="w-[5ch] shrink-0 text-right tabular-nums">
+        <span class="w-[5ch] shrink-0 tabular-nums">
           {{ currentNodePercentFormatted }}
         </span>
       </div>

@@ -3,11 +3,11 @@
     <span class="font-semibold text-foreground">
       {{ planName }}
     </span>
-    <div class="flex items-baseline gap-2">
-      <span class="text-2xl font-semibold text-foreground tabular-nums">
+    <div class="flex items-baseline gap-2 text-foreground">
+      <span class="text-2xl font-semibold tabular-nums">
         ${{ heroPrice }}
       </span>
-      <span class="text-base text-foreground">
+      <span class="text-base">
         {{ usdPerMonth }}
       </span>
     </div>

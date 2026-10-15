@@ -11,11 +11,11 @@
         @keydown.escape.capture.prevent="dismissGettingStarted()"
       >
         <div class="m-auto flex w-full flex-col items-center gap-8 px-8 py-16">
-          <div class="flex flex-col items-center gap-3">
-            <h1 class="m-0 text-center text-4xl/11 font-medium text-foreground">
+          <div class="flex flex-col items-center gap-3 text-center">
+            <h1 class="m-0 text-4xl/11 font-medium text-foreground">
               {{ t('gettingStarted.title') }}
             </h1>
-            <p class="m-0 text-center text-base/5 text-muted-foreground">
+            <p class="m-0 text-base/5 text-muted-foreground">
               {{ t('gettingStarted.subtitle') }}
             </p>
           </div>

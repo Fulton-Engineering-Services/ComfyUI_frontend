@@ -25,11 +25,11 @@
           "
         >
           <span class="text-foreground">{{ plan.name }}</span>
-          <div class="flex items-baseline gap-1">
-            <span class="text-2xl font-semibold text-foreground tabular-nums">
+          <div class="flex items-baseline gap-1 text-foreground">
+            <span class="text-2xl font-semibold tabular-nums">
               ${{ displayPrice }}
             </span>
-            <span class="text-foreground">
+            <span class="">
               {{ isYearly ? copy.usdPerYear : copy.usdPerMonth }}
             </span>
           </div>

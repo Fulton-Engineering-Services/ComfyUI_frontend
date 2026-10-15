@@ -155,12 +155,12 @@
 
     <div
       v-if="!accountActionsOnly && isCloud && showPlansAndPricing"
-      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-accent"
+      class="flex cursor-pointer items-center gap-2 px-4 py-2 text-sm hover:bg-accent"
       data-testid="plans-pricing-menu-item"
       @click="handleOpenPlansAndPricing"
     >
-      <i class="icon-[lucide--receipt-text] text-sm text-muted-foreground" />
-      <span class="flex-1 text-sm text-foreground">{{
+      <i class="icon-[lucide--receipt-text] text-muted-foreground" />
+      <span class="flex-1 text-foreground">{{
         $t('subscription.plansAndPricing')
       }}</span>
     </div>
@@ -195,12 +195,12 @@
     <!-- Partner Nodes Pricing (always shown) -->
     <div
       v-if="!accountActionsOnly"
-      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-accent"
+      class="flex cursor-pointer items-center gap-2 px-4 py-2 text-sm hover:bg-accent"
       data-testid="partner-nodes-menu-item"
       @click="handleOpenPartnerNodesInfo"
     >
-      <i class="icon-[lucide--tag] text-sm text-muted-foreground" />
-      <span class="flex-1 text-sm text-foreground">{{
+      <i class="icon-[lucide--tag] text-muted-foreground" />
+      <span class="flex-1 text-foreground">{{
         $t('subscription.partnerNodesCredits')
       }}</span>
     </div>
@@ -210,24 +210,24 @@
     <!-- Workspace Settings (always shown) -->
     <div
       v-if="!accountActionsOnly"
-      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-accent"
+      class="flex cursor-pointer items-center gap-2 px-4 py-2 text-sm hover:bg-accent"
       data-testid="workspace-settings-menu-item"
       @click="handleOpenWorkspaceSettings"
     >
-      <i class="icon-[lucide--users] text-sm text-muted-foreground" />
-      <span class="flex-1 text-sm text-foreground">{{
+      <i class="icon-[lucide--users] text-muted-foreground" />
+      <span class="flex-1 text-foreground">{{
         $t('userSettings.workspaceSettings')
       }}</span>
     </div>
 
     <!-- Account Settings (always shown) -->
     <div
-      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-accent"
+      class="flex cursor-pointer items-center gap-2 px-4 py-2 text-sm hover:bg-accent"
       data-testid="user-settings-menu-item"
       @click="handleOpenUserSettings"
     >
-      <i class="icon-[lucide--settings-2] text-sm text-muted-foreground" />
-      <span class="flex-1 text-sm text-foreground">{{
+      <i class="icon-[lucide--settings-2] text-muted-foreground" />
+      <span class="flex-1 text-foreground">{{
         $t('userSettings.accountSettings')
       }}</span>
     </div>
@@ -236,12 +236,12 @@
 
     <!-- Logout (always shown) -->
     <div
-      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-accent"
+      class="flex cursor-pointer items-center gap-2 px-4 py-2 text-sm hover:bg-accent"
       data-testid="logout-menu-item"
       @click="handleLogout"
     >
-      <i class="icon-[lucide--log-out] text-sm text-muted-foreground" />
-      <span class="flex-1 text-sm text-foreground">{{
+      <i class="icon-[lucide--log-out] text-muted-foreground" />
+      <span class="flex-1 text-foreground">{{
         $t('auth.signOut.signOut')
       }}</span>
     </div>

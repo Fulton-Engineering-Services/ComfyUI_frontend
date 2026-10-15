@@ -91,13 +91,15 @@ const controlMode = defineModel<ControlOptions>()
             </span>
           </div>
 
-          <div class="flex min-w-0 flex-1 flex-col gap-0.5">
-            <div class="text-sm/tight font-normal text-foreground">
+          <div
+            class="flex min-w-0 flex-1 flex-col gap-0.5 text-sm/tight font-normal"
+          >
+            <div class="text-foreground">
               <span>
                 {{ $t(`widgets.valueControl.${option.title}`) }}
               </span>
             </div>
-            <div class="text-sm/tight font-normal text-muted-foreground">
+            <div class="text-muted-foreground">
               {{ $t(`widgets.valueControl.${option.description}`) }}
             </div>
           </div>

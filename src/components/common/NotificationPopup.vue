@@ -18,13 +18,13 @@
         >
           <i :class="cn('size-4 text-white', icon)" />
         </div>
-        <div class="flex flex-1 flex-col gap-1">
-          <div class="text-sm leading-[1.429] font-normal">
+        <div class="flex flex-1 flex-col gap-1 font-normal">
+          <div class="text-sm leading-[1.429]">
             {{ title }}
           </div>
           <div
             v-if="subtitle"
-            class="text-sm leading-[1.21] font-normal text-muted-foreground"
+            class="text-sm leading-[1.21] text-muted-foreground"
           >
             {{ subtitle }}
           </div>

@@ -118,14 +118,11 @@
             :url="publishResult.shareUrl"
             :share-id="publishResult.shareId"
           />
-          <div class="flex flex-col gap-1">
-            <p
-              v-if="publishResult.publishedAt"
-              class="m-0 text-xs text-muted-foreground"
-            >
+          <div class="flex flex-col gap-1 text-xs text-muted-foreground">
+            <p v-if="publishResult.publishedAt" class="m-0">
               {{ $t('shareWorkflow.publishedOn', { date: formattedDate }) }}
             </p>
-            <p class="m-0 text-xs text-muted-foreground">
+            <p class="m-0">
               {{ $t('shareWorkflow.successDescription') }}
             </p>
           </div>

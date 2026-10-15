@@ -44,11 +44,14 @@
       </i18n-t>
     </div>
 
-    <div v-if="reason === 'out_of_credits'" class="text-center">
-      <h2 class="m-0 text-xl text-muted-foreground lg:text-2xl">
+    <div
+      v-if="reason === 'out_of_credits'"
+      class="text-center text-muted-foreground"
+    >
+      <h2 class="m-0 text-xl lg:text-2xl">
         {{ $t('credits.topUp.insufficientTitle') }}
       </h2>
-      <p class="m-0 mt-2 text-sm text-muted-foreground">
+      <p class="m-0 mt-2 text-sm">
         {{ $t('credits.topUp.insufficientMessage') }}
       </p>
     </div>

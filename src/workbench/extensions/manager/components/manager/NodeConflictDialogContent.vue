@@ -21,11 +21,11 @@
           class="flex h-8 w-full items-center justify-between gap-2 pl-4"
           @click="toggleImportFailedPanel"
         >
-          <div class="flex flex-1">
-            <span class="mr-2 text-xs font-bold text-warning">{{
+          <div class="flex flex-1 text-xs font-bold">
+            <span class="mr-2 text-warning">{{
               importFailedConflicts.length
             }}</span>
-            <span class="text-xs font-bold">{{
+            <span class="">{{
               $t('manager.conflicts.importFailedExtensions')
             }}</span>
           </div>
@@ -70,13 +70,11 @@
           class="flex h-8 w-full items-center justify-between gap-2 pl-4"
           @click="toggleConflictsPanel"
         >
-          <div class="flex flex-1">
-            <span class="mr-2 text-xs font-bold text-warning">{{
+          <div class="flex flex-1 text-xs font-bold">
+            <span class="mr-2 text-warning">{{
               allConflictDetails.length
             }}</span>
-            <span class="text-xs font-bold">{{
-              $t('manager.conflicts.conflicts')
-            }}</span>
+            <span class="">{{ $t('manager.conflicts.conflicts') }}</span>
           </div>
           <div>
             <Button variant="muted-textonly" class="bg-transparent">
@@ -119,13 +117,9 @@
           class="flex h-8 w-full items-center justify-between gap-2 pl-4"
           @click="toggleExtensionsPanel"
         >
-          <div class="flex flex-1">
-            <span class="mr-2 text-xs font-bold text-warning">{{
-              conflictData.length
-            }}</span>
-            <span class="text-xs font-bold">{{
-              $t('manager.conflicts.extensionAtRisk')
-            }}</span>
+          <div class="flex flex-1 text-xs font-bold">
+            <span class="mr-2 text-warning">{{ conflictData.length }}</span>
+            <span class="">{{ $t('manager.conflicts.extensionAtRisk') }}</span>
           </div>
           <div>
             <Button variant="muted-textonly" class="bg-transparent">

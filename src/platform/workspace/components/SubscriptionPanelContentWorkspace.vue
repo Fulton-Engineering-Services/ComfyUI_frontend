@@ -63,11 +63,11 @@
         >
           <i class="pi pi-info-circle" />
         </div>
-        <div class="flex flex-col gap-2">
-          <h2 class="m-0 pt-1.5 text-sm font-bold text-foreground">
+        <div class="flex flex-col gap-2 text-sm">
+          <h2 class="m-0 pt-1.5 font-bold text-foreground">
             {{ subscriptionStateCardTitle }}
           </h2>
-          <p class="m-0 text-sm text-muted-foreground">
+          <p class="m-0 text-muted-foreground">
             {{ subscriptionStateCardDescription }}
           </p>
         </div>
@@ -153,11 +153,11 @@
 
             <!-- MEMBER View - read-only, workspace not subscribed -->
             <template v-else-if="isMemberView">
-              <div class="flex flex-col gap-2">
-                <h3 class="m-0 text-sm font-bold text-foreground">
+              <div class="flex flex-col gap-2 text-sm">
+                <h3 class="m-0 font-bold text-foreground">
                   {{ $t('subscription.workspaceNotSubscribed') }}
                 </h3>
-                <div class="text-sm text-muted-foreground">
+                <div class="text-muted-foreground">
                   {{ $t('subscription.contactOwnerToSubscribe') }}
                 </div>
               </div>

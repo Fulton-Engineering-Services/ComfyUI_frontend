@@ -32,11 +32,11 @@
 
     <div class="col-span-3 flex flex-col justify-between p-8">
       <div>
-        <div class="flex flex-col gap-4">
-          <div class="text-sm font-semibold">
+        <div class="flex flex-col gap-4 text-sm">
+          <div class="font-semibold">
             {{ t('cloudNotification.title') }}
           </div>
-          <p class="m-0 text-sm text-muted-foreground">
+          <p class="m-0 text-muted-foreground">
             {{ t('cloudNotification.message') }}
           </p>
         </div>

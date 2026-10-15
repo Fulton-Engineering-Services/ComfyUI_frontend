@@ -18,14 +18,11 @@ const { accent } = defineProps<{
   >
     <div class="flex min-w-0 items-center gap-2">
       <slot name="icon" />
-      <div class="flex min-w-0 flex-col">
-        <span class="text-sm font-medium wrap-break-word text-foreground">
+      <div class="flex min-w-0 flex-col text-sm wrap-break-word">
+        <span class="font-medium text-foreground">
           <slot name="title" />
         </span>
-        <span
-          v-if="$slots.description"
-          class="text-sm wrap-break-word text-muted-foreground"
-        >
+        <span v-if="$slots.description" class="text-muted-foreground">
           <slot name="description" />
         </span>
       </div>

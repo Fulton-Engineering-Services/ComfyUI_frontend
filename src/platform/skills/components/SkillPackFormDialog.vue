@@ -101,13 +101,13 @@
             v-if="budgetError"
             data-testid="skill-pack-budget-error"
             role="alert"
-            class="flex flex-col gap-1 rounded-lg border border-destructive p-3"
+            class="flex flex-col gap-1 rounded-lg border border-destructive p-3 text-sm text-muted-foreground"
           >
-            <span class="text-sm font-medium text-destructive">
+            <span class="font-medium text-destructive">
               {{ $t('skillPacks.atLimitTitle') }}
             </span>
-            <span class="text-sm text-muted-foreground">{{ budgetError }}</span>
-            <span class="text-sm text-muted-foreground">
+            <span class="">{{ budgetError }}</span>
+            <span class="">
               {{ $t('skillPacks.atLimitHint') }}
             </span>
           </div>

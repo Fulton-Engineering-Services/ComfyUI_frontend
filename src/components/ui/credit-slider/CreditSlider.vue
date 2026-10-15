@@ -142,8 +142,12 @@ const { t } = useI18n()
   <div :class="cn('flex w-full flex-col gap-3', rootClass)">
     <!-- Price: discounted monthly + struck pre-discount + save badge -->
     <div class="flex flex-col gap-2">
-      <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
-        <span class="flex shrink-0 items-baseline gap-1.5 whitespace-nowrap">
+      <div
+        class="flex flex-wrap items-center gap-x-2 gap-y-1 whitespace-nowrap"
+      >
+        <span
+          class="flex shrink-0 items-baseline gap-1.5 text-base text-muted-foreground"
+        >
           <span
             class="text-[2rem]/none font-semibold text-foreground tabular-nums"
             data-testid="credit-slider-price"
@@ -152,12 +156,12 @@ const { t } = useI18n()
           </span>
           <span
             v-if="hasDiscount"
-            class="text-base text-muted-foreground tabular-nums line-through"
+            class="tabular-nums line-through"
             data-testid="credit-slider-original-price"
           >
             {{ formatUsd(displayOriginal) }}
           </span>
-          <span class="text-base text-muted-foreground">
+          <span class="">
             {{ t('subscription.usdPerMonth') }}
           </span>
         </span>
@@ -167,7 +171,7 @@ const { t } = useI18n()
         <span
           v-if="hasDiscount"
           data-testid="credit-slider-save"
-          class="shrink-0 rounded-full border-2 border-primary px-2 py-1 text-sm font-bold whitespace-nowrap text-primary xl:ms-auto"
+          class="shrink-0 rounded-full border-2 border-primary px-2 py-1 text-sm font-bold text-primary xl:ms-auto"
         >
           {{
             t('subscription.creditSliderSave', {

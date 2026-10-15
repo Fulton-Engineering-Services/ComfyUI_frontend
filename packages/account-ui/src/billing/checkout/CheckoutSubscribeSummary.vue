@@ -3,11 +3,11 @@
     <span class="text-sm text-foreground">
       {{ plan.name }}
     </span>
-    <div class="flex items-baseline gap-2">
-      <span class="text-2xl font-semibold text-foreground tabular-nums">
+    <div class="flex items-baseline gap-2 text-foreground">
+      <span class="text-2xl font-semibold tabular-nums">
         ${{ displayPrice }}
       </span>
-      <span class="text-base text-foreground">
+      <span class="text-base">
         {{ copy.usdPerMonth }}
       </span>
     </div>
@@ -44,11 +44,11 @@
       )
     "
   >
-    <div class="flex items-center justify-between text-base">
-      <span class="text-foreground">
+    <div class="flex items-center justify-between text-base text-foreground">
+      <span class="">
         {{ copy.totalDueToday }}
       </span>
-      <span class="font-bold text-foreground tabular-nums">
+      <span class="font-bold tabular-nums">
         {{ totalDueToday }}
       </span>
     </div>

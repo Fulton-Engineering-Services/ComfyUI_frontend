@@ -25,9 +25,11 @@
       <p class="m-0 text-sm text-muted-foreground">
         {{ $t('workspacePanel.members.creditLimitDialog.description') }}
       </p>
-      <div class="flex flex-col gap-2">
+      <div
+        class="flex cursor-pointer flex-col gap-2 text-sm text-muted-foreground"
+      >
         <div
-          class="flex cursor-pointer items-start gap-2 rounded-lg p-2 text-sm text-muted-foreground transition-colors hover:bg-accent/30"
+          class="flex items-start gap-2 rounded-lg p-2 transition-colors hover:bg-accent/30"
           @click="mode = 'limited'"
         >
           <input
@@ -59,7 +61,7 @@
           </span>
         </div>
         <div
-          class="flex cursor-pointer items-center gap-2 rounded-lg p-2 text-sm text-muted-foreground transition-colors hover:bg-accent/30"
+          class="flex items-center gap-2 rounded-lg p-2 transition-colors hover:bg-accent/30"
           @click="mode = 'unlimited'"
         >
           <input

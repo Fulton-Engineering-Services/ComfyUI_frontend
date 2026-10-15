@@ -108,12 +108,12 @@
 
     <div
       v-if="canAccessSubscriptionFeatures"
-      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-accent"
+      class="flex cursor-pointer items-center gap-2 px-4 py-2 text-sm hover:bg-accent"
       data-testid="partner-nodes-menu-item"
       @click="handleOpenPartnerNodesInfo"
     >
-      <i class="icon-[lucide--tag] text-sm text-muted-foreground" />
-      <span class="flex-1 text-sm text-foreground">{{
+      <i class="icon-[lucide--tag] text-muted-foreground" />
+      <span class="flex-1 text-foreground">{{
         $t('subscription.partnerNodesCredits')
       }}</span>
     </div>
@@ -131,12 +131,12 @@
     </div>
 
     <div
-      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-accent"
+      class="flex cursor-pointer items-center gap-2 px-4 py-2 text-sm hover:bg-accent"
       data-testid="user-settings-menu-item"
       @click="handleOpenUserSettings"
     >
-      <i class="icon-[lucide--settings-2] text-sm text-muted-foreground" />
-      <span class="flex-1 text-sm text-foreground">{{
+      <i class="icon-[lucide--settings-2] text-muted-foreground" />
+      <span class="flex-1 text-foreground">{{
         $t('userSettings.accountSettings')
       }}</span>
     </div>
@@ -144,12 +144,12 @@
     <div class="mx-0 my-2 border-t border-border" />
 
     <div
-      class="flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-accent"
+      class="flex cursor-pointer items-center gap-2 px-4 py-2 text-sm hover:bg-accent"
       data-testid="logout-menu-item"
       @click="handleLogout"
     >
-      <i class="icon-[lucide--log-out] text-sm text-muted-foreground" />
-      <span class="flex-1 text-sm text-foreground">{{
+      <i class="icon-[lucide--log-out] text-muted-foreground" />
+      <span class="flex-1 text-foreground">{{
         $t('auth.signOut.signOut')
       }}</span>
     </div>

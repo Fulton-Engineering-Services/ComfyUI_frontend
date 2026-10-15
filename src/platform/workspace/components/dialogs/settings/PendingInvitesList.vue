@@ -22,11 +22,11 @@
             {{ getInviteInitial(invite.email) }}
           </span>
         </div>
-        <div class="flex min-w-0 flex-1 flex-col gap-1">
-          <span class="text-sm text-foreground">
+        <div class="flex min-w-0 flex-1 flex-col gap-1 text-sm">
+          <span class="text-foreground">
             {{ getInviteDisplayName(invite.email) }}
           </span>
-          <span class="text-sm text-muted-foreground">
+          <span class="text-muted-foreground">
             {{ invite.email }}
           </span>
         </div>

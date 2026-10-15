@@ -16,17 +16,11 @@
       autofocus
       @keydown.stop.prevent="captureKeybinding"
     />
-    <div class="min-h-12">
-      <p
-        v-if="dialogState.newCombo?.isBrowserReserved"
-        class="m-0 text-sm text-destructive"
-      >
+    <div class="min-h-12 text-sm text-destructive">
+      <p v-if="dialogState.newCombo?.isBrowserReserved" class="m-0">
         {{ $t('g.browserReservedKeybinding') }}
       </p>
-      <p
-        v-else-if="existingKeybindingOnCombo"
-        class="m-0 text-sm text-destructive"
-      >
+      <p v-else-if="existingKeybindingOnCombo" class="m-0">
         {{ $t('g.keybindingAlreadyExists') }}
         {{ existingKeybindingOnCombo.commandId }}
       </p>

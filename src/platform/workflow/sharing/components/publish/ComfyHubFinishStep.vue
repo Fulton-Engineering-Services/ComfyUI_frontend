@@ -22,13 +22,11 @@
             {{ (profile.name ?? profile.username).charAt(0).toUpperCase() }}
           </span>
         </div>
-        <div class="flex flex-1 flex-col gap-2">
-          <span class="text-sm text-foreground">
+        <div class="flex flex-1 flex-col gap-2 text-sm">
+          <span class="text-foreground">
             {{ profile.name ?? profile.username }}
           </span>
-          <span class="text-sm text-muted-foreground">
-            @{{ profile.username }}
-          </span>
+          <span class="text-muted-foreground"> @{{ profile.username }} </span>
         </div>
       </div>
     </section>

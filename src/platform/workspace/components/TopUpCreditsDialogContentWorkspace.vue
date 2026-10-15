@@ -51,12 +51,12 @@
           {{ formatNumber(creditsModel) }}
         </span>
         <div
-          class="flex items-center justify-between border-t border-border pt-4"
+          class="flex items-center justify-between border-t border-border pt-4 text-base font-semibold"
         >
-          <span class="text-base font-semibold">
+          <span class="">
             {{ $t('subscription.preview.totalDueToday') }}
           </span>
-          <span class="text-base font-semibold tabular-nums">
+          <span class="tabular-nums">
             {{ displayTotal }}
           </span>
         </div>

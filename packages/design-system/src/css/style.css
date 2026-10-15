@@ -41,6 +41,8 @@
   --color-credit: #ddbd31;
 
   --color-bypass: #6a246a;
+  --color-warning-foreground: var(--color-charcoal-800);
+  --color-success: var(--color-jade-600);
 }
 
 :root {
@@ -59,7 +61,7 @@
   --accent: var(--color-charcoal-400);
   --destructive: var(--color-coral-700);
   --border: var(--color-charcoal-200);
-  --ring: var(--color-smoke-800);
+  --ring: var(--muted-foreground);
   --popover: var(--background);
   --input: var(--accent);
   --node: var(--card);
@@ -69,8 +71,6 @@
   --workflow-tabs-height: 2.375rem;
 
   --warning: var(--color-gold-600);
-  --warning-foreground: var(--color-charcoal-800);
-  --success: var(--color-jade-600);
   --node-shadow: 0 9px 7px rgb(0 0 0 / 0.4);
 }
 
@@ -95,8 +95,6 @@
 
   /* Semantic tokens */
   --color-warning: var(--warning);
-  --color-warning-foreground: var(--warning-foreground);
-  --color-success: var(--success);
   --drop-shadow-node: var(--node-shadow);
 }
 

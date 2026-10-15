@@ -45,7 +45,11 @@ function deriveLegacyTheme({ comfy_base, litegraph_base }: Colors): Theme {
 const DERIVED_THEME_DEFAULTS: Theme = {
   popover: 'var(--background)',
   input: 'var(--accent)',
-  node: 'var(--card)'
+  ring: 'var(--muted-foreground)',
+  node: 'var(--card)',
+  'node-foreground': 'var(--muted-foreground)',
+  'node-header': 'var(--secondary)',
+  'node-border': 'var(--border)'
 }
 
 function resolvePaletteTheme(palette: CompletedPalette): Theme {

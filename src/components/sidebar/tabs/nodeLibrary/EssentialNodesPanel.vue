@@ -43,7 +43,7 @@
           :key="subgroup.key"
           class="scroll-mt-30 last:pb-4"
         >
-          <div class="text-sm leading-[15px] font-normal text-foreground">
+          <div class="text-sm leading-[15px] font-normal">
             {{ $t(`essentials.${subgroup.key}`) }}
           </div>
           <div

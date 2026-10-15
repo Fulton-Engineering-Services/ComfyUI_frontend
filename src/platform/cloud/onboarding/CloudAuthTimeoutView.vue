@@ -48,7 +48,7 @@
       </div>
 
       <!-- Helpful Links -->
-      <p class="mb-5 text-center text-sm text-gray-600">
+      <p class="mb-5 text-sm text-gray-600">
         {{ $t('cloudOnboarding.authTimeout.helpText') }}
         <a
           href="https://support.comfy.org"

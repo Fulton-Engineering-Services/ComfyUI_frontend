@@ -4,7 +4,7 @@
   >
     <!-- Header -->
     <div class="flex items-center justify-between p-8">
-      <h2 class="m-0 text-lg font-bold text-foreground">
+      <h2 class="m-0 text-lg font-bold">
         {{
           isInsufficientCredits
             ? $t('credits.topUp.addMoreCreditsToRun')
@@ -70,9 +70,7 @@
           @update:model-value="handlePayAmountChange"
         >
           <NumberFieldDecrement />
-          <span class="shrink-0 text-base font-semibold text-foreground"
-            >$</span
-          >
+          <span class="shrink-0 text-base font-semibold">$</span>
           <NumberFieldInput
             :aria-label="$t('credits.topUp.youPay')"
             class="text-lg font-medium"

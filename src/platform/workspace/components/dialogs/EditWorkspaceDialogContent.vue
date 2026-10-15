@@ -6,7 +6,7 @@
     <div
       class="flex h-12 items-center justify-between border-b border-border px-4"
     >
-      <h2 class="m-0 text-sm font-normal text-foreground">
+      <h2 class="m-0 text-sm font-normal">
         {{ $t('workspacePanel.editWorkspaceDialog.title') }}
       </h2>
       <button
@@ -21,7 +21,7 @@
     <!-- Body -->
     <div class="flex flex-col gap-4 p-4">
       <div class="flex flex-col gap-2">
-        <label class="text-sm text-foreground">
+        <label class="text-sm">
           {{ $t('workspacePanel.editWorkspaceDialog.nameLabel') }}
         </label>
         <input

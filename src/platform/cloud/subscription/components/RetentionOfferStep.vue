@@ -20,7 +20,7 @@
         class="flex flex-col gap-3 rounded-[14px] border border-border/50 bg-secondary/50 px-4 py-5 shadow-xs"
       >
         <div class="flex items-center justify-between gap-2">
-          <p class="m-0 text-sm font-medium text-foreground">
+          <p class="m-0 text-sm font-medium">
             {{
               $t('subscription.retentionOffer.stayOnPlan', { plan: planName })
             }}
@@ -30,9 +30,7 @@
           </Badge>
         </div>
         <p class="m-0 flex flex-wrap items-baseline gap-1.5">
-          <span
-            class="text-[32px] leading-[1.15] font-semibold text-foreground"
-          >
+          <span class="text-[32px] leading-[1.15] font-semibold">
             {{ discountedPrice }}
           </span>
           <span class="text-sm text-muted-foreground">
@@ -70,7 +68,7 @@
         class="flex flex-col gap-3 rounded-[14px] border border-border/50 bg-secondary/50 p-4 shadow-xs"
       >
         <div class="flex flex-wrap items-center justify-between gap-2 text-sm">
-          <span class="flex items-center gap-2 text-foreground">
+          <span class="flex items-center gap-2">
             {{
               $t('subscription.retentionOffer.nextPayments', { months }, months)
             }}
@@ -82,7 +80,7 @@
             <span class="text-muted-foreground line-through">
               {{ regularAmount }}
             </span>
-            <span class="text-foreground">
+            <span>
               {{
                 $t('subscription.retentionOffer.pricePerMonth', {
                   price: discountedMonthlyAmount

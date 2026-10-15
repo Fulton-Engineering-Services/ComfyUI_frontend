@@ -102,7 +102,7 @@
       <div>
         <div class="flex flex-col gap-6">
           <div class="inline-flex items-center gap-2">
-            <div class="text-sm text-foreground">
+            <div class="text-sm">
               {{
                 reason === 'out_of_credits'
                   ? $t('credits.topUp.insufficientTitle')

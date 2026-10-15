@@ -103,9 +103,7 @@
         >
           <div class="flex flex-1 flex-col gap-4 p-6 pb-0">
             <div class="flex flex-row items-center justify-between gap-2">
-              <span
-                class="font-inter text-base/normal font-bold text-foreground"
-              >
+              <span class="text-base/normal font-bold">
                 {{ tier.name }}
               </span>
               <div
@@ -118,7 +116,7 @@
             <div class="flex flex-col gap-2">
               <div class="flex flex-row items-baseline gap-2">
                 <span
-                  class="font-inter text-[28px] leading-normal font-semibold text-foreground tabular-nums"
+                  class="text-[28px] leading-normal font-semibold tabular-nums"
                 >
                   ${{ getPrice(tier) }}
                   <span
@@ -128,7 +126,7 @@
                     ${{ getMonthlyPrice(tier) }}
                   </span>
                 </span>
-                <span class="font-inter text-sm/normal text-foreground">
+                <span class="text-sm/normal">
                   {{ t('subscription.usdPerMonth') }}
                 </span>
               </div>
@@ -156,7 +154,7 @@
                 :key="feature"
                 class="flex flex-row items-start gap-2"
               >
-                <i class="pi pi-check mt-0.5 text-xs text-foreground" />
+                <i class="pi pi-check mt-0.5 text-xs" />
                 <span class="text-sm font-normal text-muted-foreground">
                   {{ feature }}
                 </span>
@@ -171,9 +169,7 @@
                   class="icon-[lucide--coins] size-4 shrink-0 bg-credit"
                   aria-hidden="true"
                 />
-                <span
-                  class="font-inter text-sm/normal font-bold text-foreground tabular-nums"
-                >
+                <span class="text-sm/normal font-bold tabular-nums">
                   {{ n(creditsForTier(tier)) }}
                 </span>
                 <span class="text-sm text-muted-foreground">
@@ -224,9 +220,7 @@
             <!-- Team Plan column -->
             <div class="flex flex-[1.6] flex-col gap-6 p-6">
               <div class="flex flex-col gap-1">
-                <span
-                  class="font-inter text-base/normal font-bold text-foreground"
-                >
+                <span class="text-base/normal font-bold">
                   {{ t('subscription.teamPlan.name') }}
                 </span>
                 <span class="text-sm text-muted-foreground">
@@ -250,9 +244,7 @@
                     class="icon-[lucide--coins] size-4 shrink-0 bg-credit"
                     aria-hidden="true"
                   />
-                  <span
-                    class="font-inter text-sm/normal font-bold text-foreground tabular-nums"
-                  >
+                  <span class="text-sm/normal font-bold tabular-nums">
                     {{ n(teamCreditsForCurrentCycle) }}
                   </span>
                   <span class="text-sm text-muted-foreground">
@@ -287,9 +279,7 @@
 
             <!-- Details column -->
             <div class="flex flex-1 flex-col gap-4 p-6">
-              <span
-                class="font-inter text-base/normal font-bold text-foreground"
-              >
+              <span class="text-base/normal font-bold">
                 {{ t('subscription.teamPlan.detailsTitle') }}
               </span>
 
@@ -306,7 +296,7 @@
                   :key="perk"
                   class="flex flex-row items-start gap-2"
                 >
-                  <i class="pi pi-check mt-0.5 text-xs text-foreground" />
+                  <i class="pi pi-check mt-0.5 text-xs" />
                   <span class="text-sm font-normal text-muted-foreground">
                     {{ perk }}
                   </span>
@@ -331,7 +321,7 @@
           <div
             class="flex flex-1 flex-col gap-4 rounded-2xl border border-border bg-background p-6 shadow-[0_0_12px_rgba(0,0,0,0.1)]"
           >
-            <span class="font-inter text-base/normal font-bold text-foreground">
+            <span class="text-base/normal font-bold">
               {{ t('subscription.enterprise.name') }}
             </span>
             <div class="flex flex-col gap-3">
@@ -388,7 +378,7 @@
             :href="VIDEO_TEMPLATE_URL"
             target="_blank"
             rel="noopener noreferrer"
-            class="cursor-pointer text-sm text-foreground no-underline hover:text-muted-foreground"
+            class="cursor-pointer text-foreground no-underline hover:text-muted-foreground"
           >
             {{ t('subscription.pricingBlurbSeeDetails') }}
           </a>
@@ -398,7 +388,7 @@
             :href="QUESTIONS_URL"
             target="_blank"
             rel="noopener noreferrer"
-            class="cursor-pointer text-sm text-foreground no-underline hover:text-muted-foreground"
+            class="cursor-pointer text-foreground no-underline hover:text-muted-foreground"
           >
             {{ t('subscription.pricingBlurbQuestions') }}
           </a>
@@ -408,7 +398,7 @@
             :href="ENTERPRISE_URL"
             target="_blank"
             rel="noopener noreferrer"
-            class="cursor-pointer text-sm text-foreground no-underline hover:text-muted-foreground"
+            class="cursor-pointer text-foreground no-underline hover:text-muted-foreground"
           >
             {{ t('subscription.pricingBlurbEnterprise') }}
           </a>
@@ -418,7 +408,7 @@
             :href="PRICING_URL"
             target="_blank"
             rel="noopener noreferrer"
-            class="cursor-pointer text-sm text-foreground no-underline hover:text-muted-foreground"
+            class="cursor-pointer text-foreground no-underline hover:text-muted-foreground"
           >
             {{ t('subscription.pricingBlurbClickHere') }}
           </a>

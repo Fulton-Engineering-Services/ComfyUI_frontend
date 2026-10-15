@@ -18,7 +18,7 @@
     </p>
     <template v-else-if="!didCancelSucceed">
       <p class="m-0 text-sm/5 text-muted-foreground">{{ description }}</p>
-      <p class="m-0 text-sm/5 text-foreground">
+      <p class="m-0 text-sm/5">
         {{
           $t('subscription.cancelFlow.confirm.loseAccess', {
             date: formattedEndDate
@@ -35,7 +35,7 @@
             :class="cn(feature.icon, 'size-4 text-foreground')"
             aria-hidden="true"
           />
-          <span class="text-sm text-foreground">{{ feature.title }}</span>
+          <span class="text-sm">{{ feature.title }}</span>
           <span class="text-xs text-muted-foreground">
             {{ feature.description }}
           </span>

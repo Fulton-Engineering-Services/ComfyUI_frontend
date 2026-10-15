@@ -7,7 +7,7 @@
     >
       <div class="flex items-center gap-2">
         <i class="icon-[comfy--extensions-blocks]" />
-        <h2 class="m-0 text-base text-foreground">
+        <h2 class="m-0 text-base">
           {{ $t('manager.survey.title') }}
         </h2>
       </div>

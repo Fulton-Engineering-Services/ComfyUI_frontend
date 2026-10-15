@@ -6,7 +6,7 @@
 
     <div class="flex flex-col gap-2">
       <DialogDescription as-child>
-        <label :for="inputId" class="text-sm text-muted-foreground">
+        <label :for="inputId">
           {{ $t('builderToolbar.filename') }}
         </label>
       </DialogDescription>

@@ -30,7 +30,7 @@
           <span class="sr-only">{{
             t(hasError ? 'g.error' : 'g.warning')
           }}</span>
-          <span class="min-w-0 flex-1 truncate text-sm text-foreground">
+          <span class="min-w-0 flex-1 truncate text-sm">
             {{ overlayTitle }}
           </span>
         </div>

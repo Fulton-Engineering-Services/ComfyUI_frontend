@@ -18,7 +18,7 @@
       <header class="flex flex-col gap-2 pr-8">
         <h2
           :id="titleId"
-          class="m-0 flex items-center gap-2 text-2xl font-semibold text-foreground"
+          class="m-0 flex items-center gap-2 text-2xl font-semibold"
         >
           {{ title }}
           <slot name="title-icon" />

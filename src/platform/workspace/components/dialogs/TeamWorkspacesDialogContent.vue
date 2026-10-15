@@ -11,7 +11,7 @@
         <i class="icon-[lucide--users] text-lg" />
       </div>
       <div class="flex min-w-0 flex-1 flex-col">
-        <h2 class="m-0 text-lg font-semibold text-foreground">
+        <h2 class="m-0 text-lg font-semibold">
           {{ $t('teamWorkspacesDialog.title') }}
         </h2>
         <p class="m-0 text-sm text-muted-foreground">
@@ -92,7 +92,7 @@
         {{ $t('teamWorkspacesDialog.newWorkspace') }}
       </h3>
       <div class="flex flex-col gap-2">
-        <label for="workspace-name-input" class="text-sm text-foreground">
+        <label for="workspace-name-input" class="text-sm">
           {{ $t('workspacePanel.createWorkspaceDialog.nameLabel') }}
         </label>
         <input

@@ -60,11 +60,7 @@
         }}</span>
       </TableCell>
       <TableCell class="p-1 whitespace-nowrap">
-        <div
-          class="flex flex-row justify-end whitespace-nowrap"
-          @click.stop
-          @dblclick.stop
-        >
+        <div class="flex flex-row justify-end" @click.stop @dblclick.stop>
           <Button
             v-if="command.keybindings.length === 1"
             :tooltip="$t('g.edit')"

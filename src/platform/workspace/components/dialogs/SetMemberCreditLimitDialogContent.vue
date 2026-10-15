@@ -5,10 +5,7 @@
     <div
       class="flex h-12 items-center justify-between border-b border-border px-4"
     >
-      <h2
-        id="set-member-credit-limit"
-        class="m-0 text-sm font-normal text-foreground"
-      >
+      <h2 id="set-member-credit-limit" class="m-0 text-sm font-normal">
         {{
           $t('workspacePanel.members.creditLimitDialog.title', {
             name: memberName
@@ -42,7 +39,7 @@
             class="mt-0.5 size-4 appearance-none rounded-full border border-muted checked:border-3 checked:bg-white focus-visible:ring-2 focus-visible:ring-border focus-visible:outline-none"
           />
           <span class="flex flex-1 flex-col gap-2">
-            <label :for="`${modeGroupName}-limited`" class="cursor-pointer">
+            <label :for="`${modeGroupName}-limited`">
               {{ $t('workspacePanel.members.creditLimitDialog.limitOption') }}
             </label>
             <span
@@ -73,7 +70,7 @@
             value="unlimited"
             class="size-4 appearance-none rounded-full border border-muted checked:border-3 checked:bg-white focus-visible:ring-2 focus-visible:ring-border focus-visible:outline-none"
           />
-          <label :for="`${modeGroupName}-unlimited`" class="cursor-pointer">
+          <label :for="`${modeGroupName}-unlimited`">
             {{ $t('workspacePanel.members.creditLimitDialog.noLimit') }}
           </label>
         </div>

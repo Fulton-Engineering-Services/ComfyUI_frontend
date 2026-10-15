@@ -1,10 +1,10 @@
 <template>
   <div
-    class="option-container flex w-full cursor-pointer items-center justify-between overflow-hidden"
+    class="option-container flex w-full items-center justify-between overflow-hidden"
   >
     <div class="flex min-w-0 flex-1 flex-col gap-1 overflow-hidden">
       <!-- Row 1: Name (left) + badges (right) -->
-      <div class="flex items-center gap-2 text-sm text-foreground">
+      <div class="flex items-center gap-2 text-sm">
         <span
           v-if="isBookmarked && !hideBookmarkIcon"
           role="img"

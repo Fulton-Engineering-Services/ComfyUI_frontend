@@ -19,7 +19,7 @@
           <i :class="cn('size-4 text-white', icon)" />
         </div>
         <div class="flex flex-1 flex-col gap-1">
-          <div class="text-sm leading-[1.429] font-normal text-foreground">
+          <div class="text-sm leading-[1.429] font-normal">
             {{ title }}
           </div>
           <div

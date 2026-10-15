@@ -13,7 +13,7 @@
         class="icon-[lucide--users] size-8 text-muted-foreground"
       />
       <div>
-        <h1 class="m-0 text-lg font-semibold text-foreground">
+        <h1 class="m-0 text-lg font-semibold">
           {{ $t('workspaceAuth.noWorkspaceAccess.title') }}
         </h1>
         <p class="mt-2 mb-0 text-muted-foreground">
@@ -38,7 +38,7 @@
         class="icon-[lucide--triangle-alert] size-8 text-destructive"
       />
       <div>
-        <h1 class="m-0 text-lg font-semibold text-foreground">
+        <h1 class="m-0 text-lg font-semibold">
           {{ $t('workspaceAuth.initializationFailed') }}
         </h1>
         <p class="mt-2 mb-0 text-muted-foreground">

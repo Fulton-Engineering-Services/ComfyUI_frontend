@@ -46,7 +46,7 @@
       </div>
       <div class="flex h-full items-center">
         <span
-          class="overflow-hidden text-center font-inter text-[12px] leading-normal font-normal text-ellipsis text-foreground"
+          class="overflow-hidden text-center text-[12px] leading-normal font-normal text-ellipsis"
         >
           {{ bannerText }}
         </span>

@@ -29,7 +29,7 @@
           <p class="m-0 w-full truncate text-foreground">
             {{ metadata?.filename || metadata?.name }}
           </p>
-          <p class="m-0 text-sm">
+          <p class="m-0">
             {{ modelType }}
           </p>
         </div>
@@ -58,7 +58,7 @@
           <p class="m-0 w-full truncate text-foreground">
             {{ metadata?.filename || metadata?.name }}
           </p>
-          <p class="m-0 text-sm">
+          <p class="m-0">
             {{ modelType }}
           </p>
         </div>
@@ -83,7 +83,7 @@
         v-if="typeMismatch"
         class="flex max-w-2xl flex-col gap-3 text-center"
       >
-        <p class="m-0 text-sm font-bold">
+        <p class="m-0 font-bold">
           {{ $t('assetBrowser.missingModelImportTypeMismatchTitle') }}
         </p>
         <i18n-t
@@ -115,10 +115,10 @@
         </i18n-t>
       </div>
       <div v-else class="text-center">
-        <p class="m-0 text-sm font-bold">
+        <p class="m-0 font-bold">
           {{ $t('assetBrowser.uploadFailed') }}
         </p>
-        <p v-if="error" class="mb-0 text-sm">
+        <p v-if="error" class="mb-0">
           {{ error }}
         </p>
       </div>

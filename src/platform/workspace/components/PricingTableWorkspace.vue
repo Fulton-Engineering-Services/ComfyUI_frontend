@@ -38,7 +38,7 @@
       >
         <div class="flex flex-col gap-4 p-6 pb-0">
           <div class="flex flex-row items-center justify-between gap-2">
-            <span class="font-inter text-base/normal font-bold text-foreground">
+            <span class="text-base/normal font-bold">
               {{ tier.name }}
             </span>
             <div
@@ -51,9 +51,7 @@
           <div class="flex flex-col">
             <div class="flex flex-col gap-2">
               <div class="flex flex-row items-baseline gap-2">
-                <span
-                  class="font-inter text-[28px] leading-normal font-semibold text-foreground"
-                >
+                <span class="text-[28px] leading-normal font-semibold">
                   <span
                     v-show="currentBillingCycle === 'yearly'"
                     class="text-2xl text-muted-foreground line-through"
@@ -62,7 +60,7 @@
                   </span>
                   ${{ getPrice(tier) }}
                 </span>
-                <span class="font-inter text-sm/normal text-foreground">
+                <span class="text-sm/normal">
                   {{ t('subscription.usdPerMonthPerMember') }}
                 </span>
               </div>
@@ -98,7 +96,7 @@
                   {{ t('subscription.inviteUpTo') }}
                 </span>
               </div>
-              <span class="text-sm font-bold text-foreground">
+              <span class="text-sm font-bold">
                 {{
                   t('subscription.memberCount', {
                     count: maxMembersByTier[tier.key]
@@ -110,66 +108,64 @@
 
           <div class="flex flex-1 flex-col gap-3 pb-0">
             <div class="flex flex-row items-center justify-between">
-              <span class="text-sm font-normal text-foreground">
+              <span class="text-sm font-normal">
                 {{ t(creditsPerMemberLabelKey) }}
               </span>
               <div class="flex flex-row items-center gap-1">
                 <i class="icon-[lucide--coins] size-4 text-credit" />
-                <span
-                  class="font-inter text-sm/normal font-bold text-foreground"
-                >
+                <span class="text-sm/normal font-bold">
                   {{ n(getCreditsPerMember(tier)) }}
                 </span>
               </div>
             </div>
 
             <div class="flex flex-row items-center justify-between">
-              <span class="text-sm font-normal text-foreground">
+              <span class="text-sm font-normal">
                 {{ t('subscription.maxMembersLabel') }}
               </span>
-              <span class="font-inter text-sm/normal font-bold text-foreground">
+              <span class="text-sm/normal font-bold">
                 {{ maxMembersByTier[tier.key] }}
               </span>
             </div>
 
             <div class="flex flex-row items-center justify-between">
-              <span class="text-sm font-normal text-foreground">
+              <span class="text-sm font-normal">
                 {{ t('subscription.maxDurationLabel') }}
               </span>
-              <span class="font-inter text-sm/normal font-bold text-foreground">
+              <span class="text-sm/normal font-bold">
                 {{ tier.maxDuration }}
               </span>
             </div>
 
             <div class="flex flex-row items-center justify-between">
-              <span class="text-sm font-normal text-foreground">
+              <span class="text-sm font-normal">
                 {{ t('subscription.gpuLabel') }}
               </span>
               <i class="pi pi-check text-xs text-success" />
             </div>
 
             <div class="flex flex-row items-center justify-between">
-              <span class="text-sm font-normal text-foreground">
+              <span class="text-sm font-normal">
                 {{ t('subscription.addCreditsLabel') }}
               </span>
               <i class="pi pi-check text-xs text-success" />
             </div>
 
             <div class="flex flex-row items-center justify-between">
-              <span class="text-sm font-normal text-foreground">
+              <span class="text-sm font-normal">
                 {{ t('subscription.customLoRAsLabel') }}
               </span>
               <i
                 v-if="tier.customLoRAs"
                 class="pi pi-check text-xs text-success"
               />
-              <i v-else class="pi pi-times text-xs text-foreground" />
+              <i v-else class="pi pi-times text-xs" />
             </div>
 
             <div class="flex flex-col gap-2">
               <div class="flex flex-row items-start justify-between">
                 <div class="flex flex-col gap-2">
-                  <span class="text-sm/relaxed font-normal text-foreground">
+                  <span class="text-sm/relaxed font-normal">
                     {{ t('subscription.videoEstimateLabel') }}
                   </span>
                   <div class="group flex flex-row items-center gap-2 pt-2">
@@ -184,9 +180,7 @@
                     </span>
                   </div>
                 </div>
-                <span
-                  class="font-inter text-sm/normal font-bold text-foreground"
-                >
+                <span class="text-sm/normal font-bold">
                   ~{{ n(getVideoEstimateDisplay(tier)) }}
                 </span>
               </div>

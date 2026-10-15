@@ -3,7 +3,7 @@
     <p class="mb-4 text-sm text-muted-foreground">
       {{ $t('g.setAKeybindingForTheFollowing') }}
     </p>
-    <div class="mb-4 text-sm text-foreground">
+    <div class="mb-4 text-sm">
       {{ commandLabel }}
     </div>
 

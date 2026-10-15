@@ -8,7 +8,7 @@
         :data-tool="tool"
         :class="
           cn(
-            'maskEditor_toolPanelContainer text-foreground hover:bg-accent',
+            'maskEditor_toolPanelContainer hover:bg-accent',
             currentTool === tool && 'maskEditor_toolPanelContainerSelected'
           )
         "

@@ -27,7 +27,7 @@
         <p class="text-sm">
           {{ $t('g.videoFailedToLoad') }}
         </p>
-        <p class="mt-1 text-xs">
+        <p class="mt-1">
           {{ getVideoFilename(currentVideoUrl) }}
         </p>
       </div>
@@ -103,7 +103,7 @@
     </div>
 
     <!-- Video Dimensions -->
-    <div class="mt-2 text-center text-xs text-muted-foreground">
+    <div class="mt-2 text-center text-muted-foreground">
       <span
         v-if="videoError"
         class="text-red-400"

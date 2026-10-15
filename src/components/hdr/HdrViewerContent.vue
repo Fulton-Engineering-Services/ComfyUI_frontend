@@ -9,14 +9,14 @@
 
       <div
         v-if="viewer.loading.value"
-        class="absolute inset-0 flex items-center justify-center text-foreground"
+        class="absolute inset-0 flex items-center justify-center"
       >
         {{ $t('g.loading') }}...
       </div>
       <div
         v-else-if="viewer.error.value"
         role="alert"
-        class="absolute inset-0 flex flex-col items-center justify-center gap-2 text-foreground"
+        class="absolute inset-0 flex flex-col items-center justify-center gap-2"
       >
         <i class="icon-[lucide--image-off] size-12" />
         <p class="text-sm">{{ $t('hdrViewer.failedToLoad') }}</p>
@@ -24,7 +24,7 @@
 
       <div
         v-if="viewer.pixel.value"
-        class="absolute top-2 left-2 rounded-sm bg-background/80 px-2 py-1 font-mono text-xs text-foreground"
+        class="absolute top-2 left-2 rounded-sm bg-background/80 px-2 py-1 font-mono text-xs"
         data-testid="hdr-pixel-readout"
       >
         <div>{{ viewer.pixel.value.x }}, {{ viewer.pixel.value.y }}</div>

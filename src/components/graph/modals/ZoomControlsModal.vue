@@ -51,7 +51,7 @@
         >
           <NumberFieldDecrement />
           <NumberFieldInput :aria-label="$t('zoomControls.zoomPercentage')" />
-          <span class="shrink-0 text-sm text-foreground">%</span>
+          <span class="shrink-0 text-sm">%</span>
           <NumberFieldIncrement />
         </NumberField>
       </div>

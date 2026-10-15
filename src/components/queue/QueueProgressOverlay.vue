@@ -5,7 +5,7 @@
   >
     <div
       data-testid="queue-progress-overlay"
-      class="pointer-events-auto flex max-h-[60vh] w-[350px] min-w-[310px] flex-col overflow-hidden rounded-lg border font-inter transition-colors duration-200 ease-in-out"
+      class="pointer-events-auto flex max-h-[60vh] w-[350px] min-w-[310px] flex-col overflow-hidden rounded-lg border transition-colors duration-200 ease-in-out"
       :class="containerClass"
       @mouseenter="isHovered = true"
       @mouseleave="isHovered = false"

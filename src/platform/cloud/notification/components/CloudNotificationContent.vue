@@ -33,7 +33,7 @@
     <div class="col-span-3 flex flex-col justify-between p-8">
       <div>
         <div class="flex flex-col gap-4">
-          <div class="text-sm font-semibold text-foreground">
+          <div class="text-sm font-semibold">
             {{ t('cloudNotification.title') }}
           </div>
           <p class="m-0 text-sm text-muted-foreground">
@@ -47,8 +47,8 @@
             :key="n"
             class="flex items-center gap-2 py-2"
           >
-            <i class="pi pi-check text-xs text-foreground" />
-            <span class="text-sm text-foreground">
+            <i class="pi pi-check text-xs" />
+            <span class="text-sm">
               {{ t(`cloudNotification.feature${n}Title`) }}
             </span>
           </div>

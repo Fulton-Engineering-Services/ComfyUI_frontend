@@ -6,7 +6,7 @@
     <div
       class="flex h-12 items-center justify-between border-b border-border px-4"
     >
-      <h2 class="m-0 text-sm font-normal text-foreground">
+      <h2 class="m-0 text-sm font-normal">
         {{ $t('workspacePanel.leaveDialog.title') }}
       </h2>
       <button

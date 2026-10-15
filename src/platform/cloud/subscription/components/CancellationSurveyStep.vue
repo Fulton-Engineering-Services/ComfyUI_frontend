@@ -41,7 +41,7 @@
       </RadioGroupRoot>
 
       <div class="flex flex-col gap-3">
-        <label :for="commentId" class="text-sm text-foreground">
+        <label :for="commentId" class="text-sm">
           {{ $t('subscription.cancelFlow.survey.commentLabel') }}
         </label>
         <Textarea

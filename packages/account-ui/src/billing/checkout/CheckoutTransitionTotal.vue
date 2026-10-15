@@ -35,7 +35,7 @@
         {{ amountDueToday }}
       </span>
     </div>
-    <span class="text-sm text-muted-foreground">{{ renewalTerms }}</span>
+    <span class="text-muted-foreground">{{ renewalTerms }}</span>
   </div>
 </template>
 

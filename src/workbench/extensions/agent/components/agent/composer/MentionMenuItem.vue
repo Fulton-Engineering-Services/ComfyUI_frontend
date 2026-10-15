@@ -109,7 +109,7 @@ const nodeId = computed(() =>
           @release-focus="emit('descriptionReleaseFocus')"
           @dismiss="emit('descriptionDismiss')"
         />
-        <span v-if="unsavedWorkflow" class="text-xs text-muted-foreground">{{
+        <span v-if="unsavedWorkflow" class="text-muted-foreground">{{
           $t('agent.unsavedWorkflow')
         }}</span>
         <span

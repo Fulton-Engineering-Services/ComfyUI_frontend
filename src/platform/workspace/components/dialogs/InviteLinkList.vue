@@ -12,7 +12,7 @@
         )
       "
     >
-      <span class="min-w-0 truncate text-sm text-foreground">
+      <span class="min-w-0 truncate text-sm">
         {{ row.email }}
       </span>
       <Button

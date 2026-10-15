@@ -1,6 +1,6 @@
 <template>
   <div
-    class="option-container flex w-full cursor-pointer items-center justify-between overflow-hidden px-2 py-0"
+    class="option-container flex w-full items-center justify-between overflow-hidden px-2 py-0"
   >
     <div class="option-display-name flex flex-col font-semibold">
       <div>
@@ -27,7 +27,7 @@
       </div>
       <div
         v-if="showCategory"
-        class="option-category truncate text-sm font-light text-muted-foreground"
+        class="option-category truncate font-light text-muted-foreground"
       >
         {{ nodeDef.category.replaceAll('/', ' > ') }}
       </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col gap-2">
-    <span class="text-sm font-semibold text-foreground">
+    <span class="font-semibold text-foreground">
       {{ planName }}
     </span>
     <div class="flex items-baseline gap-2">
@@ -32,7 +32,7 @@
         }}</span>
       </div>
     </div>
-    <span v-if="note" class="text-sm text-muted-foreground">
+    <span v-if="note" class="text-muted-foreground">
       {{ note }}
     </span>
   </div>

@@ -109,7 +109,7 @@
                   </div>
                 </HoverCardContent>
               </HoverCard>
-              <span v-else class="text-sm text-muted-foreground">—</span>
+              <span v-else class="text-muted-foreground">—</span>
             </TableCell>
             <TableCell class="text-sm text-muted-foreground">
               <HoverCard

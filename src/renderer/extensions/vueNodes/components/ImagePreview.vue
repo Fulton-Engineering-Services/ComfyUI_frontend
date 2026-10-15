@@ -83,7 +83,7 @@
         <p class="text-sm">
           {{ $t('g.imageFailedToLoad') }}
         </p>
-        <p class="mt-1 text-xs">
+        <p class="mt-1">
           {{ getImageFilename(currentImageUrl) }}
         </p>
       </div>
@@ -186,7 +186,7 @@
     <!-- Image Dimensions (gallery mode only) -->
     <div
       v-if="viewMode === 'gallery' && !isHdrPlaceholder(currentIndex)"
-      class="pt-2 text-center text-xs text-foreground"
+      class="pt-2 text-center text-foreground"
     >
       <span
         v-if="imageError"

@@ -90,11 +90,7 @@
         >
           {{ copy.cancelPaymentAndRetry }}
         </CheckoutButton>
-        <p
-          v-if="cancelPaymentError"
-          role="alert"
-          class="m-0 text-sm text-destructive"
-        >
+        <p v-if="cancelPaymentError" role="alert" class="m-0 text-destructive">
           {{ cancelPaymentError }}
         </p>
       </template>

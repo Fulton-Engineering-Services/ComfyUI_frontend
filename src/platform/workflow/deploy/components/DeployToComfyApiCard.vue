@@ -47,7 +47,7 @@
               class="grid aspect-video w-full place-items-center rounded-lg bg-secondary"
             >
               <span
-                class="grid size-16 place-items-center rounded-full border border-foreground/30 bg-foreground/10 text-foreground"
+                class="grid size-16 place-items-center rounded-full border border-foreground/30 bg-foreground/10"
                 aria-hidden="true"
               >
                 <i class="icon-[lucide--play] size-6" />
@@ -59,10 +59,7 @@
 
       <section class="flex flex-col gap-9 p-6 @xl:gap-6 @xl:p-9">
         <div class="flex flex-col gap-4">
-          <h2
-            :id="titleId"
-            class="my-0 text-xl font-semibold text-foreground @xl:text-2xl"
-          >
+          <h2 :id="titleId" class="my-0 text-xl font-semibold @xl:text-2xl">
             {{ $t('deployToComfyApi.title') }}
           </h2>
           <p class="my-0 text-sm/5 text-muted-foreground">

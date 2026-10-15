@@ -4,7 +4,7 @@
     data-testid="member-resubscribe-message"
   >
     <div class="flex h-12 items-center gap-2 border-b border-border p-4">
-      <p class="m-0 min-w-0 flex-1 font-inter text-sm text-foreground">
+      <p class="m-0 min-w-0 flex-1 text-sm">
         {{ $t('subscription.inactive.memberTitle') }}
       </p>
       <button
@@ -18,7 +18,7 @@
     </div>
 
     <div class="p-4">
-      <p class="m-0 font-inter text-sm text-muted-foreground">
+      <p class="m-0 text-sm text-muted-foreground">
         {{ $t('subscription.inactive.memberDescription') }}
       </p>
     </div>

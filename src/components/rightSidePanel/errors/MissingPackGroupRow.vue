@@ -91,7 +91,7 @@
           <span
             v-if="showNodeCount"
             data-testid="missing-node-pack-count"
-            class="flex h-4 min-w-4 shrink-0 items-center justify-center rounded-sm bg-accent px-1 text-2xs font-semibold text-foreground"
+            class="flex h-4 min-w-4 shrink-0 items-center justify-center rounded-sm bg-accent px-1 text-2xs font-semibold"
           >
             {{ group.nodeTypes.length }}
           </span>
@@ -127,7 +127,7 @@
         class="ml-auto flex h-6 shrink-0 cursor-not-allowed items-center justify-center overflow-hidden rounded-sm bg-secondary px-2 py-1 text-xs opacity-60 select-none"
       >
         <DotSpinner duration="1s" :size="12" class="mr-1.5 shrink-0" />
-        <span class="min-w-0 truncate text-xs text-foreground">
+        <span class="min-w-0 truncate">
           {{ t('g.loading') }}
         </span>
       </div>

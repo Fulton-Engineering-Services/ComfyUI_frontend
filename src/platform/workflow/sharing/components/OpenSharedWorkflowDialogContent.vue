@@ -7,10 +7,7 @@
     <header
       class="flex h-12 items-center justify-between gap-2 border-b border-border px-4"
     >
-      <h2
-        data-testid="open-shared-workflow-title"
-        class="text-sm text-foreground"
-      >
+      <h2 data-testid="open-shared-workflow-title" class="text-sm">
         {{ $t('openSharedWorkflow.dialogTitle') }}
       </h2>
       <Button
@@ -69,7 +66,7 @@
     <template v-else-if="sharedWorkflow">
       <main :class="cn('flex gap-8 px-8 pt-4 pb-6', !hasAssets && 'flex-col')">
         <div class="flex min-w-0 flex-1 flex-col gap-12 py-4">
-          <h2 class="m-0 text-2xl font-semibold wrap-anywhere text-foreground">
+          <h2 class="m-0 text-2xl font-semibold wrap-anywhere">
             {{ workflowName }}
           </h2>
           <p

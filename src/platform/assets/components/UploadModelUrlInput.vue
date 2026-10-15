@@ -2,7 +2,7 @@
   <div class="flex h-full flex-col justify-between gap-6 text-sm">
     <div class="flex flex-col gap-6">
       <div class="flex flex-col gap-2">
-        <p class="m-0 text-foreground">
+        <p class="m-0">
           {{ $t('assetBrowser.uploadModelDescription1Generic') }}
         </p>
         <div class="m-0">
@@ -51,13 +51,13 @@
           :placeholder="$t('assetBrowser.genericLinkPlaceholder')"
           data-attr="upload-model-step1-url-input"
         />
-        <p v-if="error" class="text-sm text-destructive">
+        <p v-if="error" class="text-destructive">
           {{ error }}
         </p>
       </div>
     </div>
 
-    <div class="flex flex-col gap-6 text-sm text-muted-foreground">
+    <div class="flex flex-col gap-6 text-muted-foreground">
       <div v-if="showSecretsHint">
         <i18n-t keypath="assetBrowser.apiKeyHint" tag="span">
           <template #link>

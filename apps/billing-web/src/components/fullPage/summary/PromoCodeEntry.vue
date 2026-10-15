@@ -61,7 +61,7 @@ const canRemove = computed(() => live && entry.kind !== 'removing')
           type="button"
           :disabled="!canRemove"
           :aria-label="t(`${P}.remove`, { code: chip.code })"
-          class="flex size-4 cursor-pointer items-center justify-center rounded-sm text-foreground hover:bg-accent focus-visible:ring-2 focus-visible:ring-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-40 max-lg:size-8"
+          class="flex size-4 cursor-pointer items-center justify-center rounded-sm hover:bg-accent focus-visible:ring-2 focus-visible:ring-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-40 max-lg:size-8"
           @click="emit('remove')"
         >
           <i class="icon-[lucide--x] size-3.5" aria-hidden="true" />

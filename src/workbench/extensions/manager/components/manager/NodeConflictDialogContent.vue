@@ -4,7 +4,7 @@
     <div class="flex size-full flex-col gap-2 px-4 py-6">
       <!-- Description -->
       <div v-if="showAfterWhatsNew">
-        <p class="m-0 mb-4 text-sm/4 text-foreground">
+        <p class="m-0 mb-4 text-sm/4">
           {{ $t('manager.conflicts.description') }}
           <br /><br />
           {{ $t('manager.conflicts.info') }}
@@ -25,7 +25,7 @@
             <span class="mr-2 text-xs font-bold text-warning">{{
               importFailedConflicts.length
             }}</span>
-            <span class="text-xs font-bold text-foreground">{{
+            <span class="text-xs font-bold">{{
               $t('manager.conflicts.importFailedExtensions')
             }}</span>
           </div>
@@ -77,7 +77,7 @@
             <span class="mr-2 text-xs font-bold text-warning">{{
               allConflictDetails.length
             }}</span>
-            <span class="text-xs font-bold text-foreground">{{
+            <span class="text-xs font-bold">{{
               $t('manager.conflicts.conflicts')
             }}</span>
           </div>
@@ -129,7 +129,7 @@
             <span class="mr-2 text-xs font-bold text-warning">{{
               conflictData.length
             }}</span>
-            <span class="text-xs font-bold text-foreground">{{
+            <span class="text-xs font-bold">{{
               $t('manager.conflicts.extensionAtRisk')
             }}</span>
           </div>

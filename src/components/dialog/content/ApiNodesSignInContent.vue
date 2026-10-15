@@ -24,10 +24,7 @@
     >
       <div class="flex flex-col gap-5">
         <div class="flex flex-col gap-3">
-          <h2
-            :id="titleId"
-            class="m-0 text-[22px] font-semibold text-foreground"
-          >
+          <h2 :id="titleId" class="m-0 text-[22px] font-semibold">
             {{ t('apiNodesSignInDialog.title') }}
           </h2>
           <p class="m-0 text-sm/[1.45] text-muted-foreground">
@@ -45,7 +42,7 @@
             <li
               v-for="name in apiNodeNames"
               :key="name"
-              class="flex items-center gap-2 rounded-lg bg-secondary px-3.5 py-2.5 text-sm font-semibold text-foreground"
+              class="flex items-center gap-2 rounded-lg bg-secondary px-3.5 py-2.5 text-sm font-semibold"
             >
               <i
                 class="icon-[tabler--crown-filled] size-4 shrink-0 text-brand-yellow"

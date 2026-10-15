@@ -28,7 +28,7 @@
         :search-placeholder="t('g.searchPlaceholder', { subject: t('g.jobs') })"
       />
       <div
-        class="flex items-center justify-between px-4 pb-2 text-xs leading-none text-foreground"
+        class="flex items-center justify-between px-4 pb-2 text-xs leading-none"
       >
         <span class="text-muted-foreground">{{ activeQueueSummary }}</span>
         <div class="flex items-center gap-2">

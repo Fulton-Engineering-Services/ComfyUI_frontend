@@ -59,7 +59,7 @@
             </button>
             <span
               v-else
-              class="min-w-0 truncate text-xs/relaxed font-normal text-foreground"
+              class="min-w-0 truncate text-xs/relaxed font-normal"
               :title="group.type"
             >
               {{ group.type }}
@@ -68,7 +68,7 @@
               v-if="hasMultipleNodeTypes"
               data-testid="swap-node-group-count"
               role="img"
-              class="flex h-4 min-w-4 shrink-0 items-center justify-center rounded-sm bg-accent px-1 text-2xs font-semibold text-foreground"
+              class="flex h-4 min-w-4 shrink-0 items-center justify-center rounded-sm bg-accent px-1 text-2xs font-semibold"
               :aria-label="t('g.nodesCount', group.nodeTypes.length)"
             >
               {{ group.nodeTypes.length }}

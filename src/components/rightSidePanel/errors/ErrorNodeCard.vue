@@ -12,7 +12,7 @@
         </button>
         <span
           v-else-if="card.nodeTitle || card.title"
-          class="max-w-full min-w-0 truncate text-xs font-normal text-foreground"
+          class="max-w-full min-w-0 truncate text-xs font-normal"
         >
           {{ card.nodeTitle || card.title }}
         </span>
@@ -102,7 +102,7 @@
             >
               <div class="flex flex-col gap-2">
                 <div class="flex items-center justify-between gap-1 py-1">
-                  <span class="text-xs font-semibold text-foreground uppercase">
+                  <span class="text-xs font-semibold uppercase">
                     {{ t('rightSidePanel.errorLog') }}
                   </span>
                   <Button

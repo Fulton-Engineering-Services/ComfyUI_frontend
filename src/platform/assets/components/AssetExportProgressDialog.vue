@@ -78,7 +78,7 @@ function closeDialog() {
       <div
         class="flex h-12 items-center justify-between border-b border-border px-4"
       >
-        <h3 class="text-sm font-bold text-foreground">
+        <h3 class="text-sm font-bold">
           {{ t('exportToast.exportingAssets') }}
         </h3>
       </div>
@@ -156,9 +156,7 @@ function closeDialog() {
               </template>
               <template v-else-if="job.status === 'running'">
                 <Loader size="sm" class="text-foreground" />
-                <span class="text-xs text-foreground">
-                  {{ progressPercent(job) }}%
-                </span>
+                <span class="text-xs"> {{ progressPercent(job) }}% </span>
               </template>
               <template v-else>
                 <span class="text-xs text-muted-foreground">
@@ -198,7 +196,7 @@ function closeDialog() {
           <span
             :class="
               cn(
-                'truncate overflow-hidden font-bold text-foreground transition-all duration-300',
+                'truncate overflow-hidden font-bold transition-all duration-300',
                 isExpanded ? 'min-w-0 flex-1' : 'w-0'
               )
             "

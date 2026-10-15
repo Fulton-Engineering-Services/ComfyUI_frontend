@@ -129,7 +129,7 @@ async function cancelDownload(taskId: TaskId) {
       <div
         class="flex h-12 items-center justify-between border-b border-border px-4"
       >
-        <h3 class="text-sm font-bold text-foreground">
+        <h3 class="text-sm font-bold">
           {{ t('progressToast.importingModels') }}
         </h3>
         <div class="flex items-center gap-2">
@@ -211,7 +211,7 @@ async function cancelDownload(taskId: TaskId) {
         <div class="flex min-w-0 flex-1 items-center gap-2 text-sm">
           <template v-if="isInProgress">
             <Loader size="sm" class="shrink-0 text-muted-foreground" />
-            <span class="min-w-0 flex-1 truncate font-bold text-foreground">
+            <span class="min-w-0 flex-1 truncate font-bold">
               {{ currentJobName }}
             </span>
           </template>
@@ -219,7 +219,7 @@ async function cancelDownload(taskId: TaskId) {
             <i
               class="icon-[lucide--circle-alert] size-4 shrink-0 text-destructive"
             />
-            <span class="min-w-0 truncate font-bold text-foreground">
+            <span class="min-w-0 truncate font-bold">
               {{ outcomeLabel }}
             </span>
           </template>
@@ -227,7 +227,7 @@ async function cancelDownload(taskId: TaskId) {
             <i
               class="icon-[lucide--circle-x] size-4 shrink-0 text-muted-foreground"
             />
-            <span class="min-w-0 truncate font-bold text-foreground">
+            <span class="min-w-0 truncate font-bold">
               {{ outcomeLabel }}
             </span>
           </template>
@@ -235,7 +235,7 @@ async function cancelDownload(taskId: TaskId) {
             <i
               class="icon-[lucide--check-circle] size-4 shrink-0 text-jade-600"
             />
-            <span class="min-w-0 truncate font-bold text-foreground">
+            <span class="min-w-0 truncate font-bold">
               {{ outcomeLabel }}
             </span>
           </template>

@@ -14,10 +14,7 @@
         >
           <i class="icon-[lucide--arrow-left] size-5" />
         </button>
-        <h2
-          v-if="step !== 'verifying'"
-          class="m-0 text-base font-bold text-foreground"
-        >
+        <h2 v-if="step !== 'verifying'" class="m-0 text-base font-bold">
           {{
             step === 'confirm'
               ? $t('credits.topUp.confirmTitle')
@@ -48,7 +45,7 @@
       </p>
       <div class="flex flex-col gap-3 px-8 pt-6">
         <span
-          class="flex items-center gap-2 py-2 text-2xl font-semibold text-foreground tabular-nums"
+          class="flex items-center gap-2 py-2 text-2xl font-semibold tabular-nums"
         >
           <i class="icon-[lucide--coins] size-5 text-gold-500" />
           {{ formatNumber(creditsModel) }}
@@ -56,10 +53,10 @@
         <div
           class="flex items-center justify-between border-t border-border pt-4"
         >
-          <span class="text-base font-semibold text-foreground">
+          <span class="text-base font-semibold">
             {{ $t('subscription.preview.totalDueToday') }}
           </span>
-          <span class="text-base font-semibold text-foreground tabular-nums">
+          <span class="text-base font-semibold tabular-nums">
             {{ displayTotal }}
           </span>
         </div>
@@ -69,18 +66,13 @@
     <template v-if="step === 'verifying'">
       <div class="flex flex-col items-center gap-3 px-8 text-center">
         <i class="icon-[lucide--shield-alert] size-10 text-warning" />
-        <h2
-          class="m-0 text-center text-xl font-semibold text-foreground lg:text-2xl"
-        >
+        <h2 class="m-0 text-xl font-semibold lg:text-2xl">
           {{ $t('credits.topUp.verifyTitle') }}
         </h2>
         <p class="m-0 text-sm text-balance text-muted-foreground">
           {{ verifyingBody }}
         </p>
-        <span
-          v-if="topupReconciliationOperationId"
-          class="font-mono text-sm text-foreground"
-        >
+        <span v-if="topupReconciliationOperationId" class="font-mono text-sm">
           {{ topupReconciliationOperationId }}
         </span>
       </div>
@@ -129,9 +121,7 @@
           @update:model-value="handlePayAmountChange"
         >
           <NumberFieldDecrement />
-          <span class="shrink-0 text-base font-semibold text-foreground"
-            >$</span
-          >
+          <span class="shrink-0 text-base font-semibold">$</span>
           <NumberFieldInput
             :aria-label="$t('credits.topUp.youPay')"
             class="text-lg font-medium"

@@ -6,7 +6,7 @@
     <div
       class="flex h-12 items-center justify-between border-b border-border px-4"
     >
-      <h2 class="m-0 text-sm font-normal text-foreground">
+      <h2 class="m-0 text-sm font-normal">
         {{ $t('subscription.downgrade.title', { plan: planName }) }}
       </h2>
       <button

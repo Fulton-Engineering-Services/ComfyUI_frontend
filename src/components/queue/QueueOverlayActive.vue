@@ -15,7 +15,7 @@
         />
       </div>
       <div class="flex items-start justify-end gap-4 text-[12px] leading-none">
-        <div class="flex items-center gap-1 text-foreground opacity-90">
+        <div class="flex items-center gap-1 opacity-90">
           <i18n-t keypath="sideToolbar.queueProgressOverlay.total">
             <template #percent>
               <span class="font-bold">{{ totalPercentFormatted }}</span>

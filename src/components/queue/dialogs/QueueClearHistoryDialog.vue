@@ -1,6 +1,6 @@
 <template>
   <section
-    class="w-[360px] rounded-2xl border border-border bg-background font-inter text-foreground shadow-interface"
+    class="w-[360px] rounded-2xl border border-border bg-background shadow-interface"
   >
     <header
       class="flex items-center justify-between border-b border-border p-4"

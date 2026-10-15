@@ -43,7 +43,7 @@
       v-if="checkoutStep === 'pricing'"
       class="flex flex-col items-center gap-3"
     >
-      <h2 class="m-0 font-inter text-2xl font-semibold text-foreground">
+      <h2 class="m-0 text-2xl font-semibold">
         {{ $t('subscription.descriptionWorkspace') }}
       </h2>
     </div>

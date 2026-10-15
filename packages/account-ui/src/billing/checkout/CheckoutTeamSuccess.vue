@@ -18,7 +18,7 @@
         <h3 class="m-0 text-base font-normal text-foreground">
           {{ inviteCopy.title }}
         </h3>
-        <p class="m-0 text-sm text-muted-foreground">
+        <p class="m-0 text-muted-foreground">
           {{ inviteCopy.subtext }}
         </p>
         <div aria-live="polite">
@@ -26,7 +26,7 @@
             v-if="invitedEmails.length > 0"
             ref="invitedMessage"
             tabindex="-1"
-            class="m-0 text-sm text-success"
+            class="m-0 text-success"
           >
             {{
               inviteCopy.invitedMessage(

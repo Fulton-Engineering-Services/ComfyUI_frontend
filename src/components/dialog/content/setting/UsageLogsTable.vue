@@ -52,7 +52,7 @@
                 <div class="font-semibold">
                   {{ event.params?.api_name || $t('credits.api') }}
                 </div>
-                <div class="text-sm text-muted-foreground">
+                <div class="text-muted-foreground">
                   {{ $t('credits.model') }}: {{ event.params?.model || '-' }}
                 </div>
               </div>

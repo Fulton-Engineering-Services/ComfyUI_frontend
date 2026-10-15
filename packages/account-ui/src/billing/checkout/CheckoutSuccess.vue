@@ -9,7 +9,7 @@
       >
         {{ copy.allSet }}
       </h2>
-      <p class="m-0 text-center text-sm text-muted-foreground">
+      <p class="m-0 text-center text-muted-foreground">
         {{ copy.planUpdated }}
         {{ copy.receiptEmailed }}
       </p>
@@ -24,16 +24,16 @@
             )
           "
         >
-          <span class="text-sm text-foreground">{{ plan.name }}</span>
+          <span class="text-foreground">{{ plan.name }}</span>
           <div class="flex items-baseline gap-1">
             <span class="text-2xl font-semibold text-foreground tabular-nums">
               ${{ displayPrice }}
             </span>
-            <span class="text-sm text-foreground">
+            <span class="text-foreground">
               {{ isYearly ? copy.usdPerYear : copy.usdPerMonth }}
             </span>
           </div>
-          <div class="flex items-center gap-1 text-sm text-muted-foreground">
+          <div class="flex items-center gap-1 text-muted-foreground">
             <i class="icon-[lucide--coins] size-4 shrink-0 bg-credit" />
             <span class="tabular-nums">
               {{ displayCredits }} {{ isYearly ? copy.perYear : copy.perMonth }}
@@ -43,7 +43,7 @@
 
         <p
           v-if="promoApplied"
-          class="m-0 text-center text-sm text-muted-foreground tabular-nums"
+          class="m-0 text-center text-muted-foreground tabular-nums"
         >
           <span class="font-medium text-foreground">
             {{ copy.promoApplied(promoApplied.code) }}

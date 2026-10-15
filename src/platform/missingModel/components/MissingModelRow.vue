@@ -48,7 +48,7 @@
           </button>
           <span
             v-else
-            class="min-w-0 font-normal wrap-break-word text-foreground"
+            class="min-w-0 font-normal wrap-break-word"
             :title="displayModelName"
           >
             {{ displayModelName }}
@@ -56,7 +56,7 @@
           <span
             v-if="hasMultipleReferences"
             data-testid="missing-model-reference-count"
-            class="inline-flex h-4 min-w-4 shrink-0 items-center justify-center rounded-sm bg-accent px-1 text-2xs font-semibold text-foreground"
+            class="inline-flex h-4 min-w-4 shrink-0 items-center justify-center rounded-sm bg-accent px-1 text-2xs font-semibold"
           >
             {{ model.referencingNodes.length }}
           </span>

@@ -147,7 +147,11 @@ function renderTab() {
         AssetsSidebarListView: true,
         MediaAssetFilterBar: true,
         MediaAssetSelectionBar: true,
-        MediaLightbox: true,
+        MediaLightbox: {
+          props: ['allGalleryItems'],
+          template:
+            '<div data-testid="lightbox" :data-types="JSON.stringify((allGalleryItems ?? []).map((i) => i.type))" />'
+        },
         MediaAssetContextMenu: true
       }
     }
@@ -197,5 +201,32 @@ describe('AssetsSidebarTab folder navigation', () => {
       screen.queryByRole('button', { name: 'Back to all assets' })
     ).not.toBeInTheDocument()
     expect(screen.queryByText('multi-output-job')).not.toBeInTheDocument()
+  })
+})
+
+describe('AssetsSidebarTab media lightbox item types', () => {
+  const inputVideo = {
+    id: 'input-video',
+    name: 'video__00001_.mp4',
+    created_at: '2026-01-01T00:00:00Z',
+    updated_at: '2026-01-01T00:00:00Z',
+    tags: ['input'],
+    preview_url: '/api/view?type=input&filename=video__00001_.mp4',
+    user_metadata: { subfolder: 'videos/08-02' }
+  }
+
+  it('derives the gallery item type from the asset tags, not a hardcoded output', async () => {
+    // Regression: the lightbox built the VHS /viewvideo URL from a hardcoded
+    // type 'output', so an input-tree video requested type=output and 204'd.
+    const store = useAssetsStore()
+    store.inputAssets.items = [inputVideo]
+
+    renderTab()
+    await userEvent.click(screen.getByRole('tab', { name: 'Imported' }))
+
+    const types = JSON.parse(
+      screen.getByTestId('lightbox').getAttribute('data-types') ?? '[]'
+    )
+    expect(types).toEqual(['input'])
   })
 })

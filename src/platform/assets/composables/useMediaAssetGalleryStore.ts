@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { ref, shallowRef } from 'vue'
 
 import type { AugmentedResultItem } from '@/utils/resultItem'
+import { isResultItemType } from '@/utils/typeGuardUtil'
 
 import type { AssetMeta } from '../schemas/mediaAssetSchema'
 
@@ -20,7 +21,10 @@ export const useMediaAssetGalleryStore = defineStore(
         {
           filename: asset.name,
           subfolder: '',
-          type: 'output',
+          // Use the asset's own directory type, not an assumed 'output': the
+          // lightbox builds the VHS /viewvideo URL from this, so forcing
+          // 'output' 204s any input-tree file.
+          type: asset.tags.find(isResultItemType) ?? 'output',
           nodeId: '0',
           mediaType: asset.kind === 'image' ? 'images' : asset.kind,
           url: asset.src || ''

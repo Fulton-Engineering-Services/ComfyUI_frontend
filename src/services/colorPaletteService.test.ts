@@ -183,6 +183,33 @@ describe('useColorPaletteService theme variables', () => {
     expect(document.documentElement.dataset.paletteSwitching).toBeUndefined()
   })
 
+  it('keeps the dark palette comfy_base equal to the legacy stylesheet defaults', () => {
+    const legacyCss = readFileSync(
+      join(
+        process.cwd(),
+        'packages',
+        'design-system',
+        'src',
+        'css',
+        '_legacy-palette.css'
+      ),
+      'utf8'
+    )
+    const stylesheetDefaults = Object.fromEntries(
+      [...legacyCss.matchAll(/--([\w-]+):\s*([^;]+);/g)].map(
+        ([, name, value]) => [name, value.trim()]
+      )
+    )
+    const comfyBase =
+      useColorPaletteStore().palettesLookup.dark?.colors.comfy_base ?? {}
+
+    expect(comfyBase).toEqual(
+      Object.fromEntries(
+        Object.keys(comfyBase).map((name) => [name, stylesheetDefaults[name]])
+      )
+    )
+  })
+
   it('keeps the dark palette theme equal to the stylesheet defaults', () => {
     const cssDir = join(
       process.cwd(),

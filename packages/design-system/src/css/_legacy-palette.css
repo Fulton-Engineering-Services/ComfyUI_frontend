@@ -1,8 +1,8 @@
 :root {
   --fg-color: #fff;
   --bg-color: #202020;
-  --comfy-menu-bg: #353535;
-  --comfy-menu-secondary-bg: #292929;
+  --comfy-menu-bg: #171718;
+  --comfy-menu-secondary-bg: #303030;
   --comfy-input-bg: #222;
   --comfy-textarea-font-size: 10px;
   --input-text: #ddd;
@@ -20,8 +20,14 @@
   --content-fg: #fff;
   --content-hover-bg: #222;
   --content-hover-fg: #fff;
+  --bar-shadow: rgb(16 16 16 / 0.5) 0 0 0.5rem;
 
   --palette-interface-panel-box-shadow: 1px 1px 8px 0 rgb(0 0 0 / 0.4);
   --palette-interface-panel-drop-shadow: 1px 1px 4px rgb(0 0 0 / 0.4);
   --palette-interface-floating-panel-shadow: 0 2px 16px 0 rgb(0 0 0 / 0.5);
+  --interface-panel-box-shadow: var(--palette-interface-panel-box-shadow);
+  --interface-panel-drop-shadow: var(--palette-interface-panel-drop-shadow);
+  --interface-floating-panel-shadow: var(
+    --palette-interface-floating-panel-shadow
+  );
 }

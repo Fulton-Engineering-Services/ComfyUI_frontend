@@ -150,7 +150,7 @@ describe('useColorPaletteService theme variables', () => {
       colorScheme: document.documentElement.style.colorScheme
     }).toEqual({
       '--primary': '#31b9f4',
-      '--warning': '#fcbf64',
+      '--warning': '#c77700',
       colorScheme: 'light'
     })
   })

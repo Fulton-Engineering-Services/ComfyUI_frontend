@@ -1,21 +1,8 @@
 <template>
-  <div
-    class="flex w-90 max-w-full flex-col overflow-hidden rounded-2xl border bg-background"
-    data-testid="member-resubscribe-message"
-  >
-    <div class="flex h-12 items-center gap-2 border-b p-4">
-      <p class="m-0 min-w-0 flex-1 text-sm">
-        {{ $t('subscription.inactive.memberTitle') }}
-      </p>
-      <button
-        type="button"
-        :aria-label="$t('g.close')"
-        class="flex size-4 shrink-0 cursor-pointer items-center justify-center border-none bg-transparent"
-        @click="onClose"
-      >
-        <i class="pi pi-times text-xs" />
-      </button>
-    </div>
+  <DialogPanel class="w-90 max-w-full" @close="onClose">
+    <template #title>
+      {{ $t('subscription.inactive.memberTitle') }}
+    </template>
 
     <div class="p-4">
       <p class="m-0 text-sm text-muted-foreground">
@@ -23,15 +10,16 @@
       </p>
     </div>
 
-    <div class="flex items-center justify-end p-4">
+    <template #footer>
       <Button variant="secondary" size="lg" @click="onClose">
         {{ $t('subscription.inactive.memberCta') }}
       </Button>
-    </div>
-  </div>
+    </template>
+  </DialogPanel>
 </template>
 
 <script setup lang="ts">
+import DialogPanel from '@/components/ui/dialog/DialogPanel.vue'
 import Button from '@/components/ui/button/Button.vue'
 
 const { onClose } = defineProps<{

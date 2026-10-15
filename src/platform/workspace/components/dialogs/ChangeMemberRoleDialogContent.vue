@@ -1,28 +1,17 @@
 <template>
-  <div class="flex w-full max-w-90 flex-col rounded-2xl border bg-background">
-    <!-- Header -->
-    <div class="flex h-12 items-center justify-between border-b px-4">
-      <h2 class="m-0 text-sm font-normal">
-        {{
-          isPromotion
-            ? $t('workspacePanel.changeRoleDialog.promoteTitle', {
-                name: memberName
-              })
-            : $t('workspacePanel.changeRoleDialog.demoteTitle', {
-                name: memberName
-              })
-        }}
-      </h2>
-      <button
-        class="-m-1 cursor-pointer rounded-sm border-none bg-transparent p-1 text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none"
-        :aria-label="$t('g.close')"
-        @click="onCancel"
-      >
-        <i class="pi pi-times size-4" />
-      </button>
-    </div>
+  <DialogPanel class="w-full max-w-90" @close="onCancel">
+    <template #title>
+      {{
+        isPromotion
+          ? $t('workspacePanel.changeRoleDialog.promoteTitle', {
+              name: memberName
+            })
+          : $t('workspacePanel.changeRoleDialog.demoteTitle', {
+              name: memberName
+            })
+      }}
+    </template>
 
-    <!-- Body -->
     <div class="p-4 text-sm text-muted-foreground">
       <template v-if="isPromotion">
         <p class="m-0">
@@ -39,8 +28,7 @@
       </p>
     </div>
 
-    <!-- Footer -->
-    <div class="flex items-center justify-end gap-4 p-4">
+    <template #footer>
       <Button variant="muted-textonly" @click="onCancel">
         {{ $t('g.cancel') }}
       </Button>
@@ -51,11 +39,12 @@
             : $t('workspacePanel.changeRoleDialog.demoteConfirm')
         }}
       </Button>
-    </div>
-  </div>
+    </template>
+  </DialogPanel>
 </template>
 
 <script setup lang="ts">
+import DialogPanel from '@/components/ui/dialog/DialogPanel.vue'
 import { useToast } from '@/components/ui/toast/toastStore'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'

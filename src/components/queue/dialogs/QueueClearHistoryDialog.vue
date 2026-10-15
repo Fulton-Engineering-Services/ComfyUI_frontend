@@ -1,18 +1,8 @@
 <template>
-  <section class="w-[360px] rounded-2xl border bg-background shadow-md">
-    <header class="flex items-center justify-between border-b p-4">
-      <p class="m-0 text-[14px] leading-none font-normal">
-        {{ t('sideToolbar.queueProgressOverlay.clearHistoryDialogTitle') }}
-      </p>
-      <Button
-        size="icon"
-        variant="muted-textonly"
-        :aria-label="t('g.close')"
-        @click="onCancel"
-      >
-        <i class="icon-[lucide--x] block size-4 leading-none" />
-      </Button>
-    </header>
+  <DialogPanel class="w-[360px]" @close="onCancel">
+    <template #title>
+      {{ t('sideToolbar.queueProgressOverlay.clearHistoryDialogTitle') }}
+    </template>
 
     <div class="flex flex-col gap-4 p-4 text-[14px] text-muted-foreground">
       <p class="m-0">
@@ -25,7 +15,7 @@
       </p>
     </div>
 
-    <footer class="flex items-center justify-end p-4">
+    <template #footer>
       <div class="flex items-center gap-4 leading-none">
         <Button variant="muted-textonly" size="lg" @click="onCancel">
           {{ t('g.cancel') }}
@@ -38,11 +28,12 @@
           >{{ t('g.clear') }}</Button
         >
       </div>
-    </footer>
-  </section>
+    </template>
+  </DialogPanel>
 </template>
 
 <script setup lang="ts">
+import DialogPanel from '@/components/ui/dialog/DialogPanel.vue'
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 

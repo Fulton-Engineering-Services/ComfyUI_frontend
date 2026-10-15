@@ -1,22 +1,9 @@
 <template>
-  <div
-    class="flex w-full min-w-[400px] flex-col rounded-2xl border bg-background"
-  >
-    <!-- Header -->
-    <div class="flex h-12 items-center justify-between border-b px-4">
-      <h2 class="m-0 text-sm font-normal">
-        {{ $t('workspacePanel.editWorkspaceDialog.title') }}
-      </h2>
-      <button
-        class="cursor-pointer rounded-sm border-none bg-transparent p-0 text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none"
-        :aria-label="$t('g.close')"
-        @click="onCancel"
-      >
-        <i class="pi pi-times size-4" />
-      </button>
-    </div>
+  <DialogPanel class="w-full min-w-[400px]" @close="onCancel">
+    <template #title>
+      {{ $t('workspacePanel.editWorkspaceDialog.title') }}
+    </template>
 
-    <!-- Body -->
     <div class="flex flex-col gap-4 p-4">
       <div class="flex flex-col gap-2">
         <label class="text-sm">
@@ -31,8 +18,7 @@
       </div>
     </div>
 
-    <!-- Footer -->
-    <div class="flex items-center justify-end gap-4 p-4">
+    <template #footer>
       <Button variant="muted-textonly" @click="onCancel">
         {{ $t('g.cancel') }}
       </Button>
@@ -45,11 +31,12 @@
       >
         {{ $t('workspacePanel.editWorkspaceDialog.save') }}
       </Button>
-    </div>
-  </div>
+    </template>
+  </DialogPanel>
 </template>
 
 <script setup lang="ts">
+import DialogPanel from '@/components/ui/dialog/DialogPanel.vue'
 import { useToast } from '@/components/ui/toast/toastStore'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'

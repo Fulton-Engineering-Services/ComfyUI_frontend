@@ -19,6 +19,8 @@ const PALETTE_FALLBACK_KEYS = [
   'interface-floating-panel-shadow'
 ] as const
 
+let latestPaletteSwitch = 0
+
 export const useColorPaletteService = () => {
   const colorPaletteStore = useColorPaletteStore()
   const settingStore = useSettingStore()
@@ -198,19 +200,24 @@ export const useColorPaletteService = () => {
 
     const completedPalette = colorPaletteStore.completePalette(colorPalette)
     const root = document.documentElement
+    const paletteSwitch = ++latestPaletteSwitch
     root.dataset.paletteSwitching = ''
-    loadLinkColorPalette(completedPalette.colors.node_slot)
-    loadLiteGraphColorPalette(completedPalette.colors.litegraph_base)
-    applyPaletteTheme(root.style, completedPalette)
-    loadLinkColorPaletteForVueNodes(completedPalette.colors.node_slot)
-    loadComfyColorPalette(completedPalette.colors.comfy_base)
-    useApp().canvas.setDirty(true, true)
+    try {
+      loadLinkColorPalette(completedPalette.colors.node_slot)
+      loadLiteGraphColorPalette(completedPalette.colors.litegraph_base)
+      applyPaletteTheme(root.style, completedPalette)
+      loadLinkColorPaletteForVueNodes(completedPalette.colors.node_slot)
+      loadComfyColorPalette(completedPalette.colors.comfy_base)
+      useApp().canvas.setDirty(true, true)
 
-    colorPaletteStore.activePaletteId = colorPaletteId
-    afterNextFrame(() => {
-      delete root.dataset.paletteSwitching
-      persistSplashColors()
-    })
+      colorPaletteStore.activePaletteId = colorPaletteId
+    } finally {
+      afterNextFrame(() => {
+        if (paletteSwitch !== latestPaletteSwitch) return
+        delete root.dataset.paletteSwitching
+        persistSplashColors()
+      })
+    }
   }
 
   /**

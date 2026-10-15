@@ -5,11 +5,7 @@
         {{ $t('g.keybindingPresets.unsavedChangesMessage') }}
       </p>
       <div class="flex justify-end gap-2">
-        <Button
-          variant="textonly"
-          class="text-muted-foreground"
-          @click="onResult(null)"
-        >
+        <Button variant="muted-textonly" @click="onResult(null)">
           {{ $t('g.cancel') }}
         </Button>
         <Button

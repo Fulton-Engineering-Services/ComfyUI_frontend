@@ -86,7 +86,7 @@
         <Button
           variant="inverted"
           size="unset"
-          class="h-9 rounded-lg px-6 text-sm font-medium"
+          class="h-9 rounded-lg px-6"
           @click="onLogin?.()"
         >
           {{ t('apiNodesSignInDialog.signIn') }}

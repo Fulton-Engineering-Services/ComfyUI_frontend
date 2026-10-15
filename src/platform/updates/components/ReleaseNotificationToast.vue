@@ -28,7 +28,7 @@
         <Button
           variant="link"
           size="unset"
-          class="h-6 px-0 text-sm font-normal"
+          class="h-6 px-0 font-normal"
           @click="handleSkip"
         >
           {{ $t('releaseToast.skip') }}

@@ -5,7 +5,7 @@
     <Button
       size="icon"
       variant="muted-textonly"
-      class="absolute top-2.5 right-2.5 shrink-0 rounded-full text-muted-foreground hover:bg-white/10"
+      class="absolute top-2.5 right-2.5 shrink-0 rounded-full hover:bg-white/10"
       :aria-label="$t('g.close')"
       @click="onClose"
     >

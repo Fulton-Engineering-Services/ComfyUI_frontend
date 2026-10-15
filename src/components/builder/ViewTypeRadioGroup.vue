@@ -7,7 +7,7 @@
       :aria-checked="modelValue === option.value"
       :class="
         cn(
-          'flex cursor-pointer items-center gap-2 self-stretch rounded-lg border-none bg-transparent py-2 pr-4 pl-2 text-foreground transition-colors hover:bg-secondary',
+          'flex items-center gap-2 self-stretch rounded-lg border-none bg-transparent py-2 pr-4 pl-2 transition-colors hover:bg-secondary',
           heightClass,
           modelValue === option.value && 'bg-secondary'
         )

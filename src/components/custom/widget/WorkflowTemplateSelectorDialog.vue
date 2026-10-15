@@ -31,7 +31,7 @@
           :disabled="openPending"
           size="unset"
           variant="muted-textonly"
-          class="shrink-0 gap-2 text-sm font-medium text-muted-foreground hover:bg-transparent"
+          class="shrink-0 gap-2 hover:bg-transparent"
           @click="onBackToTemplates"
         >
           <i aria-hidden="true" class="icon-[lucide--arrow-left] size-4" />

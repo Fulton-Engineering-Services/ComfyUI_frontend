@@ -36,9 +36,9 @@
           </span>
           <Button
             data-testid="missing-media-locate-button"
-            variant="textonly"
+            variant="muted-textonly"
             size="icon-sm"
-            class="size-8 shrink-0 text-muted-foreground hover:text-foreground focus-visible:ring-inset"
+            class="size-8 shrink-0 hover:text-foreground focus-visible:ring-inset"
             :aria-label="
               t(
                 'rightSidePanel.locateNodeFor',

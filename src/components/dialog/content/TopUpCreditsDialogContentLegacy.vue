@@ -41,7 +41,7 @@
           :aria-pressed="selectedPreset === amount"
           :class="
             cn(
-              'h-10 w-full text-base font-medium focus-visible:ring-border',
+              'h-10 w-full text-base focus-visible:ring-border',
               selectedPreset === amount && 'bg-muted'
             )
           "

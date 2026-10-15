@@ -80,9 +80,9 @@
           </span>
           <Button
             v-if="showInfoButton && group.packId !== null"
-            variant="textonly"
+            variant="muted-textonly"
             size="icon-sm"
-            class="size-6 shrink-0 text-muted-foreground hover:bg-transparent hover:text-foreground focus-visible:ring-inset"
+            class="size-6 shrink-0 hover:bg-transparent hover:text-foreground focus-visible:ring-inset"
             :aria-label="t('rightSidePanel.missingNodePacks.viewInManager')"
             @click="emit('openManagerInfo', group.packId ?? '')"
           >

@@ -71,7 +71,7 @@
               :aria-pressed="chip.active"
               :class="
                 cn(
-                  'h-7 shrink-0 gap-1 rounded-lg px-3 text-xs font-semibold hover:bg-transparent',
+                  'h-7 shrink-0 gap-1 rounded-lg px-3 font-semibold hover:bg-transparent',
                   chip.active && 'gap-2 pr-2',
                   SEVERITY_CHIP_CLASS[chip.severity][
                     chip.active ? 'active' : 'idle'
@@ -289,11 +289,11 @@
                       </Tooltip>
                       <Button
                         v-if="item.displayDetails"
-                        variant="textonly"
+                        variant="muted-textonly"
                         size="icon-sm"
                         :class="
                           cn(
-                            'size-6 shrink-0 text-muted-foreground hover:text-foreground focus-visible:ring-inset',
+                            'size-6 shrink-0 hover:text-foreground focus-visible:ring-inset',
                             isExecutionItemDetailExpanded(item.key) &&
                               'bg-muted text-foreground hover:bg-muted'
                           )

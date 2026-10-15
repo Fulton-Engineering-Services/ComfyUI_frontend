@@ -59,7 +59,7 @@
           <Button
             variant="link"
             size="unset"
-            class="h-6 text-sm font-normal"
+            class="h-6 font-normal"
             @click="dismissNudge"
           >
             {{ t('onboardingCoachmarks.firstRun.nudge.dismiss') }}

@@ -237,7 +237,7 @@
       <div class="flex items-center gap-1.5">
         <Button
           variant="muted-textonly"
-          class="h-6 p-1 text-sm text-muted-foreground hover:text-foreground"
+          class="h-6 p-1 text-sm hover:text-foreground"
           @click="handleContactUs"
         >
           {{ $t('subscription.contactUs') }}
@@ -246,7 +246,7 @@
         <span class="text-sm text-muted-foreground">{{ $t('g.or') }}</span>
         <Button
           variant="muted-textonly"
-          class="h-6 p-1 text-sm text-muted-foreground hover:text-foreground"
+          class="h-6 p-1 text-sm hover:text-foreground"
           @click="handleViewEnterprise"
         >
           {{ $t('subscription.viewEnterprise') }}

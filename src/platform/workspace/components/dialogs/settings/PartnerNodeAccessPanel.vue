@@ -162,9 +162,9 @@
               :aria-sort="sortField === 'provider' ? sortDirection : 'none'"
             >
               <Button
-                variant="textonly"
+                variant="muted-textonly"
                 size="unset"
-                class="-m-2 gap-2 p-2 text-sm font-normal text-muted-foreground"
+                class="-m-2 gap-2 p-2 font-normal"
                 @click="sortBy('provider')"
               >
                 {{ $t('workspacePanel.partnerNodes.columns.provider') }}
@@ -182,9 +182,9 @@
               class="hidden lg:block"
             >
               <Button
-                variant="textonly"
+                variant="muted-textonly"
                 size="unset"
-                class="-m-2 gap-2 p-2 text-sm font-normal text-muted-foreground"
+                class="-m-2 gap-2 p-2 font-normal"
                 @click="sortBy('models')"
               >
                 {{ $t('workspacePanel.partnerNodes.columns.models') }}
@@ -201,9 +201,9 @@
             >
               <Button
                 v-if="isRestricted"
-                variant="textonly"
+                variant="muted-textonly"
                 size="unset"
-                class="-m-2 gap-2 p-2 text-sm font-normal text-muted-foreground"
+                class="-m-2 gap-2 p-2 font-normal"
                 @click="sortBy('state')"
               >
                 {{ $t('workspacePanel.partnerNodes.columns.state') }}

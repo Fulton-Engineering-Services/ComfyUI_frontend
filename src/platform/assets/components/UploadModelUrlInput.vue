@@ -62,9 +62,9 @@
         <i18n-t keypath="assetBrowser.apiKeyHint" tag="span">
           <template #link>
             <Button
-              variant="textonly"
+              variant="muted-textonly"
               size="unset"
-              class="p-0 text-muted-foreground underline"
+              class="p-0 underline"
               @click="openSecretsSettings"
             >
               {{ $t('assetBrowser.apiKeyHintLink') }}

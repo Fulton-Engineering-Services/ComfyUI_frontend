@@ -20,11 +20,11 @@
       <div class="flex shrink-0 items-center">
         <Button
           v-if="hasRuntimeError"
-          variant="textonly"
+          variant="muted-textonly"
           size="icon-sm"
           :class="
             cn(
-              'size-8 shrink-0 text-muted-foreground hover:text-foreground focus-visible:ring-inset',
+              'size-8 shrink-0 hover:text-foreground focus-visible:ring-inset',
               runtimeDetailsExpanded &&
                 'bg-muted text-foreground hover:bg-muted'
             )
@@ -106,9 +106,9 @@
                     {{ t('rightSidePanel.errorLog') }}
                   </span>
                   <Button
-                    variant="textonly"
+                    variant="muted-textonly"
                     size="icon-sm"
-                    class="size-7 shrink-0 text-muted-foreground hover:text-foreground focus-visible:ring-inset"
+                    class="size-7 shrink-0 hover:text-foreground focus-visible:ring-inset"
                     :aria-label="t('g.copy')"
                     data-testid="error-card-copy"
                     @click="handleCopyError(idx)"
@@ -132,7 +132,7 @@
                   :tooltip="t('rightSidePanel.getHelpTooltip')"
                   variant="textonly"
                   size="sm"
-                  class="justify-start gap-1 px-0 text-xs hover:bg-transparent hover:text-foreground focus-visible:ring-inset"
+                  class="justify-start gap-1 px-0 hover:bg-transparent hover:text-foreground focus-visible:ring-inset"
                   @click="handleGetHelp"
                 >
                   <i class="icon-[lucide--external-link] size-4" />
@@ -142,7 +142,7 @@
                   :tooltip="t('rightSidePanel.findOnGithubTooltip')"
                   variant="textonly"
                   size="sm"
-                  class="justify-end gap-1 px-0 text-xs hover:bg-transparent hover:text-foreground focus-visible:ring-inset"
+                  class="justify-end gap-1 px-0 hover:bg-transparent hover:text-foreground focus-visible:ring-inset"
                   data-testid="error-card-find-on-github"
                   @click="handleCheckGithub(error)"
                 >

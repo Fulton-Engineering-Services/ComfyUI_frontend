@@ -15,7 +15,7 @@
           <Button
             variant="textonly"
             size="unset"
-            class="inline text-sm whitespace-nowrap text-inherit underline"
+            class="inline text-inherit underline"
             @click="openGitHubIssues"
           >
             {{ t('rightSidePanel.errorHelpGithub') }}
@@ -25,7 +25,7 @@
           <Button
             variant="textonly"
             size="unset"
-            class="inline text-sm whitespace-nowrap text-inherit underline"
+            class="inline text-inherit underline"
             @click="contactSupport"
           >
             {{ t('rightSidePanel.errorHelpSupport') }}

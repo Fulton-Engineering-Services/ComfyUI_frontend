@@ -61,9 +61,9 @@
             {{ model.referencingNodes.length }}
           </span>
           <Button
-            variant="textonly"
+            variant="muted-textonly"
             size="icon-sm"
-            class="size-6 shrink-0 text-muted-foreground hover:bg-transparent hover:text-foreground focus-visible:ring-inset"
+            class="size-6 shrink-0 hover:bg-transparent hover:text-foreground focus-visible:ring-inset"
             :aria-label="linkLabel"
             :title="linkLabel"
             @click="copyModelLink"
@@ -179,10 +179,10 @@
       <Button
         v-if="!hasMultipleReferences && !isUnknownCategory && primaryReference"
         data-testid="missing-model-locate"
-        variant="textonly"
+        variant="muted-textonly"
         size="icon-sm"
         :aria-label="t('rightSidePanel.missingModels.locateNode')"
-        class="size-8 shrink-0 text-muted-foreground hover:text-foreground focus-visible:ring-inset"
+        class="size-8 shrink-0 hover:text-foreground focus-visible:ring-inset"
         @click="handleLocatePrimary"
       >
         <i aria-hidden="true" class="icon-[lucide--locate] size-4" />
@@ -216,10 +216,10 @@
             </button>
             <Button
               data-testid="missing-model-locate"
-              variant="textonly"
+              variant="muted-textonly"
               size="icon-sm"
               :aria-label="t('rightSidePanel.missingModels.locateNode')"
-              class="ml-auto size-8 shrink-0 text-muted-foreground hover:text-foreground focus-visible:ring-inset"
+              class="ml-auto size-8 shrink-0 hover:text-foreground focus-visible:ring-inset"
               @click="emit('locateModel', String(ref.nodeId))"
             >
               <i aria-hidden="true" class="icon-[lucide--locate] size-4" />

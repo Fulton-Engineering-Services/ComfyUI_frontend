@@ -21,9 +21,7 @@
             v-for="direction in upDirections"
             :key="direction"
             variant="textonly"
-            :class="
-              cn('text-foreground', upDirection === direction && 'bg-blue-500')
-            "
+            :class="cn(upDirection === direction && 'bg-blue-500')"
             @click="selectUpDirection(direction)"
           >
             {{ direction.toUpperCase() }}
@@ -53,12 +51,7 @@
             v-for="mode in materialModes"
             :key="mode"
             variant="textonly"
-            :class="
-              cn(
-                'whitespace-nowrap text-foreground',
-                materialMode === mode && 'bg-blue-500'
-              )
-            "
+            :class="cn(materialMode === mode && 'bg-blue-500')"
             @click="selectMaterialMode(mode)"
           >
             {{ formatMaterialMode(mode) }}

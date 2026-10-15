@@ -264,7 +264,7 @@
               <Button
                 variant="inverted"
                 :disabled="isTeamButtonDisabled"
-                class="mt-auto h-10 w-full font-inter text-sm/normal font-bold"
+                class="mt-auto h-10 w-full text-sm/normal font-bold"
                 :data-dd-action-name="BILLING_ACTION_NAME.subscribeTeamPlan"
                 @click="handleSubscribeTeam"
               >

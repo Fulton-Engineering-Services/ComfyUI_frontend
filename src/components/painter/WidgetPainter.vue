@@ -267,7 +267,7 @@
         data-testid="painter-clear-button"
         :class="
           cn(
-            'gap-2 rounded-lg border border-node-border bg-node text-xs text-muted-foreground hover:text-foreground',
+            'gap-2 rounded-lg border border-node-border bg-node text-muted-foreground hover:text-foreground',
             !compact && 'col-span-2'
           )
         "

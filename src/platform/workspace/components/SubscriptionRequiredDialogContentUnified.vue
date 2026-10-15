@@ -31,7 +31,7 @@
     <Button
       size="icon"
       variant="muted-textonly"
-      class="absolute top-6 right-4 shrink-0 rounded-full text-muted-foreground hover:bg-white/10"
+      class="absolute top-6 right-4 shrink-0 rounded-full hover:bg-white/10"
       :aria-label="$t('g.close')"
       @click="onClose"
     >

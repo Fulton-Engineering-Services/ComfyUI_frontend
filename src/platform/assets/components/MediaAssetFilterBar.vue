@@ -63,11 +63,7 @@
           <i class="icon-[lucide--x] size-3" />
         </Button>
       </span>
-      <Button
-        variant="textonly"
-        class="h-6 px-1.5 text-xs text-muted-foreground"
-        @click="clearFilters"
-      >
+      <Button variant="muted-textonly" class="h-6 px-1.5" @click="clearFilters">
         {{ $t('sideToolbar.mediaAssets.clearFilters') }}
       </Button>
     </div>

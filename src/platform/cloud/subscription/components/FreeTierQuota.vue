@@ -4,11 +4,13 @@ import { useI18n } from 'vue-i18n'
 
 import { cn } from '@comfyorg/tailwind-utils'
 import { useBillingContext } from '@/composables/billing/useBillingContext'
+import { useSubscriptionPaywall } from '@/composables/billing/useSubscriptionPaywall'
 import { useFreeTierQuota } from '@/platform/cloud/subscription/composables/useFreeTierQuota'
 
 const DOT_COLORS = ['bg-destructive', 'bg-warning', 'bg-success']
 
-const { isFreeTier, showSubscriptionDialog } = useBillingContext()
+const { isFreeTier } = useBillingContext()
+const { showSubscriptionDialog } = useSubscriptionPaywall()
 const { t } = useI18n()
 const { available, hasInvalidNodes, maxAvailable, quotaEnabled } =
   useFreeTierQuota()

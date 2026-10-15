@@ -94,7 +94,11 @@
         "priceNoUnit": "Typical cost: {credits} credits.",
         "title": "{name} API & Playground - Comfy",
         "titleUnbranded": "{name} API & Playground",
-        "titleApi": "{name} API - Comfy"
+        "titleApi": "{name} API - Comfy",
+        "units": {
+          "image": "image",
+          "run": "run"
+        }
       },
       "tabs": {
         "playground": "Playground",
@@ -5887,6 +5891,10 @@
       "download": "RUN COMFYUI LOCALLY",
       "sdk": "EXPLORE THE SDK",
       "platform": "DEVELOPER PLATFORM"
+    },
+    "fdc": {
+      "heading": "Build your custom workflows with our Forward Deployed Creatives",
+      "cta": "LEARN MORE"
     },
     "learning": {
       "heading": "Go inside the workflow.",

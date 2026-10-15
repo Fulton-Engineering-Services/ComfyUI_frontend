@@ -18,10 +18,7 @@
       <span class="truncate text-sm text-foreground">{{ label }}</span>
       <span class="text-xs text-muted-foreground">{{ caption }}</span>
     </div>
-    <i
-      v-if="checked"
-      class="pi pi-check shrink-0 text-sm text-foreground"
-    />
+    <i v-if="checked" class="pi pi-check shrink-0 text-sm text-foreground" />
   </button>
 </template>
 

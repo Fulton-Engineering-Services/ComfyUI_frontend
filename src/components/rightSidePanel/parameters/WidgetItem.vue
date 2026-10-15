@@ -221,7 +221,7 @@ const displayLabel = customRef((track, trigger) => {
       :node-type="node.type"
       :class="
         cn(
-          'col-span-1 text-muted-foreground',
+          'col-span-1 text-xs text-node-foreground',
           shouldExpand(widget.type) && 'min-h-36'
         )
       "

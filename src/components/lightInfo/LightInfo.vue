@@ -84,7 +84,7 @@
         @update="updateSelectedLight"
         @change-type="setSelectedLightType"
       />
-      <div v-else class="px-2 pb-1 text-xs text-muted-foreground">
+      <div v-else class="px-2 pb-1 text-muted-foreground">
         {{ $t('lightInfo.noLights') }}
       </div>
     </div>

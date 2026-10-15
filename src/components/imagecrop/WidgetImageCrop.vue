@@ -78,7 +78,7 @@
     </div>
 
     <div v-if="!isDisabled" class="flex shrink-0 items-center gap-2">
-      <label class="text-xs">
+      <label>
         {{ $t('imageCrop.ratio') }}
       </label>
       <Select v-model="selectedRatio">

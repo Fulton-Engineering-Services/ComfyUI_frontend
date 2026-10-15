@@ -182,7 +182,7 @@
       />
 
       <div v-if="hasCrop" class="col-span-full flex items-center gap-2">
-        <label :for="ratioSelectId" class="text-xs">
+        <label :for="ratioSelectId">
           {{ t('imageCrop.ratio') }}
         </label>
         <Select v-model="selectedRatio" :disabled="!canLockRatio">

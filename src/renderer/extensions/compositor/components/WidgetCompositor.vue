@@ -14,11 +14,7 @@
         @load="onPreviewLoad"
         @dragstart.prevent
       />
-      <span
-        v-else
-        class="text-xs text-muted-foreground"
-        data-testid="compositor-empty"
-      >
+      <span v-else class="text-muted-foreground" data-testid="compositor-empty">
         {{ t('compositor.empty') }}
       </span>
       <div
@@ -40,7 +36,7 @@
 
     <div
       v-if="dimensionsLabel"
-      class="text-center text-xs text-muted-foreground"
+      class="text-center text-muted-foreground"
       data-testid="compositor-dimensions"
     >
       {{ dimensionsLabel }}

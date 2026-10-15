@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center gap-2">
     <span class="h-px flex-1 bg-border" />
-    <span class="text-xs">{{ widget.label }}</span>
+    <span>{{ widget.label }}</span>
     <Button
       variant="textonly"
       size="icon"

@@ -2,7 +2,7 @@
   <div class="flex size-full min-h-32 flex-col overflow-hidden">
     <div
       v-if="showBatchNav"
-      class="flex shrink-0 justify-between px-2 py-1 text-xs"
+      class="flex shrink-0 justify-between px-2 py-1"
       data-testid="batch-nav"
     >
       <BatchNavigation

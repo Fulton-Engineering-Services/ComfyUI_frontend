@@ -16,7 +16,7 @@
     >
       <!-- Recording Status -->
       <div class="flex shrink-0 items-center gap-1">
-        <span class="text-xs">
+        <span>
           {{
             isRecording
               ? t('g.listening', 'Listening...')

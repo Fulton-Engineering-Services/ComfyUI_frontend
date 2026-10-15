@@ -43,7 +43,7 @@
 
     <div
       v-if="isImageInputConnected"
-      class="text-center text-xs text-muted-foreground"
+      class="text-center text-muted-foreground"
       data-testid="painter-dimension-text"
     >
       {{ canvasWidth }} x {{ canvasHeight }}
@@ -114,7 +114,7 @@
           @update:model-value="(v) => v?.length && (brushSize = v[0])"
         />
         <span
-          class="w-8 text-center text-xs text-muted-foreground"
+          class="w-8 text-center text-muted-foreground"
           data-testid="painter-size-value"
         >
           {{ brushSize }}
@@ -128,7 +128,7 @@
           {{ $t('painter.color') }}
         </div>
         <div
-          class="flex h-8 w-full items-center gap-2 rounded-lg bg-input px-4 text-xs"
+          class="flex h-8 w-full items-center gap-2 rounded-lg bg-input px-4"
           data-testid="painter-color-row"
         >
           <input
@@ -183,7 +183,7 @@
             "
           />
           <span
-            class="w-8 text-center text-xs text-muted-foreground"
+            class="w-8 text-center text-muted-foreground"
             data-testid="painter-hardness-value"
             >{{ brushHardnessPercent }}%</span
           >
@@ -208,7 +208,7 @@
             class="flex-1"
             @update:model-value="(v) => v?.length && (canvasWidth = v[0])"
           />
-          <span class="w-10 text-center text-xs text-muted-foreground">{{
+          <span class="w-10 text-center text-muted-foreground">{{
             canvasWidth
           }}</span>
         </div>
@@ -230,7 +230,7 @@
             class="flex-1"
             @update:model-value="(v) => v?.length && (canvasHeight = v[0])"
           />
-          <span class="w-10 text-center text-xs text-muted-foreground">{{
+          <span class="w-10 text-center text-muted-foreground">{{
             canvasHeight
           }}</span>
         </div>
@@ -253,9 +253,7 @@
                 (backgroundColorDisplay = (e.target as HTMLInputElement).value)
             "
           />
-          <span class="min-w-[4ch] truncate text-xs">{{
-            backgroundColorDisplay
-          }}</span>
+          <span class="min-w-[4ch] truncate">{{ backgroundColorDisplay }}</span>
         </div>
       </template>
 

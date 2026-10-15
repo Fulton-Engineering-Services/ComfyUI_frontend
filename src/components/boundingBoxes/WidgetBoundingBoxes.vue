@@ -62,10 +62,7 @@
       </div>
     </div>
 
-    <div
-      v-if="activeRegion"
-      class="flex flex-col gap-2 rounded-sm bg-node p-2 text-xs"
-    >
+    <div v-if="activeRegion" class="flex flex-col gap-2 rounded-sm bg-node p-2">
       <div class="flex h-8 items-center gap-1 rounded-sm bg-input p-1">
         <Button
           variant="textonly"
@@ -142,7 +139,7 @@
         />
       </div>
     </div>
-    <div v-else-if="hasRegions" class="px-1 text-xs text-muted-foreground">
+    <div v-else-if="hasRegions" class="px-1 text-muted-foreground">
       {{ $t('boundingBoxes.clickRegionToEdit') }}
     </div>
   </div>

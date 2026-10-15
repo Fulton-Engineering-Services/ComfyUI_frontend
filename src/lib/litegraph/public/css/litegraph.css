@@ -45,29 +45,6 @@
   padding: 2px;
 }
 
-.litegraph .litemenubar ul {
-  margin: 0;
-  padding: 0;
-}
-
-.litegraph .litemenubar li {
-  font-size: 14px;
-  color: #999;
-  display: inline-block;
-  min-width: 50px;
-  padding-left: 10px;
-  padding-right: 10px;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  cursor: pointer;
-}
-
-.litegraph .litemenubar li:hover {
-  background-color: #777;
-  color: #eee;
-}
-
 .litegraph .litegraph .litemenubar-panel {
   position: absolute;
   top: 5px;
@@ -296,7 +273,6 @@
 }
 
 .litegraph .dialog .dialog-header .dialog-title {
-  font: 1rem;
   margin: 4px;
   padding: 4px 10px;
   display: inline-block;
@@ -319,13 +295,6 @@
 
 .litegraph .dialog .dialog-content .connections {
   flex-direction: row;
-}
-
-.litegraph .dialog .dialog-content .connections .connections_side {
-  width: calc(50% - 5px);
-  min-height: 100px;
-  background-color: black;
-  display: flex;
 }
 
 .litegraph .dialog .node_type {
@@ -423,56 +392,11 @@
   color: var(--foreground);
 }
 
-.litegraph .bullet_icon {
-  margin-left: 10px;
-  border-radius: 10px;
-  width: 12px;
-  height: 12px;
-  background-color: #666;
-  display: inline-block;
-  margin-top: 2px;
-  margin-right: 4px;
-  transition: background-color 0.1s ease 0s;
-  -moz-transition: background-color 0.1s ease 0s;
-}
-
-.litegraph .bullet_icon:hover {
-  background-color: #698;
-  cursor: pointer;
-}
-
-/* OLD */
-
-.graphcontextmenu {
-  padding: 4px;
-  min-width: 100px;
-}
-
-.graphcontextmenu-title {
-  color: #dde;
-  background-color: #222;
-  margin: 0;
-  padding: 2px;
-  cursor: default;
-}
-
-.graphmenu-entry {
-  box-sizing: border-box;
-  margin: 2px;
-  padding-left: 20px;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  transition: all linear 0.3s;
-}
-
-.graphmenu-entry.event,
 .litemenu-entry.event {
   border-left: 8px solid orange;
   padding-left: 12px;
 }
 
-.graphmenu-entry.danger,
 .litemenu-entry.danger {
   color: var(--error-text);
 }
@@ -482,34 +406,6 @@
   opacity: 0.8;
 }
 
-.graphmenu-entry.disabled {
-  opacity: 0.3;
-}
-
-.graphmenu-entry.submenu {
-  border-right: 2px solid #eee;
-}
-
-.graphmenu-entry:hover {
-  background-color: #555;
-}
-
-.graphmenu-entry.separator {
-  background-color: var(--border);
-  height: 1px;
-  width: calc(100% - 20px);
-  -moz-width: calc(100% - 20px);
-  -webkit-width: calc(100% - 20px);
-}
-
-.graphmenu-entry .property_name {
-  display: inline-block;
-  text-align: left;
-  min-width: 80px;
-  min-height: 1.2em;
-}
-
-.graphmenu-entry .property_value,
 .litemenu-entry .property_value {
   display: inline-block;
   background-color: rgba(0, 0, 0, 0.5);
@@ -575,17 +471,6 @@
 .graphdialog .helper {
   overflow: auto;
   max-height: 200px;
-}
-
-.graphdialog .help-item {
-  padding-left: 10px;
-}
-
-.graphdialog .help-item:hover,
-.graphdialog .help-item.selected {
-  cursor: pointer;
-  background-color: white;
-  color: black;
 }
 
 .litegraph .dialog {

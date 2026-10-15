@@ -546,7 +546,6 @@ button.comfy-close-menu-btn {
   width: 100%;
 }
 
-.comfy-btn,
 .comfy-menu > button,
 .comfy-menu-btns button,
 .comfy-menu .comfy-list button,
@@ -560,7 +559,6 @@ button.comfy-close-menu-btn {
   margin-top: 2px;
 }
 
-.comfy-btn:hover:not(:disabled),
 .comfy-menu > button:hover,
 .comfy-menu-btns button:hover,
 .comfy-menu .comfy-list button:hover,
@@ -636,19 +634,10 @@ button.comfy-queue-btn {
   margin: 6px 0 !important;
 }
 
-.comfy-modal.comfy-settings,
 .comfy-modal.comfy-manage-templates {
   text-align: center;
   color: var(--descrip-text);
   z-index: 99;
-}
-
-.comfy-modal.comfy-settings input[type='range'] {
-  vertical-align: middle;
-}
-
-.comfy-modal.comfy-settings input[type='range'] + input[type='number'] {
-  width: 3.5em;
 }
 
 .comfy-modal input,
@@ -659,11 +648,6 @@ button.comfy-queue-btn {
   border-color: var(--border-color);
   border-style: solid;
   font-size: inherit;
-}
-
-.comfy-tooltip-indicator {
-  text-decoration: underline;
-  text-decoration-style: dashed;
 }
 
 @media only screen and (max-height: 850px) {
@@ -834,11 +818,6 @@ dialog::backdrop {
   width: 100%;
 }
 
-.comfy-missing-nodes li button {
-  font-size: 12px;
-  margin-left: 5px;
-}
-
 /* Search box */
 
 .litegraph.litesearchbox {
@@ -899,8 +878,7 @@ audio.comfy-audio.empty-audio-widget {
   user-select: none;
 }
 
-.lg-node .lg-slot,
-.lg-node .lg-widget {
+.lg-node .lg-slot {
   transition:
     opacity 0.1s ease,
     font-size 0.1s ease;
@@ -910,7 +888,6 @@ audio.comfy-audio.empty-audio-widget {
 /* To be migrated to Tailwind later */
 #maskEditor_brush {
   position: absolute;
-  backgroundcolor: transparent;
   z-index: 8889;
   pointer-events: none;
   border-radius: 50%;
@@ -956,13 +933,6 @@ audio.comfy-audio.empty-audio-widget {
 .maskEditor_sidePanelBrushRange::-moz-range-track {
   background: var(--border);
   height: 3px;
-}
-
-
-.maskEditor_sidePanelLayer {
-  display: flex;
-  width: 100%;
-  height: 50px;
 }
 
 .maskEditor_toolPanelContainer {

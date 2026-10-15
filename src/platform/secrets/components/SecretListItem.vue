@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="flex items-center justify-between rounded-lg border bg-secondary p-4"
-  >
+  <Card surface="secondary" class="flex items-center justify-between p-4">
     <div class="flex flex-col gap-1">
       <div class="flex items-center gap-2">
         <span class="font-medium text-foreground">{{ secret.name }}</span>
@@ -52,10 +50,11 @@
         </Button>
       </template>
     </div>
-  </div>
+  </Card>
 </template>
 
 <script setup lang="ts">
+import Card from '@/components/ui/card/Card.vue'
 import Badge from '@/components/ui/badge/Badge.vue'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'

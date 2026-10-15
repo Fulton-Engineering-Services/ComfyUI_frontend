@@ -10,7 +10,7 @@
       <button
         type="button"
         :aria-label="$t('g.close')"
-        class="flex size-4 shrink-0 cursor-pointer items-center justify-center border-none bg-transparent text-foreground"
+        class="flex size-4 shrink-0 cursor-pointer items-center justify-center border-none bg-transparent"
         @click="onClose"
       >
         <i class="pi pi-times text-xs" />

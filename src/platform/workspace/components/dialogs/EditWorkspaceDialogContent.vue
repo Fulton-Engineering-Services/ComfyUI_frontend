@@ -25,7 +25,7 @@
         <input
           v-model="newWorkspaceName"
           type="text"
-          class="w-full rounded-lg border bg-transparent px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:ring-1 focus:ring-border focus:outline-none"
+          class="w-full rounded-lg border bg-transparent px-3 py-2 text-sm placeholder:text-muted-foreground focus:ring-1 focus:ring-border focus:outline-none"
           @keydown.enter="isValidName && onSave()"
         />
       </div>

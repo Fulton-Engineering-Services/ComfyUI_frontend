@@ -19,6 +19,19 @@
     box-sizing: border-box;
     border-color: var(--color-border);
   }
+
+  button,
+  input,
+  select,
+  optgroup,
+  textarea,
+  ::file-selector-button {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+  }
 }
 
 /* Safelist dynamic comfy icons for node library folders */

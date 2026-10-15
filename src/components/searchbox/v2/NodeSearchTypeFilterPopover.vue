@@ -27,7 +27,7 @@
             ref="searchFilterRef"
             v-model="searchQuery"
             :placeholder="t('g.search')"
-            class="size-full border-none bg-transparent font-inter text-sm text-foreground outline-none placeholder:text-muted-foreground"
+            class="size-full border-none bg-transparent text-sm outline-none placeholder:text-muted-foreground"
           />
         </div>
 
@@ -44,7 +44,7 @@
           <button
             v-if="selectedValues.length > 0"
             type="button"
-            class="cursor-pointer border-none bg-transparent font-inter text-sm text-foreground"
+            class="cursor-pointer border-none bg-transparent text-sm"
             @click="emit('clear')"
           >
             {{ t('g.clearAll') }}

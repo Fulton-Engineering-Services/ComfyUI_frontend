@@ -40,7 +40,7 @@
             v-if="hasModelLabelControl"
             ref="modelLabelControl"
             type="button"
-            class="m-0 min-w-0 cursor-pointer appearance-none rounded-sm border-0 bg-transparent p-0 text-left font-normal wrap-break-word text-foreground outline-none hover:text-foreground focus:outline-none focus-visible:ring-1 focus-visible:ring-border focus-visible:outline-none focus-visible:ring-inset"
+            class="m-0 min-w-0 cursor-pointer appearance-none rounded-sm border-0 bg-transparent p-0 text-left font-normal wrap-break-word outline-none hover:text-foreground focus:outline-none focus-visible:ring-1 focus-visible:ring-border focus-visible:outline-none focus-visible:ring-inset"
             :title="displayModelName"
             @click="handleModelLabelClick"
           >

@@ -38,9 +38,7 @@
               data-testid="widget-select-default-trigger"
               class="flex min-w-0 flex-1 cursor-pointer items-center overflow-hidden border-none bg-transparent p-0 outline-none disabled:cursor-default"
             >
-              <span
-                class="min-w-[4ch] flex-1 truncate pr-1 pl-2 text-left text-xs"
-              >
+              <span class="min-w-[4ch] flex-1 truncate pr-1 pl-2 text-left">
                 {{ selectedLabel || placeholder || '\u00a0' }}
               </span>
             </button>

@@ -26,7 +26,7 @@
         <input
           v-model="workspaceName"
           type="text"
-          class="h-10 w-full rounded-lg border-none bg-secondary px-4 text-sm text-foreground placeholder:text-muted-foreground focus:ring-1 focus:ring-border focus:outline-none"
+          class="h-10 w-full rounded-lg border-none bg-secondary px-4 text-sm placeholder:text-muted-foreground focus:ring-1 focus:ring-border focus:outline-none"
           :placeholder="
             $t('workspacePanel.createWorkspaceDialog.namePlaceholder')
           "

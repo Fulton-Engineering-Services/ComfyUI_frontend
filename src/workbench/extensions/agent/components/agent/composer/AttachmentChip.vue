@@ -114,7 +114,7 @@ const validationMessage = computed(
       <span
         v-if="kind === 'video' && previewUrl"
         aria-hidden="true"
-        class="pointer-events-none absolute right-1 bottom-1 flex size-5 items-center justify-center rounded-full bg-background/80 text-foreground"
+        class="pointer-events-none absolute right-1 bottom-1 flex size-5 items-center justify-center rounded-full bg-background/80"
       >
         <span class="icon-[lucide--play] size-3" />
       </span>

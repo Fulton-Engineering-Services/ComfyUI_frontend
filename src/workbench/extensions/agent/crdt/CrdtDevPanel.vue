@@ -988,7 +988,7 @@ function fmtTime(at: number): string {
 
           <button
             type="button"
-            class="w-full cursor-pointer rounded-sm border border-primary px-2 py-1 text-foreground hover:bg-accent"
+            class="w-full cursor-pointer rounded-sm border border-primary px-2 py-1 hover:bg-accent"
             data-testid="crdt-dev-panel-run"
             @click="run"
           >
@@ -1097,7 +1097,7 @@ function fmtTime(at: number): string {
               v-model="testerNote"
               rows="3"
               :placeholder="S.notePlaceholder"
-              class="w-full rounded-sm border bg-secondary p-1 text-foreground"
+              class="w-full rounded-sm border bg-secondary p-1"
               data-testid="crdt-dev-panel-note"
             />
           </section>
@@ -1172,7 +1172,7 @@ function fmtTime(at: number): string {
             :value="reportCopyState.report"
             readonly
             rows="3"
-            class="mt-1 w-full rounded-sm border bg-secondary p-1 text-foreground"
+            class="mt-1 w-full rounded-sm border bg-secondary p-1"
           />
         </div>
       </footer>

@@ -111,9 +111,7 @@
       >
         {{ $t('g.errorLoadingVideo') }}
       </span>
-      <span v-else-if="showLoader" class="text-muted-foreground">
-        {{ $t('g.loading') }}...
-      </span>
+      <span v-else-if="showLoader"> {{ $t('g.loading') }}... </span>
       <span v-else>
         {{ actualDimensions || $t('g.calculatingDimensions') }}
       </span>

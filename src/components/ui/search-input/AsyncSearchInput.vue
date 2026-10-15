@@ -114,7 +114,7 @@ function handleKeydownEnter(event: KeyboardEvent) {
       ref="inputRef"
       v-model="searchQuery"
       type="text"
-      class="mx-2 my-1.5 h-5 w-full min-w-0 border-0 bg-transparent ring-0 outline-0"
+      class="mx-2 my-1.5 h-5 w-full min-w-0 border-0 bg-transparent text-sm ring-0 outline-0"
       :placeholder="$t('g.searchPlaceholder', { subject: '' })"
       :autofocus
       @focus="handleFocus"

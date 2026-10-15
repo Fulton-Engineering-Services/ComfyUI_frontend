@@ -22,7 +22,7 @@
         >
           {{ count }}
         </span>
-        <span class="min-w-0 truncate text-sm text-foreground">
+        <span class="min-w-0 truncate text-sm">
           {{ title }}
         </span>
         <slot name="title-badge" />

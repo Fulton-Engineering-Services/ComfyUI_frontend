@@ -34,7 +34,7 @@
         <template #action>
           <button
             type="button"
-            class="cursor-pointer border-none bg-transparent p-0 text-sm text-foreground hover:text-muted-foreground"
+            class="cursor-pointer border-none bg-transparent p-0 text-foreground hover:text-muted-foreground"
             @click="planMode = 'team'"
           >
             {{ t('subscription.personalHeaderAction') }}
@@ -50,7 +50,7 @@
         <template #learnMore>
           <button
             type="button"
-            class="cursor-pointer border-none bg-transparent p-0 text-sm text-foreground hover:text-muted-foreground"
+            class="cursor-pointer border-none bg-transparent p-0 text-foreground hover:text-muted-foreground"
             @click="handleViewEnterprise"
           >
             {{ t('subscription.teamHeaderLearnMore') }}

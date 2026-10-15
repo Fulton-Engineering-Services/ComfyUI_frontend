@@ -50,7 +50,7 @@
                 :aria-label="
                   $t('workspacePanel.members.creditLimitDialog.limitOption')
                 "
-                class="w-full border-none bg-transparent text-sm text-foreground tabular-nums outline-none"
+                class="w-full border-none bg-transparent text-foreground tabular-nums outline-none"
                 @focus="mode = 'limited'"
               />
             </span>

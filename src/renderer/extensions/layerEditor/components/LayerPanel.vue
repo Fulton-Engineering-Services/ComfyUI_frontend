@@ -37,7 +37,7 @@
           <input
             v-if="renamingId === node.id"
             :ref="focusInput"
-            class="min-w-0 rounded-sm border bg-background px-1 text-xs text-foreground select-text"
+            class="min-w-0 rounded-sm border bg-background px-1 text-foreground select-text"
             :value="node.name"
             @blur="commitRename(node.id, $event)"
             @keydown.enter="commitRename(node.id, $event)"

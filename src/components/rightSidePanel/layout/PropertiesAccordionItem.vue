@@ -41,7 +41,7 @@ const isExpanded = computed(() => !isCollapse.value && !disabled)
               type="button"
               :class="
                 cn(
-                  'group flex w-full items-center justify-between border-0 bg-transparent pr-3 pl-4 text-left ring-0 outline-0',
+                  'group flex w-full items-center justify-between border-0 bg-transparent pr-3 pl-4 text-left ring-0 outline-0 disabled:text-muted-foreground',
                   size === 'lg' ? 'min-h-16' : 'min-h-12',
                   !disabled && 'cursor-pointer'
                 )

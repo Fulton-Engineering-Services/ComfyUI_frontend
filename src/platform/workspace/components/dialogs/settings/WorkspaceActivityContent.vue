@@ -69,7 +69,7 @@
                       {{ event.userName.charAt(0).toUpperCase() }}
                     </span>
                   </span>
-                  <span class="truncate text-sm text-foreground">
+                  <span class="truncate text-foreground">
                     {{ event.userName }}
                   </span>
                 </HoverCardTrigger>

@@ -40,7 +40,7 @@
         <span v-if="!compact">{{ $t('cameraAngle.preview') }}</span>
       </Button>
       <span
-        class="ml-auto min-w-0 truncate text-xs text-muted-foreground"
+        class="ml-auto min-w-0 truncate text-muted-foreground"
         :title="prompt"
         data-testid="camera-angle-prompt"
       >

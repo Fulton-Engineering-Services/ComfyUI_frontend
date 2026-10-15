@@ -8,7 +8,7 @@
     </div>
 
     <input
-      class="mb-4 w-full rounded-sm border bg-secondary px-3 py-2 text-center text-foreground shadow-none focus:outline-none"
+      class="mb-4 w-full rounded-sm border bg-secondary px-3 py-2 text-center shadow-none focus:outline-none"
       :value="dialogState.newCombo?.toString() ?? ''"
       :placeholder="$t('g.enterYourKeybind')"
       :aria-label="$t('g.enterYourKeybind')"

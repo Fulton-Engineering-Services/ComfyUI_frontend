@@ -331,10 +331,10 @@
             <div
               class="flex flex-col gap-3 text-sm/relaxed font-normal text-muted-foreground"
             >
-              <span class="">
+              <span>
                 {{ t('subscription.enterprise.needMoreMembers') }}
               </span>
-              <span class="">
+              <span>
                 {{ t('subscription.enterprise.flexibility') }}
               </span>
             </div>

@@ -45,7 +45,7 @@
     "
   >
     <div class="flex items-center justify-between text-base text-foreground">
-      <span class="">
+      <span>
         {{ copy.totalDueToday }}
       </span>
       <span class="font-bold tabular-nums">

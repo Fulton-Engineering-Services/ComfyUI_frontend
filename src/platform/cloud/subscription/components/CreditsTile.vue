@@ -171,7 +171,7 @@
             {{ displayPrepaid }}
           </span>
         </div>
-        <span class="">
+        <span>
           {{ inactiveCreditsNote }}
         </span>
       </div>

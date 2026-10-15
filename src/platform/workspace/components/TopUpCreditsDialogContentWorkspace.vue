@@ -53,7 +53,7 @@
         <div
           class="flex items-center justify-between border-t border-border pt-4 text-base font-semibold"
         >
-          <span class="">
+          <span>
             {{ $t('subscription.preview.totalDueToday') }}
           </span>
           <span class="tabular-nums">

@@ -195,7 +195,7 @@
       >
         {{ $t('g.errorLoadingImage') }}
       </span>
-      <span v-else-if="showLoader" class=""> {{ $t('g.loading') }}... </span>
+      <span v-else-if="showLoader"> {{ $t('g.loading') }}... </span>
       <span v-else>
         {{ actualDimensions || $t('g.calculatingDimensions') }}
       </span>

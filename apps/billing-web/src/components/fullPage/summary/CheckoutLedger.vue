@@ -47,7 +47,7 @@ const { t } = useI18n()
   <div
     class="flex items-center justify-between gap-4 pt-6 text-base font-semibold text-foreground"
   >
-    <span class="">
+    <span>
       {{ t('checkout.totalDueToday') }}
     </span>
     <span class="tabular-nums">

@@ -228,12 +228,7 @@ defineExpose({ handleDragDrop })
     <div
       v-if="description || builderMode"
       data-testid="app-mode-widget-description"
-      :class="
-        cn(
-          'h-5 px-5',
-          description ? 'text-muted-foreground' : 'text-muted-foreground'
-        )
-      "
+      class="h-5 px-5 text-muted-foreground"
     >
       <WidgetDescription
         :description

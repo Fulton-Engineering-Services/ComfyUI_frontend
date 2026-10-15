@@ -29,7 +29,7 @@
             <span class="text-2xl font-semibold tabular-nums">
               ${{ displayPrice }}
             </span>
-            <span class="">
+            <span>
               {{ isYearly ? copy.usdPerYear : copy.usdPerMonth }}
             </span>
           </div>

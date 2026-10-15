@@ -1070,7 +1070,6 @@ function fmtTime(at: number): string {
               <div
                 v-for="row in lifecycle"
                 :key="`${row.nodeId}-${row.entry.index}`"
-                class=""
               >
                 {{ lifecycleLine(row) }}
               </div>

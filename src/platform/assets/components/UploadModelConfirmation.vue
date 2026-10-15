@@ -52,7 +52,7 @@
             {{ $t('assetBrowser.modelTypeSelectorLabel') }}
           </label>
           <i aria-hidden="true" class="icon-[lucide--circle-question-mark]" />
-          <span v-if="!isMissingModelResolution" class="">
+          <span v-if="!isMissingModelResolution">
             {{ $t('assetBrowser.notSureLeaveAsIs') }}
           </span>
         </div>

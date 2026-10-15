@@ -111,10 +111,10 @@
           <i class="pi pi-plus text-sm text-muted-foreground" />
         </div>
         <div class="flex min-w-0 flex-1 flex-col text-sm text-muted-foreground">
-          <span v-if="canCreateWorkspace" class="">
+          <span v-if="canCreateWorkspace">
             {{ $t('workspaceSwitcher.createWorkspace') }}
           </span>
-          <span v-else class="">
+          <span v-else>
             {{
               workspacesManagedByOrganization
                 ? $t('workspaceSwitcher.managedByOrganization')

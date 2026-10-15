@@ -25,9 +25,7 @@
             <span class="mr-2 text-warning">{{
               importFailedConflicts.length
             }}</span>
-            <span class="">{{
-              $t('manager.conflicts.importFailedExtensions')
-            }}</span>
+            <span>{{ $t('manager.conflicts.importFailedExtensions') }}</span>
           </div>
           <div>
             <Button variant="muted-textonly" class="bg-transparent">
@@ -74,7 +72,7 @@
             <span class="mr-2 text-warning">{{
               allConflictDetails.length
             }}</span>
-            <span class="">{{ $t('manager.conflicts.conflicts') }}</span>
+            <span>{{ $t('manager.conflicts.conflicts') }}</span>
           </div>
           <div>
             <Button variant="muted-textonly" class="bg-transparent">
@@ -119,7 +117,7 @@
         >
           <div class="flex flex-1 text-xs font-bold">
             <span class="mr-2 text-warning">{{ conflictData.length }}</span>
-            <span class="">{{ $t('manager.conflicts.extensionAtRisk') }}</span>
+            <span>{{ $t('manager.conflicts.extensionAtRisk') }}</span>
           </div>
           <div>
             <Button variant="muted-textonly" class="bg-transparent">

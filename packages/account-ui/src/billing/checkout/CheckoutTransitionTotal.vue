@@ -28,7 +28,7 @@
       </div>
     </template>
     <div class="flex items-center justify-between text-base text-foreground">
-      <span class="">
+      <span>
         {{ totalDueToday }}
       </span>
       <span class="font-bold tabular-nums">

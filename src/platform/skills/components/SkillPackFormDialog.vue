@@ -106,8 +106,8 @@
             <span class="font-medium text-destructive">
               {{ $t('skillPacks.atLimitTitle') }}
             </span>
-            <span class="">{{ budgetError }}</span>
-            <span class="">
+            <span>{{ budgetError }}</span>
+            <span>
               {{ $t('skillPacks.atLimitHint') }}
             </span>
           </div>

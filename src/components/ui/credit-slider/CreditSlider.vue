@@ -161,7 +161,7 @@ const { t } = useI18n()
           >
             {{ formatUsd(displayOriginal) }}
           </span>
-          <span class="">
+          <span>
             {{ t('subscription.usdPerMonth') }}
           </span>
         </span>

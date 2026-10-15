@@ -11,7 +11,7 @@
     :data-widget-name="widget.name"
   >
     <template v-if="resolution">
-      <span class="" data-testid="resolution-preview-value">
+      <span data-testid="resolution-preview-value">
         {{ resolution.width }} × {{ resolution.height }}
       </span>
       <span class="text-muted-foreground">

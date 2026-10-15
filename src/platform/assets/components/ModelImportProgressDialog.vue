@@ -229,7 +229,7 @@ async function cancelDownload(taskId: TaskId) {
           </template>
           <template v-else>
             <i
-              class="icon-[lucide--check-circle] size-4 shrink-0 text-jade-600"
+              class="icon-[lucide--check-circle] size-4 shrink-0 text-success"
             />
             <span class="min-w-0 truncate font-bold">
               {{ outcomeLabel }}

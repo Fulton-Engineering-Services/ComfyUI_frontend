@@ -59,7 +59,7 @@ const footerIconClass = computed(() => {
     return 'icon-[lucide--circle-alert] text-destructive'
   if (cancelledJobs.value.length > 0)
     return 'icon-[lucide--circle-x] text-muted-foreground'
-  return 'icon-[lucide--check-circle] text-jade-600'
+  return 'icon-[lucide--check-circle] text-success'
 })
 
 function progressPercent(job: AssetExport): number {

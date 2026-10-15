@@ -176,7 +176,7 @@ const dotClasses = computed(() => {
     case 'error':
       return 'bg-destructive'
     case 'warning':
-      return 'bg-gold-600'
+      return 'bg-warning'
     case 'info':
     default:
       return 'bg-muted-foreground'

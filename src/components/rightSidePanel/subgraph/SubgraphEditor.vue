@@ -364,7 +364,7 @@ onMounted(() => {
             {{ $t('subgraphStore.shown') }}
           </div>
           <a
-            class="cursor-pointer text-right text-xs font-normal whitespace-nowrap text-muted-foreground hover:text-azure-600"
+            class="cursor-pointer text-right text-xs font-normal whitespace-nowrap text-muted-foreground hover:text-primary"
             @click.stop="hideAll"
           >
             {{ $t('subgraphStore.hideAll') }}</a
@@ -412,7 +412,7 @@ onMounted(() => {
             {{ $t('subgraphStore.hidden') }}
           </div>
           <a
-            class="cursor-pointer text-right text-xs font-normal whitespace-nowrap text-muted-foreground hover:text-azure-600"
+            class="cursor-pointer text-right text-xs font-normal whitespace-nowrap text-muted-foreground hover:text-primary"
             @click.stop="showAll"
           >
             {{ $t('subgraphStore.showAll') }}</a

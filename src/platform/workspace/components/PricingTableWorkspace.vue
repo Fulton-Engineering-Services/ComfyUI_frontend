@@ -221,7 +221,7 @@
           href="https://cloud.comfy.org/?template=video_wan2_2_14B_i2v"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex gap-1 text-sm text-azure-600 no-underline hover:text-azure-400"
+          class="flex gap-1 text-sm text-primary no-underline hover:text-primary/80"
         >
           <span class="underline">
             {{ t('subscription.videoEstimateTryTemplate') }}

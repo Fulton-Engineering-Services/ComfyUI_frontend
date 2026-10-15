@@ -51,7 +51,7 @@
               v-if="isAgentEditing"
               role="img"
               :aria-label="t('g.agentWorking')"
-              class="absolute top-1/2 left-1/2 z-10 icon-[lucide--loader-circle] size-4 -translate-1/2 text-smoke-800 motion-safe:animate-spin"
+              class="absolute top-1/2 left-1/2 z-10 icon-[lucide--loader-circle] size-4 -translate-1/2 text-muted-foreground motion-safe:animate-spin"
             />
             <span
               v-else-if="showUnseenAgentDot"
@@ -77,7 +77,7 @@
               :class="
                 cn(
                   'absolute top-1/2 left-1/2 z-10 size-2 -translate-1/2 rounded-full',
-                  isActiveTab ? 'bg-foreground' : 'bg-smoke-800'
+                  isActiveTab ? 'bg-foreground' : 'bg-muted-foreground'
                 )
               "
             />
@@ -86,7 +86,7 @@
         <Button
           :class="
             cn(
-              'close-button absolute top-1/2 right-2 size-4 -translate-y-1/2 rounded-none p-0 text-smoke-800 group-focus-within/tab:visible',
+              'close-button absolute top-1/2 right-2 size-4 -translate-y-1/2 rounded-none p-0 text-muted-foreground group-focus-within/tab:visible',
               isActiveTab && !hasStatusIndicator ? 'visible' : 'invisible',
               revealsCloseOnHover && 'group-hover/tab:visible'
             )

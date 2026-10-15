@@ -17,29 +17,35 @@
       <div
         class="flex h-[50px] w-full flex-row items-center gap-2.5 rounded-[10px] bg-accent"
       >
-        <div
-          class="maskEditor_sidePanelBrushShapeCircle hover:bg-background"
+        <button
+          type="button"
+          :aria-label="t('maskEditor.brushShapeCircle')"
+          :aria-pressed="store.brushSettings.type === BrushShape.Arc"
           :class="
             cn(
+              'ml-2 size-[35px] cursor-pointer appearance-none rounded-full border border-solid border-border p-0 transition-colors',
               store.brushSettings.type === BrushShape.Arc
-                ? 'active'
-                : 'bg-transparent'
+                ? 'bg-background'
+                : 'bg-transparent hover:bg-background/60'
             )
           "
           @click="setBrushShape(BrushShape.Arc)"
-        ></div>
+        />
 
-        <div
-          class="maskEditor_sidePanelBrushShapeSquare hover:bg-background"
+        <button
+          type="button"
+          :aria-label="t('maskEditor.brushShapeSquare')"
+          :aria-pressed="store.brushSettings.type === BrushShape.Rect"
           :class="
             cn(
+              'size-[35px] cursor-pointer appearance-none border border-solid border-border p-0 transition-colors',
               store.brushSettings.type === BrushShape.Rect
-                ? 'active'
-                : 'bg-transparent'
+                ? 'bg-background'
+                : 'bg-transparent hover:bg-background/60'
             )
           "
           @click="setBrushShape(BrushShape.Rect)"
-        ></div>
+        />
       </div>
     </div>
 

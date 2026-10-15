@@ -927,15 +927,6 @@ audio.comfy-audio.empty-audio-widget {
   display: none;
 }
 
-.maskEditor_sidePanelBrushShapeCircle {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  border: 1px solid var(--border-color);
-  pointer-events: auto;
-  transition: background 0.1s;
-  margin-left: 7.5px;
-}
 .maskEditor_sidePanelBrushRange {
   width: 180px;
   appearance: none;
@@ -949,7 +940,7 @@ audio.comfy-audio.empty-audio-widget {
   cursor: grab;
   margin-top: -8px;
   background: var(--muted);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border);
 }
 .maskEditor_sidePanelBrushRange::-moz-range-thumb {
   height: 20px;
@@ -957,25 +948,17 @@ audio.comfy-audio.empty-audio-widget {
   border-radius: 50%;
   cursor: grab;
   background: var(--muted);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border);
 }
 .maskEditor_sidePanelBrushRange::-webkit-slider-runnable-track {
-  background: light-dark(var(--color-slate-700), var(--color-zinc-700));
+  background: var(--border);
   height: 3px;
 }
 .maskEditor_sidePanelBrushRange::-moz-range-track {
-  background: light-dark(var(--color-slate-700), var(--color-zinc-700));
+  background: var(--border);
   height: 3px;
 }
 
-.maskEditor_sidePanelBrushShapeSquare {
-  width: 35px;
-  height: 35px;
-  margin: 5px;
-  border: 1px solid var(--border-color);
-  pointer-events: auto;
-  transition: background 0.1s;
-}
 
 .maskEditor_sidePanelLayer {
   display: flex;

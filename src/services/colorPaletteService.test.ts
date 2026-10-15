@@ -5,7 +5,6 @@ import { join } from 'node:path'
 
 import { themeSchema } from '@/schemas/colorPaletteSchema'
 import type { ComfyApp } from '@/scripts/app'
-import { app } from '@/scripts/app'
 import { useColorPaletteService } from '@/services/colorPaletteService'
 import { useColorPaletteStore } from '@/stores/workspace/colorPaletteStore'
 
@@ -158,8 +157,11 @@ describe('useColorPaletteService theme variables', () => {
   it('re-enables transitions when applying a palette fails', async () => {
     clearRootThemeAfterTest()
     vi.useFakeTimers({ toFake: ['requestAnimationFrame'] })
-    vi.mocked(app.canvas.setDirty).mockImplementationOnce(() => {
-      throw new Error('canvas not ready')
+    vi.spyOn(
+      CSSStyleDeclaration.prototype,
+      'setProperty'
+    ).mockImplementationOnce(() => {
+      throw new Error('style not writable')
     })
 
     await useColorPaletteService().loadColorPalette('nord')

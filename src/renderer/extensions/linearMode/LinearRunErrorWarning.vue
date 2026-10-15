@@ -19,7 +19,7 @@ const { hasError, overlayMessage, overlayTitle } = useErrorOverlayState()
     :class="
       cn(
         'mb-3 flex w-full flex-col gap-2 overflow-hidden rounded-lg border border-l-4 border-border bg-background p-3 shadow-interface transition-colors duration-200 ease-in-out',
-        hasError ? 'border-l-destructive' : 'border-l-warning-foreground'
+        hasError ? 'border-l-destructive' : 'border-l-warning'
       )
     "
   >

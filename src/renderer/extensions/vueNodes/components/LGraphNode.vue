@@ -80,6 +80,7 @@
       "
       :style="{
         '--node': applyLightThemeColor(nodeData.bgcolor),
+        '--component-node-background': 'var(--node)',
         backgroundColor: applyLightThemeColor(nodeData?.color)
       }"
     >

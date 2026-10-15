@@ -51,14 +51,16 @@
         v-if="canExportOutputs"
         class="invisible absolute top-2 right-2 group-focus-within:visible group-hover:visible"
       >
-        <button
-          :class="actionButtonClass"
+        <Button
+          variant="inverted"
+          size="icon"
+          class="shadow-md"
           :title="$t('g.downloadImages')"
           :aria-label="$t('g.downloadImages')"
           @click="handleExportOutputs"
         >
           <i class="icon-[lucide--folder-down] size-4" />
-        </button>
+        </Button>
       </div>
     </div>
 
@@ -128,58 +130,68 @@
         class="actions invisible absolute top-2 right-2 flex gap-1 group-focus-within/panel:visible group-hover/panel:visible"
       >
         <!-- Mask/Edit Button -->
-        <button
+        <Button
           v-if="!hasMultipleImages && !imageError && !currentImageIsHdr"
-          :class="actionButtonClass"
+          variant="inverted"
+          size="icon"
+          class="shadow-md"
           :title="$t('g.editOrMaskImage')"
           :aria-label="$t('g.editOrMaskImage')"
           @click="handleEditMask"
         >
           <i-comfy:mask class="size-4" />
-        </button>
+        </Button>
 
-        <button
+        <Button
           v-if="!imageError && currentHdrPreviewUrl"
-          :class="actionButtonClass"
+          variant="inverted"
+          size="icon"
+          class="shadow-md"
           :title="$t('hdrViewer.openInHdrViewer')"
           :aria-label="$t('hdrViewer.openInHdrViewer')"
           @click="openHdrViewer(currentImageUrl)"
         >
           <i class="icon-[lucide--sun] size-4" />
-        </button>
+        </Button>
 
         <!-- Layer Editor Button -->
-        <button
+        <Button
           v-if="hasMultipleImages && !imageError"
-          :class="actionButtonClass"
+          variant="inverted"
+          size="icon"
+          class="shadow-md"
           :title="$t('g.openLayerEditor')"
           :aria-label="$t('g.openLayerEditor')"
           @click="handleOpenLayerEditor"
         >
           <i class="icon-[lucide--layers] size-4" />
-        </button>
+        </Button>
 
         <!-- Download Button -->
-        <button
+        <Button
           v-if="!imageError"
-          :class="actionButtonClass"
+          variant="inverted"
+          size="icon"
+          class="shadow-md"
           :title="$t('g.downloadImage')"
           :aria-label="$t('g.downloadImage')"
           @click="handleDownload"
         >
           <i class="icon-[lucide--download] size-4" />
-        </button>
+        </Button>
 
         <!-- Back to Grid Button -->
-        <button
+        <Button
           v-if="hasMultipleImages"
-          :class="actionButtonClass"
+          variant="inverted"
+          size="icon"
+          class="shadow-md"
           :title="$t('g.viewGrid')"
           :aria-label="$t('g.viewGrid')"
           @click="viewMode = 'grid'"
         >
           <i class="icon-[lucide--layout-grid] size-4" />
-        </button>
+        </Button>
       </div>
     </div>
 
@@ -271,9 +283,6 @@ const maskEditor = useMaskEditor()
 const nodeOutputStore = useNodeOutputStore()
 const { hasMultipleOutputs, showOutputsExportDialog } = useNodeOutputsExport()
 const toast = useToast()
-
-const actionButtonClass =
-  'flex h-8 min-h-8 cursor-pointer items-center justify-center rounded-lg border-0 bg-foreground p-2 text-background shadow-md transition-colors duration-200 hover:bg-foreground/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2'
 
 type ViewMode = 'gallery' | 'grid'
 

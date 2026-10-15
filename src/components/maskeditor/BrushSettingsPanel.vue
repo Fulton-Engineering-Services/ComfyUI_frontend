@@ -4,9 +4,14 @@
       {{ t('maskEditor.brushSettings') }}
     </h3>
 
-    <button :class="textButtonClass" @click="resetToDefault">
+    <Button
+      variant="outline"
+      size="unset"
+      class="h-7.5 w-32 rounded-[10px] bg-background"
+      @click="resetToDefault"
+    >
       {{ t('maskEditor.resetToDefault') }}
-    </button>
+    </Button>
 
     <!-- Brush Shape -->
     <div class="flex flex-col gap-3 pb-3">
@@ -166,6 +171,7 @@
 </template>
 
 <script setup lang="ts">
+import Button from '@/components/ui/button/Button.vue'
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
@@ -179,9 +185,6 @@ const { t } = useI18n()
 const store = useMaskEditorStore()
 
 const colorInputRef = ref<HTMLInputElement>()
-
-const textButtonClass =
-  'h-7.5 w-32 rounded-[10px] border border-border text-foreground font-sans transition-colors duration-100 bg-background hover:bg-accent'
 
 /* Computed properties that use store setters for validation */
 const brushSize = computed({

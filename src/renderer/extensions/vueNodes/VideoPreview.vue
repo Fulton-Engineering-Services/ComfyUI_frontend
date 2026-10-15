@@ -62,24 +62,28 @@
         class="actions absolute top-2 right-2 flex gap-2.5"
       >
         <!-- Download Button -->
-        <button
-          :class="actionButtonClass"
+        <Button
+          variant="secondary"
+          size="icon"
+          class="shadow-sm"
           :title="$t('g.downloadVideo')"
           :aria-label="$t('g.downloadVideo')"
           @click="handleDownload"
         >
           <i class="icon-[lucide--download] size-4" />
-        </button>
+        </Button>
 
         <!-- Close Button -->
-        <button
-          :class="actionButtonClass"
+        <Button
+          variant="secondary"
+          size="icon"
+          class="shadow-sm"
           :title="$t('g.removeVideo')"
           :aria-label="$t('g.removeVideo')"
           @click="handleRemove"
         >
           <i class="icon-[lucide--x] size-4" />
-        </button>
+        </Button>
       </div>
 
       <!-- Multiple Videos Navigation -->
@@ -120,6 +124,7 @@
 </template>
 
 <script setup lang="ts">
+import Button from '@/components/ui/button/Button.vue'
 import { useToast } from '@/components/ui/toast/toastStore'
 import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -141,9 +146,6 @@ const props = defineProps<VideoPreviewProps>()
 
 const { t } = useI18n()
 const nodeOutputStore = useNodeOutputStore()
-
-const actionButtonClass =
-  'flex h-8 min-h-8 items-center justify-center gap-2.5 rounded-lg border-0 bg-secondary px-2 py-2 text-foreground shadow-sm transition-colors duration-200 hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-transparent cursor-pointer'
 
 // Component state
 const currentIndex = ref(0)

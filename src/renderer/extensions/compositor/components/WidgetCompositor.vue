@@ -21,8 +21,10 @@
         v-if="canOpen"
         class="invisible absolute top-2 right-2 group-focus-within/preview:visible group-hover/preview:visible"
       >
-        <button
-          :class="actionButtonClass"
+        <Button
+          variant="inverted"
+          size="icon"
+          class="shadow-md"
           :disabled="exporting"
           :title="t('compositor.downloadPsd')"
           :aria-label="t('compositor.downloadPsd')"
@@ -30,7 +32,7 @@
           @click="onDownloadPsd"
         >
           <i class="icon-[lucide--download] size-4" />
-        </button>
+        </Button>
       </div>
     </div>
 
@@ -80,9 +82,6 @@ const { t } = useI18n()
 const nodeOutputStore = useNodeOutputStore()
 const { openCompositorEditor } = useCompositorEditor()
 const { exporting, downloadPsd } = useCompositorPsdDownload()
-
-const actionButtonClass =
-  'flex h-8 min-h-8 cursor-pointer items-center justify-center rounded-lg border-0 bg-foreground p-2 text-background shadow-md transition-colors duration-200 hover:bg-foreground/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-default disabled:opacity-50'
 
 const naturalSize = ref<{ w: number; h: number } | null>(null)
 const outputUrl = ref<string | null>(null)

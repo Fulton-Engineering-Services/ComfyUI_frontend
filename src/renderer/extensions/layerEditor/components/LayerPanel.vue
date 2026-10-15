@@ -89,29 +89,34 @@
     </div>
 
     <div class="flex items-center justify-end gap-1 border-t p-1">
-      <button
-        :class="footerButtonClass"
+      <Button
+        variant="textonly"
+        size="icon"
+        class="size-7 rounded-md disabled:opacity-40"
         :disabled="!canMoveActive"
         :title="t('layerEditor.moveUp')"
         :aria-label="t('layerEditor.moveUp')"
         @click="moveActive(1)"
       >
         <i class="icon-[lucide--chevron-up] size-4" />
-      </button>
-      <button
-        :class="footerButtonClass"
+      </Button>
+      <Button
+        variant="textonly"
+        size="icon"
+        class="size-7 rounded-md disabled:opacity-40"
         :disabled="!canMoveActive"
         :title="t('layerEditor.moveDown')"
         :aria-label="t('layerEditor.moveDown')"
         @click="moveActive(-1)"
       >
         <i class="icon-[lucide--chevron-down] size-4" />
-      </button>
+      </Button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import Button from '@/components/ui/button/Button.vue'
 import { computed, ref, watch } from 'vue'
 import type { ComponentPublicInstance } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -158,9 +163,6 @@ const backgroundSubtitle = computed(
 const canMoveActive = computed(
   () => activeNode.value !== null && activeNode.value.kind !== 'fill'
 )
-
-const footerButtonClass =
-  'flex size-7 cursor-pointer items-center justify-center rounded-md border-0 bg-transparent text-foreground transition-colors hover:bg-accent disabled:cursor-default disabled:opacity-40'
 
 function layerSubtitle(node: SceneNode): string {
   const blendInitial = node.mode.blend.charAt(0).toUpperCase()

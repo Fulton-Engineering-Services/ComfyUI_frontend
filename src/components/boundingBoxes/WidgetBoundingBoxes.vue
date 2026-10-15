@@ -12,7 +12,12 @@
           variant="textonly"
           size="unset"
           :aria-pressed="grid"
-          :class="cn(actionBtnClass, grid && 'bg-muted')"
+          :class="
+            cn(
+              'shrink-0 gap-1.5 rounded-md px-2 py-1 hover:bg-muted',
+              grid && 'bg-muted'
+            )
+          "
           @click="grid = !grid"
         >
           <i class="icon-[lucide--grid-3x3] size-4" />
@@ -21,7 +26,7 @@
         <Button
           variant="textonly"
           size="unset"
-          :class="cn(actionBtnClass, 'ml-auto')"
+          class="ml-auto shrink-0 gap-1.5 rounded-md px-2 py-1 hover:bg-muted"
           @click="clearAll"
         >
           <i class="icon-[lucide--undo-2] size-4" />
@@ -156,9 +161,6 @@ import Textarea from '@/components/ui/textarea/Textarea.vue'
 import { useBoundingBoxes } from '@/composables/boundingBoxes/useBoundingBoxes'
 import type { BoundingBox } from '@/types/boundingBoxes'
 import type { NodeId } from '@/types/nodeId'
-
-const actionBtnClass =
-  'flex shrink-0 items-center gap-1.5 rounded-md border-0 bg-transparent px-2 py-1 text-sm text-foreground outline-none transition-colors hover:bg-muted'
 
 const { nodeId } = defineProps<{ nodeId: NodeId }>()
 const modelValue = defineModel<BoundingBox[]>({ default: () => [] })

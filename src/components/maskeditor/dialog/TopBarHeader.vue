@@ -4,8 +4,10 @@
       <h3 class="m-0 text-lg font-semibold">{{ t('maskEditor.title') }}</h3>
 
       <div class="flex items-center gap-4">
-        <button
-          :class="iconButtonClass"
+        <Button
+          variant="outline"
+          size="unset"
+          class="pointer-events-auto h-7.5 w-12.5 rounded-[10px] bg-background"
           :title="t('maskEditor.undo')"
           @click="onUndo"
         >
@@ -17,10 +19,12 @@
               d="M8.77,12.18c-.25,0-.46-.2-.46-.46s.2-.46.46-.46c1.47,0,2.67-1.2,2.67-2.67,0-1.57-1.34-2.67-3.26-2.67h-3.98l1.43,1.43c.18.18.18.47,0,.64-.18.18-.47.18-.64,0l-2.21-2.21c-.18-.18-.18-.47,0-.64l2.21-2.21c.18-.18.47-.18.64,0,.18.18.18.47,0,.64l-1.43,1.43h3.98c2.45,0,4.17,1.47,4.17,3.58,0,1.97-1.61,3.58-3.58,3.58Z"
             />
           </svg>
-        </button>
+        </Button>
 
-        <button
-          :class="iconButtonClass"
+        <Button
+          variant="outline"
+          size="unset"
+          class="pointer-events-auto h-7.5 w-12.5 rounded-[10px] bg-background"
           :title="t('maskEditor.redo')"
           @click="onRedo"
         >
@@ -33,12 +37,14 @@
               d="M6.23,12.18c-1.97,0-3.58-1.61-3.58-3.58,0-2.11,1.71-3.58,4.17-3.58h3.98l-1.43-1.43c-.18-.18-.18-.47,0-.64.18-.18.46-.18.64,0l2.21,2.21c.09.09.13.2.13.32s-.05.24-.13.32l-2.21,2.21c-.18.18-.47.18-.64,0-.18-.18-.18-.47,0-.64l1.43-1.43h-3.98c-1.92,0-3.26,1.1-3.26,2.67,0,1.47,1.2,2.67,2.67,2.67.25,0,.46.2.46.46s-.2.46-.46.46Z"
             />
           </svg>
-        </button>
+        </Button>
 
         <div class="h-5 border-l" />
 
-        <button
-          :class="iconButtonClass"
+        <Button
+          variant="outline"
+          size="unset"
+          class="pointer-events-auto h-7.5 w-12.5 rounded-[10px] bg-background"
           :title="t('maskEditor.rotateLeft')"
           @click="onRotateLeft"
         >
@@ -50,10 +56,12 @@
               d="m2.25-2.625c.3452 0 .625.2798.625.625v5c0 .3452-.2798.625-.625.625h-5c-.3452 0-.625-.2798-.625-.625v-5c0-.3452.2798-.625.625-.625h5zm1.25.625v5c0 .6904-.5596 1.25-1.25 1.25h-5c-.6904 0-1.25-.5596-1.25-1.25v-5c0-.6904.5596-1.25 1.25-1.25h5c.6904 0 1.25.5596 1.25 1.25zm-.1673-2.3757-.4419.4419-1.5246-1.5246 1.5416-1.5417.442.4419-.7871.7872h.9373c1.3807 0 2.5 1.1193 2.5 2.5h-.625c0-1.0355-.8395-1.875-1.875-1.875h-.9375l.7702.7702z"
             />
           </svg>
-        </button>
+        </Button>
 
-        <button
-          :class="iconButtonClass"
+        <Button
+          variant="outline"
+          size="unset"
+          class="pointer-events-auto h-7.5 w-12.5 rounded-[10px] bg-background"
           :title="t('maskEditor.rotateRight')"
           @click="onRotateRight"
         >
@@ -67,10 +75,12 @@
               />
             </g>
           </svg>
-        </button>
+        </Button>
 
-        <button
-          :class="iconButtonClass"
+        <Button
+          variant="outline"
+          size="unset"
+          class="pointer-events-auto h-7.5 w-12.5 rounded-[10px] bg-background"
           :title="t('maskEditor.mirrorHorizontal')"
           @click="onMirrorHorizontal"
         >
@@ -83,10 +93,12 @@
             />
             <path d="M3.5,4.5l-2,3,2,3v-6ZM11.5,4.5v6l2-3-2-3Z" />
           </svg>
-        </button>
+        </Button>
 
-        <button
-          :class="iconButtonClass"
+        <Button
+          variant="outline"
+          size="unset"
+          class="pointer-events-auto h-7.5 w-12.5 rounded-[10px] bg-background"
           :title="t('maskEditor.mirrorVertical')"
           @click="onMirrorVertical"
         >
@@ -99,17 +111,27 @@
             />
             <path d="M4.5,4.5l3-2,3,2h-6ZM4.5,10.5h6l-3,2-3-2Z" />
           </svg>
-        </button>
+        </Button>
 
         <div class="h-5 w-px bg-border" />
 
-        <button :class="textButtonClass" @click="onInvert">
+        <Button
+          variant="outline"
+          size="unset"
+          class="pointer-events-auto h-7.5 w-15 rounded-[10px] bg-background"
+          @click="onInvert"
+        >
           {{ t('maskEditor.invert') }}
-        </button>
+        </Button>
 
-        <button :class="textButtonClass" @click="onClear">
+        <Button
+          variant="outline"
+          size="unset"
+          class="pointer-events-auto h-7.5 w-15 rounded-[10px] bg-background"
+          @click="onClear"
+        >
           {{ t('maskEditor.clear') }}
-        </button>
+        </Button>
       </div>
     </div>
 
@@ -146,12 +168,6 @@ const saver = useMaskEditorSaver()
 
 const saveButtonText = ref(t('g.save'))
 const saveEnabled = ref(true)
-
-const iconButtonClass =
-  'flex h-7.5 w-12.5 items-center justify-center rounded-[10px] border border-border pointer-events-auto transition-colors duration-100 bg-background hover:bg-accent'
-
-const textButtonClass =
-  'h-7.5 w-15 rounded-[10px] border border-border text-current font-sans pointer-events-auto transition-colors duration-100 bg-background hover:bg-accent'
 
 const onUndo = () => {
   store.canvasHistory.undo()

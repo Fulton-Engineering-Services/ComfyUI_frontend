@@ -176,7 +176,7 @@ describe('WorkflowTab - workflow status indicator', () => {
 
     expect(screen.queryByRole('img')).toBeNull()
     expect(screen.getByTestId('workflow-dirty-indicator')).toHaveClass(
-      'bg-smoke-800'
+      'bg-muted-foreground'
     )
   })
 
@@ -188,7 +188,7 @@ describe('WorkflowTab - workflow status indicator', () => {
     })
 
     expect(screen.getByTestId('workflow-dirty-indicator')).toHaveClass(
-      'bg-smoke-800'
+      'bg-muted-foreground'
     )
   })
 

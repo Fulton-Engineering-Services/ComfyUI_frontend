@@ -1,9 +1,11 @@
 <template>
   <div v-if="shouldShow" class="whats-new-popup-container left-4">
-    <div class="whats-new-popup" @click.stop>
-      <!-- Close Button -->
+    <div
+      class="whats-new-popup relative flex w-100 max-w-100 flex-col rounded-lg border bg-popover shadow-md"
+      @click.stop
+    >
       <Button
-        class="close-button absolute top-2 right-2 z-10 size-8 rounded-lg p-2 opacity-50"
+        class="absolute top-2 right-2 z-10 size-8 rounded-lg p-2 opacity-50"
         :aria-label="$t('g.close')"
         size="icon-sm"
         variant="muted-textonly"
@@ -12,30 +14,25 @@
         <i class="icon-[lucide--x]" />
       </Button>
 
-      <!-- Modal Body -->
-      <div class="modal-body flex flex-1 flex-col gap-4 px-0 pt-0 pb-2">
-        <!-- Release Content -->
+      <div class="flex flex-1 flex-col gap-4">
         <SanitizedHtml
           class="content-text max-h-96 overflow-y-auto"
           :html="formattedContent"
         />
       </div>
 
-      <!-- Modal Footer -->
-      <div
-        class="modal-footer flex items-center justify-between gap-4 px-4 pb-4"
-      >
+      <div class="flex items-center justify-between gap-4 px-4 pb-4">
         <a
-          class="learn-more-link flex items-center gap-2 py-1 text-sm font-normal"
+          class="flex items-center gap-2 py-1 text-sm text-muted-foreground no-underline hover:text-foreground"
           :href="changelogUrl"
           target="_blank"
           rel="noopener noreferrer"
           @click="closePopup"
         >
-          <i class="icon-[lucide--external-link]"></i>
+          <i class="icon-[lucide--external-link] size-4" />
           {{ $t('whatsNewPopup.learnMore') }}
         </a>
-        <div class="footer-actions flex items-center gap-4">
+        <div class="flex items-center gap-4">
           <Button
             class="h-8"
             size="sm"
@@ -178,33 +175,6 @@ defineExpose({
   pointer-events: auto;
 }
 
-.whats-new-popup {
-  background: var(--popover);
-  border-radius: 8px;
-  max-width: 400px;
-  width: 400px;
-  border: 1px solid var(--border);
-  box-shadow: 1px 1px 8px 0 rgb(0 0 0 / 0.2);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Modal Body */
-.modal-body {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 0;
-  flex: 1;
-}
-
-.modal-header {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
 .content-text {
   color: var(--foreground);
   font-size: 14px;
@@ -213,15 +183,8 @@ defineExpose({
   padding: 0 1rem;
 }
 
-/* Style the markdown content */
-/* Title */
-.content-text :deep(*) {
-  box-sizing: border-box;
-}
-
 .content-text :deep(h1) {
   color: var(--muted-foreground);
-  font-family: Inter, sans-serif;
   font-size: 14px;
   font-weight: 400;
   margin-top: 1rem;
@@ -235,7 +198,6 @@ defineExpose({
 /* stylelint-disable-next-line selector-max-type -- generated markdown offers no class hooks */
 .content-text :deep(h1 + p strong) {
   color: var(--foreground);
-  font-family: Inter, sans-serif;
   font-size: 14px;
   font-weight: 600;
   margin: 0 0 8px;
@@ -245,7 +207,6 @@ defineExpose({
 /* Regular paragraphs - short description */
 .content-text :deep(p) {
   color: var(--muted-foreground);
-  font-family: Inter, sans-serif;
   margin: 1rem 0;
 }
 
@@ -272,7 +233,6 @@ defineExpose({
   position: relative;
   padding-left: 18px;
   color: var(--muted-foreground);
-  font-family: Inter, sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.2102;
@@ -296,7 +256,6 @@ defineExpose({
 
 .content-text :deep(li strong) {
   color: var(--muted-foreground);
-  font-family: Inter, sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.2102;
@@ -354,81 +313,9 @@ defineExpose({
 /* Secondary headings */
 .content-text :deep(h3) {
   color: var(--foreground);
-  font-family: Inter, sans-serif;
   font-size: 16px;
   font-weight: 600;
   margin: 16px 0 8px;
   line-height: 1.4;
-}
-
-/* Modal Footer */
-.modal-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  padding: 16px;
-  border-top: none;
-}
-
-.footer-actions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.learn-more-link {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--muted-foreground);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.2102;
-  text-decoration: none;
-  padding: 4px 0;
-}
-
-.learn-more-link:hover {
-  color: var(--foreground);
-}
-
-.learn-more-link i {
-  width: 16px;
-  height: 16px;
-}
-
-.action-secondary {
-  height: 32px;
-  padding: 4px 0;
-  background: transparent;
-  border: none;
-  color: var(--muted-foreground);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.2102;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-.action-secondary:hover {
-  color: var(--foreground);
-}
-
-.action-primary {
-  height: 40px;
-  padding: 8px 16px;
-  background: var(--accent);
-  border-radius: 8px;
-  border: none;
-  color: var(--foreground);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.2102;
-  cursor: pointer;
-}
-
-.action-primary:hover {
-  background: var(--muted);
 }
 </style>

@@ -5,6 +5,7 @@ import { join } from 'node:path'
 
 import { themeSchema } from '@/schemas/colorPaletteSchema'
 import type { ComfyApp } from '@/scripts/app'
+import { app } from '@/scripts/app'
 import { useColorPaletteService } from '@/services/colorPaletteService'
 import { useColorPaletteStore } from '@/stores/workspace/colorPaletteStore'
 
@@ -152,6 +153,34 @@ describe('useColorPaletteService theme variables', () => {
       '--warning': '#fcbf64',
       colorScheme: 'light'
     })
+  })
+
+  it('re-enables transitions when applying a palette fails', async () => {
+    clearRootThemeAfterTest()
+    vi.useFakeTimers({ toFake: ['requestAnimationFrame'] })
+    vi.mocked(app.canvas.setDirty).mockImplementationOnce(() => {
+      throw new Error('canvas not ready')
+    })
+
+    await useColorPaletteService().loadColorPalette('nord')
+    vi.runAllTimers()
+
+    expect(document.documentElement.dataset.paletteSwitching).toBeUndefined()
+  })
+
+  it('keeps transitions off until the latest of two quick switches settles', async () => {
+    clearRootThemeAfterTest()
+    vi.useFakeTimers({ toFake: ['requestAnimationFrame'] })
+    const service = useColorPaletteService()
+
+    await service.loadColorPalette('nord')
+    vi.advanceTimersToNextFrame()
+    await service.loadColorPalette('solarized')
+    vi.advanceTimersToNextFrame()
+
+    expect(document.documentElement.dataset.paletteSwitching).toBe('')
+    vi.runAllTimers()
+    expect(document.documentElement.dataset.paletteSwitching).toBeUndefined()
   })
 
   it('keeps the dark palette theme equal to the stylesheet defaults', () => {

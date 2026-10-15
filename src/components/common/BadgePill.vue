@@ -37,7 +37,7 @@ const textColorClass = computed(() =>
 
 const customStyle = computed(() => {
   if (!borderStyle) {
-    return { borderColor: 'var(--border-color)' }
+    return { borderColor: 'var(--border)' }
   }
 
   const isGradient = borderStyle.includes('linear-gradient')

@@ -185,31 +185,21 @@ describe('useColorPaletteService theme variables', () => {
     expect(document.documentElement.dataset.paletteSwitching).toBeUndefined()
   })
 
-  it('keeps the dark palette comfy_base equal to the legacy stylesheet defaults', () => {
-    const legacyCss = readFileSync(
-      join(
-        process.cwd(),
-        'packages',
-        'design-system',
-        'src',
-        'css',
-        '_legacy-palette.css'
-      ),
-      'utf8'
-    )
-    const stylesheetDefaults = Object.fromEntries(
-      [...legacyCss.matchAll(/--([\w-]+):\s*([^;]+);/g)].map(
-        ([, name, value]) => [name, value.trim()]
-      )
-    )
-    const comfyBase =
-      useColorPaletteStore().palettesLookup.dark?.colors.comfy_base ?? {}
+  it('leaves legacy palette variables to the theme aliases for core palettes', async () => {
+    clearRootThemeAfterTest()
+    onTestFinished(() => {
+      document.documentElement.style.removeProperty('--comfy-menu-bg')
+    })
+    const service = useColorPaletteService()
 
-    expect(comfyBase).toEqual(
-      Object.fromEntries(
-        Object.keys(comfyBase).map((name) => [name, stylesheetDefaults[name]])
-      )
-    )
+    await service.loadColorPalette('nord')
+    const nordMenuBg = readRootProperty('--comfy-menu-bg')
+    await service.loadColorPalette('dark')
+
+    expect([nordMenuBg, readRootProperty('--comfy-menu-bg')]).toEqual([
+      '#161b22',
+      ''
+    ])
   })
 
   it('keeps the dark palette theme equal to the stylesheet defaults', () => {

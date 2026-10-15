@@ -11,7 +11,8 @@ import type {
 
 const THEME_KEYS = themeSchema.keyof().options
 
-function isCorePaletteId(colorPaletteId: string) {
+/** Whether the palette is the built-in dark or light palette. */
+export function isCorePaletteId(colorPaletteId: string) {
   return colorPaletteId === 'dark' || colorPaletteId === 'light'
 }
 

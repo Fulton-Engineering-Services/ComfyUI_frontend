@@ -8,7 +8,7 @@ import { useSettingStore } from '@/platform/settings/settingStore'
 import { paletteSchema } from '@/schemas/colorPaletteSchema'
 import type { Colors, Palette } from '@/schemas/colorPaletteSchema'
 import { useApp } from '@/scripts/appInstance'
-import { applyPaletteTheme } from '@/utils/colorPaletteTheme'
+import { applyPaletteTheme, isCorePaletteId } from '@/utils/colorPaletteTheme'
 import { uploadFile } from '@/scripts/utils'
 import { useNodeDefStore } from '@/stores/nodeDefStore'
 import { useColorPaletteStore } from '@/stores/workspace/colorPaletteStore'
@@ -18,6 +18,25 @@ const PALETTE_FALLBACK_KEYS = [
   'interface-panel-drop-shadow',
   'interface-floating-panel-shadow'
 ] as const
+
+const THEME_ALIASED_LEGACY_KEYS: ReadonlySet<string> = new Set([
+  'fg-color',
+  'bg-color',
+  'comfy-menu-bg',
+  'comfy-menu-secondary-bg',
+  'comfy-input-bg',
+  'input-text',
+  'descrip-text',
+  'drag-text',
+  'error-text',
+  'border-color',
+  'tr-even-bg-color',
+  'tr-odd-bg-color',
+  'content-bg',
+  'content-fg',
+  'content-hover-bg',
+  'content-hover-fg'
+])
 
 let latestPaletteSwitch = 0
 
@@ -150,10 +169,17 @@ export const useColorPaletteService = () => {
    *
    * @param comfyColorPalette - The palette to set.
    */
-  const loadComfyColorPalette = (comfyColorPalette: Colors['comfy_base']) => {
+  const loadComfyColorPalette = (
+    comfyColorPalette: Colors['comfy_base'],
+    themeAliasesLegacyColors: boolean
+  ) => {
     const rootStyle = document.documentElement.style
     for (const [key, value] of Object.entries(comfyColorPalette)) {
-      rootStyle.setProperty('--' + key, value)
+      if (themeAliasesLegacyColors && THEME_ALIASED_LEGACY_KEYS.has(key)) {
+        rootStyle.removeProperty('--' + key)
+      } else {
+        rootStyle.setProperty('--' + key, value)
+      }
     }
 
     for (const optionalKey of PALETTE_FALLBACK_KEYS) {
@@ -207,7 +233,10 @@ export const useColorPaletteService = () => {
       loadLiteGraphColorPalette(completedPalette.colors.litegraph_base)
       applyPaletteTheme(root.style, completedPalette)
       loadLinkColorPaletteForVueNodes(completedPalette.colors.node_slot)
-      loadComfyColorPalette(completedPalette.colors.comfy_base)
+      loadComfyColorPalette(
+        completedPalette.colors.comfy_base,
+        isCorePaletteId(completedPalette.id)
+      )
       useApp().canvas.setDirty(true, true)
 
       colorPaletteStore.activePaletteId = colorPaletteId

@@ -83,6 +83,7 @@
   --default-transition-duration: 0.1s;
   --comfy-topbar-height: 2.5rem;
   --workflow-tabs-height: 2.375rem;
+  --comfy-textarea-font-size: 10px;
 
   --warning: var(--color-gold-600);
   --node-shadow: 0 9px 7px rgb(0 0 0 / 0.4);
@@ -191,8 +192,8 @@ body {
 }
 
 .comfy-multiline-input {
-  background-color: var(--comfy-input-bg);
-  color: var(--input-text);
+  background-color: var(--input);
+  color: var(--foreground);
   overflow: hidden;
   overflow-y: auto;
   padding: 2px;
@@ -260,7 +261,7 @@ body {
 
 .comfy-markdown .tiptap th {
   text-align: left;
-  background: var(--comfy-menu-bg);
+  background: var(--background);
 }
 
 .comfy-markdown .tiptap th,
@@ -388,15 +389,15 @@ body {
 }
 
 .comfy-markdown-content th {
-  color: var(--fg-color);
+  color: var(--foreground);
 }
 
 .comfy-markdown-content td {
-  color: var(--drag-text);
+  color: var(--muted-foreground);
 }
 
 .comfy-markdown-content tr {
-  border-bottom: 1px solid var(--content-bg);
+  border-bottom: 1px solid var(--secondary);
 }
 
 .comfy-markdown-content tr:last-child {
@@ -409,7 +410,7 @@ body {
 
 /* Links */
 .comfy-markdown-content a {
-  color: var(--drag-text);
+  color: var(--muted-foreground);
   text-decoration: underline;
 }
 
@@ -433,7 +434,7 @@ body {
 /* Horizontal rule */
 .comfy-markdown-content hr {
   border: none;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid var(--border);
   margin: 1em 0;
 }
 
@@ -451,8 +452,8 @@ body {
   position: fixed; /* Stay in place */
   z-index: 100; /* Sit on top */
   padding: 30px 30px 10px;
-  background-color: var(--comfy-menu-bg); /* Modal background */
-  color: var(--error-text);
+  background-color: var(--background); /* Modal background */
+  color: var(--destructive);
   box-shadow: 0 0 20px #888888;
   border-radius: 10px;
   top: 50%;
@@ -494,8 +495,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: var(--descrip-text);
-  background-color: var(--comfy-menu-bg);
+  color: var(--muted-foreground);
+  background-color: var(--background);
   padding: 10px;
   border-radius: 0 8px 8px;
   box-shadow: 3px 3px 8px rgb(0 0 0 / 0.4);
@@ -552,7 +553,7 @@ button.comfy-close-menu-btn {
 .comfy-menu-btns button {
   font-size: 10px;
   width: 50%;
-  color: var(--descrip-text) !important;
+  color: var(--muted-foreground) !important;
 }
 
 .comfy-menu > button {
@@ -563,11 +564,11 @@ button.comfy-close-menu-btn {
 .comfy-menu-btns button,
 .comfy-menu .comfy-list button,
 .comfy-modal button {
-  color: var(--input-text);
-  background-color: var(--comfy-input-bg);
+  color: var(--foreground);
+  background-color: var(--input);
   border-width: initial;
   border-radius: 8px;
-  border-color: var(--border-color);
+  border-color: var(--border);
   border-style: solid;
   margin-top: 2px;
 }
@@ -592,7 +593,7 @@ span.drag-handle {
   margin-left: -0.2em;
   font-size: 12px;
   letter-spacing: 2px;
-  color: var(--drag-text);
+  color: var(--muted-foreground);
   text-shadow: 1px 0 1px black;
   touch-action: none;
 }
@@ -606,10 +607,10 @@ span.drag-handle::after {
 }
 
 .comfy-list {
-  color: var(--descrip-text);
-  background-color: var(--comfy-menu-bg);
+  color: var(--muted-foreground);
+  background-color: var(--background);
   margin-bottom: 10px;
-  border-color: var(--border-color);
+  border-color: var(--border);
   border-style: solid;
 }
 
@@ -617,7 +618,7 @@ span.drag-handle::after {
   overflow-y: scroll;
   max-height: 100px;
   min-height: 25px;
-  background-color: var(--comfy-input-bg);
+  background-color: var(--input);
   padding: 5px;
 }
 
@@ -649,16 +650,16 @@ button.comfy-queue-btn {
 
 .comfy-modal.comfy-manage-templates {
   text-align: center;
-  color: var(--descrip-text);
+  color: var(--muted-foreground);
   z-index: 99;
 }
 
 .comfy-modal input,
 .comfy-modal select {
-  color: var(--input-text);
-  background-color: var(--comfy-input-bg);
+  color: var(--foreground);
+  background-color: var(--input);
   border-radius: 8px;
-  border-color: var(--border-color);
+  border-color: var(--border);
   border-style: solid;
   font-size: inherit;
 }
@@ -693,13 +694,13 @@ button.comfy-queue-btn {
 
 .graphdialog {
   min-height: 1em;
-  background-color: var(--comfy-menu-bg);
+  background-color: var(--background);
   z-index: 1500;
 }
 
 .graphdialog .name {
   font-size: 14px;
-  color: var(--descrip-text);
+  color: var(--muted-foreground);
 }
 
 .graphdialog button {
@@ -712,10 +713,10 @@ button.comfy-queue-btn {
 .graphdialog input,
 .graphdialog textarea,
 .graphdialog select {
-  background-color: var(--comfy-input-bg);
+  background-color: var(--input);
   border: 2px solid;
-  border-color: var(--border-color);
-  color: var(--input-text);
+  border-color: var(--border);
+  color: var(--foreground);
   border-radius: 12px 0 0 12px;
 }
 
@@ -742,16 +743,16 @@ dialog::backdrop {
 }
 
 .comfy-dialog.comfy-modal {
-  border-color: var(--bg-color);
+  border-color: var(--background);
   box-shadow: none;
-  border: 2px solid var(--border-color);
+  border: 2px solid var(--border);
 }
 
 .comfy-dialog .comfy-modal-content {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 10px;
-  color: var(--fg-color);
+  color: var(--foreground);
 }
 
 .comfy-dialog .comfy-modal-content h3 {
@@ -788,18 +789,18 @@ dialog::backdrop {
 .litegraph.litecontextmenu,
 .litegraph.litecontextmenu.dark {
   z-index: 9999 !important;
-  background-color: var(--comfy-menu-bg);
+  background-color: var(--background);
 }
 
 .litegraph.litecontextmenu .litemenu-entry.submenu,
 .litegraph.litecontextmenu.dark .litemenu-entry.submenu {
-  background-color: var(--comfy-menu-bg);
-  color: var(--fg-color);
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 .litegraph.litecontextmenu input {
-  background-color: var(--comfy-input-bg);
-  color: var(--input-text);
+  background-color: var(--input);
+  color: var(--foreground);
 }
 
 .comfy-context-menu-filter {
@@ -835,27 +836,27 @@ dialog::backdrop {
 
 .litegraph.litesearchbox {
   z-index: 9999 !important;
-  background-color: var(--comfy-menu-bg);
+  background-color: var(--background);
   overflow: hidden;
   display: block;
 }
 
 .litegraph.litesearchbox input,
 .litegraph.litesearchbox select {
-  background-color: var(--comfy-input-bg);
-  color: var(--input-text);
+  background-color: var(--input);
+  color: var(--foreground);
 }
 
 .litegraph.lite-search-item {
-  color: var(--input-text);
-  background-color: var(--comfy-input-bg);
+  color: var(--foreground);
+  background-color: var(--input);
   filter: brightness(80%);
   will-change: transform;
   padding-left: 0.2em;
 }
 
 .litegraph.lite-search-item.generic_type {
-  color: var(--input-text);
+  color: var(--foreground);
   filter: brightness(50%);
   will-change: transform;
 }
@@ -1025,7 +1026,7 @@ audio.comfy-audio.empty-audio-widget {
 }
 .maskEditor_sidePanelToggleCheckbox:checked
   + .maskEditor_sidePanelToggleSwitch::before {
-  background: var(--comfy-menu-bg);
+  background: var(--background);
   left: 20px;
 }
 .maskEditor_sidePanelToggleCheckbox {
@@ -1035,7 +1036,7 @@ audio.comfy-audio.empty-audio-widget {
 
 .maskEditor_sidePanelDropdown {
   border: 1px solid var(--border);
-  background: var(--comfy-menu-bg);
+  background: var(--background);
   height: 24px;
   padding-left: 5px;
   padding-right: 5px;
@@ -1044,7 +1045,7 @@ audio.comfy-audio.empty-audio-widget {
 }
 
 .maskEditor_sidePanelDropdown option {
-  background: var(--comfy-menu-bg);
+  background: var(--background);
 }
 
 .maskEditor_sidePanelDropdown:focus {

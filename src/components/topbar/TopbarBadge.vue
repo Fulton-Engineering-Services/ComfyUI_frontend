@@ -100,7 +100,7 @@ const {
   displayMode = 'full',
   reverseOrder,
   noPadding,
-  backgroundColor = 'var(--comfy-menu-bg)'
+  backgroundColor = 'var(--background)'
 } = defineProps<{
   badge: TopbarBadge
   displayMode?: 'full' | 'compact' | 'icon-only'

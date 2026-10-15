@@ -187,7 +187,7 @@ class ManageTemplates extends ComfyDialog {
                   gridTemplateColumns: '1fr auto',
                   border: '1px dashed transparent',
                   gap: '5px',
-                  backgroundColor: 'var(--comfy-menu-bg)'
+                  backgroundColor: 'var(--background)'
                 },
                 ondragstart: (e: DragEvent) => {
                   const row = e.currentTarget
@@ -284,7 +284,7 @@ class ManageTemplates extends ComfyDialog {
                         el.style.transitionDuration = '0s'
                         this.saveVisualCue = setTimeout(function () {
                           el.style.transitionDuration = '.7s'
-                          el.style.backgroundColor = 'var(--comfy-input-bg)'
+                          el.style.backgroundColor = 'var(--input)'
                         }, 15)
                       },
                       onkeypress: (e: KeyboardEvent) => {
@@ -292,7 +292,7 @@ class ManageTemplates extends ComfyDialog {
                         if (!(el instanceof HTMLInputElement)) return
                         if (this.saveVisualCue) clearTimeout(this.saveVisualCue)
                         el.style.transitionDuration = '0s'
-                        el.style.backgroundColor = 'var(--comfy-input-bg)'
+                        el.style.backgroundColor = 'var(--input)'
                       },
                       $: (el) => {
                         if (el instanceof HTMLInputElement) nameInput = el

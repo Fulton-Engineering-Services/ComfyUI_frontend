@@ -162,18 +162,18 @@ const outputList = computed(() =>
 
 .markdown-content :deep(td),
 .fallback-content td {
-  color: var(--drag-text);
+  color: var(--muted-foreground);
 }
 
 .markdown-content :deep(a),
 .fallback-content a {
-  color: var(--drag-text);
+  color: var(--muted-foreground);
   text-decoration: underline;
 }
 
 .markdown-content :deep(th),
 .fallback-content th {
-  color: var(--fg-color);
+  color: var(--foreground);
 }
 
 .markdown-content :deep(ul),
@@ -232,7 +232,7 @@ const outputList = computed(() =>
 
 .markdown-content :deep(tr),
 .fallback-content tr {
-  border-bottom: 1px solid var(--content-bg);
+  border-bottom: 1px solid var(--secondary);
 }
 
 .markdown-content :deep(tr:last-child),

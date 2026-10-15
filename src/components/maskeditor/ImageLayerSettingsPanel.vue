@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col gap-3 pb-3">
-    <h3 class="mt-2.5 text-center font-sans text-[15px] text-(--descrip-text)">
+    <h3 class="mt-2.5 text-center font-sans text-[15px] text-muted-foreground">
       {{ t('maskEditor.layers') }}
     </h3>
 
@@ -13,7 +13,7 @@
       @update:model-value="onMaskOpacityChange"
     />
 
-    <span class="text-left font-sans text-xs text-(--descrip-text)">{{
+    <span class="text-left font-sans text-xs text-muted-foreground">{{
       t('maskEditor.maskBlendingOptions')
     }}</span>
 
@@ -31,7 +31,7 @@
       </select>
     </div>
 
-    <span class="text-left font-sans text-xs text-(--descrip-text)">{{
+    <span class="text-left font-sans text-xs text-muted-foreground">{{
       t('maskEditor.maskLayer')
     }}</span>
     <div
@@ -64,7 +64,7 @@
       </button>
     </div>
 
-    <span class="text-left font-sans text-xs text-(--descrip-text)">{{
+    <span class="text-left font-sans text-xs text-muted-foreground">{{
       t('maskEditor.paintLayer')
     }}</span>
     <div
@@ -104,7 +104,7 @@
       </button>
     </div>
 
-    <span class="text-left font-sans text-xs text-(--descrip-text)">{{
+    <span class="text-left font-sans text-xs text-muted-foreground">{{
       t('maskEditor.baseImageLayer')
     }}</span>
     <div

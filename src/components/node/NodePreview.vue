@@ -212,8 +212,8 @@ const truncateDefaultValue = (
 }
 
 ._sb_node_preview {
-  color: var(--descrip-text);
-  border: 1px solid var(--descrip-text);
+  color: var(--muted-foreground);
+  border: 1px solid var(--muted-foreground);
   min-width: 300px;
   width: min-content;
   height: fit-content;
@@ -227,7 +227,7 @@ const truncateDefaultValue = (
 ._sb_node_preview ._sb_description {
   margin: 10px;
   padding: 6px;
-  background: var(--border-color);
+  background: var(--border);
   border-radius: 5px;
   font-style: italic;
   font-weight: 500;
@@ -272,8 +272,8 @@ const truncateDefaultValue = (
 }
 
 ._long_field {
-  background: var(--bg-color);
-  border: 2px solid var(--border-color);
+  background: var(--background);
+  border: 2px solid var(--border);
   margin: 5px 5px 0;
   border-radius: 10px;
   line-height: 1.7;
@@ -281,13 +281,13 @@ const truncateDefaultValue = (
 }
 
 ._sb_arrow {
-  color: var(--fg-color);
+  color: var(--foreground);
 }
 
 ._sb_preview_badge {
   text-align: center;
-  background: var(--comfy-input-bg);
+  background: var(--input);
   font-weight: 700;
-  color: var(--error-text);
+  color: var(--destructive);
 }
 </style>

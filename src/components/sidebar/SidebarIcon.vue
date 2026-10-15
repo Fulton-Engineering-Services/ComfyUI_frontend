@@ -101,10 +101,10 @@ const computedTooltip = computed(() => {
 
 .side-bar-button-selected {
   background-color: var(--muted);
-  color: var(--content-hover-fg);
+  color: var(--foreground);
 }
 .side-bar-button:hover {
   background-color: var(--accent);
-  color: var(--content-hover-fg);
+  color: var(--foreground);
 }
 </style>

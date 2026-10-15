@@ -34,7 +34,7 @@ describe('BadgePill', () => {
     })
     expect(screen.getByTestId('badge-pill')).toHaveAttribute(
       'style',
-      expect.stringContaining('border-color: var(--border-color)')
+      expect.stringContaining('border-color: var(--border)')
     )
   })
 

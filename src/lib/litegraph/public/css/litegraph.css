@@ -117,7 +117,7 @@
 
 .litegraph .litemenu-entry:hover:not(.disabled):not(.separator) {
   background-color: var(--accent);
-  color: var(--content-hover-fg);
+  color: var(--foreground);
   transition: all 0.2s;
 }
 
@@ -219,7 +219,7 @@
   margin-left: -200px;
 
   color: var(--foreground);
-  background-color: var(--comfy-menu-bg);
+  background-color: var(--background);
 
   min-width: 400px;
   min-height: 200px;
@@ -341,7 +341,7 @@
 .litegraph .dialog .property_value {
   display: inline-block;
   text-align: right;
-  color: var(--input-text);
+  color: var(--foreground);
   background-color: var(--input);
   /*width: calc( 100% - 122px );*/
   max-width: calc(100% - 162px);
@@ -398,11 +398,11 @@
 }
 
 .litemenu-entry.danger {
-  color: var(--error-text);
+  color: var(--destructive);
 }
 
 .litegraph .litemenu-entry.danger:hover:not(.disabled) {
-  color: var(--error-text);
+  color: var(--destructive);
   opacity: 0.8;
 }
 

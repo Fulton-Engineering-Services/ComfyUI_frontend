@@ -74,7 +74,7 @@ describe('useColorPaletteService theme variables', () => {
         '--node': '#161b22',
         '--node-header': '#2e3440',
         '--node-foreground': '#bcc2c8',
-        '--secondary': '#262729',
+        '--secondary': '#2e3440',
         '--border': 'color-mix(in srgb, #161b22 75.5%, #fff)'
       }
     },
@@ -85,7 +85,7 @@ describe('useColorPaletteService theme variables', () => {
         '--node': '#073642',
         '--node-header': '#094656',
         '--node-foreground': '#657b83',
-        '--secondary': '#262729',
+        '--secondary': '#094656',
         '--border': 'color-mix(in srgb, #073642 75.5%, #fff)'
       }
     }
@@ -144,12 +144,12 @@ describe('useColorPaletteService theme variables', () => {
     await useColorPaletteService().loadColorPalette('custom-light')
 
     expect({
-      '--secondary': readRootProperty('--secondary'),
       '--primary': readRootProperty('--primary'),
+      '--warning': readRootProperty('--warning'),
       colorScheme: document.documentElement.style.colorScheme
     }).toEqual({
-      '--secondary': '#e9e9e9',
       '--primary': '#31b9f4',
+      '--warning': '#fcbf64',
       colorScheme: 'light'
     })
   })

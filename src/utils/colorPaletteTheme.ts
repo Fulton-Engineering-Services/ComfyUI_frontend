@@ -33,6 +33,7 @@ function deriveLegacyTheme({ comfy_base, litegraph_base }: Colors): Theme {
     muted:
       comfy_base['interface-panel-selected-surface'] ?? mixWithContrast(87.5),
     card: comfy_base['comfy-menu-secondary-bg'],
+    secondary: litegraph_base.NODE_DEFAULT_COLOR,
     input: litegraph_base.WIDGET_BGCOLOR,
     node: litegraph_base.NODE_DEFAULT_BGCOLOR,
     'node-foreground': litegraph_base.NODE_TEXT_COLOR,

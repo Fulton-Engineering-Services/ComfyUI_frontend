@@ -22,7 +22,7 @@
       <!-- Workspace list -->
       <template v-else>
         <template v-for="workspace in availableWorkspaces" :key="workspace.id">
-          <div class="border-b border-border p-2">
+          <div class="border-b p-2">
             <div
               :class="
                 cn(
@@ -88,7 +88,7 @@
     </div>
 
     <!-- Create workspace button -->
-    <div v-if="isCloud" class="shrink-0 border-t border-border p-2">
+    <div v-if="isCloud" class="shrink-0 border-t p-2">
       <div
         :class="
           cn(

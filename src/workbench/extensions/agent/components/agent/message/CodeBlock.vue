@@ -42,11 +42,9 @@ watchDebounced(
 </script>
 
 <template>
-  <div
-    class="group relative my-2 overflow-hidden rounded-md border border-border"
-  >
+  <div class="group relative my-2 overflow-hidden rounded-md border">
     <div
-      class="flex items-center justify-between border-b border-border bg-accent px-3 py-1.5"
+      class="flex items-center justify-between border-b bg-accent px-3 py-1.5"
     >
       <span
         class="flex items-center gap-1.5 font-mono text-xs text-muted-foreground"

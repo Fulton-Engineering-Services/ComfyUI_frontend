@@ -1,5 +1,5 @@
 <template>
-  <div class="group relative rounded-lg border border-border">
+  <div class="group relative rounded-lg border">
     <Button
       variant="textonly"
       size="unset"

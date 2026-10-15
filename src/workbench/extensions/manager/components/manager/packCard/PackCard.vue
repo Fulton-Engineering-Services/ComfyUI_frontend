@@ -60,7 +60,7 @@
     </div>
 
     <!-- Footer -->
-    <div class="border-t border-border">
+    <div class="border-t">
       <PackCardFooter :node-pack="nodePack" :is-installing="isInstalling" />
     </div>
   </div>

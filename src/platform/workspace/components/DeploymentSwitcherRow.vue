@@ -8,7 +8,7 @@
     :aria-checked="checked ?? undefined"
     :class="
       cn(
-        'flex w-full cursor-pointer appearance-none items-center gap-2 border-0 border-b border-border bg-transparent px-4 py-3 text-left',
+        'flex w-full cursor-pointer appearance-none items-center gap-2 border-0 border-b bg-transparent px-4 py-3 text-left',
         'hover:bg-accent disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-transparent',
         checked && 'bg-secondary'
       )

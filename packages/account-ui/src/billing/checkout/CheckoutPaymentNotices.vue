@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="embeddedCheckoutEnabled && reconciliationOperationId"
-    class="rounded-lg border border-border bg-secondary p-4"
+    class="rounded-lg border bg-secondary p-4"
   >
     <p class="m-0 font-semibold text-foreground">
       {{ copy.reconciliationTitle }}
@@ -15,7 +15,7 @@
   <div
     v-if="embeddedCheckoutEnabled && authenticationState === 'failed_retryable'"
     role="alert"
-    class="rounded-lg border border-border bg-secondary p-4 text-sm text-foreground"
+    class="rounded-lg border bg-secondary p-4 text-sm text-foreground"
   >
     {{ authenticationError || copy.authenticationFailedDetail }}
   </div>

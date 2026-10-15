@@ -19,7 +19,7 @@
         <div
           :class="
             cn(
-              'mt-4 flex w-full flex-col gap-1 rounded-xl border border-border bg-background p-4',
+              'mt-4 flex w-full flex-col gap-1 rounded-xl border bg-background p-4',
               darkSurface && 'border-none bg-secondary'
             )
           "

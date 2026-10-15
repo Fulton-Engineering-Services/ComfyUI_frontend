@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-12 items-center gap-2 border-b border-border px-2">
+  <div class="flex h-12 items-center gap-2 border-b px-2">
     <div class="min-w-0 flex-1 px-2 text-[14px] font-normal">
       <span>{{ headerTitle }}</span>
     </div>

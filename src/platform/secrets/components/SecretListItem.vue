@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex items-center justify-between rounded-lg border border-border bg-secondary p-4"
+    class="flex items-center justify-between rounded-lg border bg-secondary p-4"
   >
     <div class="flex flex-col gap-1">
       <div class="flex items-center gap-2">

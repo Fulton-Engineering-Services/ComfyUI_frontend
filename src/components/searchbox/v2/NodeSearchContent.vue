@@ -1,7 +1,7 @@
 <template>
   <div
     ref="dialogRef"
-    class="flex h-[min(80vh,750px)] w-full flex-col overflow-hidden rounded-lg border border-border bg-background"
+    class="flex h-[min(80vh,750px)] w-full flex-col overflow-hidden rounded-lg border bg-background"
   >
     <!-- Search input row -->
     <NodeSearchInput

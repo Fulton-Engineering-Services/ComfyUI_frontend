@@ -45,7 +45,7 @@
       <div
         class="flex h-4 flex-col items-center justify-between self-stretch p-2"
       >
-        <div class="w-full border-b border-border" />
+        <div class="w-full border-b" />
       </div>
     </div>
 

@@ -4,7 +4,7 @@
     :aria-label="t('builderToolbar.label')"
   >
     <div
-      class="inline-flex items-center gap-1 rounded-2xl border border-border bg-background p-2 shadow-interface"
+      class="inline-flex items-center gap-1 rounded-2xl border bg-background p-2 shadow-interface"
     >
       <template v-for="(step, index) in steps" :key="step.id">
         <button

@@ -126,9 +126,7 @@ async function cancelDownload(taskId: TaskId) {
 <template>
   <ToastPanel v-model:expanded="isExpanded" :visible :announcement>
     <template #default>
-      <div
-        class="flex h-12 items-center justify-between border-b border-border px-4"
-      >
+      <div class="flex h-12 items-center justify-between border-b px-4">
         <h3 class="text-sm font-bold">
           {{ t('progressToast.importingModels') }}
         </h3>
@@ -149,7 +147,7 @@ async function cancelDownload(taskId: TaskId) {
             content-class="border-none bg-transparent p-0 pt-2"
           >
             <div
-              class="flex min-w-30 flex-col items-stretch rounded-lg border border-border bg-background px-2 py-3"
+              class="flex min-w-30 flex-col items-stretch rounded-lg border bg-background px-2 py-3"
             >
               <Button
                 v-for="option in filterOptions"
@@ -205,9 +203,7 @@ async function cancelDownload(taskId: TaskId) {
     </template>
 
     <template #footer="{ toggle }">
-      <div
-        class="flex h-12 items-center justify-between gap-2 border-t border-border px-4"
-      >
+      <div class="flex h-12 items-center justify-between gap-2 border-t px-4">
         <div class="flex min-w-0 flex-1 items-center gap-2 text-sm">
           <template v-if="isInProgress">
             <Loader size="sm" class="shrink-0 text-muted-foreground" />

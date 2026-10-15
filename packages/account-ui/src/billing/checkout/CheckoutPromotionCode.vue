@@ -4,7 +4,7 @@
       v-model="code"
       :aria-label="copy.promoCodePlaceholder"
       :disabled
-      class="h-10 min-w-0 flex-1 rounded-lg border border-border bg-secondary px-3 text-foreground"
+      class="h-10 min-w-0 flex-1 rounded-lg border bg-secondary px-3 text-foreground"
       :placeholder="copy.promoCodePlaceholder"
       @input="invalidateEditedCode"
     />

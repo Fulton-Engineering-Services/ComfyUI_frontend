@@ -28,9 +28,7 @@ const sizeToggleLabel = computed(() =>
 </script>
 
 <template>
-  <header
-    class="flex h-12 shrink-0 items-center gap-2 border-b border-border px-4"
-  >
+  <header class="flex h-12 shrink-0 items-center gap-2 border-b px-4">
     <div class="flex items-center gap-1">
       <h1
         id="agent-panel-title"
@@ -52,7 +50,7 @@ const sizeToggleLabel = computed(() =>
       </Button>
     </div>
     <span
-      class="shrink-0 rounded-full border border-border px-2 py-0.5 text-xs text-muted-foreground"
+      class="shrink-0 rounded-full border px-2 py-0.5 text-xs text-muted-foreground"
     >
       {{ t('agent.beta') }}
     </span>

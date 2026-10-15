@@ -93,7 +93,7 @@ async function open(): Promise<void> {
     <span
       aria-hidden="true"
       data-testid="workflow-link-media"
-      class="flex size-8 shrink-0 items-center justify-center rounded-md border border-border bg-secondary text-muted-foreground"
+      class="flex size-8 shrink-0 items-center justify-center rounded-md border bg-secondary text-muted-foreground"
     >
       <span class="icon-[comfy--workflow] size-4" />
     </span>

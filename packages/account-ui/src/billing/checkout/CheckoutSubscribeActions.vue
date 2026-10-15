@@ -10,7 +10,7 @@
   <div v-if="payAction === 'parked'" class="flex flex-col gap-2">
     <div
       role="alert"
-      class="rounded-lg border border-border bg-secondary p-4 text-sm text-foreground"
+      class="rounded-lg border bg-secondary p-4 text-sm text-foreground"
     >
       {{ copy.parkedCheckoutDetail }}
     </div>

@@ -2,7 +2,7 @@
   <div
     :class="
       cn(
-        '@container relative flex flex-col gap-6 rounded-2xl border border-border bg-card px-6 py-5',
+        '@container relative flex flex-col gap-6 rounded-2xl border bg-card px-6 py-5',
         inactivePlan && 'text-muted-foreground'
       )
     "

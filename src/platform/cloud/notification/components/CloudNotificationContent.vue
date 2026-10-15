@@ -1,7 +1,7 @@
 <template>
   <div
     data-testid="cloud-notification-dialog"
-    class="relative grid h-full w-170 max-w-full grid-cols-5 overflow-hidden rounded-2xl border border-border bg-background shadow-lg"
+    class="relative grid h-full w-170 max-w-full grid-cols-5 overflow-hidden rounded-2xl border bg-background shadow-lg"
   >
     <Button
       size="unset"

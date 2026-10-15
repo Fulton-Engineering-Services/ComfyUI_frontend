@@ -111,9 +111,7 @@
       </div>
     </div>
 
-    <footer
-      class="flex items-center justify-end gap-4 border-t border-border px-6 py-4"
-    >
+    <footer class="flex items-center justify-end gap-4 border-t px-6 py-4">
       <Button size="lg" @click="onClose">
         {{ $t('g.cancel') }}
       </Button>

@@ -1,6 +1,6 @@
 <template>
   <ul
-    class="m-0 flex max-h-56 list-none flex-col overflow-y-auto rounded-lg border border-border p-0"
+    class="m-0 flex max-h-56 list-none flex-col overflow-y-auto rounded-lg border p-0"
   >
     <li
       v-for="(row, index) in rows"

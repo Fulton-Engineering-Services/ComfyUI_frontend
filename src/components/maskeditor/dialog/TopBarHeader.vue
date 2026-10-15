@@ -35,7 +35,7 @@
           </svg>
         </button>
 
-        <div class="h-5 border-l border-border" />
+        <div class="h-5 border-l" />
 
         <button
           :class="iconButtonClass"

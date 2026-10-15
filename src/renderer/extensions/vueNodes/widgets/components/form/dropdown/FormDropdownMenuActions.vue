@@ -286,7 +286,7 @@ function handleSearchEnter(event: KeyboardEvent) {
             class="icon-[lucide--check] size-4"
           />
         </Button>
-        <span class="h-0 w-full border-b border-border" />
+        <span class="h-0 w-full border-b" />
         <Button
           variant="textonly"
           size="unset"

@@ -75,9 +75,7 @@ function closeDialog() {
 <template>
   <ToastPanel v-model:expanded="isExpanded" :visible :announcement>
     <template #default>
-      <div
-        class="flex h-12 items-center justify-between border-b border-border px-4"
-      >
+      <div class="flex h-12 items-center justify-between border-b px-4">
         <h3 class="text-sm font-bold">
           {{ t('exportToast.exportingAssets') }}
         </h3>
@@ -184,7 +182,7 @@ function closeDialog() {
 
     <template #footer="{ toggle }">
       <div
-        class="flex h-12 min-w-0 flex-1 items-center justify-between gap-2 border-t border-border px-4"
+        class="flex h-12 min-w-0 flex-1 items-center justify-between gap-2 border-t px-4"
       >
         <div class="flex min-w-0 flex-1 items-center gap-2 text-sm">
           <Tooltip :disabled="isExpanded">

@@ -22,7 +22,7 @@
           <i class="icon-[lucide--x] size-4" />
         </PopoverClose>
       </div>
-      <div class="border-t border-border" />
+      <div class="border-t" />
       <p class="mt-3 px-4 text-xs/relaxed text-muted-foreground">
         {{ t('builderToolbar.connectOutputBody1') }}
       </p>

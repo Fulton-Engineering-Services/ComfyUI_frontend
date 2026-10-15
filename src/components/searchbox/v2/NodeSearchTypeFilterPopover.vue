@@ -19,9 +19,7 @@
         :model-value="selectedValues"
         @update:model-value="onSelectionChange"
       >
-        <div
-          class="mt-2 flex h-8 items-center gap-2 rounded-sm border border-border px-2"
-        >
+        <div class="mt-2 flex h-8 items-center gap-2 rounded-sm border px-2">
           <i
             class="icon-[lucide--search] size-4 shrink-0 text-muted-foreground"
           />
@@ -66,7 +64,7 @@
             <span
               :class="
                 cn(
-                  'flex size-4 shrink-0 items-center justify-center rounded-sm border border-border',
+                  'flex size-4 shrink-0 items-center justify-center rounded-sm border',
                   selectedSet.has(option) &&
                     'border-primary bg-primary text-foreground'
                 )

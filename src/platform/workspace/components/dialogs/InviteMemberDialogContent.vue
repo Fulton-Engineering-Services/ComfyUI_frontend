@@ -1,10 +1,6 @@
 <template>
-  <div
-    class="flex w-full max-w-lg flex-col rounded-2xl border border-border bg-background"
-  >
-    <div
-      class="flex h-12 items-center justify-between border-b border-border px-4"
-    >
+  <div class="flex w-full max-w-lg flex-col rounded-2xl border bg-background">
+    <div class="flex h-12 items-center justify-between border-b px-4">
       <h2 class="m-0 flex items-center gap-2 text-sm font-normal">
         <template v-if="step === 'invited'">
           <i class="pi pi-check-circle size-4 text-success" />

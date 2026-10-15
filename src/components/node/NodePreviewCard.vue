@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col overflow-hidden rounded-lg border border-border bg-background"
+    class="flex flex-col overflow-hidden rounded-lg border bg-background"
     :style="{ width: `${BASE_WIDTH_PX * (scaleFactor / BASE_SCALE)}px` }"
     data-testid="node-preview-card"
   >
@@ -46,7 +46,7 @@
       <!-- Divider -->
       <div
         v-if="(inputs.length > 0 || outputs.length > 0) && showInputsAndOutputs"
-        class="border-t border-border"
+        class="border-t"
       />
 
       <!-- Inputs Section -->

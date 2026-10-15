@@ -265,7 +265,7 @@ useEventListener(
           class="size-0 border-y-4 border-r-4 border-y-transparent border-r-border"
         />
         <div
-          class="rounded-md border border-border bg-background px-3 py-2 text-xs/tight wrap-break-word whitespace-pre-line text-foreground shadow-interface"
+          class="rounded-md border bg-background px-3 py-2 text-xs/tight wrap-break-word whitespace-pre-line text-foreground shadow-interface"
         >
           {{ step.tooltip }}
         </div>

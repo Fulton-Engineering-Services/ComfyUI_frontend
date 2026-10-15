@@ -50,7 +50,7 @@ const credits = (count: number) =>
       </span>
     </p>
     <template v-if="breakdown">
-      <hr class="my-2 border-border" />
+      <hr class="my-2" />
       <ul
         class="m-0 flex list-none flex-col gap-4 p-0"
         data-testid="checkout-ending-paid-today"

@@ -1,12 +1,10 @@
 <template>
   <div
     data-testid="open-shared-workflow-dialog"
-    class="flex w-176 max-w-full flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-lg"
+    class="flex w-176 max-w-full flex-col overflow-hidden rounded-2xl border bg-background shadow-lg"
     :aria-busy="isOpening"
   >
-    <header
-      class="flex h-12 items-center justify-between gap-2 border-b border-border px-4"
-    >
+    <header class="flex h-12 items-center justify-between gap-2 border-b px-4">
       <h2 data-testid="open-shared-workflow-title" class="text-sm">
         {{ $t('openSharedWorkflow.dialogTitle') }}
       </h2>
@@ -31,9 +29,7 @@
           <Skeleton class="h-20 w-full rounded-lg" />
         </div>
       </main>
-      <footer
-        class="flex items-center justify-end gap-2.5 border-t border-border px-8 py-4"
-      >
+      <footer class="flex items-center justify-end gap-2.5 border-t px-8 py-4">
         <Skeleton class="h-10 w-24 rounded-md" />
         <Skeleton class="h-10 w-40 rounded-md" />
       </footer>
@@ -49,9 +45,7 @@
           {{ $t('openSharedWorkflow.loadError') }}
         </p>
       </main>
-      <footer
-        class="flex items-center justify-end gap-2.5 border-t border-border px-8 py-4"
-      >
+      <footer class="flex items-center justify-end gap-2.5 border-t px-8 py-4">
         <Button
           data-testid="open-shared-workflow-error-close"
           variant="secondary"
@@ -128,9 +122,7 @@
         </div>
       </main>
 
-      <footer
-        class="flex items-center justify-end gap-2.5 border-t border-border px-8 py-4"
-      >
+      <footer class="flex items-center justify-end gap-2.5 border-t px-8 py-4">
         <Button
           data-testid="open-shared-workflow-cancel"
           variant="secondary"

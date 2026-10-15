@@ -1,8 +1,8 @@
 <template>
   <div
-    class="w-[300px] min-w-[260px] rounded-lg border border-border bg-background shadow-md"
+    class="w-[300px] min-w-[260px] rounded-lg border bg-background shadow-md"
   >
-    <div class="flex items-center border-b border-border p-4">
+    <div class="flex items-center border-b p-4">
       <span class="text-sm/normal font-normal text-foreground">{{
         t('queue.jobDetails.header')
       }}</span>

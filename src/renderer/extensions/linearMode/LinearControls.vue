@@ -177,7 +177,7 @@ function replayAppModeTour() {
       </Button>
     </section>
     <div
-      class="flex h-full flex-col gap-2 border-x border-border bg-background px-2 md:border-y"
+      class="flex h-full flex-col gap-2 border-x bg-background px-2 md:border-y"
     >
       <section
         v-coachmark="COACH_IDS.inputsList"
@@ -217,7 +217,7 @@ function replayAppModeTour() {
         :id="linearInputDownloadStatusId"
         role="status"
         data-testid="linear-input-download-status"
-        class="mx-2 flex flex-col gap-2 rounded-lg border border-border bg-background p-3 text-sm"
+        class="mx-2 flex flex-col gap-2 rounded-lg border bg-background p-3 text-sm"
       >
         <div class="flex items-center gap-2">
           <Loader size="sm" />
@@ -255,7 +255,7 @@ function replayAppModeTour() {
       <section
         v-if="mobile"
         :data-testid="linearRunButtonTestId"
-        class="border-t border-border p-4 pb-6"
+        class="border-t p-4 pb-6"
       >
         <LinearRunErrorWarning v-if="showRunErrorWarning" />
         <div v-coachmark="COACH_IDS.appRunButton">
@@ -314,7 +314,7 @@ function replayAppModeTour() {
       <section
         v-else
         :data-testid="linearRunButtonTestId"
-        class="border-t border-border p-4 pb-6"
+        class="border-t p-4 pb-6"
       >
         <LinearRunErrorWarning v-if="showRunErrorWarning" />
         <div v-coachmark="COACH_IDS.appRunButton">

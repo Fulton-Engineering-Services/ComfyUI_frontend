@@ -1,8 +1,8 @@
 <template>
   <div
-    class="flex w-90 max-w-full flex-col overflow-hidden rounded-2xl border border-border bg-background"
+    class="flex w-90 max-w-full flex-col overflow-hidden rounded-2xl border bg-background"
   >
-    <div class="flex h-12 items-center gap-2 border-b border-border p-4">
+    <div class="flex h-12 items-center gap-2 border-b p-4">
       <p class="m-0 min-w-0 flex-1 font-inter text-sm text-foreground">
         {{ $t(titleKey) }}
       </p>

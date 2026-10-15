@@ -8,9 +8,7 @@
       {{ $t('workspacePanel.partnerNodes.title') }}
     </h2>
 
-    <div
-      class="flex items-start gap-4 rounded-2xl border border-border p-4 font-inter"
-    >
+    <div class="flex items-start gap-4 rounded-2xl border p-4 font-inter">
       <span class="shrink-0" @click.prevent="requestAccessModeToggle">
         <Switch
           :model-value="!isRestricted"
@@ -84,7 +82,7 @@
     <div
       v-else-if="status === 'error'"
       role="alert"
-      class="flex min-h-48 flex-col items-center justify-center gap-3 rounded-2xl border border-border p-6 text-center"
+      class="flex min-h-48 flex-col items-center justify-center gap-3 rounded-2xl border p-6 text-center"
     >
       <p class="text-sm text-muted-foreground">
         {{ $t('workspacePanel.partnerNodes.loadError') }}
@@ -97,7 +95,7 @@
     <div
       v-else-if="(status === 'ineligible' && !isGated) || status === 'inactive'"
       role="status"
-      class="flex min-h-48 items-center justify-center rounded-2xl border border-border p-6 text-center"
+      class="flex min-h-48 items-center justify-center rounded-2xl border p-6 text-center"
     >
       <p class="text-sm text-muted-foreground">
         {{ $t('workspacePanel.partnerNodes.unavailable') }}
@@ -145,14 +143,14 @@
       <div
         role="table"
         :aria-label="$t('workspacePanel.partnerNodes.tableLabel')"
-        class="flex min-h-0 grow flex-col rounded-2xl border border-border px-4 py-3"
+        class="flex min-h-0 grow flex-col rounded-2xl border px-4 py-3"
       >
         <div class="min-h-0 grow scrollbar-gutter-stable overflow-y-auto">
           <div
             role="row"
             :class="
               cn(
-                'sticky -top-px z-10 grid h-10 items-center gap-2 border-b border-border bg-background px-2 text-sm text-muted-foreground',
+                'sticky -top-px z-10 grid h-10 items-center gap-2 border-b bg-background px-2 text-sm text-muted-foreground',
                 rowGridClass
               )
             "
@@ -330,7 +328,7 @@
 
         <div
           v-if="sortedProviders.length > 0"
-          class="mt-2 flex shrink-0 justify-end border-t border-border px-2 pt-3 text-sm text-foreground"
+          class="mt-2 flex shrink-0 justify-end border-t px-2 pt-3 text-sm text-foreground"
         >
           <i18n-t
             keypath="workspacePanel.partnerNodes.allowedSummary"

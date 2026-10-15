@@ -3,7 +3,7 @@
      browser's pick or clear it. -->
 <template>
   <div
-    class="flex shrink-0 flex-col gap-1 border-t border-border px-4 py-2 text-xs text-muted-foreground"
+    class="flex shrink-0 flex-col gap-1 border-t px-4 py-2 text-xs text-muted-foreground"
     data-testid="deployment-switcher-owner"
   >
     <span>{{ summary }}</span>

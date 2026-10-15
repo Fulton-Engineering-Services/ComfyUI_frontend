@@ -14,7 +14,7 @@
       @click="emit('requestProfile')"
     >
       <div
-        class="flex size-12 items-center justify-center rounded-full border border-dashed border-border"
+        class="flex size-12 items-center justify-center rounded-full border border-dashed"
       >
         <i class="icon-[lucide--user] size-4 text-muted-foreground" />
       </div>

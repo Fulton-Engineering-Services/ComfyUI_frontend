@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-52 min-w-52 flex-col border-r border-border bg-background">
+  <div class="flex w-52 min-w-52 flex-col border-r bg-background">
     <div class="flex items-center px-3 py-2">
       <span class="text-xs font-semibold text-foreground">
         {{ t('layerEditor.layers') }}
@@ -31,13 +31,13 @@
           :ref="(el) => registerThumb(node.id, el)"
           width="32"
           height="32"
-          class="size-8 shrink-0 rounded-sm border border-border bg-background"
+          class="size-8 shrink-0 rounded-sm border bg-background"
         />
         <div class="flex min-w-0 flex-1 flex-col text-xs">
           <input
             v-if="renamingId === node.id"
             :ref="focusInput"
-            class="min-w-0 rounded-sm border border-border bg-background px-1 text-xs text-foreground select-text"
+            class="min-w-0 rounded-sm border bg-background px-1 text-xs text-foreground select-text"
             :value="node.name"
             @blur="commitRename(node.id, $event)"
             @keydown.enter="commitRename(node.id, $event)"
@@ -74,7 +74,7 @@
         <i :class="eyeIconClass(backgroundLayer.visible)" />
       </button>
       <div
-        class="size-8 shrink-0 rounded-sm border border-border"
+        class="size-8 shrink-0 rounded-sm border"
         :style="{ backgroundColor: backgroundColor }"
         data-testid="layer-panel-background-swatch"
       />
@@ -88,7 +88,7 @@
       </div>
     </div>
 
-    <div class="flex items-center justify-end gap-1 border-t border-border p-1">
+    <div class="flex items-center justify-end gap-1 border-t p-1">
       <button
         :class="footerButtonClass"
         :disabled="!canMoveActive"

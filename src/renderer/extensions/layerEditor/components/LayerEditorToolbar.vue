@@ -1,6 +1,6 @@
 <template>
   <div
-    class="absolute top-4 left-1/2 z-10 flex -translate-x-1/2 items-center gap-1 rounded-full border border-border bg-background p-1 shadow-lg"
+    class="absolute top-4 left-1/2 z-10 flex -translate-x-1/2 items-center gap-1 rounded-full border bg-background p-1 shadow-lg"
   >
     <ToggleGroup
       type="single"

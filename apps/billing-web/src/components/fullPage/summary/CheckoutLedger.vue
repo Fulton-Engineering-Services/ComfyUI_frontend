@@ -43,7 +43,7 @@ const { t } = useI18n()
     <slot />
   </div>
 
-  <hr class="mt-6 mb-0 border-border" />
+  <hr class="mt-6 mb-0" />
   <div
     class="flex items-center justify-between gap-4 pt-6 text-base font-semibold text-foreground"
   >

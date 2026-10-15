@@ -1,7 +1,7 @@
 <template>
   <div
     data-app-defaults
-    class="flex max-h-[90vh] w-fit max-w-[min(1280px,95vw)] flex-col rounded-2xl border border-border bg-secondary text-foreground scheme-dark shadow-[0_25px_80px_rgba(5,6,12,0.45)]"
+    class="flex max-h-[90vh] w-fit max-w-[min(1280px,95vw)] flex-col rounded-2xl border bg-secondary text-foreground scheme-dark shadow-[0_25px_80px_rgba(5,6,12,0.45)]"
   >
     <div
       :class="

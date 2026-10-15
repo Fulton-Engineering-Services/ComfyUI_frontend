@@ -75,9 +75,7 @@ const SKELETON_BAR = 'block rounded-full bg-muted motion-safe:animate-pulse'
           <span :class="cn(SKELETON_BAR, 'h-3 w-2/3')" />
           <span :class="cn(SKELETON_BAR, 'h-4 w-2/3')" />
         </div>
-        <div
-          class="mt-8 flex items-center justify-between gap-4 border-t border-border pt-6"
-        >
+        <div class="mt-8 flex items-center justify-between gap-4 border-t pt-6">
           <span class="text-base font-semibold text-foreground">
             {{ t('checkout.totalDueToday') }}
           </span>

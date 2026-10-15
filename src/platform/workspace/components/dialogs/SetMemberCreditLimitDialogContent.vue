@@ -1,10 +1,6 @@
 <template>
-  <div
-    class="flex w-lg max-w-full flex-col rounded-2xl border border-border bg-background"
-  >
-    <div
-      class="flex h-12 items-center justify-between border-b border-border px-4"
-    >
+  <div class="flex w-lg max-w-full flex-col rounded-2xl border bg-background">
+    <div class="flex h-12 items-center justify-between border-b px-4">
       <h2 id="set-member-credit-limit" class="m-0 text-sm font-normal">
         {{
           $t('workspacePanel.members.creditLimitDialog.title', {

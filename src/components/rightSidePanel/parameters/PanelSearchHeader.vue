@@ -20,7 +20,7 @@ defineOptions({ inheritAttrs: false })
 </script>
 
 <template>
-  <div class="flex items-center border-b border-border px-4 pt-1 pb-4">
+  <div class="flex items-center border-b px-4 pt-1 pb-4">
     <AsyncSearchInput
       v-model="query"
       :searcher

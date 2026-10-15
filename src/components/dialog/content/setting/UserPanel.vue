@@ -2,7 +2,7 @@
   <div class="user-settings-container h-full">
     <div class="flex h-full flex-col">
       <h2 class="mb-2 text-2xl font-bold">{{ $t('userSettings.title') }}</h2>
-      <div class="mt-4 mb-3 border-t border-border" />
+      <div class="mt-4 mb-3 border-t" />
 
       <!-- Normal User Panel -->
       <div v-if="isLoggedIn" class="flex flex-col gap-2">

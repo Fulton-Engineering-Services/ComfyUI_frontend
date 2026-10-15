@@ -14,7 +14,7 @@
       v-for="section in filteredSections"
       :id="`essentials-section-${section.key}`"
       :key="section.key"
-      class="border-b border-border last:border-b-0"
+      class="border-b last:border-b-0"
     >
       <div
         class="sticky top-0 z-10 flex h-14 w-full items-center justify-between border-0 bg-background px-4 text-sm font-bold tracking-wide text-muted-foreground"

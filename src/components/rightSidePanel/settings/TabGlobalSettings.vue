@@ -91,7 +91,7 @@ function openFullSettings() {
 </script>
 
 <template>
-  <div class="flex flex-col border-t border-border">
+  <div class="flex flex-col border-t">
     <!-- NODES Section -->
     <PropertiesAccordionItem class="border-b border-border">
       <template #label>
@@ -184,7 +184,7 @@ function openFullSettings() {
     </PropertiesAccordionItem>
 
     <!-- View all settings button -->
-    <div class="flex items-center justify-center border-b border-border p-4">
+    <div class="flex items-center justify-center border-b p-4">
       <Button
         variant="muted-textonly"
         size="sm"

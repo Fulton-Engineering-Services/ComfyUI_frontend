@@ -10,7 +10,7 @@
         data-testid="error-overlay"
         :class="
           cn(
-            'pointer-events-auto relative flex w-fit max-w-120 min-w-80 flex-col gap-2 overflow-hidden rounded-lg border border-l-4 border-border bg-background p-3 shadow-interface transition-colors duration-200 ease-in-out',
+            'pointer-events-auto relative flex w-fit max-w-120 min-w-80 flex-col gap-2 overflow-hidden rounded-lg border border-l-4 bg-background p-3 shadow-interface transition-colors duration-200 ease-in-out',
             hasError ? 'border-l-destructive' : 'border-l-warning'
           )
         "

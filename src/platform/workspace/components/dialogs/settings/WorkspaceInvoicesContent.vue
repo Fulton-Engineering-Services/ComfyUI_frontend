@@ -1,10 +1,7 @@
 <template>
   <div class="flex min-h-0 flex-1 flex-col gap-4">
     <!-- Billing data still loading: avoid rendering a false $0 charge -->
-    <div
-      v-if="isLoading && !subscription"
-      class="rounded-2xl border border-border p-6"
-    >
+    <div v-if="isLoading && !subscription" class="rounded-2xl border p-6">
       <div class="flex items-center gap-2 py-4 text-muted-foreground">
         <i class="pi pi-spin pi-spinner" />
         <span>{{ $t('g.loading') }}</span>
@@ -14,7 +11,7 @@
     <!-- Billing fetch failed: offer retry rather than a misleading amount -->
     <div
       v-else-if="error && !subscription"
-      class="flex flex-col items-start gap-3 rounded-2xl border border-border p-6"
+      class="flex flex-col items-start gap-3 rounded-2xl border p-6"
     >
       <div class="flex items-center gap-2 text-muted-foreground">
         <i class="pi pi-exclamation-circle text-destructive" />

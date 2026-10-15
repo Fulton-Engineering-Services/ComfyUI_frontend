@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-96 flex-col border-t border-border px-4">
+  <div class="flex w-96 flex-col border-t px-4">
     <p class="mb-4 text-sm text-muted-foreground">
       {{ $t('g.setAKeybindingForTheFollowing') }}
     </p>
@@ -8,7 +8,7 @@
     </div>
 
     <input
-      class="mb-4 w-full rounded-sm border border-border bg-secondary px-3 py-2 text-center text-foreground shadow-none focus:outline-none"
+      class="mb-4 w-full rounded-sm border bg-secondary px-3 py-2 text-center text-foreground shadow-none focus:outline-none"
       :value="dialogState.newCombo?.toString() ?? ''"
       :placeholder="$t('g.enterYourKeybind')"
       :aria-label="$t('g.enterYourKeybind')"

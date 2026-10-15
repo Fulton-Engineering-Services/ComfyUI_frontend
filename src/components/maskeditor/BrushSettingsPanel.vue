@@ -23,7 +23,7 @@
           :aria-pressed="store.brushSettings.type === BrushShape.Arc"
           :class="
             cn(
-              'ml-2 size-[35px] cursor-pointer appearance-none rounded-full border border-solid border-border p-0 transition-colors',
+              'ml-2 size-[35px] cursor-pointer appearance-none rounded-full border border-solid p-0 transition-colors',
               store.brushSettings.type === BrushShape.Arc
                 ? 'bg-background'
                 : 'bg-transparent hover:bg-background/60'
@@ -38,7 +38,7 @@
           :aria-pressed="store.brushSettings.type === BrushShape.Rect"
           :class="
             cn(
-              'size-[35px] cursor-pointer appearance-none border border-solid border-border p-0 transition-colors',
+              'size-[35px] cursor-pointer appearance-none border border-solid p-0 transition-colors',
               store.brushSettings.type === BrushShape.Rect
                 ? 'bg-background'
                 : 'bg-transparent hover:bg-background/60'
@@ -72,7 +72,7 @@
           v-model.number="brushSize"
           data-testid="brush-thickness-input"
           type="number"
-          class="w-16 rounded-md border border-border bg-background px-2 py-1 text-center text-sm text-foreground"
+          class="w-16 rounded-md border bg-background px-2 py-1 text-center text-sm text-foreground"
           :min="1"
           :max="250"
           :step="1"
@@ -97,7 +97,7 @@
         <input
           v-model.number="brushOpacity"
           type="number"
-          class="w-16 rounded-md border border-border bg-background px-2 py-1 text-center text-sm text-foreground"
+          class="w-16 rounded-md border bg-background px-2 py-1 text-center text-sm text-foreground"
           :min="0"
           :max="1"
           :step="0.01"
@@ -122,7 +122,7 @@
         <input
           v-model.number="brushHardness"
           type="number"
-          class="w-16 rounded-md border border-border bg-background px-2 py-1 text-center text-sm text-foreground"
+          class="w-16 rounded-md border bg-background px-2 py-1 text-center text-sm text-foreground"
           :min="0"
           :max="1"
           :step="0.01"
@@ -147,7 +147,7 @@
         <input
           v-model.number="brushStepSize"
           type="number"
-          class="w-16 rounded-md border border-border bg-background px-2 py-1 text-center text-sm text-foreground"
+          class="w-16 rounded-md border bg-background px-2 py-1 text-center text-sm text-foreground"
           :min="1"
           :max="100"
           :step="1"

@@ -1,10 +1,8 @@
 <template>
   <div
-    class="flex w-xl max-w-full flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-lg"
+    class="flex w-xl max-w-full flex-col overflow-hidden rounded-2xl border bg-background shadow-lg"
   >
-    <header
-      class="flex h-12 items-center justify-between gap-2 border-b border-border px-4"
-    >
+    <header class="flex h-12 items-center justify-between gap-2 border-b px-4">
       <div
         v-if="showPublishToHubTab"
         role="tablist"

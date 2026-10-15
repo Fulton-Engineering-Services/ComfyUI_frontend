@@ -1,9 +1,9 @@
 <template>
   <div
-    class="flex w-56 min-w-56 flex-col overflow-y-auto border-l border-border bg-background"
+    class="flex w-56 min-w-56 flex-col overflow-y-auto border-l bg-background"
     data-testid="layer-properties-panel"
   >
-    <div class="flex items-center gap-2 border-b border-border px-3 py-2">
+    <div class="flex items-center gap-2 border-b px-3 py-2">
       <i
         :class="
           cn(

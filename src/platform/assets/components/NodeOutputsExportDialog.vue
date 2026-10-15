@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-105 max-w-full flex-col border-t border-border">
+  <div class="flex w-105 max-w-full flex-col border-t">
     <label
       class="flex cursor-pointer items-center justify-between gap-4 px-4 py-3 text-sm"
     >

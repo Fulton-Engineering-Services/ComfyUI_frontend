@@ -1,6 +1,6 @@
 <template>
   <section
-    class="flex w-full max-w-[480px] flex-col rounded-2xl border border-border bg-background"
+    class="flex w-full max-w-[480px] flex-col rounded-2xl border bg-background"
   >
     <!-- Header -->
     <header class="flex items-start gap-3 p-5 pb-0">
@@ -46,7 +46,7 @@
       >
         <li v-for="workspace in ownedTeamWorkspaces" :key="workspace.id">
           <button
-            class="flex w-full cursor-pointer items-center gap-3 rounded-lg border border-border bg-transparent px-4 py-3 transition-colors hover:bg-accent focus-visible:ring-1 focus-visible:ring-border focus-visible:outline-none"
+            class="flex w-full cursor-pointer items-center gap-3 rounded-lg border bg-transparent px-4 py-3 transition-colors hover:bg-accent focus-visible:ring-1 focus-visible:ring-border focus-visible:outline-none"
             @click="handleSwitch(workspace.id)"
           >
             <WorkspaceProfilePic
@@ -79,7 +79,7 @@
     </section>
 
     <!-- Divider -->
-    <hr v-if="ownedTeamWorkspaces.length > 0" class="mx-5 my-4 border-border" />
+    <hr v-if="ownedTeamWorkspaces.length > 0" class="mx-5 my-4" />
 
     <!-- New workspace section -->
     <section
@@ -99,7 +99,7 @@
           id="workspace-name-input"
           v-model="workspaceName"
           type="text"
-          class="w-full rounded-lg border border-border bg-transparent px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:ring-1 focus:ring-border focus:outline-none"
+          class="w-full rounded-lg border bg-transparent px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:ring-1 focus:ring-border focus:outline-none"
           :placeholder="$t('teamWorkspacesDialog.namePlaceholder')"
           :aria-invalid="workspaceName.length > 0 && !isValidName"
           :aria-describedby="

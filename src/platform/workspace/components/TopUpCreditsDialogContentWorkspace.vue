@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex min-h-[500px] w-[min(512px,95vw)] flex-col rounded-2xl border border-border bg-background shadow-[1px_1px_8px_0_rgba(0,0,0,0.4)]"
+    class="flex min-h-[500px] w-[min(512px,95vw)] flex-col rounded-2xl border bg-background shadow-[1px_1px_8px_0_rgba(0,0,0,0.4)]"
   >
     <!-- Header -->
     <div class="flex items-center justify-between p-8">
@@ -51,7 +51,7 @@
           {{ formatNumber(creditsModel) }}
         </span>
         <div
-          class="flex items-center justify-between border-t border-border pt-4 text-base font-semibold"
+          class="flex items-center justify-between border-t pt-4 text-base font-semibold"
         >
           <span>
             {{ $t('subscription.preview.totalDueToday') }}

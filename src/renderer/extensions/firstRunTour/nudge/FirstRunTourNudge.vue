@@ -46,7 +46,7 @@
           </Button>
         </div>
 
-        <div class="flex flex-col gap-2 border-t border-border px-4 pt-6 pb-4">
+        <div class="flex flex-col gap-2 border-t px-4 pt-6 pb-4">
           <p :id="titleId" class="m-0 text-sm/5 font-bold text-foreground">
             {{ t(`${copyKey}.title`) }}
           </p>

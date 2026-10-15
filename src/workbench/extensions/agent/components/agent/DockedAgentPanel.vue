@@ -32,7 +32,7 @@
           )
         "
       >
-        <div class="size-full overflow-hidden rounded-lg border border-border">
+        <div class="size-full overflow-hidden rounded-lg border">
           <AgentPanelRoot />
         </div>
       </div>

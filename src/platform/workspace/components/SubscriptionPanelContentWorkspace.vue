@@ -4,7 +4,7 @@
     @scroll="handlePanelScroll"
   >
     <!-- Loading state while subscription is being set up -->
-    <div v-if="isSettingUp" class="rounded-2xl border border-border p-6">
+    <div v-if="isSettingUp" class="rounded-2xl border p-6">
       <div class="flex items-center gap-2 py-4 text-muted-foreground">
         <i class="pi pi-spin pi-spinner" />
         <span>{{ $t('billingOperation.subscriptionProcessing') }}</span>
@@ -21,10 +21,7 @@
     </div>
 
     <!-- Billing data still loading: avoid rendering a false Free/$0 plan -->
-    <div
-      v-else-if="isLoading && !subscription"
-      class="rounded-2xl border border-border p-6"
-    >
+    <div v-else-if="isLoading && !subscription" class="rounded-2xl border p-6">
       <div class="flex items-center gap-2 py-4 text-muted-foreground">
         <i class="pi pi-spin pi-spinner" />
         <span>{{ $t('g.loading') }}</span>
@@ -34,7 +31,7 @@
     <!-- Billing fetch failed: offer retry rather than a misleading Free plan -->
     <div
       v-else-if="error && !subscription"
-      class="flex flex-col items-start gap-3 rounded-2xl border border-border p-6"
+      class="flex flex-col items-start gap-3 rounded-2xl border p-6"
     >
       <div class="flex items-center gap-2 text-muted-foreground">
         <i class="pi pi-exclamation-circle text-destructive" />
@@ -73,7 +70,7 @@
         </div>
       </div>
 
-      <div class="rounded-2xl border border-border p-6">
+      <div class="rounded-2xl border p-6">
         <div>
           <div
             class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between md:gap-2"

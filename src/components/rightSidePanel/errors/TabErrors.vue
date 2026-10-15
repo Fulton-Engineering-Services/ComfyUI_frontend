@@ -5,7 +5,7 @@
     <ErrorPanelSurveyCta v-if="ErrorPanelSurveyCta" />
 
     <!-- Fixed Footer: Help Links -->
-    <div class="min-w-0 shrink-0 border-t border-border bg-background p-4">
+    <div class="min-w-0 shrink-0 border-t bg-background p-4">
       <i18n-t
         keypath="rightSidePanel.errorHelp"
         tag="p"

@@ -25,7 +25,7 @@
       </a>
     </div>
 
-    <div class="my-4 border-t border-border" />
+    <div class="my-4 border-t" />
 
     <SystemStatsPanel
       v-if="systemStatsStore.systemStats"

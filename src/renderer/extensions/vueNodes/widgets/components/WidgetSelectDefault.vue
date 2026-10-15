@@ -87,7 +87,7 @@
           <div
             v-if="isFilterable"
             ref="searchInputContainerRef"
-            class="m-1 flex items-center gap-2 rounded-md border border-solid border-border px-2 py-1.5 transition-colors focus-within:border-primary"
+            class="m-1 flex items-center gap-2 rounded-md border border-solid px-2 py-1.5 transition-colors focus-within:border-primary"
           >
             <i
               class="icon-[lucide--search] shrink-0 text-sm text-muted-foreground"

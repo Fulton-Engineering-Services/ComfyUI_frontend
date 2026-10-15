@@ -22,11 +22,7 @@
         </span>
       </p>
       <label v-if="checkboxLabel" class="flex items-center gap-2 pt-1">
-        <input
-          v-model="confirmed"
-          type="checkbox"
-          class="size-4 rounded-sm border-border"
-        />
+        <input v-model="confirmed" type="checkbox" class="size-4 rounded-sm" />
         {{ checkboxLabel }}
       </label>
     </div>

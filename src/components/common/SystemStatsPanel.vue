@@ -25,7 +25,7 @@
     </div>
 
     <template v-if="hasDevices">
-      <div class="my-4 border-t border-border" />
+      <div class="my-4 border-t" />
 
       <div>
         <h2 class="mb-4 text-2xl font-semibold">

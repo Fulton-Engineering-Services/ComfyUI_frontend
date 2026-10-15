@@ -1,11 +1,9 @@
 <template>
   <div
-    class="flex w-full min-w-[400px] flex-col rounded-2xl border border-border bg-background"
+    class="flex w-full min-w-[400px] flex-col rounded-2xl border bg-background"
   >
     <!-- Header -->
-    <div
-      class="flex h-12 items-center justify-between border-b border-border px-4"
-    >
+    <div class="flex h-12 items-center justify-between border-b px-4">
       <h2 class="m-0 text-sm font-normal">
         {{ $t('workspacePanel.editWorkspaceDialog.title') }}
       </h2>
@@ -27,7 +25,7 @@
         <input
           v-model="newWorkspaceName"
           type="text"
-          class="w-full rounded-lg border border-border bg-transparent px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:ring-1 focus:ring-border focus:outline-none"
+          class="w-full rounded-lg border bg-transparent px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:ring-1 focus:ring-border focus:outline-none"
           @keydown.enter="isValidName && onSave()"
         />
       </div>

@@ -1,10 +1,6 @@
 <template>
-  <section
-    class="w-[360px] rounded-2xl border border-border bg-background shadow-interface"
-  >
-    <header
-      class="flex items-center justify-between border-b border-border p-4"
-    >
+  <section class="w-[360px] rounded-2xl border bg-background shadow-interface">
+    <header class="flex items-center justify-between border-b p-4">
       <p class="m-0 text-[14px] leading-none font-normal">
         {{ t('sideToolbar.queueProgressOverlay.clearHistoryDialogTitle') }}
       </p>

@@ -74,7 +74,7 @@
           id="workspace-switcher-panel"
           ref="workspaceSwitcherPanel"
           role="menu"
-          class="absolute top-0 right-full z-10 mr-4 rounded-lg border border-border bg-background shadow-[1px_1px_8px_0_rgba(0,0,0,0.4)]"
+          class="absolute top-0 right-full z-10 mr-4 rounded-lg border bg-background shadow-[1px_1px_8px_0_rgba(0,0,0,0.4)]"
           data-testid="workspace-switcher-panel"
         >
           <WorkspaceSwitcherPopover
@@ -155,7 +155,7 @@
       </Button>
     </div>
 
-    <div v-if="!accountActionsOnly" class="mx-0 my-2 border-t border-border" />
+    <div v-if="!accountActionsOnly" class="mx-0 my-2 border-t" />
 
     <div
       v-if="!accountActionsOnly && isCloud && showPlansAndPricing"
@@ -209,7 +209,7 @@
       }}</span>
     </div>
 
-    <div v-if="!accountActionsOnly" class="mx-0 my-2 border-t border-border" />
+    <div v-if="!accountActionsOnly" class="mx-0 my-2 border-t" />
 
     <!-- Workspace Settings (always shown) -->
     <div
@@ -236,7 +236,7 @@
       }}</span>
     </div>
 
-    <div class="mx-0 my-2 border-t border-border" />
+    <div class="mx-0 my-2 border-t" />
 
     <!-- Logout (always shown) -->
     <div

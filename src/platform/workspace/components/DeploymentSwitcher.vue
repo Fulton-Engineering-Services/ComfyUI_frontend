@@ -73,7 +73,7 @@
       id="deployment-switcher-panel"
       ref="panel"
       role="menu"
-      class="absolute top-0 right-full z-10 mr-4 flex max-h-96 w-80 flex-col overflow-hidden rounded-lg border border-border bg-background shadow-[1px_1px_8px_0_rgba(0,0,0,0.4)]"
+      class="absolute top-0 right-full z-10 mr-4 flex max-h-96 w-80 flex-col overflow-hidden rounded-lg border bg-background shadow-[1px_1px_8px_0_rgba(0,0,0,0.4)]"
       data-testid="deployment-switcher-panel"
     >
       <div
@@ -90,9 +90,7 @@
         @set-default="changeDefault(pickedDeploymentId)"
         @clear-default="changeDefault(null)"
       />
-      <div
-        class="shrink-0 border-t border-border px-4 py-2 text-xs text-muted-foreground"
-      >
+      <div class="shrink-0 border-t px-4 py-2 text-xs text-muted-foreground">
         {{ $t('deploymentSwitcher.reloadNote') }}
       </div>
     </div>

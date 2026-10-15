@@ -2,7 +2,7 @@
   <div
     :class="
       cn(
-        'relative overflow-hidden rounded-2xl border border-border bg-background shadow-lg',
+        'relative overflow-hidden rounded-2xl border bg-background shadow-lg',
         sizeClasses
       )
     "

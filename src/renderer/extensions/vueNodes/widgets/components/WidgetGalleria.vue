@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col gap-1">
     <div
-      class="max-w-full overflow-hidden rounded-lg border border-border"
+      class="max-w-full overflow-hidden rounded-lg border"
       role="region"
       :aria-label="t('g.imageGallery')"
     >

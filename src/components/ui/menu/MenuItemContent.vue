@@ -65,7 +65,7 @@ const { hasSubmenu, item } = defineProps<{
   </span>
   <span
     v-if="!hasSubmenu && toValue(item.shortcut)"
-    class="ml-auto rounded-sm border border-border bg-secondary p-1 text-xs text-nowrap text-muted-foreground"
+    class="ml-auto rounded-sm border bg-secondary p-1 text-xs text-nowrap text-muted-foreground"
   >
     {{ toValue(item.shortcut) }}
   </span>

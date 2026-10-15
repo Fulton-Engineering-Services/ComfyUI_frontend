@@ -184,6 +184,10 @@
 
 /* Everthing below here to be cleaned up over time. */
 
+:root[data-palette-switching] * {
+  transition: none;
+}
+
 body {
   width: 100vw;
   height: 100vh;

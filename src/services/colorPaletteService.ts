@@ -169,7 +169,12 @@ export const useColorPaletteService = () => {
     } else {
       rootStyle.removeProperty('--bg-img')
     }
+  }
 
+  const afterNextFrame = (callback: () => void) =>
+    requestAnimationFrame(() => requestAnimationFrame(callback))
+
+  const persistSplashColors = () => {
     try {
       const body = getComputedStyle(document.body)
       localStorage.setItem('comfy-splash-bg', body.backgroundColor)
@@ -192,14 +197,20 @@ export const useColorPaletteService = () => {
     }
 
     const completedPalette = colorPaletteStore.completePalette(colorPalette)
+    const root = document.documentElement
+    root.dataset.paletteSwitching = ''
     loadLinkColorPalette(completedPalette.colors.node_slot)
     loadLiteGraphColorPalette(completedPalette.colors.litegraph_base)
-    applyPaletteTheme(document.documentElement.style, completedPalette)
+    applyPaletteTheme(root.style, completedPalette)
     loadLinkColorPaletteForVueNodes(completedPalette.colors.node_slot)
     loadComfyColorPalette(completedPalette.colors.comfy_base)
     useApp().canvas.setDirty(true, true)
 
     colorPaletteStore.activePaletteId = colorPaletteId
+    afterNextFrame(() => {
+      delete root.dataset.paletteSwitching
+      persistSplashColors()
+    })
   }
 
   /**

@@ -5,8 +5,7 @@ import type { ComponentProps } from 'vue-component-type-helpers'
 
 import Video from '@/components/common/Video.vue'
 import Button from '@/components/ui/button/Button.vue'
-import { DEFAULT_DARK_COLOR_PALETTE } from '@/constants/coreColorPalettes'
-import { applyPaletteTheme } from '@/utils/colorPaletteTheme'
+import { applyDarkPaletteTheme } from '@/utils/colorPaletteTheme'
 
 const {
   title,
@@ -49,8 +48,7 @@ useResizeObserver(containerRef, ([entry]) => {
 })
 
 onMounted(() => {
-  if (containerRef.value)
-    applyPaletteTheme(containerRef.value.style, DEFAULT_DARK_COLOR_PALETTE)
+  if (containerRef.value) applyDarkPaletteTheme(containerRef.value.style)
 })
 
 function choose(action: 'accept' | 'reject'): void {

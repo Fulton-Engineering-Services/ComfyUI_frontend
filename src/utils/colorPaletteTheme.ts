@@ -86,3 +86,8 @@ export function applyPaletteTheme(
   }
   style.colorScheme = paletteColorScheme(palette)
 }
+
+/** Applies the core dark palette's theme variables to an element's inline style. */
+export function applyDarkPaletteTheme(style: CSSStyleDeclaration) {
+  applyPaletteTheme(style, DEFAULT_DARK_COLOR_PALETTE)
+}

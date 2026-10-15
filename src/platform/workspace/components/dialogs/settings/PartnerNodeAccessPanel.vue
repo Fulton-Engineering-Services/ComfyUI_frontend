@@ -25,12 +25,14 @@
           <p class="m-0 text-sm leading-[normal] font-normal">
             {{ $t('workspacePanel.partnerNodes.allowAll') }}
           </p>
-          <span
+          <Badge
             v-if="isGated"
-            class="rounded-full bg-secondary px-2 py-0.5 text-xs"
+            variant="pill"
+            severity="secondary"
+            class="text-xs"
           >
             {{ $t('workspacePanel.partnerNodes.enterpriseBadge') }}
-          </span>
+          </Badge>
         </div>
         <p
           v-if="isGated"
@@ -350,6 +352,7 @@
 </template>
 
 <script setup lang="ts">
+import Badge from '@/components/ui/badge/Badge.vue'
 import { useSettingsHeaderCollapse } from '@/platform/settings/composables/useSettingsHeaderCollapse'
 import { storeToRefs } from 'pinia'
 import { computed, ref } from 'vue'

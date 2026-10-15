@@ -11,12 +11,14 @@
           :alt="providerLabel"
           class="size-5"
         />
-        <span
+        <Badge
           v-else-if="secret.provider"
-          class="rounded-sm bg-muted px-2 py-0.5 text-xs text-muted-foreground"
+          variant="square"
+          severity="muted"
+          class="px-2"
         >
           {{ providerLabel }}
-        </span>
+        </Badge>
       </div>
       <div class="flex gap-3 text-xs text-muted-foreground">
         <span v-if="createdAtLabel">{{ createdAtLabel }}</span>
@@ -54,6 +56,7 @@
 </template>
 
 <script setup lang="ts">
+import Badge from '@/components/ui/badge/Badge.vue'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 

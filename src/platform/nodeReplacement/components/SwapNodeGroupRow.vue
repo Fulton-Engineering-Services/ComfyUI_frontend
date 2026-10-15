@@ -82,11 +82,13 @@
               'This node will be replaced by:'
             )
           }}
-          <span
-            class="inline-flex rounded-sm bg-muted px-1.5 py-0.5 text-xs/none font-medium text-foreground"
+          <Badge
+            variant="square"
+            severity="muted"
+            class="text-xs/none text-foreground"
           >
             {{ replacementLabel }}
-          </span>
+          </Badge>
         </span>
       </span>
 
@@ -159,6 +161,7 @@
 </template>
 
 <script setup lang="ts">
+import Badge from '@/components/ui/badge/Badge.vue'
 import { computed, ref } from 'vue'
 import { cn } from '@comfyorg/tailwind-utils'
 

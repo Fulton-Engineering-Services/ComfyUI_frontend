@@ -17,12 +17,13 @@
       <p v-if="userEmail" class="my-0 truncate text-sm text-muted-foreground">
         {{ userEmail }}
       </p>
-      <span
+      <Badge
         v-if="subscriptionTierName"
-        class="my-0 mt-2 rounded-full bg-accent px-2 py-0.5 text-xs font-bold text-foreground uppercase"
+        variant="pill"
+        class="mt-2 bg-accent text-xs font-bold uppercase"
       >
         {{ subscriptionTierName }}
-      </span>
+      </Badge>
     </div>
 
     <div v-if="showWorkspaceSwitcher" class="relative">
@@ -154,6 +155,7 @@
 </template>
 
 <script setup lang="ts">
+import Badge from '@/components/ui/badge/Badge.vue'
 import { BILLING_ACTION_NAME } from '@/platform/telemetry/billingActionNames'
 import { onClickOutside } from '@vueuse/core'
 import { storeToRefs } from 'pinia'

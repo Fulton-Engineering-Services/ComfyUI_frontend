@@ -15,13 +15,15 @@
         <span class="truncate">
           <HighlightedText :text="nodeDef.display_name" :query="currentQuery" />
         </span>
-        <span
+        <Badge
           v-if="showIdName"
           data-testid="node-id-badge"
-          class="shrink-0 rounded-sm bg-secondary px-1.5 py-0.5 text-xs text-muted-foreground"
+          variant="square"
+          severity="secondary"
+          class="text-muted-foreground"
         >
           <HighlightedText :text="nodeDef.name" :query="currentQuery" />
-        </span>
+        </Badge>
 
         <template v-if="showDescription">
           <div class="flex-1" />
@@ -86,18 +88,16 @@
       v-if="!showDescription"
       class="flex items-center gap-1 text-xs text-muted-foreground"
     >
-      <span
+      <Badge
         v-if="nodeDef.deprecated"
-        class="rounded-sm bg-destructive/20 px-1.5 py-0.5 text-destructive"
+        variant="square"
+        class="bg-destructive/20 text-destructive"
       >
         {{ $t('g.deprecated') }}
-      </span>
-      <span
-        v-if="nodeDef.experimental"
-        class="rounded-sm bg-blue-500/20 px-1.5 py-0.5 text-blue-400"
-      >
+      </Badge>
+      <Badge v-if="nodeDef.experimental" variant="square" severity="info">
         {{ $t('g.experimental') }}
-      </span>
+      </Badge>
       <span
         v-if="nodeDef.dev_only"
         class="rounded-sm bg-cyan-500/20 px-1.5 py-0.5 text-cyan-400"
@@ -122,6 +122,7 @@
 </template>
 
 <script setup lang="ts">
+import Badge from '@/components/ui/badge/Badge.vue'
 import { computed } from 'vue'
 
 import TextTicker from '@/components/common/TextTicker.vue'

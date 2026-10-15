@@ -213,12 +213,14 @@
                   <h3 class="m-0 text-base font-bold text-foreground">
                     {{ planDisplayName }}
                   </h3>
-                  <StatusBadge
+                  <Badge
                     v-if="planStatusBadge"
                     data-testid="plan-status-badge"
-                    :label="planStatusBadge.label"
+                    variant="label"
                     :severity="planStatusBadge.severity"
-                  />
+                  >
+                    {{ planStatusBadge.label }}
+                  </Badge>
                 </div>
                 <div
                   v-if="!isNonCatalogPlan && !isPriceCycleUnknown"
@@ -411,7 +413,7 @@ import { useI18n } from 'vue-i18n'
 import CreditsTile from '@/platform/cloud/subscription/components/CreditsTile.vue'
 import SubscriptionFooterLinks from '@/platform/cloud/subscription/components/SubscriptionFooterLinks.vue'
 import Menu from '@/components/ui/menu/Menu.vue'
-import StatusBadge from '@/components/common/StatusBadge.vue'
+import Badge from '@/components/ui/badge/Badge.vue'
 import Button from '@/components/ui/button/Button.vue'
 import { useBillingContext } from '@/composables/billing/useBillingContext'
 import { useSubscriptionPaywall } from '@/composables/billing/useSubscriptionPaywall'
@@ -660,7 +662,7 @@ const planStatusBadge = computed(() => {
       severity: 'secondary' as const
     }
   if (isSubscriptionCancelled.value && !hasScheduledEnterpriseEnd.value)
-    return { label: t('subscription.canceled'), severity: 'warn' as const }
+    return { label: t('subscription.canceled'), severity: 'warning' as const }
   return null
 })
 

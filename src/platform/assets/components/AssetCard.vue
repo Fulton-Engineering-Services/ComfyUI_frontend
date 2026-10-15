@@ -124,8 +124,9 @@
           @click.stop="handleSelect"
         >
           {{ $t('g.use') }}
-          <StatusBadge
+          <Badge
             v-if="isNewlyImported"
+            variant="dot"
             severity="contrast"
             class="absolute -top-0.5 -right-0.5"
           />
@@ -141,7 +142,7 @@ import { useI18n } from 'vue-i18n'
 
 import { useImageQuiet } from '@/composables/useImageQuiet'
 import IconGroup from '@/components/button/IconGroup.vue'
-import StatusBadge from '@/components/common/StatusBadge.vue'
+import Badge from '@/components/ui/badge/Badge.vue'
 import { showConfirmDialog } from '@/components/dialog/confirm/confirmDialog'
 import Button from '@/components/ui/button/Button.vue'
 import Menu from '@/components/ui/menu/Menu.vue'

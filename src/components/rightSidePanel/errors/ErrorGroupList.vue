@@ -136,13 +136,14 @@
             @update:collapse="setSectionCollapsed(group.groupKey, $event)"
           >
             <template #title-badge>
-              <span
+              <Badge
                 v-if="group.blockedLastRun"
                 data-testid="blocked-last-run-indicator"
-                class="flex shrink-0 items-center rounded-full bg-warning px-2 py-0.5 text-2xs font-medium text-warning-foreground"
+                variant="pill"
+                severity="warning"
               >
                 {{ t('rightSidePanel.blockedLastRun') }}
-              </span>
+              </Badge>
             </template>
             <template #actions>
               <Button
@@ -378,6 +379,7 @@
 </template>
 
 <script setup lang="ts">
+import Badge from '@/components/ui/badge/Badge.vue'
 import Tooltip from '@/components/ui/tooltip/Tooltip.vue'
 import TooltipContent from '@/components/ui/tooltip/TooltipContent.vue'
 import TooltipTrigger from '@/components/ui/tooltip/TooltipTrigger.vue'

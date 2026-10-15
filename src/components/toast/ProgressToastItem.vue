@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import Loader from '@/components/loader/Loader.vue'
-import StatusBadge from '@/components/common/StatusBadge.vue'
+import Badge from '@/components/ui/badge/Badge.vue'
 import Button from '@/components/ui/button/Button.vue'
 import type { TaskId } from '@/platform/tasks/services/taskService'
 import type { AssetDownload } from '@/stores/assetDownloadStore'
@@ -37,18 +37,21 @@ const isCancelled = computed(() => isDownloadCancelled(job.status))
     <div class="flex shrink-0 items-center gap-2">
       <template v-if="isFailed">
         <i class="icon-[lucide--circle-alert] size-4 text-destructive" />
-        <StatusBadge :label="t('progressToast.failed')" severity="danger" />
+        <Badge variant="label" severity="danger">
+          {{ t('progressToast.failed') }}
+        </Badge>
       </template>
 
       <template v-else-if="isCompleted">
-        <StatusBadge :label="t('progressToast.finished')" severity="contrast" />
+        <Badge variant="label" severity="contrast">
+          {{ t('progressToast.finished') }}
+        </Badge>
       </template>
 
       <template v-else-if="isCancelled">
-        <StatusBadge
-          :label="t('electronFileDownload.cancelled')"
-          severity="secondary"
-        />
+        <Badge variant="label" severity="secondary">
+          {{ t('electronFileDownload.cancelled') }}
+        </Badge>
       </template>
 
       <template v-else-if="isRunning">

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Badge from '@/components/ui/badge/Badge.vue'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
@@ -49,11 +50,12 @@ const sizeToggleLabel = computed(() =>
         <span class="icon-[lucide--info] size-4" />
       </Button>
     </div>
-    <span
-      class="shrink-0 rounded-full border px-2 py-0.5 text-xs text-muted-foreground"
+    <Badge
+      variant="pill"
+      class="border bg-transparent text-xs text-muted-foreground"
     >
       {{ t('agent.beta') }}
-    </span>
+    </Badge>
 
     <div class="ml-auto flex items-center gap-2">
       <Button

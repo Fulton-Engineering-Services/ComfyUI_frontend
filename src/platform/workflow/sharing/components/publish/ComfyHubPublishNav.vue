@@ -28,13 +28,12 @@
           "
           @click="$emit('stepClick', step.name)"
         >
-          <StatusBadge
-            :label="step.number"
+          <Badge
             variant="circle"
             severity="contrast"
             :class="
               cn(
-                'size-5 shrink-0 border bg-transparent font-inter text-xs font-bold',
+                'size-5 border bg-transparent text-xs font-bold',
                 isCurrentStep(step.name)
                   ? 'border-foreground bg-foreground text-background'
                   : isCompletedStep(step.name)
@@ -42,7 +41,9 @@
                     : 'border-muted-foreground text-muted-foreground'
               )
             "
-          />
+          >
+            {{ step.number }}
+          </Badge>
           <span class="truncate text-sm text-foreground">
             {{ step.label }}
           </span>
@@ -67,7 +68,7 @@ import { computed } from 'vue'
 
 import { vAutoAnimate } from '@formkit/auto-animate/vue'
 
-import StatusBadge from '@/components/common/StatusBadge.vue'
+import Badge from '@/components/ui/badge/Badge.vue'
 import Button from '@/components/ui/button/Button.vue'
 import type { ComfyHubPublishStep } from '@/platform/workflow/sharing/composables/useComfyHubPublishWizard'
 import { cn } from '@comfyorg/tailwind-utils'

@@ -15,12 +15,14 @@
         >
           <div class="flex items-center gap-2">
             <span>{{ option.label }}</span>
-            <div
+            <Badge
               v-if="option.value === 'yearly'"
-              class="flex items-center rounded-full bg-primary px-2 py-0.5 text-2xs font-bold whitespace-nowrap text-white"
+              variant="pill"
+              severity="default"
+              class="font-bold"
             >
               {{ t('subscription.saveYearly') }}
-            </div>
+            </Badge>
           </div>
         </ToggleGroupItem>
       </ToggleGroup>
@@ -224,6 +226,7 @@
 </template>
 
 <script setup lang="ts">
+import Badge from '@/components/ui/badge/Badge.vue'
 import { planCtaActionName } from '@/platform/telemetry/billingActionNames'
 import { cn } from '@comfyorg/tailwind-utils'
 import { storeToRefs } from 'pinia'

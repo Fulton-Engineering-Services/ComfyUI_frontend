@@ -21,13 +21,14 @@
         <span ref="textRef" class="min-w-0 truncate">
           <slot />
         </span>
-        <StatusBadge
+        <Badge
           v-if="badge !== undefined"
-          :label="String(badge)"
           severity="contrast"
           variant="circle"
-          class="ml-auto min-h-5 min-w-5 px-1 text-background"
-        />
+          class="ml-auto min-h-5 min-w-5 px-1"
+        >
+          {{ badge }}
+        </Badge>
         <i
           v-else-if="suffixIcon"
           :class="cn('ml-auto size-4 shrink-0', suffixIcon)"
@@ -44,7 +45,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 
-import StatusBadge from '@/components/common/StatusBadge.vue'
+import Badge from '@/components/ui/badge/Badge.vue'
 import Tooltip from '@/components/ui/tooltip/Tooltip.vue'
 import TooltipContent from '@/components/ui/tooltip/TooltipContent.vue'
 import TooltipTrigger from '@/components/ui/tooltip/TooltipTrigger.vue'

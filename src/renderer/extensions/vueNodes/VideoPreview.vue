@@ -106,12 +106,12 @@
     <div class="mt-2 text-center text-muted-foreground">
       <span
         v-if="videoError"
-        class="text-red-400"
+        class="text-destructive"
         data-testid="error-loading-video"
       >
         {{ $t('g.errorLoadingVideo') }}
       </span>
-      <span v-else-if="showLoader" class="text-smoke-400">
+      <span v-else-if="showLoader" class="text-muted-foreground">
         {{ $t('g.loading') }}...
       </span>
       <span v-else>

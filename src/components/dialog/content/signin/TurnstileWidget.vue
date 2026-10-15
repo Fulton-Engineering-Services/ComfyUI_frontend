@@ -7,7 +7,7 @@
     :theme="theme"
     :expired-message="t('auth.turnstile.expired')"
     :failed-message="t('auth.turnstile.failed')"
-    error-class="text-red-500"
+    error-class="text-destructive"
     :loader="loadTurnstile"
   />
 </template>

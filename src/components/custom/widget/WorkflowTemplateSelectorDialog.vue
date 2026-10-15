@@ -154,7 +154,7 @@
       <!-- No Results State (only show when loaded and no results) -->
       <div
         v-if="!activeDetail && !isLoading && filteredTemplates.length === 0"
-        class="flex h-64 flex-col items-center justify-center px-6 text-neutral-500"
+        class="flex h-64 flex-col items-center justify-center px-6 text-muted-foreground"
       >
         <i class="mb-4 icon-[lucide--search] size-12 opacity-50" />
         <p class="mb-2 text-lg">

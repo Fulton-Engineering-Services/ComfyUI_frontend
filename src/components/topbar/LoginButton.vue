@@ -28,7 +28,7 @@
         data-testid="login-button-popover-learn-more"
         :href="apiNodesOverviewUrl"
         target="_blank"
-        class="text-neutral-500 hover:text-primary"
+        class="text-muted-foreground hover:text-primary"
         >{{ t('auth.loginButton.tooltipLearnMore') }}</a
       >
     </div>

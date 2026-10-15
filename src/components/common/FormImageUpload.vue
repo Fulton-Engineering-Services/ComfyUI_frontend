@@ -10,7 +10,7 @@
           :src="modelValue"
           class="max-h-full max-w-full object-contain"
         />
-        <i v-else class="pi pi-image text-xl text-smoke-400" />
+        <i v-else class="pi pi-image text-xl text-muted-foreground" />
       </div>
 
       <div class="flex flex-col gap-2">

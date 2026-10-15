@@ -47,7 +47,7 @@
         <span
           class="flex items-center gap-2 py-2 text-2xl font-semibold tabular-nums"
         >
-          <i class="icon-[lucide--coins] size-5 text-gold-500" />
+          <i class="icon-[lucide--coins] size-5 text-credit" />
           {{ formatNumber(creditsModel) }}
         </span>
         <div
@@ -143,7 +143,7 @@
           :format-options="{ maximumFractionDigits: 0 }"
         >
           <NumberFieldDecrement />
-          <i class="icon-[lucide--coins] size-4 shrink-0 text-gold-500" />
+          <i class="icon-[lucide--coins] size-4 shrink-0 text-credit" />
           <NumberFieldInput
             :aria-label="$t('credits.topUp.youGet')"
             class="text-lg font-medium"
@@ -157,7 +157,7 @@
 
     <p
       v-if="isBelowMin && step === 'amount'"
-      class="m-0 flex items-center justify-center gap-1 px-8 pt-4 text-center text-sm text-red-500"
+      class="m-0 flex items-center justify-center gap-1 px-8 pt-4 text-center text-sm text-destructive"
     >
       <i class="icon-[lucide--coins] size-4" />
       {{
@@ -168,7 +168,7 @@
     </p>
     <p
       v-if="showCeilingWarning && step === 'amount'"
-      class="m-0 flex items-center justify-center gap-1 px-8 pt-4 text-center text-sm text-gold-500"
+      class="m-0 flex items-center justify-center gap-1 px-8 pt-4 text-center text-sm text-warning"
     >
       <i class="icon-[lucide--coins] size-4" />
       {{

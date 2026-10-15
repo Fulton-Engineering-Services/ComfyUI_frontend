@@ -314,7 +314,7 @@ function handleSearchEnter(event: KeyboardEvent) {
         :class="
           cn(
             layoutSwitchItemStyle,
-            layoutMode === 'list' && 'bg-neutral-500/50 text-foreground'
+            layoutMode === 'list' && 'bg-muted text-foreground'
           )
         "
         @click="layoutMode = 'list'"
@@ -329,7 +329,7 @@ function handleSearchEnter(event: KeyboardEvent) {
         :class="
           cn(
             layoutSwitchItemStyle,
-            layoutMode === 'grid' && 'bg-neutral-500/50 text-foreground'
+            layoutMode === 'grid' && 'bg-muted text-foreground'
           )
         "
         @click="layoutMode = 'grid'"

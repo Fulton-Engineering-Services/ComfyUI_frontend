@@ -28,7 +28,7 @@
         <!-- Error icon for failed state -->
         <i
           v-else-if="isFailed"
-          class="icon-[lucide--circle-alert] size-8 text-red-500"
+          class="icon-[lucide--circle-alert] size-8 text-destructive"
         />
         <!-- Spinner for running without preview -->
         <Loader v-else size="md" class="text-muted-foreground" />

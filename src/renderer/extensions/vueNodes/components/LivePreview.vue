@@ -5,7 +5,7 @@
       class="flex size-full flex-col items-center justify-center text-center text-white"
     >
       <i-lucide:image-off class="mb-1 size-8 text-smoke-500" />
-      <p class="text-smoke-400">{{ $t('g.imageFailedToLoad') }}</p>
+      <p class="text-muted-foreground">{{ $t('g.imageFailedToLoad') }}</p>
     </div>
     <img
       v-else

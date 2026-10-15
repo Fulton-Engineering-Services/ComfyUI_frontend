@@ -83,7 +83,7 @@
                 <i class="icon-[comfy--extensions-blocks] size-4" />
                 <span
                   v-if="shouldShowRedDot"
-                  class="absolute top-0.5 right-1 size-2 rounded-full bg-red-500"
+                  class="absolute top-0.5 right-1 size-2 rounded-full bg-destructive"
                 />
               </Button>
               <Button

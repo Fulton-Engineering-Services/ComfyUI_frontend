@@ -228,7 +228,7 @@ const { t } = useI18n()
           :class="
             cn(
               'icon-[lucide--coins] size-3 shrink-0',
-              i === selectedIndex ? 'bg-amber-400' : 'bg-muted-foreground'
+              i === selectedIndex ? 'bg-credit' : 'bg-muted-foreground'
             )
           "
           aria-hidden="true"

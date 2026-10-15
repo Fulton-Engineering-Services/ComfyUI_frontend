@@ -1,5 +1,7 @@
 <template>
-  <div v-if="renderError" class="node-error p-1 text-xs text-red-500">⚠️</div>
+  <div v-if="renderError" class="node-error p-1 text-xs text-destructive">
+    ⚠️
+  </div>
   <Tooltip v-else :disabled="!tooltipText">
     <TooltipTrigger as-child>
       <div

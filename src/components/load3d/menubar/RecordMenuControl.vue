@@ -9,7 +9,7 @@
     :aria-label="t('load3d.menuBar.stopRecording')"
     @click="emit('stopRecording')"
   >
-    <span class="size-2 animate-pulse rounded-full bg-red-500" />
+    <span class="size-2 animate-pulse rounded-full bg-destructive" />
     <span v-if="!compact">{{ t('load3d.menuBar.recording') }}</span>
   </Button>
 

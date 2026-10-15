@@ -51,7 +51,7 @@
             >
               <i
                 aria-hidden="true"
-                class="icon-[lucide--coins] size-3 text-amber-400"
+                class="icon-[lucide--coins] size-3 text-credit"
               />
               <i
                 aria-hidden="true"
@@ -88,7 +88,7 @@
     >
       <span
         v-if="nodeDef.deprecated"
-        class="rounded-sm bg-red-500/20 px-1.5 py-0.5 text-red-400"
+        class="rounded-sm bg-destructive/20 px-1.5 py-0.5 text-destructive"
       >
         {{ $t('g.deprecated') }}
       </span>

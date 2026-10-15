@@ -1,5 +1,5 @@
 <template>
-  <div v-if="renderError" class="node-error p-4 text-red-500">
+  <div v-if="renderError" class="node-error p-4 text-destructive">
     {{ st('nodeErrors.header', 'Node Header Error') }}
   </div>
   <div

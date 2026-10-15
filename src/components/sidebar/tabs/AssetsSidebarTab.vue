@@ -230,6 +230,7 @@ import {
 import { isHdrImageFilename } from '@/utils/hdrFormatUtil'
 import { detectNodeTypeFromFilename } from '@/utils/loaderNodeUtil'
 import type { AugmentedResultItem } from '@/utils/resultItem'
+import { isResultItemType } from '@/utils/typeGuardUtil'
 
 const Load3dViewerContent = defineAsyncComponent(
   () => import('@/extensions/core/load3d/components/Load3dViewerContent.vue')
@@ -467,7 +468,11 @@ const galleryItems = computed<AugmentedResultItem[]>(() => {
     return {
       filename: asset.name,
       subfolder: getAssetSubfolder(asset),
-      type: 'output',
+      // Use the asset's own directory type (input/output/temp) instead of
+      // assuming 'output'. The media lightbox builds the VHS /viewvideo URL
+      // from this `type`; forcing 'output' made every input-tree file (the
+      // media library's videos) 204.
+      type: asset.tags.find(isResultItemType) ?? 'output',
       nodeId: '0',
       mediaType: mediaType === 'image' ? 'images' : mediaType,
       url: resolveMediaSrc(asset.preview_url)

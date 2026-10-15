@@ -5701,7 +5701,7 @@
     }
   },
   "FishAudioTextToSpeech": {
-    "description": "將文字轉換為語音。支援文字中的情緒提示（s2.1-pro 使用 [happy]、[whispering]；s1 使用 (happy)），並可透過 {'@'}Voice1/{'@'}Voice2 標籤搭配多個已連接的語音進行多說話者對話。",
+    "description": "將文字轉換為語音。支援文字中的情緒提示（s2.1-pro 上的 [happy]、[whispering]；s1 上的 (happy)）、drama-3 上的自然語言 [directions] 與 `<whisper>...</whisper>` 詞彙標籤，以及透過 {'@'}Voice1/{'@'}Voice2 標籤和多個已連接語音進行的多說話者對話。",
     "display_name": "Fish Audio 文字轉語音",
     "inputs": {
       "control_after_generate": {
@@ -8110,6 +8110,33 @@
       }
     }
   },
+  "HiggsfieldMotionTransferNode": {
+    "description": "使用參考影像中的新角色、地點或風格重新詮釋影片，同時保留其動作、鏡頭運動與時序。",
+    "display_name": "Higgsfield Genjutsu 動作轉移",
+    "inputs": {
+      "control_after_generate": {
+        "name": "生成後控制"
+      },
+      "model": {
+        "name": "模型",
+        "tooltip": "要使用的模型。"
+      },
+      "model_prompt": {
+        "name": "提示詞"
+      },
+      "model_resolution": {
+        "name": "解析度"
+      },
+      "model_seed": {
+        "name": "種子"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
   "HitPawGeneralImageEnhance": {
     "description": "將低解析度影像升級為超高解析度，消除雜訊與失真。最大輸出：32 百萬像素。",
     "display_name": "HitPaw 通用影像增強",
@@ -9263,6 +9290,28 @@
       },
       "rotation": {
         "name": "旋轉"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
+  "ImageSDRToHDR": {
+    "description": "將 sRGB 亮度擴展為 Rec.2020 HLG HDR。儲存結果時請選擇 HDR 色彩空間。會保留 Alpha 通道。",
+    "display_name": "將 SDR 轉換為 HDR",
+    "inputs": {
+      "algorithm": {
+        "name": "演算法",
+        "tooltip": "Lottes 風格的有理擴展，並與經校正的單調對數增益曲線混合。"
+      },
+      "algorithm_target_luminance": {
+        "name": "target_luminance"
+      },
+      "image": {
+        "name": "影像",
+        "tooltip": "sRGB 的 SDR 影像。"
       }
     },
     "outputs": {
@@ -12085,80 +12134,6 @@
     "inputs": {
       "latent": {
         "name": "潛在空間"
-      }
-    }
-  },
-  "LoadLoraModel": {
-    "description": "將一組 LoRA 套用至擴散模型。每個 LoRA 新增一列；每列選擇一個 LoRA 檔案及其強度。",
-    "display_name": "載入 LoRA（模型）",
-    "inputs": {
-      "loras": {
-        "name": "loras",
-        "tooltip": "每一列會對模型套用一個 LoRA。"
-      },
-      "loras_$add": {
-        "name": "新增 LoRA"
-      },
-      "loras_$notice": {
-        "name": "LoRA"
-      },
-      "loras_0": {
-        "name": "LoRA #1"
-      },
-      "loras_0_enabled": {
-        "name": "LoRA #1 已啟用"
-      },
-      "loras_0_lora_name": {
-        "name": "LoRA #1 lora_name"
-      },
-      "loras_0_strength": {
-        "name": "LoRA #1 強度"
-      },
-      "model": {
-        "name": "模型",
-        "tooltip": "LoRA 將套用至的擴散模型。"
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": "修改後的擴散模型。"
-      }
-    }
-  },
-  "LoadLoraTextEncoder": {
-    "description": "將一組 LoRA 套用至 CLIP 文字編碼器。每個 LoRA 新增一列；每列選擇一個 LoRA 檔案及其強度。",
-    "display_name": "載入 LoRA（文字編碼器）",
-    "inputs": {
-      "clip": {
-        "name": "clip",
-        "tooltip": "LoRA 將套用至的 CLIP 文字編碼器。"
-      },
-      "loras": {
-        "name": "loras",
-        "tooltip": "每一列會對文字編碼器套用一個 LoRA。"
-      },
-      "loras_$add": {
-        "name": "新增 LoRA"
-      },
-      "loras_$notice": {
-        "name": "LoRA"
-      },
-      "loras_0": {
-        "name": "LoRA #1"
-      },
-      "loras_0_enabled": {
-        "name": "LoRA #1 已啟用"
-      },
-      "loras_0_lora_name": {
-        "name": "LoRA #1 lora_name"
-      },
-      "loras_0_strength": {
-        "name": "LoRA #1 強度"
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": "修改後的 CLIP 文字編碼器。"
       }
     }
   },
@@ -19833,6 +19808,42 @@
     "outputs": {
       "0": {
         "tooltip": null
+      }
+    }
+  },
+  "ReferenceMultiLatent": {
+    "description": "編碼參考影像，並將其潛在空間附加至編輯模型的正向及可選負向條件。",
+    "display_name": "設定參考多重潛在空間",
+    "inputs": {
+      "images": {
+        "name": "影像"
+      },
+      "negative": {
+        "name": "負向"
+      },
+      "positive": {
+        "name": "正向"
+      },
+      "resolution": {
+        "name": "解析度"
+      },
+      "vae": {
+        "name": "vae",
+        "tooltip": "連接參考影像時為必填。"
+      }
+    },
+    "outputs": {
+      "0": {
+        "name": "正向",
+        "tooltip": null
+      },
+      "1": {
+        "name": "負向",
+        "tooltip": "未連接負向條件時，回傳正向輸出。"
+      },
+      "2": {
+        "name": "empty_latent",
+        "tooltip": "第一個參考潛在空間乘以 0.0。"
       }
     }
   },

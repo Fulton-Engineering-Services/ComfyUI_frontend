@@ -5701,7 +5701,7 @@
     }
   },
   "FishAudioTextToSpeech": {
-    "description": "המרת טקסט לדיבור. תומך בסימוני רגש בטקסט ([happy], [whispering] ב־s2.1-pro; (happy) ב־s1) ובדיאלוג מרובה דוברים באמצעות תגיות {'@'}Voice1/{'@'}Voice2 עם מספר קולות מחוברים.",
+    "description": "המרת טקסט לדיבור. תומך ברמזי רגש בטקסט ([happy], [whispering] ב-s2.1-pro; ‏(happy) ב-s1), ב-[directions] בשפה טבעית ובתגי מילים מסוג `<whisper>...</whisper>` ב-drama-3, ובדיאלוג מרובה דוברים באמצעות תגי {'@'}Voice1/{'@'}Voice2 עם מספר קולות מחוברים.",
     "display_name": "Fish Audio המרת טקסט לדיבור",
     "inputs": {
       "control_after_generate": {
@@ -8110,6 +8110,33 @@
       }
     }
   },
+  "HiggsfieldMotionTransferNode": {
+    "description": "יציקה מחדש של וידאו עם דמויות, מיקומים או סגנונות חדשים מתמונות עזר, תוך שמירה על התנועה, תנועת המצלמה והתזמון שלו.",
+    "display_name": "העברת תנועה Higgsfield Genjutsu",
+    "inputs": {
+      "control_after_generate": {
+        "name": "בקרה לאחר יצירה"
+      },
+      "model": {
+        "name": "מודל",
+        "tooltip": "המודל לשימוש."
+      },
+      "model_prompt": {
+        "name": "פרומפט"
+      },
+      "model_resolution": {
+        "name": "רזולוציה"
+      },
+      "model_seed": {
+        "name": "זרע"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
   "HitPawGeneralImageEnhance": {
     "description": "הגדל תמונות ברזולוציה נמוכה לסופר-רזולוציה, הסר ארטיפקטים ורעש. פלט מקסימלי: 32 מגה-פיקסל.",
     "display_name": "HitPaw שיפור תמונה כללי",
@@ -9263,6 +9290,28 @@
       },
       "rotation": {
         "name": "rotation"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
+  "ImageSDRToHDR": {
+    "description": "הרחבת בהירות sRGB ל-HDR מסוג Rec.2020 HLG. שמרו את התוצאה כאשר מרחב הצבע HDR נבחר. ערוץ האלפא נשמר.",
+    "display_name": "המרת SDR ל-HDR",
+    "inputs": {
+      "algorithm": {
+        "name": "אלגוריתם",
+        "tooltip": "הרחבה רציונלית בסגנון Lottes המשולבת עם עקומת הגבר לוגריתמית מונוטונית מכוילת."
+      },
+      "algorithm_target_luminance": {
+        "name": "target_luminance"
+      },
+      "image": {
+        "name": "תמונה",
+        "tooltip": "תמונות SDR ב-sRGB."
       }
     },
     "outputs": {
@@ -12085,80 +12134,6 @@
     "inputs": {
       "latent": {
         "name": "latent"
-      }
-    }
-  },
-  "LoadLoraModel": {
-    "description": "החלת ערימת LoRA על מודל דיפוזיה. יש להוסיף שורה אחת לכל LoRA; בכל שורה נבחרים קובץ LoRA והעוצמה שלו.",
-    "display_name": "טעינת LoRA (מודל)",
-    "inputs": {
-      "loras": {
-        "name": "LoRA",
-        "tooltip": "כל שורה מחילה LoRA אחד על המודל."
-      },
-      "loras_$add": {
-        "name": "הוספת LoRA"
-      },
-      "loras_$notice": {
-        "name": "LoRA"
-      },
-      "loras_0": {
-        "name": "LoRA #1"
-      },
-      "loras_0_enabled": {
-        "name": "LoRA #1 מופעל"
-      },
-      "loras_0_lora_name": {
-        "name": "LoRA #1 lora_name"
-      },
-      "loras_0_strength": {
-        "name": "עוצמת LoRA #1"
-      },
-      "model": {
-        "name": "מודל",
-        "tooltip": "מודל הדיפוזיה שעליו יוחלו ה-LoRA."
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": "מודל הדיפוזיה ששונה."
-      }
-    }
-  },
-  "LoadLoraTextEncoder": {
-    "description": "החלת ערימת LoRA על מקודד טקסט מסוג CLIP. יש להוסיף שורה אחת לכל LoRA; בכל שורה נבחרים קובץ LoRA והעוצמה שלו.",
-    "display_name": "טעינת LoRA (מקודד טקסט)",
-    "inputs": {
-      "clip": {
-        "name": "clip",
-        "tooltip": "מקודד הטקסט CLIP שעליו יוחלו ה-LoRA."
-      },
-      "loras": {
-        "name": "LoRA",
-        "tooltip": "כל שורה מחילה LoRA אחד על מקודד הטקסט."
-      },
-      "loras_$add": {
-        "name": "הוספת LoRA"
-      },
-      "loras_$notice": {
-        "name": "LoRA"
-      },
-      "loras_0": {
-        "name": "LoRA #1"
-      },
-      "loras_0_enabled": {
-        "name": "LoRA #1 מופעל"
-      },
-      "loras_0_lora_name": {
-        "name": "LoRA #1 lora_name"
-      },
-      "loras_0_strength": {
-        "name": "עוצמת LoRA #1"
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": "מקודד הטקסט CLIP ששונה."
       }
     }
   },
@@ -19833,6 +19808,42 @@
     "outputs": {
       "0": {
         "tooltip": null
+      }
+    }
+  },
+  "ReferenceMultiLatent": {
+    "description": "מקודד תמונות עזר ומצרף את ה-latent שלהן להתניה החיובית ולהתניה השלילית האופציונלית עבור מודלי עריכה.",
+    "display_name": "הגדרת Multi Latent לעזר",
+    "inputs": {
+      "images": {
+        "name": "תמונות"
+      },
+      "negative": {
+        "name": "שלילי"
+      },
+      "positive": {
+        "name": "חיובי"
+      },
+      "resolution": {
+        "name": "רזולוציה"
+      },
+      "vae": {
+        "name": "vae",
+        "tooltip": "נדרש כאשר תמונות עזר מחוברות."
+      }
+    },
+    "outputs": {
+      "0": {
+        "name": "חיובי",
+        "tooltip": null
+      },
+      "1": {
+        "name": "שלילי",
+        "tooltip": "מחזיר את הפלט החיובי כאשר ההתניה השלילית אינה מחוברת."
+      },
+      "2": {
+        "name": "empty_latent",
+        "tooltip": "ה-latent הראשון של תמונת העזר מוכפל ב-0.0."
       }
     }
   },

@@ -5701,7 +5701,7 @@
     }
   },
   "FishAudioTextToSpeech": {
-    "description": "تبدیل متن به گفتار. از نشانه‌های احساسی در متن ([happy]، [whispering] در s2.1-pro؛ (happy) در s1) و گفت‌وگوی چندگوینده از طریق برچسب‌های {'@'}Voice1/{'@'}Voice2 با چند صدای متصل پشتیبانی می‌کند.",
+    "description": "متن را به گفتار تبدیل می‌کند. از نشانه‌های احساسی در متن ([happy]، [whispering] در s2.1-pro؛ (happy) در s1)، [directions] به زبان طبیعی و برچسب‌های واژه‌ای `<whisper>...</whisper>` در drama-3، و گفت‌وگوی چندگوینده از طریق برچسب‌های {'@'}Voice1/{'@'}Voice2 با چند صدای متصل پشتیبانی می‌کند.",
     "display_name": "تبدیل متن به گفتار Fish Audio",
     "inputs": {
       "control_after_generate": {
@@ -8110,6 +8110,33 @@
       }
     }
   },
+  "HiggsfieldMotionTransferNode": {
+    "description": "یک ویدئو را با شخصیت‌ها، مکان‌ها یا سبک‌های جدید از تصاویر مرجع بازسازی می‌کند، در حالی که حرکت، حرکت دوربین و زمان‌بندی آن حفظ می‌شود.",
+    "display_name": "انتقال حرکت گنجوتسوی Higgsfield",
+    "inputs": {
+      "control_after_generate": {
+        "name": "کنترل پس از تولید"
+      },
+      "model": {
+        "name": "مدل",
+        "tooltip": "مدلی که استفاده می‌شود."
+      },
+      "model_prompt": {
+        "name": "پرامپت"
+      },
+      "model_resolution": {
+        "name": "رزولوشن"
+      },
+      "model_seed": {
+        "name": "بذر"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
   "HitPawGeneralImageEnhance": {
     "description": "ارتقاء تصاویر با وضوح پایین به وضوح بسیار بالا، حذف نویز و آرتیفکت‌ها. حداکثر خروجی: ۳۲ مگاپیکسل.",
     "display_name": "افزایش کیفیت تصویر عمومی HitPaw",
@@ -9263,6 +9290,28 @@
       },
       "rotation": {
         "name": "زاویه چرخش"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
+  "ImageSDRToHDR": {
+    "description": "روشنایی sRGB را به Rec.2020 HLG HDR گسترش می‌دهد. نتیجه را با انتخاب فضای رنگی HDR ذخیره کنید. آلفا حفظ می‌شود.",
+    "display_name": "تبدیل SDR به HDR",
+    "inputs": {
+      "algorithm": {
+        "name": "الگوریتم",
+        "tooltip": "بسطِ گویا به سبک Lottes که با یک منحنی لگاریتمیِ افزایش بهرهِ یکنواخت و کالیبره ترکیب شده است."
+      },
+      "algorithm_target_luminance": {
+        "name": "target_luminance"
+      },
+      "image": {
+        "name": "تصویر",
+        "tooltip": "تصویر(های) SDR در sRGB."
       }
     },
     "outputs": {
@@ -12085,80 +12134,6 @@
     "inputs": {
       "latent": {
         "name": "latent"
-      }
-    }
-  },
-  "LoadLoraModel": {
-    "description": "یک پشته از LoRAها را به یک مدل انتشار اعمال کنید. برای هر LoRA یک ردیف اضافه کنید؛ هر ردیف یک فایل LoRA و شدت آن را انتخاب می‌کند.",
-    "display_name": "بارگذاری LoRA (مدل)",
-    "inputs": {
-      "loras": {
-        "name": "LoRAها",
-        "tooltip": "هر ردیف یک LoRA را به مدل اعمال می‌کند."
-      },
-      "loras_$add": {
-        "name": "افزودن LoRA"
-      },
-      "loras_$notice": {
-        "name": "LoRA"
-      },
-      "loras_0": {
-        "name": "LoRA شمارهٔ ۱"
-      },
-      "loras_0_enabled": {
-        "name": "LoRA شمارهٔ ۱ فعال است"
-      },
-      "loras_0_lora_name": {
-        "name": "LoRA شمارهٔ ۱ lora_name"
-      },
-      "loras_0_strength": {
-        "name": "شدت LoRA شمارهٔ ۱"
-      },
-      "model": {
-        "name": "مدل",
-        "tooltip": "مدل انتشاری که LoRAها به آن اعمال خواهند شد."
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": "مدل انتشارِ تغییر‌یافته."
-      }
-    }
-  },
-  "LoadLoraTextEncoder": {
-    "description": "یک پشته از LoRAها را به یک رمزگذار متن CLIP اعمال کنید. برای هر LoRA یک ردیف اضافه کنید؛ هر ردیف یک فایل LoRA و شدت آن را انتخاب می‌کند.",
-    "display_name": "بارگذاری LoRA (رمزگذار متن)",
-    "inputs": {
-      "clip": {
-        "name": "clip",
-        "tooltip": "رمزگذار متن CLIP که LoRAها به آن اعمال خواهند شد."
-      },
-      "loras": {
-        "name": "LoRAها",
-        "tooltip": "هر ردیف یک LoRA را به رمزگذار متن اعمال می‌کند."
-      },
-      "loras_$add": {
-        "name": "افزودن LoRA"
-      },
-      "loras_$notice": {
-        "name": "LoRA"
-      },
-      "loras_0": {
-        "name": "LoRA شمارهٔ ۱"
-      },
-      "loras_0_enabled": {
-        "name": "LoRA شمارهٔ ۱ فعال است"
-      },
-      "loras_0_lora_name": {
-        "name": "LoRA شمارهٔ ۱ lora_name"
-      },
-      "loras_0_strength": {
-        "name": "شدت LoRA شمارهٔ ۱"
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": "رمزگذار متن CLIP تغییر‌یافته."
       }
     }
   },
@@ -19833,6 +19808,42 @@
     "outputs": {
       "0": {
         "tooltip": null
+      }
+    }
+  },
+  "ReferenceMultiLatent": {
+    "description": "تصاویر مرجع را کدگذاری می‌کند و latentهای آن‌ها را برای مدل‌های ویرایش به conditioning مثبت و منفیِ اختیاری اضافه می‌کند.",
+    "display_name": "تنظیم مرجع چندگانه latent",
+    "inputs": {
+      "images": {
+        "name": "تصاویر"
+      },
+      "negative": {
+        "name": "منفی"
+      },
+      "positive": {
+        "name": "مثبت"
+      },
+      "resolution": {
+        "name": "رزولوشن"
+      },
+      "vae": {
+        "name": "vae",
+        "tooltip": "هنگامی که تصاویر مرجع متصل هستند، الزامی است."
+      }
+    },
+    "outputs": {
+      "0": {
+        "name": "مثبت",
+        "tooltip": null
+      },
+      "1": {
+        "name": "منفی",
+        "tooltip": "وقتی conditioning منفی متصل نباشد، خروجی مثبت را بازمی‌گرداند."
+      },
+      "2": {
+        "name": "empty_latent",
+        "tooltip": "نخستین latent مرجع ضرب‌شده در 0.0."
       }
     }
   },

@@ -5701,7 +5701,7 @@
     }
   },
   "FishAudioTextToSpeech": {
-    "description": "Convertir du texte en parole. Prend en charge les indications d’émotion dans le texte ([happy], [whispering] sur s2.1-pro ; (happy) sur s1) et les dialogues à plusieurs locuteurs via les balises {'@'}Voice1/{'@'}Voice2 avec plusieurs voix connectées.",
+    "description": "Convertit le texte en parole. Prend en charge les indications d’émotion dans le texte ([happy], [whispering] sur s2.1-pro ; (happy) sur s1), les [directions] en langage naturel et les balises de mots `<whisper>...</whisper>` sur drama-3, ainsi que les dialogues à plusieurs locuteurs via les balises {'@'}Voice1/{'@'}Voice2 avec plusieurs voix connectées.",
     "display_name": "Synthèse vocale Fish Audio",
     "inputs": {
       "control_after_generate": {
@@ -8110,6 +8110,33 @@
       }
     }
   },
+  "HiggsfieldMotionTransferNode": {
+    "description": "Transforme une vidéo avec de nouveaux personnages, lieux ou styles à partir d’images de référence tout en conservant ses mouvements, mouvements de caméra et son rythme.",
+    "display_name": "Transfert de mouvement Genjutsu de Higgsfield",
+    "inputs": {
+      "control_after_generate": {
+        "name": "contrôle après génération"
+      },
+      "model": {
+        "name": "modèle",
+        "tooltip": "Modèle à utiliser."
+      },
+      "model_prompt": {
+        "name": "invite"
+      },
+      "model_resolution": {
+        "name": "résolution"
+      },
+      "model_seed": {
+        "name": "graine"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
   "HitPawGeneralImageEnhance": {
     "description": "Agrandissez les images basse résolution en super-résolution, éliminez les artefacts et le bruit. Sortie maximale : 32 mégapixels.",
     "display_name": "HitPaw Amélioration Générale d’Image",
@@ -9263,6 +9290,28 @@
       },
       "rotation": {
         "name": "rotation"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
+  "ImageSDRToHDR": {
+    "description": "Étend la luminosité sRGB en HDR HLG Rec.2020. Enregistrez le résultat en sélectionnant l’espace colorimétrique HDR. L’alpha est préservé.",
+    "display_name": "Convertir SDR en HDR",
+    "inputs": {
+      "algorithm": {
+        "name": "algorithme",
+        "tooltip": "Expansion rationnelle de style Lottes, combinée à une courbe logarithmique de gain monotone calibrée."
+      },
+      "algorithm_target_luminance": {
+        "name": "target_luminance"
+      },
+      "image": {
+        "name": "image",
+        "tooltip": "Image(s) SDR en sRGB."
       }
     },
     "outputs": {
@@ -12085,80 +12134,6 @@
     "inputs": {
       "latent": {
         "name": "latent"
-      }
-    }
-  },
-  "LoadLoraModel": {
-    "description": "Appliquez une pile de LoRA à un modèle de diffusion. Ajoutez une ligne par LoRA ; chaque ligne sélectionne un fichier LoRA et son intensité.",
-    "display_name": "Charger LoRA (modèle)",
-    "inputs": {
-      "loras": {
-        "name": "loras",
-        "tooltip": "Chaque ligne applique un LoRA au modèle."
-      },
-      "loras_$add": {
-        "name": "Ajouter un LoRA"
-      },
-      "loras_$notice": {
-        "name": "LoRA"
-      },
-      "loras_0": {
-        "name": "LoRA nº 1"
-      },
-      "loras_0_enabled": {
-        "name": "LoRA nº 1 activé"
-      },
-      "loras_0_lora_name": {
-        "name": "LoRA nº 1 lora_name"
-      },
-      "loras_0_strength": {
-        "name": "LoRA nº 1 intensité"
-      },
-      "model": {
-        "name": "modèle",
-        "tooltip": "Le modèle de diffusion auquel les LoRA seront appliqués."
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": "Le modèle de diffusion modifié."
-      }
-    }
-  },
-  "LoadLoraTextEncoder": {
-    "description": "Appliquez une pile de LoRA à un encodeur de texte CLIP. Ajoutez une ligne par LoRA ; chaque ligne sélectionne un fichier LoRA et son intensité.",
-    "display_name": "Charger LoRA (encodeur de texte)",
-    "inputs": {
-      "clip": {
-        "name": "clip",
-        "tooltip": "L’encodeur de texte CLIP auquel les LoRA seront appliqués."
-      },
-      "loras": {
-        "name": "loras",
-        "tooltip": "Chaque ligne applique un LoRA à l’encodeur de texte."
-      },
-      "loras_$add": {
-        "name": "Ajouter un LoRA"
-      },
-      "loras_$notice": {
-        "name": "LoRA"
-      },
-      "loras_0": {
-        "name": "LoRA nº 1"
-      },
-      "loras_0_enabled": {
-        "name": "LoRA nº 1 activé"
-      },
-      "loras_0_lora_name": {
-        "name": "LoRA nº 1 lora_name"
-      },
-      "loras_0_strength": {
-        "name": "LoRA nº 1 intensité"
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": "L’encodeur de texte CLIP modifié."
       }
     }
   },
@@ -19833,6 +19808,42 @@
     "outputs": {
       "0": {
         "tooltip": null
+      }
+    }
+  },
+  "ReferenceMultiLatent": {
+    "description": "Encode les images de référence et ajoute leurs latents au conditionnement positif et, facultativement, négatif pour les modèles d’édition.",
+    "display_name": "Définir le multi-latent de référence",
+    "inputs": {
+      "images": {
+        "name": "images"
+      },
+      "negative": {
+        "name": "négatif"
+      },
+      "positive": {
+        "name": "positif"
+      },
+      "resolution": {
+        "name": "résolution"
+      },
+      "vae": {
+        "name": "vae",
+        "tooltip": "Requis lorsque des images de référence sont connectées."
+      }
+    },
+    "outputs": {
+      "0": {
+        "name": "positif",
+        "tooltip": null
+      },
+      "1": {
+        "name": "négatif",
+        "tooltip": "Renvoie la sortie positive lorsque le conditionnement négatif n’est pas connecté."
+      },
+      "2": {
+        "name": "empty_latent",
+        "tooltip": "Premier latent de référence multiplié par 0.0."
       }
     }
   },

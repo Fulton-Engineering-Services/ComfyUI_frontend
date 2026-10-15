@@ -5701,7 +5701,7 @@
     }
   },
   "FishAudioTextToSpeech": {
-    "description": "텍스트를 음성으로 변환합니다. 텍스트의 감정 단서(s2.1-pro에서는 [happy], [whispering], s1에서는 (happy))와 여러 음성이 연결된 경우 {'@'}Voice1/{'@'}Voice2 태그를 통한 다중 화자 대화를 지원합니다.",
+    "description": "텍스트를 음성으로 변환합니다. 텍스트 내 감정 큐(s2.1-pro에서는 [happy], [whispering], s1에서는 (happy)), drama-3의 자연어 [지시문] 및 `<whisper>...</whisper>` 단어 태그, 그리고 여러 음성이 연결된 경우 {'@'}Voice1/{'@'}Voice2 태그를 통한 다중 화자 대화를 지원합니다.",
     "display_name": "Fish Audio 텍스트 음성 변환",
     "inputs": {
       "control_after_generate": {
@@ -8110,6 +8110,33 @@
       }
     }
   },
+  "HiggsfieldMotionTransferNode": {
+    "description": "참조 이미지의 새 캐릭터, 장소 또는 스타일로 비디오를 재구성하면서 모션, 카메라 움직임 및 타이밍은 유지합니다.",
+    "display_name": "Higgsfield Genjutsu 모션 전송",
+    "inputs": {
+      "control_after_generate": {
+        "name": "생성 후 제어"
+      },
+      "model": {
+        "name": "모델",
+        "tooltip": "사용할 모델입니다."
+      },
+      "model_prompt": {
+        "name": "프롬프트"
+      },
+      "model_resolution": {
+        "name": "해상도"
+      },
+      "model_seed": {
+        "name": "시드"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
   "HitPawGeneralImageEnhance": {
     "description": "저해상도 이미지를 초고해상도로 업스케일하고, 아티팩트와 노이즈를 제거합니다. 최대 출력: 32 메가픽셀.",
     "display_name": "HitPaw 일반 이미지 향상",
@@ -9263,6 +9290,28 @@
       },
       "rotation": {
         "name": "회전"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
+  "ImageSDRToHDR": {
+    "description": "sRGB 밝기를 Rec.2020 HLG HDR로 확장합니다. HDR 색 공간을 선택한 상태로 결과를 저장하세요. 알파는 유지됩니다.",
+    "display_name": "SDR을 HDR로 변환",
+    "inputs": {
+      "algorithm": {
+        "name": "알고리즘",
+        "tooltip": "보정된 단조 로그 게인 곡선과 혼합된 Lottes 스타일의 유리 확장입니다."
+      },
+      "algorithm_target_luminance": {
+        "name": "target_luminance"
+      },
+      "image": {
+        "name": "이미지",
+        "tooltip": "sRGB의 SDR 이미지입니다."
       }
     },
     "outputs": {
@@ -12085,80 +12134,6 @@
     "inputs": {
       "latent": {
         "name": "잠재 데이터"
-      }
-    }
-  },
-  "LoadLoraModel": {
-    "description": "확산 모델에 LoRA 스택을 적용합니다. LoRA마다 행을 하나씩 추가하세요. 각 행에서 LoRA 파일과 강도를 선택합니다.",
-    "display_name": "LoRA 불러오기 (모델)",
-    "inputs": {
-      "loras": {
-        "name": "LoRA",
-        "tooltip": "각 행에서 모델에 LoRA 하나를 적용합니다."
-      },
-      "loras_$add": {
-        "name": "LoRA 추가"
-      },
-      "loras_$notice": {
-        "name": "LoRA"
-      },
-      "loras_0": {
-        "name": "LoRA #1"
-      },
-      "loras_0_enabled": {
-        "name": "LoRA #1 활성화"
-      },
-      "loras_0_lora_name": {
-        "name": "LoRA #1 lora_name"
-      },
-      "loras_0_strength": {
-        "name": "LoRA #1 강도"
-      },
-      "model": {
-        "name": "모델",
-        "tooltip": "LoRA가 적용될 확산 모델입니다."
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": "수정된 확산 모델입니다."
-      }
-    }
-  },
-  "LoadLoraTextEncoder": {
-    "description": "CLIP 텍스트 인코더에 LoRA 스택을 적용합니다. LoRA마다 행을 하나씩 추가하세요. 각 행에서 LoRA 파일과 강도를 선택합니다.",
-    "display_name": "LoRA 불러오기 (텍스트 인코더)",
-    "inputs": {
-      "clip": {
-        "name": "clip",
-        "tooltip": "LoRA가 적용될 CLIP 텍스트 인코더입니다."
-      },
-      "loras": {
-        "name": "LoRA",
-        "tooltip": "각 행에서 텍스트 인코더에 LoRA 하나를 적용합니다."
-      },
-      "loras_$add": {
-        "name": "LoRA 추가"
-      },
-      "loras_$notice": {
-        "name": "LoRA"
-      },
-      "loras_0": {
-        "name": "LoRA #1"
-      },
-      "loras_0_enabled": {
-        "name": "LoRA #1 활성화"
-      },
-      "loras_0_lora_name": {
-        "name": "LoRA #1 lora_name"
-      },
-      "loras_0_strength": {
-        "name": "LoRA #1 강도"
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": "수정된 CLIP 텍스트 인코더입니다."
       }
     }
   },
@@ -19833,6 +19808,42 @@
     "outputs": {
       "0": {
         "tooltip": null
+      }
+    }
+  },
+  "ReferenceMultiLatent": {
+    "description": "참조 이미지를 인코딩하고 해당 latent를 편집 모델용 포지티브 및 선택적 네거티브 컨디셔닝에 추가합니다.",
+    "display_name": "참조 다중 latent 설정",
+    "inputs": {
+      "images": {
+        "name": "이미지"
+      },
+      "negative": {
+        "name": "네거티브"
+      },
+      "positive": {
+        "name": "포지티브"
+      },
+      "resolution": {
+        "name": "해상도"
+      },
+      "vae": {
+        "name": "vae",
+        "tooltip": "참조 이미지가 연결된 경우 필요합니다."
+      }
+    },
+    "outputs": {
+      "0": {
+        "name": "포지티브",
+        "tooltip": null
+      },
+      "1": {
+        "name": "네거티브",
+        "tooltip": "네거티브 컨디셔닝이 연결되지 않은 경우 포지티브 출력을 반환합니다."
+      },
+      "2": {
+        "name": "empty_latent",
+        "tooltip": "0.0을 곱한 첫 번째 참조 latent입니다."
       }
     }
   },

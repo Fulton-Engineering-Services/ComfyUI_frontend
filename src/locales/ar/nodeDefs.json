@@ -5701,7 +5701,7 @@
     }
   },
   "FishAudioTextToSpeech": {
-    "description": "تحويل النص إلى كلام. يدعم إشارات المشاعر في النص ([happy]، [whispering] في s2.1-pro؛ (happy) في s1) وحوارًا متعدد المتحدثين عبر وسوم {'@'}Voice1/{'@'}Voice2 مع عدة أصوات متصلة.",
+    "description": "حوّل النص إلى كلام. يدعم إشارات المشاعر في النص ([happy]، [whispering] في s2.1-pro؛ و(happy) في s1)، وتعليمات [directions] باللغة الطبيعية ووسوم الكلمات `<whisper>...</whisper>` في drama-3، وحوارًا متعدد المتحدثين عبر وسوم {'@'}Voice1/{'@'}Voice2 مع عدة أصوات متصلة.",
     "display_name": "Fish Audio تحويل النص إلى كلام",
     "inputs": {
       "control_after_generate": {
@@ -8110,6 +8110,33 @@
       }
     }
   },
+  "HiggsfieldMotionTransferNode": {
+    "description": "أعِد صياغة فيديو بشخصيات أو مواقع أو أنماط جديدة من صور مرجعية مع الحفاظ على حركته وحركة الكاميرا وتوقيته.",
+    "display_name": "نقل الحركة Higgsfield Genjutsu",
+    "inputs": {
+      "control_after_generate": {
+        "name": "التحكم بعد التوليد"
+      },
+      "model": {
+        "name": "النموذج",
+        "tooltip": "النموذج المراد استخدامه."
+      },
+      "model_prompt": {
+        "name": "الموجّه"
+      },
+      "model_resolution": {
+        "name": "الدقة"
+      },
+      "model_seed": {
+        "name": "البذرة"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
   "HitPawGeneralImageEnhance": {
     "description": "تكبير الصور منخفضة الدقة إلى دقة فائقة، إزالة الشوائب والضوضاء. الحد الأقصى للإخراج: ٣٢ ميغابيكسل.",
     "display_name": "تحسين الصورة العام من HitPaw",
@@ -9263,6 +9290,28 @@
       },
       "rotation": {
         "name": "الدوران"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
+  "ImageSDRToHDR": {
+    "description": "وسّع سطوع sRGB إلى HDR بتنسيق Rec.2020 HLG. احفظ النتيجة مع تحديد مساحة الألوان HDR. تُحفظ قناة ألفا.",
+    "display_name": "تحويل SDR إلى HDR",
+    "inputs": {
+      "algorithm": {
+        "name": "الخوارزمية",
+        "tooltip": "توسيع كسري بأسلوب Lottes ممزوج بمنحنى كسب لوغاريتمي رتيب مُعاير."
+      },
+      "algorithm_target_luminance": {
+        "name": "target_luminance"
+      },
+      "image": {
+        "name": "الصورة",
+        "tooltip": "صورة/صور SDR بتنسيق sRGB."
       }
     },
     "outputs": {
@@ -12085,80 +12134,6 @@
     "inputs": {
       "latent": {
         "name": "كامن"
-      }
-    }
-  },
-  "LoadLoraModel": {
-    "description": "طبّق حزمة من LoRAs على نموذج انتشار. أضف صفًا واحدًا لكل LoRA؛ يختار كل صف ملف LoRA وقوته.",
-    "display_name": "تحميل LoRA (النموذج)",
-    "inputs": {
-      "loras": {
-        "name": "LoRAs",
-        "tooltip": "يطبّق كل صف LoRA واحدًا على النموذج."
-      },
-      "loras_$add": {
-        "name": "إضافة LoRA"
-      },
-      "loras_$notice": {
-        "name": "LoRA"
-      },
-      "loras_0": {
-        "name": "LoRA #1"
-      },
-      "loras_0_enabled": {
-        "name": "LoRA #1 مفعّل"
-      },
-      "loras_0_lora_name": {
-        "name": "LoRA #1 lora_name"
-      },
-      "loras_0_strength": {
-        "name": "قوة LoRA #1"
-      },
-      "model": {
-        "name": "النموذج",
-        "tooltip": "نموذج الانتشار الذي ستُطبّق عليه LoRAs."
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": "نموذج الانتشار المعدّل."
-      }
-    }
-  },
-  "LoadLoraTextEncoder": {
-    "description": "طبّق حزمة من LoRAs على مشفّر نص clip. أضف صفًا واحدًا لكل LoRA؛ يختار كل صف ملف LoRA وقوته.",
-    "display_name": "تحميل LoRA (مشفّر النص)",
-    "inputs": {
-      "clip": {
-        "name": "clip",
-        "tooltip": "مشفّر النص clip الذي ستُطبّق عليه LoRAs."
-      },
-      "loras": {
-        "name": "LoRAs",
-        "tooltip": "يطبّق كل صف LoRA واحدًا على مشفّر النص."
-      },
-      "loras_$add": {
-        "name": "إضافة LoRA"
-      },
-      "loras_$notice": {
-        "name": "LoRA"
-      },
-      "loras_0": {
-        "name": "LoRA #1"
-      },
-      "loras_0_enabled": {
-        "name": "LoRA #1 مفعّل"
-      },
-      "loras_0_lora_name": {
-        "name": "LoRA #1 lora_name"
-      },
-      "loras_0_strength": {
-        "name": "قوة LoRA #1"
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": "مشفّر النص CLIP المعدّل."
       }
     }
   },
@@ -19833,6 +19808,42 @@
     "outputs": {
       "0": {
         "tooltip": null
+      }
+    }
+  },
+  "ReferenceMultiLatent": {
+    "description": "يُرمّز الصور المرجعية ويُلحق تمثيلاتها الكامنة بالتكييف الإيجابي والسلبي الاختياري لنماذج التحرير.",
+    "display_name": "تعيين latent مرجعي متعدد",
+    "inputs": {
+      "images": {
+        "name": "الصور"
+      },
+      "negative": {
+        "name": "سلبي"
+      },
+      "positive": {
+        "name": "إيجابي"
+      },
+      "resolution": {
+        "name": "الدقة"
+      },
+      "vae": {
+        "name": "vae",
+        "tooltip": "مطلوب عند توصيل الصور المرجعية."
+      }
+    },
+    "outputs": {
+      "0": {
+        "name": "إيجابي",
+        "tooltip": null
+      },
+      "1": {
+        "name": "سلبي",
+        "tooltip": "يعيد المخرج الإيجابي عندما لا يكون التكييف السلبي متصلًا."
+      },
+      "2": {
+        "name": "empty_latent",
+        "tooltip": "أول latent مرجعي مضروب في 0.0."
       }
     }
   },

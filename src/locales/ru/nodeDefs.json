@@ -5701,7 +5701,7 @@
     }
   },
   "FishAudioTextToSpeech": {
-    "description": "Преобразует текст в речь. Поддерживает указания эмоций в тексте ([happy], [whispering] в s2.1-pro; (happy) в s1) и диалоги с несколькими говорящими через теги {'@'}Voice1/{'@'}Voice2 при подключении нескольких голосов.",
+    "description": "Преобразует текст в речь. Поддерживает эмоциональные подсказки в тексте ([happy], [whispering] в s2.1-pro; (happy) в s1), [directions], заданные обычным языком, и теги слов `<whisper>...</whisper>` в drama-3, а также многоголосые диалоги с помощью тегов {'@'}Voice1/{'@'}Voice2 при подключении нескольких голосов.",
     "display_name": "Fish Audio: текст в речь",
     "inputs": {
       "control_after_generate": {
@@ -8110,6 +8110,33 @@
       }
     }
   },
+  "HiggsfieldMotionTransferNode": {
+    "description": "Преобразует видео, добавляя новых персонажей, локации или стили из эталонных изображений, сохраняя движение, движение камеры и тайминг.",
+    "display_name": "Higgsfield Genjutsu — перенос движения",
+    "inputs": {
+      "control_after_generate": {
+        "name": "управление после генерации"
+      },
+      "model": {
+        "name": "модель",
+        "tooltip": "Модель для использования."
+      },
+      "model_prompt": {
+        "name": "запрос"
+      },
+      "model_resolution": {
+        "name": "разрешение"
+      },
+      "model_seed": {
+        "name": "сид"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
   "HitPawGeneralImageEnhance": {
     "description": "Увеличение разрешения низкокачественных изображений до сверхвысокого, устранение артефактов и шума. Максимальный выход: 32 мегапикселя.",
     "display_name": "HitPaw General Image Enhance",
@@ -9263,6 +9290,28 @@
       },
       "rotation": {
         "name": "вращение"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
+  "ImageSDRToHDR": {
+    "description": "Расширяет яркость sRGB до HDR Rec.2020 HLG. Сохраните результат с выбранным цветовым пространством HDR. Альфа-канал сохраняется.",
+    "display_name": "Преобразовать SDR в HDR",
+    "inputs": {
+      "algorithm": {
+        "name": "алгоритм",
+        "tooltip": "Рациональное расширение в стиле Lottes, смешанное с калиброванной монотонной кривой логарифмического усиления."
+      },
+      "algorithm_target_luminance": {
+        "name": "target_luminance"
+      },
+      "image": {
+        "name": "изображение",
+        "tooltip": "SDR-изображение(-я) в sRGB."
       }
     },
     "outputs": {
@@ -12085,80 +12134,6 @@
     "inputs": {
       "latent": {
         "name": "скрытый"
-      }
-    }
-  },
-  "LoadLoraModel": {
-    "description": "Применяет набор LoRA к диффузионной модели. Добавьте по одной строке для каждой LoRA; в каждой строке выберите файл LoRA и её силу.",
-    "display_name": "Загрузить LoRA (модель)",
-    "inputs": {
-      "loras": {
-        "name": "loras",
-        "tooltip": "Каждая строка применяет одну LoRA к модели."
-      },
-      "loras_$add": {
-        "name": "Добавить LoRA"
-      },
-      "loras_$notice": {
-        "name": "LoRA"
-      },
-      "loras_0": {
-        "name": "LoRA #1"
-      },
-      "loras_0_enabled": {
-        "name": "LoRA #1 включена"
-      },
-      "loras_0_lora_name": {
-        "name": "LoRA #1 lora_name"
-      },
-      "loras_0_strength": {
-        "name": "LoRA #1 сила"
-      },
-      "model": {
-        "name": "модель",
-        "tooltip": "Диффузионная модель, к которой будут применены LoRA."
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": "Изменённая диффузионная модель."
-      }
-    }
-  },
-  "LoadLoraTextEncoder": {
-    "description": "Применяет набор LoRA к текстовому кодировщику CLIP. Добавьте по одной строке для каждой LoRA; в каждой строке выберите файл LoRA и её силу.",
-    "display_name": "Загрузить LoRA (текстовый кодировщик)",
-    "inputs": {
-      "clip": {
-        "name": "clip",
-        "tooltip": "Текстовый кодировщик CLIP, к которому будут применены LoRA."
-      },
-      "loras": {
-        "name": "loras",
-        "tooltip": "Каждая строка применяет одну LoRA к текстовому кодировщику."
-      },
-      "loras_$add": {
-        "name": "Добавить LoRA"
-      },
-      "loras_$notice": {
-        "name": "LoRA"
-      },
-      "loras_0": {
-        "name": "LoRA #1"
-      },
-      "loras_0_enabled": {
-        "name": "LoRA #1 включена"
-      },
-      "loras_0_lora_name": {
-        "name": "LoRA #1 lora_name"
-      },
-      "loras_0_strength": {
-        "name": "LoRA #1 сила"
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": "Изменённый текстовый кодировщик CLIP."
       }
     }
   },
@@ -19833,6 +19808,42 @@
     "outputs": {
       "0": {
         "tooltip": null
+      }
+    }
+  },
+  "ReferenceMultiLatent": {
+    "description": "Кодирует эталонные изображения и добавляет их латенты к позитивному и необязательному негативному кондиционированию для моделей редактирования.",
+    "display_name": "Задать эталонный Multi Latent",
+    "inputs": {
+      "images": {
+        "name": "изображения"
+      },
+      "negative": {
+        "name": "негативный"
+      },
+      "positive": {
+        "name": "позитивный"
+      },
+      "resolution": {
+        "name": "разрешение"
+      },
+      "vae": {
+        "name": "vae",
+        "tooltip": "Требуется при подключении эталонных изображений."
+      }
+    },
+    "outputs": {
+      "0": {
+        "name": "позитивный",
+        "tooltip": null
+      },
+      "1": {
+        "name": "негативный",
+        "tooltip": "Возвращает позитивный выход, если негативное кондиционирование не подключено."
+      },
+      "2": {
+        "name": "empty_latent",
+        "tooltip": "Первый эталонный latent, умноженный на 0.0."
       }
     }
   },

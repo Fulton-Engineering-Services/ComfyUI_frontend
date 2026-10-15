@@ -5702,7 +5702,7 @@
   },
   "FishAudioTextToSpeech": {
     "display_name": "Fish Audio Text to Speech",
-    "description": "Convert text to speech. Supports emotion cues in the text ([happy], [whispering] on s2.1-pro; (happy) on s1) and multi-speaker dialogue via {'@'}Voice1/{'@'}Voice2 tags with multiple connected voices.",
+    "description": "Convert text to speech. Supports emotion cues in the text ([happy], [whispering] on s2.1-pro; (happy) on s1), plain-language [directions] and `<whisper>...</whisper>` word tags on drama-3, and multi-speaker dialogue via {'@'}Voice1/{'@'}Voice2 tags with multiple connected voices.",
     "inputs": {
       "text": {
         "name": "text",
@@ -8110,6 +8110,33 @@
       }
     }
   },
+  "HiggsfieldMotionTransferNode": {
+    "display_name": "Higgsfield Genjutsu Motion Transfer",
+    "description": "Recast a video with new characters, locations or styles from reference images while keeping its motion, camera movement and timing.",
+    "inputs": {
+      "model": {
+        "name": "model",
+        "tooltip": "Model to use."
+      },
+      "control_after_generate": {
+        "name": "control after generate"
+      },
+      "model_prompt": {
+        "name": "prompt"
+      },
+      "model_resolution": {
+        "name": "resolution"
+      },
+      "model_seed": {
+        "name": "seed"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
   "HitPawGeneralImageEnhance": {
     "display_name": "HitPaw General Image Enhance",
     "description": "Upscale low-resolution images to super-resolution, eliminate artifacts and noise. Maximum output: 32 megapixels.",
@@ -9338,6 +9365,28 @@
       },
       "resolution_steps": {
         "name": "resolution_steps"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
+  "ImageSDRToHDR": {
+    "display_name": "Convert SDR to HDR",
+    "description": "Expand sRGB brightness into Rec.2020 HLG HDR. Save the result with the HDR color space selected. Alpha is preserved.",
+    "inputs": {
+      "image": {
+        "name": "image",
+        "tooltip": "SDR image(s) in sRGB."
+      },
+      "algorithm": {
+        "name": "algorithm",
+        "tooltip": "Lottes-style rational expansion blended with a calibrated monotonic log-gain curve."
+      },
+      "algorithm_target_luminance": {
+        "name": "target_luminance"
       }
     },
     "outputs": {
@@ -11301,80 +11350,6 @@
     "inputs": {
       "latent": {
         "name": "latent"
-      }
-    }
-  },
-  "LoadLoraModel": {
-    "display_name": "Load LoRA (Model)",
-    "description": "Apply a stack of LoRAs to a diffusion model. Add one row per LoRA; each row picks a LoRA file and its strength.",
-    "inputs": {
-      "model": {
-        "name": "model",
-        "tooltip": "The diffusion model the LoRAs will be applied to."
-      },
-      "loras": {
-        "name": "loras",
-        "tooltip": "Each row applies one LoRA to the model."
-      },
-      "loras_$add": {
-        "name": "Add LoRA"
-      },
-      "loras_$notice": {
-        "name": "LoRA"
-      },
-      "loras_0": {
-        "name": "LoRA #1"
-      },
-      "loras_0_enabled": {
-        "name": "LoRA #1 enabled"
-      },
-      "loras_0_lora_name": {
-        "name": "LoRA #1 lora_name"
-      },
-      "loras_0_strength": {
-        "name": "LoRA #1 strength"
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": "The modified diffusion model."
-      }
-    }
-  },
-  "LoadLoraTextEncoder": {
-    "display_name": "Load LoRA (Text Encoder)",
-    "description": "Apply a stack of LoRAs to a CLIP text encoder. Add one row per LoRA; each row picks a LoRA file and its strength.",
-    "inputs": {
-      "clip": {
-        "name": "clip",
-        "tooltip": "The CLIP text encoder the LoRAs will be applied to."
-      },
-      "loras": {
-        "name": "loras",
-        "tooltip": "Each row applies one LoRA to the text encoder."
-      },
-      "loras_$add": {
-        "name": "Add LoRA"
-      },
-      "loras_$notice": {
-        "name": "LoRA"
-      },
-      "loras_0": {
-        "name": "LoRA #1"
-      },
-      "loras_0_enabled": {
-        "name": "LoRA #1 enabled"
-      },
-      "loras_0_lora_name": {
-        "name": "LoRA #1 lora_name"
-      },
-      "loras_0_strength": {
-        "name": "LoRA #1 strength"
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": "The modified CLIP text encoder."
       }
     }
   },
@@ -19805,6 +19780,42 @@
     "outputs": {
       "0": {
         "tooltip": null
+      }
+    }
+  },
+  "ReferenceMultiLatent": {
+    "display_name": "Set Reference Multi Latent",
+    "description": "Encodes reference images and appends their latents to positive and optional negative conditioning for edit models.",
+    "inputs": {
+      "positive": {
+        "name": "positive"
+      },
+      "resolution": {
+        "name": "resolution"
+      },
+      "negative": {
+        "name": "negative"
+      },
+      "vae": {
+        "name": "vae",
+        "tooltip": "Required when reference images are connected."
+      },
+      "images": {
+        "name": "images"
+      }
+    },
+    "outputs": {
+      "0": {
+        "name": "positive",
+        "tooltip": null
+      },
+      "1": {
+        "name": "negative",
+        "tooltip": "Returns the positive output when negative conditioning is not connected."
+      },
+      "2": {
+        "name": "empty_latent",
+        "tooltip": "First reference latent multiplied by 0.0."
       }
     }
   },

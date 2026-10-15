@@ -5701,7 +5701,7 @@
     }
   },
   "FishAudioTextToSpeech": {
-    "description": "Metni konuşmaya dönüştürür. Metindeki duygu ipuçlarını ([happy], [whispering] s2.1-pro'da; (happy) s1'de) ve birden çok bağlı sesle {'@'}Voice1/{'@'}Voice2 etiketleri aracılığıyla çok konuşmacılı diyaloğu destekler.",
+    "description": "Metni konuşmaya dönüştürür. Metindeki duygu ipuçlarını (s2.1-pro'da [happy], [whispering]; s1'de (happy)), drama-3'te yalın dildeki [yönergeleri] ve `<whisper>...</whisper>` sözcük etiketlerini, ayrıca birden çok bağlı sesle {'@'}Voice1/{'@'}Voice2 etiketleri aracılığıyla çok konuşmacılı diyaloğu destekler.",
     "display_name": "Fish Audio Metinden Konuşmaya",
     "inputs": {
       "control_after_generate": {
@@ -8110,6 +8110,33 @@
       }
     }
   },
+  "HiggsfieldMotionTransferNode": {
+    "description": "Hareketini, kamera hareketini ve zamanlamasını korurken bir videoyu referans görüntülerdeki yeni karakterler, konumlar veya stillerle yeniden oluşturur.",
+    "display_name": "Higgsfield Genjutsu Hareket Aktarımı",
+    "inputs": {
+      "control_after_generate": {
+        "name": "üretim sonrası kontrol"
+      },
+      "model": {
+        "name": "model",
+        "tooltip": "Kullanılacak model."
+      },
+      "model_prompt": {
+        "name": "istem"
+      },
+      "model_resolution": {
+        "name": "çözünürlük"
+      },
+      "model_seed": {
+        "name": "tohum"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
   "HitPawGeneralImageEnhance": {
     "description": "Düşük çözünürlüklü görüntüleri süper çözünürlüğe yükseltin, bozulmaları ve gürültüyü ortadan kaldırın. Maksimum çıktı: 32 megapiksel.",
     "display_name": "HitPaw Genel Görüntü İyileştirme",
@@ -9263,6 +9290,28 @@
       },
       "rotation": {
         "name": "döndürme"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
+  "ImageSDRToHDR": {
+    "description": "sRGB parlaklığını Rec.2020 HLG HDR'ye genişletir. Sonucu HDR renk uzayı seçiliyken kaydedin. Alfa korunur.",
+    "display_name": "SDR'yi HDR'ye Dönüştür",
+    "inputs": {
+      "algorithm": {
+        "name": "algoritma",
+        "tooltip": "Kalibre edilmiş monotonik bir log-kazanç eğrisiyle harmanlanmış, Lottes tarzı rasyonel genişletme."
+      },
+      "algorithm_target_luminance": {
+        "name": "target_luminance"
+      },
+      "image": {
+        "name": "görüntü",
+        "tooltip": "sRGB biçimindeki SDR görüntüleri."
       }
     },
     "outputs": {
@@ -12085,80 +12134,6 @@
     "inputs": {
       "latent": {
         "name": "gizli"
-      }
-    }
-  },
-  "LoadLoraModel": {
-    "description": "Bir difüzyon modeline bir LoRA yığını uygular. Her LoRA için bir satır ekleyin; her satır bir LoRA dosyası ve gücünü seçer.",
-    "display_name": "LoRA Yükle (Model)",
-    "inputs": {
-      "loras": {
-        "name": "loras",
-        "tooltip": "Her satır modele bir LoRA uygular."
-      },
-      "loras_$add": {
-        "name": "LoRA Ekle"
-      },
-      "loras_$notice": {
-        "name": "LoRA"
-      },
-      "loras_0": {
-        "name": "LoRA #1"
-      },
-      "loras_0_enabled": {
-        "name": "LoRA #1 etkin"
-      },
-      "loras_0_lora_name": {
-        "name": "LoRA #1 lora_name"
-      },
-      "loras_0_strength": {
-        "name": "LoRA #1 güç"
-      },
-      "model": {
-        "name": "model",
-        "tooltip": "LoRA'ların uygulanacağı difüzyon modeli."
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": "Değiştirilmiş difüzyon modeli."
-      }
-    }
-  },
-  "LoadLoraTextEncoder": {
-    "description": "Bir CLIP metin kodlayıcısına bir LoRA yığını uygular. Her LoRA için bir satır ekleyin; her satır bir LoRA dosyası ve gücünü seçer.",
-    "display_name": "LoRA Yükle (Metin Kodlayıcı)",
-    "inputs": {
-      "clip": {
-        "name": "clip",
-        "tooltip": "LoRA'ların uygulanacağı CLIP metin kodlayıcısı."
-      },
-      "loras": {
-        "name": "loras",
-        "tooltip": "Her satır metin kodlayıcısına bir LoRA uygular."
-      },
-      "loras_$add": {
-        "name": "LoRA Ekle"
-      },
-      "loras_$notice": {
-        "name": "LoRA"
-      },
-      "loras_0": {
-        "name": "LoRA #1"
-      },
-      "loras_0_enabled": {
-        "name": "LoRA #1 etkin"
-      },
-      "loras_0_lora_name": {
-        "name": "LoRA #1 lora_name"
-      },
-      "loras_0_strength": {
-        "name": "LoRA #1 güç"
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": "Değiştirilmiş CLIP metin kodlayıcısı."
       }
     }
   },
@@ -19833,6 +19808,42 @@
     "outputs": {
       "0": {
         "tooltip": null
+      }
+    }
+  },
+  "ReferenceMultiLatent": {
+    "description": "Referans görüntülerini kodlar ve latentlerini düzenleme modelleri için pozitif ve isteğe bağlı negatif koşullandırmaya ekler.",
+    "display_name": "Referans Çoklu Latent Ayarla",
+    "inputs": {
+      "images": {
+        "name": "görüntüler"
+      },
+      "negative": {
+        "name": "negatif"
+      },
+      "positive": {
+        "name": "pozitif"
+      },
+      "resolution": {
+        "name": "çözünürlük"
+      },
+      "vae": {
+        "name": "vae",
+        "tooltip": "Referans görüntüleri bağlı olduğunda gereklidir."
+      }
+    },
+    "outputs": {
+      "0": {
+        "name": "pozitif",
+        "tooltip": null
+      },
+      "1": {
+        "name": "negatif",
+        "tooltip": "Negatif koşullandırma bağlı olmadığında pozitif çıktıyı döndürür."
+      },
+      "2": {
+        "name": "empty_latent",
+        "tooltip": "0.0 ile çarpılmış ilk referans latent'i."
       }
     }
   },

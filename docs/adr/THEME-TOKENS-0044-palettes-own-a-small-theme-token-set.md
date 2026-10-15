@@ -43,14 +43,14 @@ The other nine fall back when a palette leaves them out:
 | `node-header`     | `secondary`        |
 | `node-border`     | `border`           |
 | `warning`         | the base theme     |
-| `node-shadow`     | the base theme     |
+| `shadow-color`    | the base theme     |
 
 The base theme is `dark.json` or `light.json`, picked by the palette's
 `light_theme` flag. `warning-foreground`, `success`, `credit` and `bypass` are
 constants in `@theme`, not palette values.
 
-The names follow shadcn/ui. Two differences matter when importing a tweakcn
-theme: `ring` marks selection here, not focus, and there are no
+The names follow shadcn/ui, and `ring` is the focus color as it is there. One
+difference matters when importing a tweakcn theme: there are no
 `*-foreground` pairs for the surfaces. The node layer exists because graph
 nodes sit on the canvas and need their own contrast.
 
@@ -65,16 +65,22 @@ nodes sit on the canvas and need their own contrast.
   `primary/90`, `border/50`) or `accent` and `muted`. They do not get tokens of
   their own.
 - `error` and `danger-*` fold into `destructive`.
+- Shadows come from one scale. Tailwind's `shadow-2xs` to `shadow-2xl` and
+  `drop-shadow-xs` to `drop-shadow-lg` all draw in `shadow-color`, so a
+  palette changes every shadow with one value.
 - The base layer sets `border-color` to `border`. Add a border color class
   only for a border that differs from it.
 - Text color and size go on the element that owns them (`body`, the node root,
-  widget hosts) and inherit. Tailwind preflight stays off, so form controls
-  set their own, and the `Button`, `Input`, `Textarea` and `TabsTrigger`
-  primitives set Inter.
-- The old palette variables live in `_legacy-palette.css`. Six renamed
-  variables that custom nodes use stay in `_deprecated-aliases.css`. Both are
-  separate imports so they can be deleted on their own. Custom nodes read every
-  legacy variable, so neither file can go yet.
+  widget hosts) and inherit. Tailwind preflight stays off, but the base layer
+  copies its form-control rule (`font`, `letter-spacing` and `color` inherit
+  on `button`, `input`, `select`, `optgroup` and `textarea`), so controls
+  inherit too. Delete that rule when preflight lands.
+- The old palette variables live in `_legacy-palette.css` as aliases of the
+  theme tokens (`--comfy-menu-bg: var(--background)` and so on). Core
+  palettes no longer write them; non-core palettes still write their own
+  `comfy_base` values. Nothing in the app reads them, but custom nodes read
+  every one, so the file stays. Six renamed variables stay in
+  `_deprecated-aliases.css` for the same reason.
 
 ## Consequences
 

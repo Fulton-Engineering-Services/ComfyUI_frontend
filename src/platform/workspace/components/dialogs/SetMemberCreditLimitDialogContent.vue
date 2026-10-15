@@ -9,7 +9,7 @@
         }}
       </h2>
       <button
-        class="cursor-pointer rounded-sm border-none bg-transparent p-1 text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-1 focus-visible:ring-border focus-visible:outline-none"
+        class="cursor-pointer rounded-sm border-none bg-transparent p-1 text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none"
         :aria-label="$t('g.close')"
         @click="onClose"
       >
@@ -34,7 +34,7 @@
             type="radio"
             :name="modeGroupName"
             value="limited"
-            class="mt-0.5 size-4 appearance-none rounded-full border border-muted checked:border-3 checked:bg-white focus-visible:ring-2 focus-visible:ring-border focus-visible:outline-none"
+            class="mt-0.5 size-4 appearance-none rounded-full border border-muted checked:border-3 checked:bg-white focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
           />
           <span class="flex flex-1 flex-col gap-2">
             <label :for="`${modeGroupName}-limited`">
@@ -66,7 +66,7 @@
             type="radio"
             :name="modeGroupName"
             value="unlimited"
-            class="size-4 appearance-none rounded-full border border-muted checked:border-3 checked:bg-white focus-visible:ring-2 focus-visible:ring-border focus-visible:outline-none"
+            class="size-4 appearance-none rounded-full border border-muted checked:border-3 checked:bg-white focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
           />
           <label :for="`${modeGroupName}-unlimited`">
             {{ $t('workspacePanel.members.creditLimitDialog.noLimit') }}

@@ -14,7 +14,7 @@
         }}
       </h2>
       <button
-        class="-m-1 cursor-pointer rounded-sm border-none bg-transparent p-1 text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-1 focus-visible:ring-border focus-visible:outline-none"
+        class="-m-1 cursor-pointer rounded-sm border-none bg-transparent p-1 text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none"
         :aria-label="$t('g.close')"
         @click="onCancel"
       >

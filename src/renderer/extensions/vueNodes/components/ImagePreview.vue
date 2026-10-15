@@ -273,7 +273,7 @@ const { hasMultipleOutputs, showOutputsExportDialog } = useNodeOutputsExport()
 const toast = useToast()
 
 const actionButtonClass =
-  'flex h-8 min-h-8 cursor-pointer items-center justify-center rounded-lg border-0 bg-foreground p-2 text-background shadow-interface transition-colors duration-200 hover:bg-foreground/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2'
+  'flex h-8 min-h-8 cursor-pointer items-center justify-center rounded-lg border-0 bg-foreground p-2 text-background shadow-interface transition-colors duration-200 hover:bg-foreground/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2'
 
 type ViewMode = 'gallery' | 'grid'
 

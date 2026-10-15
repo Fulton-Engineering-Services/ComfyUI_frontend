@@ -111,7 +111,7 @@ function onInteractOutside(event: Event): void {
         aria-haspopup="dialog"
         :aria-expanded="open"
         :aria-controls="open ? contentId : undefined"
-        class="relative flex size-full cursor-pointer items-center justify-center overflow-hidden rounded-md hover:bg-accent focus-visible:ring-1 focus-visible:ring-border focus-visible:outline-none"
+        class="relative flex size-full cursor-pointer items-center justify-center overflow-hidden rounded-md hover:bg-accent focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none"
         @click="activate"
       >
         <slot />

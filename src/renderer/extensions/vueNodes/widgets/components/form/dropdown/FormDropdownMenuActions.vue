@@ -115,7 +115,7 @@ function handleSearchEnter(event: KeyboardEvent) {
       :class="
         cn(
           actionButtonStyle,
-          'hover:outline-ring/80',
+          'hover:outline-muted-foreground/80',
           'focus-within:ring-0 focus-within:outline-ring/80'
         )
       "
@@ -138,13 +138,16 @@ function handleSearchEnter(event: KeyboardEvent) {
       variant="textonly"
       size="icon"
       :class="
-        cn(actionButtonStyle, 'relative w-8 hover:outline-ring active:scale-95')
+        cn(
+          actionButtonStyle,
+          'relative w-8 hover:outline-muted-foreground active:scale-95'
+        )
       "
       @click="toggleSortPopover"
     >
       <div
         v-if="sortSelected !== 'default'"
-        class="absolute top-[-2px] left-[-2px] size-2 rounded-full bg-ring"
+        class="absolute top-[-2px] left-[-2px] size-2 rounded-full bg-muted-foreground"
       />
       <i class="icon-[lucide--arrow-up-down] size-4" />
     </Button>
@@ -191,13 +194,16 @@ function handleSearchEnter(event: KeyboardEvent) {
       variant="textonly"
       size="icon"
       :class="
-        cn(actionButtonStyle, 'relative w-8 hover:outline-ring active:scale-95')
+        cn(
+          actionButtonStyle,
+          'relative w-8 hover:outline-muted-foreground active:scale-95'
+        )
       "
       @click="toggleOwnershipPopover"
     >
       <div
         v-if="ownershipSelected !== 'all'"
-        class="absolute top-[-2px] left-[-2px] size-2 rounded-full bg-ring"
+        class="absolute top-[-2px] left-[-2px] size-2 rounded-full bg-muted-foreground"
       />
       <i class="icon-[lucide--user] size-4" />
     </Button>
@@ -244,13 +250,16 @@ function handleSearchEnter(event: KeyboardEvent) {
       variant="textonly"
       size="icon"
       :class="
-        cn(actionButtonStyle, 'relative w-8 hover:outline-ring active:scale-95')
+        cn(
+          actionButtonStyle,
+          'relative w-8 hover:outline-muted-foreground active:scale-95'
+        )
       "
       @click="toggleBaseModelPopover"
     >
       <div
         v-if="baseModelSelected.size > 0"
-        class="absolute top-[-2px] left-[-2px] size-2 rounded-full bg-ring"
+        class="absolute top-[-2px] left-[-2px] size-2 rounded-full bg-muted-foreground"
       />
       <i class="icon-[comfy--ai-model] size-4" />
     </Button>
@@ -302,7 +311,7 @@ function handleSearchEnter(event: KeyboardEvent) {
       :class="
         cn(
           actionButtonStyle,
-          'flex items-center justify-center gap-1 p-1 hover:outline-ring'
+          'flex items-center justify-center gap-1 p-1 hover:outline-muted-foreground'
         )
       "
     >

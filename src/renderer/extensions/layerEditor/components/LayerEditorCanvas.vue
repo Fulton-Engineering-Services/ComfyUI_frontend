@@ -3,7 +3,7 @@
     ref="viewportRef"
     tabindex="0"
     data-testid="layer-editor-viewport"
-    class="relative min-h-0 min-w-0 flex-1 touch-none overflow-hidden bg-background outline-none focus-visible:ring-1 focus-visible:ring-border"
+    class="relative min-h-0 min-w-0 flex-1 touch-none overflow-hidden bg-background outline-none focus-visible:ring-1 focus-visible:ring-ring"
     :style="{ cursor: viewportCursor }"
     @pointerdown="session.onPointerDown"
     @pointermove="session.onPointerMove"

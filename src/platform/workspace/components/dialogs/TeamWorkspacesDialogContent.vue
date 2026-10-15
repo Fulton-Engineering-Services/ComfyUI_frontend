@@ -23,7 +23,7 @@
         </p>
       </div>
       <button
-        class="-mt-1 cursor-pointer rounded-sm border-none bg-transparent p-2 text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-1 focus-visible:ring-border focus-visible:outline-none"
+        class="-mt-1 cursor-pointer rounded-sm border-none bg-transparent p-2 text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none"
         :aria-label="$t('g.close')"
         @click="onCancel"
       >
@@ -46,7 +46,7 @@
       >
         <li v-for="workspace in ownedTeamWorkspaces" :key="workspace.id">
           <button
-            class="flex w-full cursor-pointer items-center gap-3 rounded-lg border bg-transparent px-4 py-3 transition-colors hover:bg-accent focus-visible:ring-1 focus-visible:ring-border focus-visible:outline-none"
+            class="flex w-full cursor-pointer items-center gap-3 rounded-lg border bg-transparent px-4 py-3 transition-colors hover:bg-accent focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none"
             @click="handleSwitch(workspace.id)"
           >
             <WorkspaceProfilePic
@@ -97,7 +97,7 @@
           id="workspace-name-input"
           v-model="workspaceName"
           type="text"
-          class="w-full rounded-lg border bg-transparent px-3 py-2 text-sm placeholder:text-muted-foreground focus:ring-1 focus:ring-border focus:outline-none"
+          class="w-full rounded-lg border bg-transparent px-3 py-2 text-sm placeholder:text-muted-foreground focus:ring-1 focus:ring-ring focus:outline-none"
           :placeholder="$t('teamWorkspacesDialog.namePlaceholder')"
           :aria-invalid="workspaceName.length > 0 && !isValidName"
           :aria-describedby="

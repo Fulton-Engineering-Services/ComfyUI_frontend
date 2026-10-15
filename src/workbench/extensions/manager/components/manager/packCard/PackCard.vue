@@ -3,7 +3,7 @@
     :class="
       cn(
         'flex size-full cursor-pointer flex-col overflow-hidden rounded-lg bg-secondary transition-colors duration-200 select-none',
-        isSelected ? 'ring-3 ring-ring' : 'hover:bg-accent',
+        isSelected ? 'ring-3 ring-muted-foreground' : 'hover:bg-accent',
         isDisabled && 'opacity-60'
       )
     "

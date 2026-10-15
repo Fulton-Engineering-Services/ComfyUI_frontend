@@ -44,7 +44,7 @@ const SKELETON_BAR = 'block rounded-full bg-muted motion-safe:animate-pulse'
           v-if="!locked"
           type="button"
           :aria-label="t('checkout.back')"
-          class="absolute -left-10 flex size-8 cursor-pointer items-center justify-center rounded-lg text-muted-foreground hover:bg-secondary hover:text-foreground focus-visible:ring-2 focus-visible:ring-foreground focus-visible:outline-none max-lg:static max-lg:mr-2 max-lg:size-10"
+          class="absolute -left-10 flex size-8 cursor-pointer items-center justify-center rounded-lg text-muted-foreground hover:bg-secondary hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none max-lg:static max-lg:mr-2 max-lg:size-10"
           @click="emit('back')"
         >
           <i class="icon-[lucide--arrow-left] size-4" aria-hidden="true" />

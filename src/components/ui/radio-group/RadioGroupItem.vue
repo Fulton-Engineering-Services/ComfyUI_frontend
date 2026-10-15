@@ -23,7 +23,7 @@ const forwarded = useForwardPropsEmits(reactiveOmit(props, 'class'), emits)
     data-slot="radio-group-item"
     :class="
       cn(
-        'inline-flex size-4 shrink-0 cursor-pointer items-center justify-center rounded-full border border-border bg-transparent outline-none focus-visible:ring-1 focus-visible:ring-border disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:border-primary',
+        'inline-flex size-4 shrink-0 cursor-pointer items-center justify-center rounded-full border border-border bg-transparent outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:border-primary',
         props.class
       )
     "

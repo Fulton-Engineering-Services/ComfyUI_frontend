@@ -253,7 +253,7 @@ const { t } = useI18n()
 const expandedOverride = ref<boolean | null>(null)
 
 const packTextButtonClass =
-  'm-0 inline max-w-full cursor-pointer appearance-none border-0 bg-transparent p-0 text-left text-xs/relaxed font-normal wrap-break-word outline-none focus:outline-none rounded-sm focus-visible:ring-1 focus-visible:ring-border focus-visible:ring-inset focus-visible:outline-none'
+  'm-0 inline max-w-full cursor-pointer appearance-none border-0 bg-transparent p-0 text-left text-xs/relaxed font-normal wrap-break-word outline-none focus:outline-none rounded-sm focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-inset focus-visible:outline-none'
 
 const { missingNodePacks, isLoading } = useMissingNodes()
 const comfyManagerStore = useComfyManagerStore()

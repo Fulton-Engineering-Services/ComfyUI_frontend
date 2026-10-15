@@ -31,7 +31,7 @@ const TABS = [
       :aria-selected="selected === tab"
       :class="
         cn(
-          'flex h-14 cursor-pointer items-center gap-3 rounded-lg border bg-background px-4 text-sm text-foreground focus-visible:ring-2 focus-visible:ring-foreground focus-visible:outline-none',
+          'flex h-14 cursor-pointer items-center gap-3 rounded-lg border bg-background px-4 text-sm text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none',
           selected === tab ? 'border-foreground' : 'border-transparent'
         )
       "

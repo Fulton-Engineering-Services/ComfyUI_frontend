@@ -29,7 +29,7 @@ function updateModelValue(value: boolean) {
     :aria-readonly="readonly || undefined"
     :class="
       cn(
-        'group inline-flex h-6 w-10 shrink-0 cursor-pointer touch-manipulation items-center justify-center rounded-full border-0 bg-transparent p-0 transition-shadow outline-none focus-visible:ring-1 focus-visible:ring-border disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-readonly:cursor-default',
+        'group inline-flex h-6 w-10 shrink-0 cursor-pointer touch-manipulation items-center justify-center rounded-full border-0 bg-transparent p-0 transition-shadow outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-readonly:cursor-default',
         customClass
       )
     "

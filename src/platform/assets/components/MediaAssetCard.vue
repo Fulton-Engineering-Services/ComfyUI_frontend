@@ -8,7 +8,9 @@
       cn(
         'flex cursor-pointer flex-col overflow-hidden rounded-lg p-2 transition-colors duration-200',
         'group gap-2 select-none',
-        selected ? 'ring-3 ring-ring ring-inset' : 'hover:bg-accent/20'
+        selected
+          ? 'ring-3 ring-muted-foreground ring-inset'
+          : 'hover:bg-accent/20'
       )
     "
     :data-selected="selected"

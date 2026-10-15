@@ -36,7 +36,7 @@ const segments = computed(() => code.split(/(?<=[_-])/))
             ? t('checkout.fullPage.ending.copied')
             : t('checkout.fullPage.ending.copy')
         "
-        class="flex size-6 shrink-0 cursor-pointer items-center justify-center rounded-sm text-muted-foreground hover:text-foreground focus-visible:ring-2 focus-visible:ring-foreground focus-visible:outline-none max-lg:size-10"
+        class="flex size-6 shrink-0 cursor-pointer items-center justify-center rounded-sm text-muted-foreground hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none max-lg:size-10"
         @click="copy(code)"
       >
         <i

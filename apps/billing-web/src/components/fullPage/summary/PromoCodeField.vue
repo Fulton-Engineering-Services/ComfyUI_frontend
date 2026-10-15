@@ -38,13 +38,13 @@ function edit(event: Event) {
         :disabled="locked"
         autocomplete="off"
         spellcheck="false"
-        class="h-8 min-w-0 flex-1 rounded-lg border bg-input px-3 text-sm focus-visible:ring-2 focus-visible:ring-foreground focus-visible:outline-none disabled:opacity-40 max-lg:h-10"
+        class="h-8 min-w-0 flex-1 rounded-lg border bg-input px-3 text-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none disabled:opacity-40 max-lg:h-10"
         @input="edit"
       />
       <button
         type="submit"
         :disabled="locked"
-        class="flex h-8 cursor-pointer items-center rounded-lg bg-secondary px-2 text-xs hover:bg-secondary/80 focus-visible:ring-2 focus-visible:ring-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-40 max-lg:h-10 max-lg:px-3"
+        class="flex h-8 cursor-pointer items-center rounded-lg bg-secondary px-2 text-xs hover:bg-secondary/80 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-40 max-lg:h-10 max-lg:px-3"
       >
         {{ t(`${P}.apply`) }}
       </button>
@@ -52,7 +52,7 @@ function edit(event: Event) {
         type="button"
         :disabled="locked"
         :aria-label="t(`${P}.dismiss`)"
-        class="flex size-8 cursor-pointer items-center justify-center rounded-lg hover:bg-accent focus-visible:ring-2 focus-visible:ring-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-40 max-lg:size-10"
+        class="flex size-8 cursor-pointer items-center justify-center rounded-lg hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-40 max-lg:size-10"
         @click="emit('dismiss')"
       >
         <i class="icon-[lucide--x] size-4" aria-hidden="true" />

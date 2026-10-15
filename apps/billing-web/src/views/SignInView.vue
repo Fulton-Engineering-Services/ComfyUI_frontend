@@ -185,7 +185,7 @@ const alertClass = 'rounded-lg bg-background p-3 text-sm'
             <SocialAuthButtons
               :google-label="t('auth.signIn.google')"
               :github-label="t('auth.signIn.github')"
-              button-class="flex h-12 w-full cursor-pointer items-center justify-center gap-3 rounded-lg border border-border bg-background font-medium text-foreground transition-colors hover:bg-accent focus-visible:ring-2 focus-visible:ring-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+              button-class="flex h-12 w-full cursor-pointer items-center justify-center gap-3 rounded-lg border border-border bg-background font-medium text-foreground transition-colors hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
               :disabled="blocked"
               @google="signInWith('google')"
               @github="signInWith('github')"

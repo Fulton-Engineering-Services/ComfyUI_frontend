@@ -5,7 +5,7 @@
         <button
           v-if="hasRuntimeError && (card.nodeTitle || card.title)"
           type="button"
-          class="m-0 max-w-full min-w-0 cursor-pointer appearance-none truncate rounded-sm border-0 bg-transparent p-0 text-left text-xs font-normal outline-none focus:outline-none focus-visible:ring-1 focus-visible:ring-border focus-visible:outline-none focus-visible:ring-inset"
+          class="m-0 max-w-full min-w-0 cursor-pointer appearance-none truncate rounded-sm border-0 bg-transparent p-0 text-left text-xs font-normal outline-none focus:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-inset"
           @click="handleLocateNode"
         >
           {{ card.nodeTitle || card.title }}
@@ -63,7 +63,7 @@
             <button
               v-if="card.nodeId"
               type="button"
-              class="m-0 inline max-w-full cursor-pointer appearance-none rounded-sm border-0 bg-transparent p-0 text-left text-sm/relaxed font-normal wrap-break-word outline-none hover:text-foreground focus:outline-none focus-visible:ring-1 focus-visible:ring-border focus-visible:outline-none focus-visible:ring-inset"
+              class="m-0 inline max-w-full cursor-pointer appearance-none rounded-sm border-0 bg-transparent p-0 text-left text-sm/relaxed font-normal wrap-break-word outline-none hover:text-foreground focus:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-inset"
               @click="handleLocateNode"
             >
               {{ getInlineItemLabel(error) }}

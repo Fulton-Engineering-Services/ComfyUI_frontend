@@ -70,7 +70,7 @@ function scrollPage(direction: -1 | 1): void {
       :aria-label="
         t('g.asset', { count: attachments.length }, attachments.length)
       "
-      class="flex scrollbar-custom max-w-full min-w-0 flex-nowrap gap-2 overflow-x-auto overflow-y-hidden p-3 focus-visible:ring-1 focus-visible:ring-border focus-visible:outline-none focus-visible:ring-inset"
+      class="flex scrollbar-custom max-w-full min-w-0 flex-nowrap gap-2 overflow-x-auto overflow-y-hidden p-3 focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-inset"
     >
       <AttachmentChip
         v-for="item in attachments"

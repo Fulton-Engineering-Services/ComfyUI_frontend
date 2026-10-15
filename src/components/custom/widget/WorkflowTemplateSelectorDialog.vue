@@ -324,7 +324,7 @@
                         <button
                           type="button"
                           :aria-label="tags.hidden.join(', ')"
-                          class="cursor-pointer rounded-sm border-none bg-transparent p-0 focus-visible:ring-1 focus-visible:ring-foreground focus-visible:outline-none"
+                          class="cursor-pointer rounded-sm border-none bg-transparent p-0 focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none"
                           @click.stop
                         >
                           <Tag

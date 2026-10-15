@@ -92,7 +92,7 @@ function handleKeydownEnter(event: KeyboardEvent) {
         'rounded-lg bg-secondary transition-all duration-150',
         'flex flex-1 items-center',
         'border-0 text-foreground',
-        'focus-within:ring focus-within:ring-border/80',
+        'focus-within:ring focus-within:ring-ring',
         customClass
       )
     "

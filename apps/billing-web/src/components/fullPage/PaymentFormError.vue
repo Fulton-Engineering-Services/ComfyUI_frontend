@@ -34,7 +34,7 @@ const { t } = useI18n()
     </div>
     <button
       type="button"
-      class="h-10 w-full cursor-pointer rounded-lg bg-foreground px-4 text-sm font-semibold text-background transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-secondary focus-visible:outline-none"
+      class="h-10 w-full cursor-pointer rounded-lg bg-foreground px-4 text-sm font-semibold text-background transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-secondary focus-visible:outline-none"
       @click="emit('retry')"
     >
       {{ t('checkout.fullPage.railFailed.retry') }}

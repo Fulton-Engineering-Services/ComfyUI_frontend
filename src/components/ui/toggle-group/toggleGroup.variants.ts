@@ -26,7 +26,7 @@ export const toggleGroupItemVariants = cva({
     'cursor-pointer appearance-none border-none',
     'text-center font-normal',
     'transition-all duration-150 ease-in-out',
-    'focus-visible:ring-1 focus-visible:ring-border focus-visible:outline-none',
+    'focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none',
     'disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50',
     'data-[state=on]:bg-secondary data-[state=on]:text-foreground'
   ],

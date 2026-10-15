@@ -143,7 +143,7 @@ const { t } = useI18n()
 const nodeOutputStore = useNodeOutputStore()
 
 const actionButtonClass =
-  'flex h-8 min-h-8 items-center justify-center gap-2.5 rounded-lg border-0 bg-secondary px-2 py-2 text-foreground shadow-sm transition-colors duration-200 hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-transparent cursor-pointer'
+  'flex h-8 min-h-8 items-center justify-center gap-2.5 rounded-lg border-0 bg-secondary px-2 py-2 text-foreground shadow-sm transition-colors duration-200 hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-transparent cursor-pointer'
 
 // Component state
 const currentIndex = ref(0)

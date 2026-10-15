@@ -183,7 +183,7 @@ function getAssetCardClass(selected: boolean): string {
   return cn(
     'w-full text-foreground transition-colors hover:bg-accent',
     'cursor-pointer',
-    selected && 'bg-accent ring-1 ring-ring ring-inset'
+    selected && 'bg-accent ring-1 ring-muted-foreground ring-inset'
   )
 }
 

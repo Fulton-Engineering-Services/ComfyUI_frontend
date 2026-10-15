@@ -103,7 +103,7 @@ function handleVideoLoad(event: Event) {
           'flex-row rounded-lg text-left hover:bg-muted':
             layout === 'list-small',
           // selection
-          'ring-2 ring-ring': layout === 'list' && selected
+          'ring-2 ring-muted-foreground': layout === 'list' && selected
         },
         candidate && !selected && layout !== 'grid' && 'bg-muted'
       )
@@ -124,7 +124,8 @@ function handleVideoLoad(event: Event) {
             'rounded-sm group-hover/item:scale-108 group-active/item:scale-95':
               layout === 'grid',
             // selection
-            'ring-2 ring-ring': layout === 'grid' && (selected || candidate)
+            'ring-2 ring-muted-foreground':
+              layout === 'grid' && (selected || candidate)
           }
         )
       "

@@ -1,0 +1,27 @@
+:root {
+  --fg-color: #fff;
+  --bg-color: #202020;
+  --comfy-menu-bg: #353535;
+  --comfy-menu-secondary-bg: #292929;
+  --comfy-input-bg: #222;
+  --comfy-textarea-font-size: 10px;
+  --input-text: #ddd;
+  --descrip-text: #999;
+  --drag-text: #ccc;
+  --error-text: #ff4444;
+  --border-color: #4e4e4e;
+  --tr-even-bg-color: #222;
+  --tr-odd-bg-color: #353535;
+  --primary-bg: #236692;
+  --primary-fg: #ffffff;
+  --primary-hover-bg: #3485bb;
+  --primary-hover-fg: #ffffff;
+  --content-bg: #4e4e4e;
+  --content-fg: #fff;
+  --content-hover-bg: #222;
+  --content-hover-fg: #fff;
+
+  --palette-interface-panel-box-shadow: 1px 1px 8px 0 rgb(0 0 0 / 0.4);
+  --palette-interface-panel-drop-shadow: 1px 1px 4px rgb(0 0 0 / 0.4);
+  --palette-interface-floating-panel-shadow: 0 2px 16px 0 rgb(0 0 0 / 0.5);
+}

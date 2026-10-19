@@ -1,5 +1,6 @@
 import { fromPartial } from '@total-typescript/shoehorn'
 import { render, screen } from '@testing-library/vue'
+import userEvent from '@testing-library/user-event'
 import { defineComponent } from 'vue'
 import { describe, expect, it } from 'vitest'
 
@@ -123,5 +124,66 @@ describe('AssetsSidebarGridView', () => {
     renderGridView(MEDIA_ASSET_GRID_MODE.grid)
     expect(screen.queryByText(/^(image|video)$/)).toBeNull()
     expect(screen.getAllByTestId('media-asset-card')).toHaveLength(1)
+  })
+
+  it('collapses a grid group: header stays full width, cards are dropped', () => {
+    const img: AssetItem = fromPartial({
+      id: 'img-asset',
+      name: 'a.png',
+      tags: []
+    })
+    render(AssetsSidebarGridView, {
+      props: {
+        assets: [img, videoAsset],
+        isSelected: () => false,
+        showOutputCount: () => false,
+        getOutputCount: () => 0,
+        gridMode: MEDIA_ASSET_GRID_MODE.grid,
+        groupedAssets: [
+          { key: 'image', items: [img] },
+          { key: 'video', items: [videoAsset] }
+        ],
+        collapsedGroups: new Set(['image'])
+      },
+      global: {
+        stubs: {
+          VirtualGrid: VirtualGridStub,
+          MediaAssetCard: MediaAssetCardStub
+        }
+      }
+    })
+
+    // Both headers render; only the expanded group contributes a card.
+    expect(screen.getAllByText(/^(image|video)$/)).toHaveLength(2)
+    expect(screen.getAllByTestId('media-asset-card')).toHaveLength(1)
+  })
+
+  it('emits toggle-group from the grid header', async () => {
+    const user = userEvent.setup()
+    const img: AssetItem = fromPartial({
+      id: 'img-asset',
+      name: 'a.png',
+      tags: []
+    })
+    const { emitted } = render(AssetsSidebarGridView, {
+      props: {
+        assets: [img],
+        isSelected: () => false,
+        showOutputCount: () => false,
+        getOutputCount: () => 0,
+        gridMode: MEDIA_ASSET_GRID_MODE.grid,
+        groupedAssets: [{ key: 'image', items: [img] }]
+      },
+      global: {
+        stubs: {
+          VirtualGrid: VirtualGridStub,
+          MediaAssetCard: MediaAssetCardStub
+        }
+      }
+    })
+
+    await user.click(screen.getByText('image'))
+
+    expect(emitted('toggle-group')).toEqual([['image']])
   })
 })

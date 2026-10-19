@@ -15,10 +15,14 @@ const VirtualGridStub = defineComponent({
     items: {
       type: Array,
       default: () => []
+    },
+    itemClass: {
+      type: Function,
+      default: undefined
     }
   },
   template:
-    '<div><slot v-for="item in items" :key="item.key" name="item" :item="item" /></div>'
+    '<div><div v-for="(item, i) in items" :key="item.key" :class="itemClass ? itemClass(item, i) : undefined"><slot name="item" :item="item" /></div></div>'
 })
 
 const MediaAssetCardStub = defineComponent({
@@ -78,4 +82,46 @@ describe('AssetsSidebarGridView', () => {
       )
     }
   )
+
+  it('renders a full-width header row before each group when grouped', () => {
+    const img: AssetItem = fromPartial({
+      id: 'img-asset',
+      name: 'a.png',
+      tags: []
+    })
+    render(AssetsSidebarGridView, {
+      props: {
+        assets: [img, videoAsset],
+        isSelected: () => false,
+        showOutputCount: () => false,
+        getOutputCount: () => 0,
+        gridMode: MEDIA_ASSET_GRID_MODE.grid,
+        groupedAssets: [
+          { key: 'image', items: [img] },
+          { key: 'video', items: [videoAsset] }
+        ]
+      },
+      global: {
+        stubs: {
+          VirtualGrid: VirtualGridStub,
+          MediaAssetCard: MediaAssetCardStub
+        }
+      }
+    })
+
+    const headers = screen.getAllByText(/^(image|video)$/)
+    // The header wrapper (the CSS-grid child) must span all columns.
+    // eslint-disable-next-line testing-library/no-node-access
+    expect(headers[0].closest('.col-span-full')).not.toBeNull()
+    // eslint-disable-next-line testing-library/no-node-access
+    expect(headers[1].closest('.col-span-full')).not.toBeNull()
+    // Both group assets still render as cards.
+    expect(screen.getAllByTestId('media-asset-card')).toHaveLength(2)
+  })
+
+  it('renders only cards when groupedAssets is absent', () => {
+    renderGridView(MEDIA_ASSET_GRID_MODE.grid)
+    expect(screen.queryByText(/^(image|video)$/)).toBeNull()
+    expect(screen.getAllByTestId('media-asset-card')).toHaveLength(1)
+  })
 })

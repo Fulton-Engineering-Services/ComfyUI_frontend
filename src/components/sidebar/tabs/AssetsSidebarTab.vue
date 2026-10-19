@@ -53,6 +53,7 @@
       <MediaAssetFilterBar
         v-model:search-query="searchQuery"
         v-model:sort-by="sortBy"
+        v-model:group-by="groupBy"
         v-model:view-mode="viewMode"
         v-model:date-filter="dateFilter"
         v-model:media-type-filters="mediaTypeFilters"
@@ -111,6 +112,7 @@
           :asset-items="listViewAssetItems"
           :is-selected="isSelected"
           :selectable-assets="listViewSelectableAssets"
+          :grouped-assets="groupedAssets"
           :is-stack-expanded="isListViewStackExpanded"
           :toggle-stack="toggleListViewStack"
           :on-load-more="loadMoreAssets"
@@ -123,6 +125,7 @@
           <AssetsSidebarGridView
             :assets="displayAssets"
             :is-selected
+            :grouped-assets="groupedAssets"
             :show-output-count
             :get-output-count
             :grid-mode
@@ -226,6 +229,8 @@ import { useAssetGridSelection } from '@/platform/assets/composables/useAssetGri
 import { useAssetSelection } from '@/platform/assets/composables/useAssetSelection'
 import { useMediaAssetActions } from '@/platform/assets/composables/useMediaAssetActions'
 import { useMediaAssetFiltering } from '@/platform/assets/composables/useMediaAssetFiltering'
+import { useMediaAssetGrouping } from '@/platform/assets/composables/useMediaAssetGrouping'
+import type { GroupByOption } from '@/platform/assets/composables/useMediaAssetGrouping'
 import { useOutputStacks } from '@/platform/assets/composables/useOutputStacks'
 import type { OutputAssetMetadata } from '@/platform/assets/schemas/assetMetadataSchema'
 import { getOutputAssetMetadata } from '@/platform/assets/schemas/assetMetadataSchema'
@@ -267,6 +272,10 @@ const isInFolderView = computed(() => folderJobId.value !== null)
 const viewMode = useStorage<MediaAssetViewMode>(
   'Comfy.Assets.Sidebar.ViewMode',
   MEDIA_ASSET_VIEW_MODE.grid
+)
+const groupBy = useStorage<GroupByOption>(
+  'Comfy.Assets.Sidebar.GroupBy',
+  'none'
 )
 const isListView = computed(() => viewMode.value === MEDIA_ASSET_VIEW_MODE.list)
 const gridMode = computed<MediaAssetGridMode>(() =>
@@ -388,6 +397,8 @@ const { searchQuery, sortBy, dateFilter, mediaTypeFilters, filteredAssets } =
 const displayAssets = computed(() => {
   return filteredAssets.value
 })
+
+const { groupedAssets } = useMediaAssetGrouping(displayAssets, groupBy)
 
 const {
   assetItems: listViewAssetItems,

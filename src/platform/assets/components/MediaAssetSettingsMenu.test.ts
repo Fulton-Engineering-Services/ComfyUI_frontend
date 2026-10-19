@@ -7,6 +7,7 @@ import MediaAssetSettingsMenu from '@/platform/assets/components/MediaAssetSetti
 import type { SortBy } from '@/platform/assets/components/MediaAssetSettingsMenu.vue'
 import { MEDIA_ASSET_VIEW_MODE } from '@/platform/assets/components/mediaAssetViewOptions'
 import type { MediaAssetViewMode } from '@/platform/assets/components/mediaAssetViewOptions'
+import type { GroupByOption } from '@/platform/assets/composables/useMediaAssetGrouping'
 
 const KEYS = {
   list: 'sideToolbar.queueProgressOverlay.viewList',
@@ -17,13 +18,19 @@ const KEYS = {
   az: 'sideToolbar.mediaAssets.sortAToZ',
   za: 'sideToolbar.mediaAssets.sortZToA',
   longest: 'sideToolbar.mediaAssets.sortLongestFirst',
-  fastest: 'sideToolbar.mediaAssets.sortFastestFirst'
+  fastest: 'sideToolbar.mediaAssets.sortFastestFirst',
+  groupNone: 'sideToolbar.mediaAssets.groupNone',
+  groupByType: 'sideToolbar.mediaAssets.groupByType',
+  groupByCreatedDate: 'sideToolbar.mediaAssets.groupByCreatedDate',
+  groupByUpdatedDate: 'sideToolbar.mediaAssets.groupByUpdatedDate'
 } as const
 
 interface MountOptions {
   viewMode?: MediaAssetViewMode
   sortBy?: SortBy
+  groupBy?: GroupByOption
   showSortOptions?: boolean
+  showGroupOptions?: boolean
   showGenerationTimeSort?: boolean
 }
 
@@ -32,6 +39,7 @@ function mountWithModels(options: MountOptions = {}) {
     options.viewMode ?? MEDIA_ASSET_VIEW_MODE.list
   )
   const sortBy = ref<SortBy>(options.sortBy ?? 'newest')
+  const groupBy = ref<GroupByOption>(options.groupBy ?? 'none')
 
   const Host = defineComponent({
     components: { MediaAssetSettingsMenu },
@@ -39,7 +47,9 @@ function mountWithModels(options: MountOptions = {}) {
       return {
         viewMode,
         sortBy,
+        groupBy,
         showSortOptions: options.showSortOptions ?? false,
+        showGroupOptions: options.showGroupOptions ?? false,
         showGenerationTimeSort: options.showGenerationTimeSort ?? false
       }
     },
@@ -47,7 +57,9 @@ function mountWithModels(options: MountOptions = {}) {
       <MediaAssetSettingsMenu
         v-model:viewMode="viewMode"
         v-model:sortBy="sortBy"
+        v-model:groupBy="groupBy"
         :showSortOptions="showSortOptions"
+        :showGroupOptions="showGroupOptions"
         :showGenerationTimeSort="showGenerationTimeSort"
       />
     `
@@ -60,7 +72,7 @@ function mountWithModels(options: MountOptions = {}) {
       }
     }
   })
-  return { ...utils, viewMode, sortBy, user: userEvent.setup() }
+  return { ...utils, viewMode, sortBy, groupBy, user: userEvent.setup() }
 }
 
 function getButton(label: string): HTMLElement {
@@ -149,5 +161,46 @@ describe('MediaAssetSettingsMenu', () => {
         expect(sortBy.value).toBe(expected)
       })
     }
+  })
+
+  describe('group options (gated by showGroupOptions)', () => {
+    it('hides group buttons when showGroupOptions is false', () => {
+      mountWithModels({ showGroupOptions: false })
+      expect(screen.queryByRole('button', { name: KEYS.groupNone })).toBeNull()
+      expect(
+        screen.queryByRole('button', { name: KEYS.groupByType })
+      ).toBeNull()
+      expect(
+        screen.queryByRole('button', { name: KEYS.groupByCreatedDate })
+      ).toBeNull()
+      expect(
+        screen.queryByRole('button', { name: KEYS.groupByUpdatedDate })
+      ).toBeNull()
+    })
+
+    it('renders all four group options when showGroupOptions is true', () => {
+      mountWithModels({ showGroupOptions: true })
+      expect(getButton(KEYS.groupNone)).toBeTruthy()
+      expect(getButton(KEYS.groupByType)).toBeTruthy()
+      expect(getButton(KEYS.groupByCreatedDate)).toBeTruthy()
+      expect(getButton(KEYS.groupByUpdatedDate)).toBeTruthy()
+    })
+
+    it.for([
+      { label: KEYS.groupByType, expected: 'fileType' },
+      { label: KEYS.groupByCreatedDate, expected: 'createdDate' },
+      { label: KEYS.groupByUpdatedDate, expected: 'updatedDate' },
+      { label: KEYS.groupNone, expected: 'none' }
+    ] as const)(
+      'emits $expected when the matching button is clicked',
+      async ({ label, expected }) => {
+        const { groupBy, user } = mountWithModels({
+          groupBy: 'createdDate',
+          showGroupOptions: true
+        })
+        await user.click(getButton(label))
+        expect(groupBy.value).toBe(expected)
+      }
+    )
   })
 })

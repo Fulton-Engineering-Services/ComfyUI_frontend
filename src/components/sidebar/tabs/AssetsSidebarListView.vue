@@ -2,7 +2,10 @@
   <div class="flex h-full flex-col">
     <VirtualGrid
       class="flex-1"
-      :items="assetItems"
+      :items="groupedAssets?.length ? flatItems : assetItems"
+      :measure-skip="groupedAssets?.length ? isHeader : undefined"
+      :is-full-width-item="groupedAssets?.length ? isHeader : undefined"
+      :full-row-height="48"
       :grid-style="listGridStyle"
       :max-columns="1"
       :default-item-height="48"
@@ -10,7 +13,16 @@
       :can-load-more
     >
       <template #item="{ item }">
-        <div class="relative">
+        <div
+          v-if="isHeader(item)"
+          class="flex h-12 items-center gap-2 px-3 text-xs font-medium text-muted-foreground"
+        >
+          <span>{{ (item as { label: string }).label }}</span>
+          <span class="text-muted-foreground/60">{{
+            (item as { count: number }).count
+          }}</span>
+        </div>
+        <div v-else class="relative">
           <LoadingOverlay
             :loading="assetsStore.isAssetDeleting(item.asset.id)"
             size="sm"
@@ -29,7 +41,7 @@
             :class="
               cn(
                 getAssetCardClass(isSelected(item.asset.id)),
-                item.isChild && 'pl-6'
+                'isChild' in item && item.isChild && 'pl-6'
               )
             "
             :preview-url="getAssetPreviewUrl(item.asset)"
@@ -69,7 +81,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import LoadingOverlay from '@/components/common/LoadingOverlay.vue'
@@ -97,7 +109,8 @@ const {
   selectableAssets,
   isSelected,
   isStackExpanded,
-  toggleStack
+  toggleStack,
+  groupedAssets
 } = defineProps<{
   assetItems: OutputStackListItem[]
   selectableAssets: AssetItem[]
@@ -106,7 +119,25 @@ const {
   toggleStack: (asset: AssetItem) => Promise<void>
   onLoadMore?: () => unknown
   canLoadMore?: boolean
+  groupedAssets?: { key: string; items: AssetItem[] }[]
 }>()
+
+type FlatItem =
+  | { type: 'header'; key: string; label: string; count: number }
+  | { type: 'asset'; key: string; asset: AssetItem }
+
+const flatItems = computed<FlatItem[]>(() => {
+  if (!groupedAssets?.length) return []
+  const out: FlatItem[] = []
+  for (const { key, items } of groupedAssets) {
+    out.push({ type: 'header', key, label: key, count: items.length })
+    for (const asset of items) out.push({ type: 'asset', key: asset.id, asset })
+  }
+  return out
+})
+
+const isHeader = (item: FlatItem | OutputStackListItem) =>
+  'type' in item && item.type === 'header'
 
 const assetsStore = useAssetsStore()
 

@@ -29,7 +29,9 @@
             <MediaAssetSettingsMenu
               v-model:view-mode="viewMode"
               v-model:sort-by="sortBy"
+              v-model:group-by="groupBy"
               show-sort-options
+              show-group-options
               :show-generation-time-sort
             />
           </template>
@@ -84,6 +86,7 @@ import { useI18n } from 'vue-i18n'
 import SidebarTopArea from '@/components/sidebar/tabs/SidebarTopArea.vue'
 import Button from '@/components/ui/button/Button.vue'
 import SearchInput from '@/components/ui/search-input/SearchInput.vue'
+import type { GroupByOption } from '@/platform/assets/composables/useMediaAssetGrouping'
 import { isCloud } from '@/platform/distribution/types'
 import {
   dateFilterOptions,
@@ -112,6 +115,7 @@ const dateFilter = defineModel<MediaAssetDateFilter>('dateFilter', {
 const mediaTypeFilters = defineModel<string[]>('mediaTypeFilters', {
   required: true
 })
+const groupBy = defineModel<GroupByOption>('groupBy', { default: 'none' })
 
 const { t } = useI18n()
 

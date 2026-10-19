@@ -37,6 +37,7 @@ function renderFilterBar({
       return {
         searchQuery: ref(''),
         sortBy: ref('newest'),
+        groupBy: ref('none'),
         viewMode: ref(MEDIA_ASSET_VIEW_MODE.grid),
         dateFilter: ref(dateFilter),
         mediaTypeFilters: ref(mediaTypeFilters)
@@ -46,6 +47,7 @@ function renderFilterBar({
       <MediaAssetFilterBar
         v-model:search-query="searchQuery"
         v-model:sort-by="sortBy"
+        v-model:group-by="groupBy"
         v-model:view-mode="viewMode"
         v-model:date-filter="dateFilter"
         v-model:media-type-filters="mediaTypeFilters"
@@ -151,5 +153,18 @@ describe('MediaAssetFilterBar', () => {
     } finally {
       distribution.isCloud = true
     }
+  })
+
+  it('shows group options in the settings menu', async () => {
+    const { user } = renderFilterBar()
+    await user.click(screen.getByRole('button', { name: 'View settings' }))
+    expect(screen.getByRole('button', { name: 'None' })).toBeVisible()
+    expect(screen.getByRole('button', { name: 'By file type' })).toBeVisible()
+    expect(
+      screen.getByRole('button', { name: 'By created date' })
+    ).toBeVisible()
+    expect(
+      screen.getByRole('button', { name: 'By updated date' })
+    ).toBeVisible()
   })
 })

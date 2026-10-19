@@ -314,4 +314,33 @@ describe('AssetsSidebarListView', () => {
 
     expect(onSelectAsset).not.toHaveBeenCalled()
   })
+
+  describe('grouped rendering', () => {
+    it('renders a header row before each group and every asset row', () => {
+      const img = buildAsset('img', 'a.png')
+      const vid = buildAsset('vid', 'b.mp4')
+      const groupedAssets = [
+        { key: 'image', items: [img] },
+        { key: 'video', items: [vid] }
+      ]
+
+      renderListView([], { groupedAssets })
+
+      const headerRows = screen.getAllByText(/^(image|video)$/)
+      expect(headerRows).toHaveLength(2)
+      expect(headerRows[0].textContent).toBe('image')
+      expect(headerRows[1].textContent).toBe('video')
+
+      // headers (2) + assets (2) are all rendered as VirtualGrid items
+      expect(screen.getAllByTestId('assets-list-item')).toHaveLength(2)
+    })
+
+    it('renders no header rows when groupedAssets is absent', () => {
+      const img = buildAsset('img', 'a.png')
+      renderListView([buildOutputItem(img)])
+
+      expect(screen.queryByText(/^(image|video|text|3D)$/)).toBeNull()
+      expect(screen.getAllByTestId('assets-list-item')).toHaveLength(1)
+    })
+  })
 })

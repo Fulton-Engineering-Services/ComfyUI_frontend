@@ -335,12 +335,60 @@ describe('AssetsSidebarListView', () => {
       expect(screen.getAllByTestId('assets-list-item')).toHaveLength(2)
     })
 
-    it('renders no header rows when groupedAssets is absent', () => {
+    it('renders no header rows groupedAssets absent', () => {
       const img = buildAsset('img', 'a.png')
       renderListView([buildOutputItem(img)])
 
       expect(screen.queryByText(/^(image|video|text|3D)$/)).toBeNull()
       expect(screen.getAllByTestId('assets-list-item')).toHaveLength(1)
+    })
+
+    it('collapses a group: header stays, its assets are dropped', () => {
+      const img = buildAsset('img', 'a.png')
+      const vid = buildAsset('vid', 'b.mp4')
+      const groupedAssets = [
+        { key: 'image', items: [img] },
+        { key: 'video', items: [vid] }
+      ]
+
+      renderListView([], {
+        groupedAssets,
+        collapsedGroups: new Set(['image'])
+      })
+
+      // Both headers remain, including the collapsed one.
+      expect(screen.getAllByText(/^(image|video)$/)).toHaveLength(2)
+      // Only the expanded group's asset is rendered.
+      expect(screen.getAllByTestId('assets-list-item')).toHaveLength(1)
+    })
+
+    it('emits toggle-group with the group key when a header is clicked', async () => {
+      const user = userEvent.setup()
+      const img = buildAsset('img', 'a.png')
+      const onToggle = vi.fn()
+
+      renderListView([], {
+        groupedAssets: [{ key: 'image', items: [img] }],
+        'onToggle-group': onToggle
+      })
+
+      await user.click(screen.getByText('image'))
+
+      expect(onToggle).toHaveBeenCalledWith('image')
+    })
+
+    it('exposes aria-expanded reflecting collapse state', () => {
+      const img = buildAsset('img', 'a.png')
+
+      renderListView([], {
+        groupedAssets: [{ key: 'image', items: [img] }],
+        collapsedGroups: new Set(['image'])
+      })
+
+      expect(screen.getByRole('button', { name: /^image/ })).toHaveAttribute(
+        'aria-expanded',
+        'false'
+      )
     })
   })
 })

@@ -13,15 +13,27 @@
       :can-load-more
     >
       <template #item="{ item }">
-        <div
+        <button
           v-if="isHeader(item)"
-          class="flex h-8 items-center gap-2 border-b border-comfy-input px-1 text-xs font-medium text-muted-foreground"
+          type="button"
+          class="flex h-8 w-full items-center gap-2 border-b border-comfy-input px-1 text-xs font-medium text-muted-foreground hover:text-text-primary"
+          :aria-expanded="!(item as { collapsed: boolean }).collapsed"
+          @click.stop="emit('toggle-group', (item as { key: string }).key)"
         >
+          <i
+            :class="
+              cn(
+                'icon-[lucide--chevron-down] size-3.5 shrink-0 transition-transform',
+                (item as { collapsed: boolean }).collapsed && '-rotate-90'
+              )
+            "
+            aria-hidden="true"
+          />
           <span>{{ (item as { label: string }).label }}</span>
           <span class="text-muted-foreground/60">{{
             (item as { count: number }).count
           }}</span>
-        </div>
+        </button>
         <MediaAssetCard
           v-else
           :asset="(item as AssetGridItem).asset"
@@ -59,6 +71,7 @@ import {
 } from '@/platform/assets/components/mediaAssetViewOptions'
 import type { MediaAssetGridMode } from '@/platform/assets/components/mediaAssetViewOptions'
 import type { AssetItem } from '@/platform/assets/schemas/assetSchema'
+import { cn } from '@comfyorg/tailwind-utils'
 
 const {
   assets,
@@ -66,7 +79,8 @@ const {
   showOutputCount,
   getOutputCount,
   gridMode,
-  groupedAssets
+  groupedAssets,
+  collapsedGroups
 } = defineProps<{
   assets: AssetItem[]
   isSelected: (assetId: string) => boolean
@@ -76,6 +90,7 @@ const {
   onLoadMore?: () => unknown
   canLoadMore?: boolean
   groupedAssets?: { key: string; items: AssetItem[] }[]
+  collapsedGroups?: Set<string>
 }>()
 
 const emit = defineEmits<{
@@ -84,12 +99,19 @@ const emit = defineEmits<{
   (e: 'context-menu', event: MouseEvent, asset: AssetItem): void
   (e: 'zoom', asset: AssetItem): void
   (e: 'output-count-click', asset: AssetItem): void
+  (e: 'toggle-group', key: string): void
 }>()
 
 type AssetGridItem = { key: string; asset: AssetItem }
 
 type FlatGridItem =
-  | { type: 'header'; key: string; label: string; count: number }
+  | {
+      type: 'header'
+      key: string
+      label: string
+      count: number
+      collapsed: boolean
+    }
   | AssetGridItem
 
 const assetItems = computed<AssetGridItem[]>(() =>
@@ -103,7 +125,15 @@ const flatItems = computed<FlatGridItem[]>(() => {
   if (!groupedAssets?.length) return []
   const out: FlatGridItem[] = []
   for (const { key, items } of groupedAssets) {
-    out.push({ type: 'header', key, label: key, count: items.length })
+    const collapsed = collapsedGroups?.has(key) ?? false
+    out.push({
+      type: 'header',
+      key,
+      label: key,
+      count: items.length,
+      collapsed
+    })
+    if (collapsed) continue
     for (const asset of items) {
       out.push({ key: `asset-${asset.id}`, asset })
     }

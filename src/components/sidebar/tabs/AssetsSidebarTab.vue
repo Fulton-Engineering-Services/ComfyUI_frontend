@@ -117,15 +117,18 @@
           :toggle-stack="toggleListViewStack"
           :on-load-more="loadMoreAssets"
           :can-load-more="canLoadMoreAssets"
+          :collapsed-groups="collapsedGroups"
           @select-asset="handleAssetSelect"
           @preview-asset="handleZoomClick"
           @context-menu="handleAssetContextMenu"
+          @toggle-group="toggleGroup"
         />
         <div v-else class="size-full">
           <AssetsSidebarGridView
             :assets="displayAssets"
             :is-selected
             :grouped-assets="groupedAssets"
+            :collapsed-groups="collapsedGroups"
             :show-output-count
             :get-output-count
             :grid-mode
@@ -136,6 +139,7 @@
             @context-menu="handleAssetContextMenu"
             @zoom="handleZoomClick"
             @output-count-click="enterFolderView"
+            @toggle-group="toggleGroup"
           />
         </div>
       </div>
@@ -399,6 +403,22 @@ const displayAssets = computed(() => {
 })
 
 const { groupedAssets } = useMediaAssetGrouping(displayAssets, groupBy)
+
+const collapsedGroups = ref<Set<string>>(new Set())
+
+// Group keys come from the grouping mode (file types, or ISO days). Switching
+// modes produces a different key space, so stale keys would either collide or
+// silently disagree with the new buckets.
+watch(groupBy, () => {
+  collapsedGroups.value = new Set()
+})
+
+function toggleGroup(key: string) {
+  const next = new Set(collapsedGroups.value)
+  if (next.has(key)) next.delete(key)
+  else next.add(key)
+  collapsedGroups.value = next
+}
 
 const {
   assetItems: listViewAssetItems,

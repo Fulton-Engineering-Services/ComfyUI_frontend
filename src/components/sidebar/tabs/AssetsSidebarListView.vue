@@ -13,15 +13,27 @@
       :can-load-more
     >
       <template #item="{ item }">
-        <div
+        <button
           v-if="isHeader(item)"
-          class="flex h-12 items-center gap-2 px-3 text-xs font-medium text-muted-foreground"
+          type="button"
+          class="flex h-12 w-full items-center gap-2 px-3 text-xs font-medium text-muted-foreground hover:text-text-primary"
+          :aria-expanded="!(item as { collapsed: boolean }).collapsed"
+          @click.stop="emit('toggle-group', (item as { key: string }).key)"
         >
+          <i
+            :class="
+              cn(
+                'icon-[lucide--chevron-down] size-3.5 shrink-0 transition-transform',
+                (item as { collapsed: boolean }).collapsed && '-rotate-90'
+              )
+            "
+            aria-hidden="true"
+          />
           <span>{{ (item as { label: string }).label }}</span>
           <span class="text-muted-foreground/60">{{
             (item as { count: number }).count
           }}</span>
-        </div>
+        </button>
         <div v-else class="relative">
           <LoadingOverlay
             :loading="assetsStore.isAssetDeleting(item.asset.id)"
@@ -110,7 +122,8 @@ const {
   isSelected,
   isStackExpanded,
   toggleStack,
-  groupedAssets
+  groupedAssets,
+  collapsedGroups
 } = defineProps<{
   assetItems: OutputStackListItem[]
   selectableAssets: AssetItem[]
@@ -120,17 +133,32 @@ const {
   onLoadMore?: () => unknown
   canLoadMore?: boolean
   groupedAssets?: { key: string; items: AssetItem[] }[]
+  collapsedGroups?: Set<string>
 }>()
 
 type FlatItem =
-  | { type: 'header'; key: string; label: string; count: number }
+  | {
+      type: 'header'
+      key: string
+      label: string
+      count: number
+      collapsed: boolean
+    }
   | { type: 'asset'; key: string; asset: AssetItem }
 
 const flatItems = computed<FlatItem[]>(() => {
   if (!groupedAssets?.length) return []
   const out: FlatItem[] = []
   for (const { key, items } of groupedAssets) {
-    out.push({ type: 'header', key, label: key, count: items.length })
+    const collapsed = collapsedGroups?.has(key) ?? false
+    out.push({
+      type: 'header',
+      key,
+      label: key,
+      count: items.length,
+      collapsed
+    })
+    if (collapsed) continue
     for (const asset of items) out.push({ type: 'asset', key: asset.id, asset })
   }
   return out
@@ -145,6 +173,7 @@ const emit = defineEmits<{
   (e: 'select-asset', asset: AssetItem, assets?: AssetItem[]): void
   (e: 'preview-asset', asset: AssetItem): void
   (e: 'context-menu', event: MouseEvent, asset: AssetItem): void
+  (e: 'toggle-group', key: string): void
 }>()
 
 const { t } = useI18n()

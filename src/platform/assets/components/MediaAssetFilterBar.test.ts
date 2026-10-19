@@ -9,7 +9,12 @@ import MediaAssetFilterBar from '@/platform/assets/components/MediaAssetFilterBa
 import { MEDIA_ASSET_VIEW_MODE } from '@/platform/assets/components/mediaAssetViewOptions'
 import type { MediaAssetDateFilter } from '@/platform/assets/mediaAssetFilterOptions'
 
-vi.mock(import('@/platform/distribution/types'), () => ({ isCloud: true }))
+const distribution = vi.hoisted(() => ({ isCloud: true }))
+vi.mock(import('@/platform/distribution/types'), () => ({
+  get isCloud() {
+    return distribution.isCloud
+  }
+}))
 
 const i18n = createI18n({
   legacy: false,
@@ -132,5 +137,19 @@ describe('MediaAssetFilterBar', () => {
       screen.queryByRole('button', { name: 'Remove Video filter' })
     ).toBeNull()
     expect(screen.queryByRole('button', { name: 'Clear all' })).toBeNull()
+  })
+
+  it('shows created and name sort options outside cloud builds', async () => {
+    distribution.isCloud = false
+    try {
+      const { user } = renderFilterBar()
+      await user.click(screen.getByRole('button', { name: 'View settings' }))
+      expect(screen.getByRole('button', { name: 'Newest first' })).toBeVisible()
+      expect(screen.getByRole('button', { name: 'Oldest first' })).toBeVisible()
+      expect(screen.getByRole('button', { name: 'Name (A → Z)' })).toBeVisible()
+      expect(screen.getByRole('button', { name: 'Name (Z → A)' })).toBeVisible()
+    } finally {
+      distribution.isCloud = true
+    }
   })
 })

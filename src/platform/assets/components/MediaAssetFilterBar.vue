@@ -29,7 +29,7 @@
             <MediaAssetSettingsMenu
               v-model:view-mode="viewMode"
               v-model:sort-by="sortBy"
-              :show-sort-options="isCloud"
+              show-sort-options
               :show-generation-time-sort
             />
           </template>

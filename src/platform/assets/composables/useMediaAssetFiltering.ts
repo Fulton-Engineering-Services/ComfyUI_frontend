@@ -16,7 +16,7 @@ type SortOption = 'newest' | 'oldest' | 'az' | 'za' | 'longest' | 'fastest'
 /**
  * Get timestamp from asset (either create_time or created_at)
  */
-const getAssetTime = (asset: AssetItem): number => {
+export const getAssetTime = (asset: AssetItem): number => {
   const createTime = asset.user_metadata?.create_time
   return typeof createTime === 'number'
     ? createTime

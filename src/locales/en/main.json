@@ -978,6 +978,10 @@
       "removeFilter": "Remove {label} filter",
       "viewGridSmall": "Grid (small)",
       "viewGridLarge": "Grid (large)",
+      "groupNone": "None",
+      "groupByType": "By file type",
+      "groupByCreatedDate": "By created date",
+      "groupByUpdatedDate": "By updated date",
       "viewSettings": "View settings"
     },
     "backToAssets": "Back to all assets",

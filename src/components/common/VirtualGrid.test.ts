@@ -232,6 +232,109 @@ describe('VirtualGrid', () => {
       heightSpy.mockRestore()
     }
   })
+
+  describe('full-width (group header) rows', () => {
+    type Row = { key: string; name: string; header?: boolean }
+
+    // 2 columns, 100px cards, 30px headers. Sequence:
+    //   hdr, a, b | hdr, c, d, e | hdr, f
+    // Rows: 30, 100 (a,b), 30, 100 (c,d), 100 (e alone — flushed before h2),
+    // 30, 100 (f) = 490px total. Uniform math over 9 items / 2 cols would
+    // instead reserve ceil(9/2) * 100 = 500px.
+    const rows: Row[] = [
+      { key: 'h0', name: 'H', header: true },
+      { key: 'a', name: 'A' },
+      { key: 'b', name: 'B' },
+      { key: 'h1', name: 'H', header: true },
+      { key: 'c', name: 'C' },
+      { key: 'd', name: 'D' },
+      { key: 'e', name: 'E' },
+      { key: 'h2', name: 'H', header: true },
+      { key: 'f', name: 'F' }
+    ]
+    const isHeader = (item: Row) => item.header === true
+
+    const MIXED_TOTAL_PX = 490
+
+    function renderRows(
+      extra: Record<string, unknown> = {},
+      viewportHeight = 700
+    ) {
+      mockedWidth.value = 400
+      mockedHeight.value = viewportHeight
+      mockedScrollY.value = 0
+      return render(VirtualGrid, {
+        props: {
+          items: rows,
+          gridStyle: defaultGridStyle,
+          defaultItemHeight: 100,
+          defaultItemWidth: 100,
+          maxColumns: 2,
+          bufferRows: 0,
+          fullRowHeight: 30,
+          ...extra
+        },
+        slots: {
+          item: `<template #item="{ item }">
+            <div :data-row="item.name">{{ item.name }}</div>
+          </template>`
+        },
+        global: {
+          stubs: {
+            VirtualGrid: false
+          }
+        },
+        container: document.body.appendChild(document.createElement('div'))
+      })
+    }
+
+    function spacerHeights(containerEl: Element): [number, number] {
+      /* eslint-disable testing-library/no-node-access */
+      const grid = containerEl.querySelector('[style*="display: grid"]')!
+      const spacers = [...grid.parentElement!.children].filter(
+        (c) => c !== grid && !c.querySelector('[data-row]')
+      ) as HTMLElement[]
+      /* eslint-enable testing-library/no-node-access */
+      return [
+        parseFloat(spacers[0]?.style.height || '0'),
+        parseFloat(spacers[spacers.length - 1]?.style.height || '0')
+      ]
+    }
+
+    it('reserves one full-width row per header and flushes partial card rows', async () => {
+      const { container } = renderRows({ isFullWidthItem: isHeader })
+      await nextTick()
+
+      // Whole sequence fits the 700px window: no spacers above or below.
+      expect(spacerHeights(container)).toEqual([0, 0])
+      // Every row rendered when the window covers the list.
+      expect(screen.getAllByText(/^(H|[A-F])$/)).toHaveLength(rows.length)
+    })
+
+    it('sizes the bottom spacer from the full-width row model, not uniform rows', async () => {
+      // A short viewport plus the default buffer scrolls us part-way in.
+      const { container } = renderRows({ isFullWidthItem: isHeader }, 120)
+      await nextTick()
+
+      const [top, bottom] = spacerHeights(container)
+      // Total content must be the mixed 490px, which only holds if header rows
+      // are counted as 30px each rather than folded into 100px card rows.
+      expect(top + bottom).toBeLessThan(MIXED_TOTAL_PX)
+      expect(bottom).toBeGreaterThan(0)
+    })
+
+    it('leaves the uniform path in place when isFullWidthItem is absent', async () => {
+      // Same items, no isFullWidthItem: headers are ordinary cards now, so the
+      // uniform model applies and nobody is treated as full width.
+      const { container } = renderRows({ isFullWidthItem: undefined })
+      await nextTick()
+
+      const [top, bottom] = spacerHeights(container)
+      expect(top).toBe(0)
+      expect(bottom).toBe(0)
+      expect(screen.getAllByText(/^(H|[A-F])$/)).toHaveLength(rows.length)
+    })
+  })
 })
 
 const TILE_HEIGHT = 190
